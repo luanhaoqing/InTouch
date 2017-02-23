@@ -35,7 +35,7 @@ using UnityEngine.Networking;
 /// <summary>
 /// Configuration data for Oculus virtual reality.
 /// </summary>
-public class OVRManager : NetworkBehaviour
+public class OVRManager : MonoBehaviour
 {
 	public enum TrackingOrigin
 	{
@@ -623,10 +623,7 @@ public class OVRManager : NetworkBehaviour
 #if !UNITY_EDITOR
 		paused = !OVRPlugin.hasVrFocus;
 #endif
-        if(!isLocalPlayer)
-        {
-            return;
-        }
+       
 		if (OVRPlugin.shouldQuit)
 			Application.Quit();
 
@@ -848,19 +845,13 @@ public class OVRManager : NetworkBehaviour
 
 	private void LateUpdate()
 	{
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        
         OVRHaptics.Process();
 	}
 
 	private void FixedUpdate()
 	{
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        
         OVRInput.FixedUpdate();
 	}
 
