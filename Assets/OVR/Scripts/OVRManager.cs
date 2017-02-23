@@ -31,6 +31,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using VR = UnityEngine.VR;
 
+
 /// <summary>
 /// Configuration data for Oculus virtual reality.
 /// </summary>
@@ -456,8 +457,10 @@ public class OVRManager : MonoBehaviour
 
 			return OVRPlugin.powerSaving;
 		}
-	}
-
+	}
+
+
+
 	/// <summary>
 	/// Gets or sets the eye texture format.
 	/// This feature is only for UNITY_5_6_OR_NEWER
