@@ -9,6 +9,10 @@ public class SyncLocation : NetworkBehaviour {
     private Vector3 PositionDelta;
 	// Use this for initialization
 	void Start () {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         LeftHand = GameObject.FindGameObjectWithTag("LH");
         RightHand = GameObject.FindGameObjectWithTag("RH");
         Body = GameObject.FindGameObjectWithTag("BODY");
