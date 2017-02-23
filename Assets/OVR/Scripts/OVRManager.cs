@@ -30,12 +30,12 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using VR = UnityEngine.VR;
-
+using UnityEngine.Networking;
 
 /// <summary>
 /// Configuration data for Oculus virtual reality.
 /// </summary>
-public class OVRManager : MonoBehaviour
+public class OVRManager : NetworkBehaviour
 {
 	public enum TrackingOrigin
 	{
@@ -623,7 +623,10 @@ public class OVRManager : MonoBehaviour
 #if !UNITY_EDITOR
 		paused = !OVRPlugin.hasVrFocus;
 #endif
-
+        if(!isLocalPlayer)
+        {
+            return;
+        }
 		if (OVRPlugin.shouldQuit)
 			Application.Quit();
 
