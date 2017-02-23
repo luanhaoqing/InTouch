@@ -25,12 +25,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using VR = UnityEngine.VR;
-
+using UnityEngine.Networking;
 /// <summary>
 /// A head-tracked stereoscopic virtual reality camera rig.
 /// </summary>
 [ExecuteInEditMode]
-public class OVRCameraRig : MonoBehaviour
+public class OVRCameraRig : NetworkBehaviour
 {
 	/// <summary>
 	/// The left eye camera.
@@ -113,7 +113,11 @@ public class OVRCameraRig : MonoBehaviour
 
 	private void UpdateAnchors()
 	{
-		EnsureGameObjectIntegrity();
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        EnsureGameObjectIntegrity();
 
 		if (!Application.isPlaying)
 			return;

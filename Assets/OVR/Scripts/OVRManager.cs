@@ -848,12 +848,20 @@ public class OVRManager : NetworkBehaviour
 
 	private void LateUpdate()
 	{
-		OVRHaptics.Process();
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        OVRHaptics.Process();
 	}
 
 	private void FixedUpdate()
 	{
-		OVRInput.FixedUpdate();
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        OVRInput.FixedUpdate();
 	}
 
 	/// <summary>
