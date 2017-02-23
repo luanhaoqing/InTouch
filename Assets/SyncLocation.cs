@@ -8,7 +8,7 @@ public class SyncLocation : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        anchor = GameObject.Find("PlayerLeftHand");
 	}
 	
 	// Update is called once per frame
