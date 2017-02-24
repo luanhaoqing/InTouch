@@ -11,6 +11,10 @@ public class TurnCounter : NetworkBehaviour {
         {
             Debug.Log("00000000000");
         }
+        if(isClient)
+        {
+            Debug.Log("11111111111");
+        }
     }
 	
 	// Update is called once per frame
