@@ -38,7 +38,7 @@ public class CurrentPlayer : NetworkBehaviour {
                 }
             }
         }
-        if (isLocalPlayer)
+        if (isClient)
         {
            
             if(CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
