@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 public class TurnCounter : NetworkBehaviour {
     [SyncVar]
     public int count = 0;
-
+   
     public int OwnId;
 
 	// Use this for initialization
@@ -15,7 +15,7 @@ public class TurnCounter : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
+     
 	}
 
 
