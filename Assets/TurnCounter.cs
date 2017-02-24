@@ -4,15 +4,20 @@ using UnityEngine.Networking;
 public class TurnCounter : NetworkBehaviour {
 
     public int count = 0;
+    public int observers = 0;
 	// Use this for initialization
 	void Start () {
-      
-        count++;
+        if(isServer)
+        {
+            Debug.Log("00000000000");
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
+       
 	}
+
+
     
 }
