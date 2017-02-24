@@ -10,8 +10,7 @@ public class CurrentPlayer : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
         CurrentPlayerID = 1;
-        if (isLocalPlayer)
-            Debug.Log("111111111");
+     
 	}
 
     // Update is called once per frame
