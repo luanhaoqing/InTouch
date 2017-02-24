@@ -6,15 +6,11 @@ public class TurnCounter : NetworkBehaviour {
     public int count = 0;
 	// Use this for initialization
 	void Start () {
-       if(isClient)
+       if(!isLocalPlayer)
         {
-            Debug.Log("111111111111");
+            return;
         }
-       else if(isServer)
-        {
-            Debug.Log("000000000000");
-        }
-      //  OwnID = netId;
+        count++;
     }
 	
 	// Update is called once per frame
