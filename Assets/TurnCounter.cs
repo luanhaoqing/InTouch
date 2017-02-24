@@ -6,10 +6,7 @@ public class TurnCounter : NetworkBehaviour {
     public int count = 0;
 	// Use this for initialization
 	void Start () {
-       if(!isLocalPlayer)
-        {
-            return;
-        }
+      
         count++;
     }
 	
