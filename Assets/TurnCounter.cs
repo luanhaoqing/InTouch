@@ -12,7 +12,7 @@ public class TurnCounter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        count = Network.connections.Length;
 	}
     private void OnPlayerConnected(NetworkPlayer player)
     {
