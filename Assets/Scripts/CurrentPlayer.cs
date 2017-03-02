@@ -26,14 +26,14 @@ public class CurrentPlayer : NetworkBehaviour {
     {
         if (isServer)
         {
-            if (counter >= 10 || counter <= 0)
+/*     if (counter >= 10 || counter <= 0)
             {
                 int ran = Random.Range(0, 3);
                 trig = true;
             }
             else
                 trig = false;
-
+*/
                 if (!reverse)
             {
                 counter += Time.deltaTime;
@@ -59,12 +59,13 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isClient)
         {
+            /*
             if (trig)
             {
                 test = test + 200;
                 Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test, 0, 0), ran);
                
-            }
+            }*/
 
             if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
