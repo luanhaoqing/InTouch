@@ -16,6 +16,7 @@ public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     private int ran;
     public bool MyTurn = false;
+    public int RemainActionPoint = 3;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -38,23 +39,26 @@ public class CurrentPlayer : NetworkBehaviour {
                 if (!reverse)
             {
                 counter += Time.deltaTime;
-                if (counter >= 10f)
+                if (counter >= 30f|| RemainActionPoint==0)
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
-                   
-                   
+                    counter = 30f;
+                    RemainActionPoint = 3;
+
+
                 }
             }
             else
             {
                 counter -= Time.deltaTime;
-                if (counter <= 0f)
+                if (counter <= 0f||RemainActionPoint == 0)
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
-                   
-                   
+                    counter = 0;
+                    RemainActionPoint = 3;
+
                 }
             }
         }
@@ -72,7 +76,7 @@ public class CurrentPlayer : NetworkBehaviour {
             {
                 TEXT.SetActive(true);
                 MyTurn = true;
-
+             
 
             }
             else
