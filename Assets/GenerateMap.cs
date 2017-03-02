@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-public class GenerateMap : NetworkBehaviour {
+public class GenerateMap : MonoBehaviour {
     public GameObject[] tiles;
 	// Use this for initialization
 	void Start () {
@@ -13,11 +13,10 @@ public class GenerateMap : NetworkBehaviour {
        
 
 	}
-    public void GenerateTile(Vector3 position)
+    public void GenerateTile(Vector3 position,int ran)
     {
-        if (!isServer)
-            return;
-        int ran = Random.Range(0, tiles.Length);
+       
+       
         GameObject tmp = Instantiate(tiles[ran]);
         tmp.transform.position = position;
         tmp.transform.parent = this.transform;

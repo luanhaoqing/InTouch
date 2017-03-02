@@ -27,7 +27,8 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
-                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0));
+                    int ran = Random.Range(0, 3);
+                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
                 }
             }
             else
@@ -37,7 +38,8 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
-                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0));
+                    int ran = Random.Range(0, 3);
+                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
                 }
             }
         }
