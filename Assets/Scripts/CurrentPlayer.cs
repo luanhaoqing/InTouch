@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     public int CurrentPlayerID;
+    [SyncVar]
     public float counter = 0;
     private bool reverse;
     public GameObject TEXT;
@@ -45,7 +46,7 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isClient)
         {
-            if (counter%5==0)
+            if (counter>9||counter<1)
             {
                 int ran = Random.Range(0, 3);
                 Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
