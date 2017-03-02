@@ -15,6 +15,7 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool trig;
     [SyncVar]
     private int ran;
+    public bool MyTurn = false;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -70,11 +71,14 @@ public class CurrentPlayer : NetworkBehaviour {
             if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
-                
+                MyTurn = true;
+
+
             }
             else
             {
                 TEXT.SetActive(false);
+                MyTurn = false;
             }
         }
 

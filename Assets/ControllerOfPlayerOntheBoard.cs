@@ -13,12 +13,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 	void Update () {
         if (!isLocalPlayer)
             return;
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-       // Debug.Log("TEST");
-        PlayerOnBoard.transform.Rotate(0, x, 0);
-        PlayerOnBoard.transform.Translate(0, 0, z);
-
+        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
+        {
+            var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+            var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+            // Debug.Log("TEST");
+            PlayerOnBoard.transform.Rotate(0, x, 0);
+            PlayerOnBoard.transform.Translate(0, 0, z);
+        }
 
 
     }
