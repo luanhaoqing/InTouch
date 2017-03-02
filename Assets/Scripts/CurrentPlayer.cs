@@ -46,7 +46,7 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isClient)
         {
-            if (counter>9||counter<1)
+            if (counter>=10||counter<=0)
             {
                 int ran = Random.Range(0, 3);
                 Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
