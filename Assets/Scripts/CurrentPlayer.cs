@@ -7,6 +7,8 @@ public class CurrentPlayer : NetworkBehaviour {
     public float counter = 0;
     private bool reverse;
     public GameObject TEXT;
+    public GameObject Table;
+    private int test=0;
 	// Use this for initialization
 	void Start () {
         CurrentPlayerID = 1;
@@ -25,7 +27,7 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
-
+                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0));
                 }
             }
             else
@@ -35,6 +37,7 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
+                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0));
                 }
             }
         }
@@ -44,6 +47,8 @@ public class CurrentPlayer : NetworkBehaviour {
             if(CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
+
+                
             }
             else
             {
