@@ -9,9 +9,14 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool reverse;
     public GameObject TEXT;
     public GameObject Table;
-    private int test=0;
-	// Use this for initialization
-	void Start () {
+    [SyncVar]
+    private int test;
+    [SyncVar]
+    private bool trig;
+    [SyncVar]
+    private int ran;
+    // Use this for initialization
+    void Start () {
         CurrentPlayerID = 1;
      
 	}
@@ -21,7 +26,15 @@ public class CurrentPlayer : NetworkBehaviour {
     {
         if (isServer)
         {
-            if (!reverse)
+            if (counter >= 10 || counter <= 0)
+            {
+                int ran = Random.Range(0, 3);
+                trig = true;
+            }
+            else
+                trig = false;
+
+                if (!reverse)
             {
                 counter += Time.deltaTime;
                 if (counter >= 10f)
@@ -46,10 +59,10 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isClient)
         {
-            if (counter>=10||counter<=0)
+            if (trig)
             {
-                int ran = Random.Range(0, 3);
-                Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
+                test = test + 200;
+                Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test, 0, 0), ran);
                
             }
 
