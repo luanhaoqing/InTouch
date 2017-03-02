@@ -9,7 +9,6 @@ public class CurrentPlayer : NetworkBehaviour {
     public GameObject TEXT;
     public GameObject Table;
     private int test=0;
-    private bool isCreate;
 	// Use this for initialization
 	void Start () {
         CurrentPlayerID = 1;
@@ -46,20 +45,20 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isClient)
         {
-           
-            if(CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
+            if (counter%5==0)
+            {
+                int ran = Random.Range(0, 3);
+                Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
+               
+            }
+
+            if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
-                if (!isCreate)
-                {
-                    int ran = Random.Range(0, 3);
-                    Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test++, 0, 0), ran);
-                    isCreate = true;
-                }
+                
             }
             else
             {
-                isCreate = false;
                 TEXT.SetActive(false);
             }
         }
