@@ -8,7 +8,6 @@ public class CurrentPlayer : NetworkBehaviour {
     public float counter = 0;
     private bool reverse;
     public GameObject TEXT;
-    public GameObject Table;
     [SyncVar]
     private int test;
     [SyncVar]
@@ -17,6 +16,9 @@ public class CurrentPlayer : NetworkBehaviour {
     private int ran;
     public bool MyTurn = false;
     public int RemainActionPoint = 3;
+    [SyncVar]
+    public int turnCount=0;
+    public GameObject TileManager;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -45,7 +47,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     reverse = true;
                     counter = 30f;
                     RemainActionPoint = 3;
-
+                    turnCount++;
 
                 }
             }
@@ -58,19 +60,13 @@ public class CurrentPlayer : NetworkBehaviour {
                     reverse = false;
                     counter = 0;
                     RemainActionPoint = 3;
-
+                    turnCount++;
                 }
             }
         }
         if (isClient)
         {
-            /*
-            if (trig)
-            {
-                test = test + 200;
-                Table.GetComponent<GenerateMap>().GenerateTile(new Vector3(test, 0, 0), ran);
-               
-            }*/
+          
 
             if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
@@ -84,6 +80,23 @@ public class CurrentPlayer : NetworkBehaviour {
                 TEXT.SetActive(false);
                 MyTurn = false;
             }
+
+
+            if(turnCount!=0&& turnCount==2)
+            {
+
+                GameObject[] tmp = TileManager.GetComponent<TileManager>().tiles;
+                for(int i=0;i<tmp.Length;i++)
+                {
+                    if(tmp[i].GetComponent<TileHealthyManager>().HasExploded)
+                    {
+                        tmp[i].GetComponent<TileHealthyManager>().health--;
+                    
+                    }
+                }
+                turnCount = 0;
+            }
+
         }
 
     }
