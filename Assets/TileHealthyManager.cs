@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 public class TileHealthyManager : MonoBehaviour {
 
     public int[] Iden;
     public int health;
+    public GameObject _text;
 	// Use this for initialization
 	void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
@@ -22,6 +24,8 @@ public class TileHealthyManager : MonoBehaviour {
     {
         if(other.CompareTag("PlayerOnBoard"))
         {
+            health -= 1;
+            this.GetComponentInChildren<Text>().text = health.ToString();
             this.GetComponent<MeshRenderer>().enabled = true;
         }
     }

@@ -21,4 +21,9 @@ public class GenerateMap : MonoBehaviour {
         tmp.transform.position = position;
         tmp.transform.parent = this.transform;
     }
+    public int getRandomTile()
+    {
+        int ran = Random.Range(0, 4);
+        return ran;
+    }
 }
