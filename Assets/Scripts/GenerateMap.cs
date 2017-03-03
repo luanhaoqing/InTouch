@@ -32,7 +32,7 @@ public class GenerateMap : NetworkBehaviour {
         if (!isServer)
             return;
         {
-            Debug.Log("generateRandom");
+        //    Debug.Log("generateRandom");
             int ran = Random.Range(0, 4);
             RanTileNum = ran;
         }
