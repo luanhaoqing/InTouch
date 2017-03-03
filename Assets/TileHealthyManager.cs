@@ -7,6 +7,7 @@ public class TileHealthyManager : MonoBehaviour {
     public int health;
 	// Use this for initialization
 	void Start () {
+        this.GetComponent<MeshRenderer>().enabled = false;
         health = 5;
     }
 	
@@ -17,4 +18,11 @@ public class TileHealthyManager : MonoBehaviour {
             this.gameObject.SetActive(false);
         }
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("PlayerOnBoard"))
+        {
+            this.GetComponent<MeshRenderer>().enabled = true;
+        }
+    }
 }

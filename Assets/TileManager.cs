@@ -5,55 +5,45 @@ using UnityEngine.Networking;
 public class TileManager : NetworkBehaviour {
     public GameObject tile;
     public  GameObject[] tiles;
-	// Use this for initialization
-	void Start () {
-       if (isServer)
+    // Use this for initialization
+    void Start()
+    {
+        if (isServer)
         {
-            int k = 1;
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (i == 0 && j == 0)
-                        continue;
-                    // GameObject tmp = Instantiate(tile);
-                   // this.GetComponent<GenerateMap>().GenerateTile(new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f), 0);
-                    GameObject tmp = Instantiate(tile);
-                    tmp.transform.position = new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f);
-                    tmp.transform.parent = this.transform;
-                    tmp.GetComponent<TileHealthyManager>().Iden[0] = i;
-                    tmp.GetComponent<TileHealthyManager>().Iden[1] = j;
-                    tiles[k] = tmp;
-                    k++;
+                    int ran = Random.Range(0, 5);
+
                 }
             }
-        }
-       else
-        {
-            int k = 1;
-            for (int i = 0; i < 6; i++)
+            if (isClient)
             {
-                for (int j = 0; j < 8; j++)
+                int k = 1;
+                for (int i = 0; i < 6; i++)
                 {
-                    if (i == 0 && j == 0)
-                        continue;
-                    // GameObject tmp = Instantiate(tile);
-                    // this.GetComponent<GenerateMap>().GenerateTile(new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f), 0);
-                    GameObject tmp = Instantiate(tile);
-                    tmp.transform.position = new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f);
-                    tmp.transform.parent = this.transform;
-                    tmp.GetComponent<TileHealthyManager>().Iden[0] = i;
-                    tmp.GetComponent<TileHealthyManager>().Iden[1] = j;
-                    tiles[k] = tmp;
-                    k++;
-                    
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (i == 0 && j == 0)
+                            continue;
+                        // GameObject tmp = Instantiate(tile);
+                        // this.GetComponent<GenerateMap>().GenerateTile(new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f), 0);
+                        GameObject tmp = Instantiate(tile);
+                        tmp.transform.position = new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f);
+                        tmp.transform.parent = this.transform;
+                        tmp.GetComponent<TileHealthyManager>().Iden[0] = i;
+                        tmp.GetComponent<TileHealthyManager>().Iden[1] = j;
+                        tiles[k] = tmp;
+                        k++;
+
+                    }
                 }
             }
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }
