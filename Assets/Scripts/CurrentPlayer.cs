@@ -61,7 +61,7 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-          
+            Debug.Log("Client Running");
 
             if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
             {
