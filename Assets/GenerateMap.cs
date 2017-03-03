@@ -25,6 +25,8 @@ public class GenerateMap : NetworkBehaviour {
     }
     public void getRandomTile()
     {
+        if (!isServer)
+            return;
         int ran = Random.Range(0, 4);
         RanTileNum = ran;
     }
