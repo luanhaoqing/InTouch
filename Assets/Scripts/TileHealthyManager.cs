@@ -10,6 +10,7 @@ public class TileHealthyManager : MonoBehaviour {
     public GameObject[] tiles;
     public bool HasExploded;
     private GameObject player;
+    private GameObject tmp;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
@@ -21,7 +22,10 @@ public class TileHealthyManager : MonoBehaviour {
 	void Update () {
 	if(health==0)
         {
-            this.gameObject.SetActive(false);
+            // this.gameObject.SetActive(false);
+            Destroy(tmp);
+            tmp = null;
+            HasExploded = false;
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -34,7 +38,7 @@ public class TileHealthyManager : MonoBehaviour {
   
             if (!HasExploded)
             {
-                GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
+                tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
         
                 tmp.transform.position = this.transform.position;
                 tmp.transform.parent = this.transform;
