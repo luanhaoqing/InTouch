@@ -33,10 +33,10 @@ public class TileHealthyManager : MonoBehaviour {
             if (!HasExploded)
             {
                 GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
-                this.GetComponentInParent<GenerateMap>().getRandomTile(other.gameObject);
                 tmp.transform.position = this.transform.position;
                 tmp.transform.parent = this.transform;
                 HasExploded = true;
+                this.GetComponentInParent<GenerateMap>().getRandomTile(other.gameObject);
             }
         }
     }
