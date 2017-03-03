@@ -18,6 +18,7 @@ public class TileManager : NetworkBehaviour {
 
                 }
             }
+        }
             if (isClient)
             {
                 int k = 1;
@@ -40,7 +41,7 @@ public class TileManager : NetworkBehaviour {
                     }
                 }
             }
-        }
+        
     }
     // Update is called once per frame
     void Update () {
