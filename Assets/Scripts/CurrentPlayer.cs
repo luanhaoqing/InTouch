@@ -19,6 +19,7 @@ public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     public int turnCount=0;
     public GameObject TileManager;
+    private bool HealthDown;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -30,10 +31,10 @@ public class CurrentPlayer : NetworkBehaviour {
     {
         if (isServer)
         {
-                if (!reverse)
+            if (!reverse)
             {
                 counter += Time.deltaTime;
-                if (counter >= 30f|| RemainActionPoint==0)
+                if (counter >= 30f || RemainActionPoint == 0)
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
@@ -46,7 +47,7 @@ public class CurrentPlayer : NetworkBehaviour {
             else
             {
                 counter -= Time.deltaTime;
-                if (counter <= 0f||RemainActionPoint == 0)
+                if (counter <= 0f || RemainActionPoint == 0)
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
@@ -61,13 +62,12 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-            Debug.Log(turnCount);
-
-            if (CurrentPlayerID==this.GetComponent<TurnCounter>().OwnId)
+            //    Debug.Log(turnCount);
+            if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
                 MyTurn = true;
-             
+
 
             }
             else
@@ -77,24 +77,31 @@ public class CurrentPlayer : NetworkBehaviour {
             }
 
 
-            if(turnCount!=0&& turnCount==2)
+            if (turnCount != 0 && turnCount == 2)
             {
-                Debug.Log("1 TURN OVER");
-
-                GameObject[] tmp = TileManager.GetComponent<TileManager>().tiles;
-                for(int i=1;i<48;i++)
+                //  Debug.Log("1 TURN OVER");
+                if (!HealthDown)
                 {
-                    if(tmp[i].GetComponent<TileHealthyManager>().HasExploded)
-                    {
-                        tmp[i].GetComponent<TileHealthyManager>().health--;
-                    
-                    }
+                    Invoke("TurnOverHealthDown", 0.5f);
+                    HealthDown = true;
                 }
-                turnCount = 0;
+
             }
 
         }
+    }
+    private void TurnOverHealthDown()
+    {
+        GameObject[] tmp = TileManager.GetComponent<TileManager>().tiles;
+        for (int i = 1; i < 48; i++)
+        {
+            if (tmp[i].GetComponent<TileHealthyManager>().HasExploded)
+            {
+                tmp[i].GetComponent<TileHealthyManager>().health--;
 
+            }
+        }
+        turnCount = 0;
     }
 
 
