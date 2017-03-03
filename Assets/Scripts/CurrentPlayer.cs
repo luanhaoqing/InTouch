@@ -30,14 +30,6 @@ public class CurrentPlayer : NetworkBehaviour {
     {
         if (isServer)
         {
-/*     if (counter >= 10 || counter <= 0)
-            {
-                int ran = Random.Range(0, 3);
-                trig = true;
-            }
-            else
-                trig = false;
-*/
                 if (!reverse)
             {
                 counter += Time.deltaTime;
@@ -64,6 +56,9 @@ public class CurrentPlayer : NetworkBehaviour {
                 }
             }
         }
+
+
+
         if (isClient)
         {
           
@@ -84,6 +79,7 @@ public class CurrentPlayer : NetworkBehaviour {
 
             if(turnCount!=0&& turnCount==2)
             {
+                Debug.Log("1 TURN OVER");
 
                 GameObject[] tmp = TileManager.GetComponent<TileManager>().tiles;
                 for(int i=1;i<48;i++)
