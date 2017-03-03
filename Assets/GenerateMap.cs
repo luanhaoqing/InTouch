@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-public class GenerateMap : MonoBehaviour {
+public class GenerateMap : NetworkBehaviour {
+    [SyncVar]
+    public int RanTileNum;
     public GameObject[] tiles;
 	// Use this for initialization
 	void Start () {
@@ -21,9 +23,9 @@ public class GenerateMap : MonoBehaviour {
         tmp.transform.position = position;
         tmp.transform.parent = this.transform;
     }
-    public int getRandomTile()
+    public void getRandomTile()
     {
         int ran = Random.Range(0, 4);
-        return ran;
+        RanTileNum = ran;
     }
 }

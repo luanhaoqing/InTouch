@@ -7,6 +7,7 @@ public class TileHealthyManager : MonoBehaviour {
     public int[] Iden;
     public int health;
     public GameObject _text;
+    public GameObject[] tiles;
 	// Use this for initialization
 	void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
@@ -26,7 +27,16 @@ public class TileHealthyManager : MonoBehaviour {
         {
             health -= 1;
             this.GetComponentInChildren<Text>().text = health.ToString();
-            this.GetComponent<MeshRenderer>().enabled = true;
+            //    this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponentInParent<GenerateMap>().getRandomTile();
+            GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
+            tmp.transform.position = this.transform.position;
+            tmp.transform.parent = this.transform;
+            
         }
+    }
+    private void CheckHeath()
+    {
+
     }
 }
