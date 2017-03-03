@@ -7,8 +7,9 @@ public class TileManager : NetworkBehaviour {
     public  GameObject[] tiles;
 	// Use this for initialization
 	void Start () {
-     /*   if (isServer)
+       if (isServer)
         {
+            int k = 1;
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 8; j++)
@@ -20,11 +21,35 @@ public class TileManager : NetworkBehaviour {
                     GameObject tmp = Instantiate(tile);
                     tmp.transform.position = new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f);
                     tmp.transform.parent = this.transform;
-                    tmp.transform.parent = this.transform;
-                    tiles[6 * i + j] = tmp;
+                    tmp.GetComponent<TileHealthyManager>().Iden[0] = i;
+                    tmp.GetComponent<TileHealthyManager>().Iden[1] = j;
+                    tiles[k] = tmp;
+                    k++;
                 }
             }
-        }*/
+        }
+       else
+        {
+            int k = 1;
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (i == 0 && j == 0)
+                        continue;
+                    // GameObject tmp = Instantiate(tile);
+                    // this.GetComponent<GenerateMap>().GenerateTile(new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f), 0);
+                    GameObject tmp = Instantiate(tile);
+                    tmp.transform.position = new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f);
+                    tmp.transform.parent = this.transform;
+                    tmp.GetComponent<TileHealthyManager>().Iden[0] = i;
+                    tmp.GetComponent<TileHealthyManager>().Iden[1] = j;
+                    tiles[k] = tmp;
+                    k++;
+                    
+                }
+            }
+        }
 	}
 	
 	// Update is called once per frame

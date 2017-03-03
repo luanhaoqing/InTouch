@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-public class TileHealthyManager : NetworkBehaviour {
-    [SyncVar]
+public class TileHealthyManager : MonoBehaviour {
+
+    public int[] Iden;
     public int health;
 	// Use this for initialization
 	void Start () {
         health = 5;
-
     }
 	
 	// Update is called once per frame
