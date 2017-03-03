@@ -26,9 +26,11 @@ public class GenerateMap : NetworkBehaviour {
     }
     public void getRandomTile(GameObject player)
     {
-        Debug.Log(GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId);
-        Debug.Log(player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB);
-        if (GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId == player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB)
+        //   Debug.Log(GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId);
+        //    Debug.Log(player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB);
+        //    if (GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId == player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB)
+        if (!isServer)
+            return;
         {
             Debug.Log("generateRandom");
             int ran = Random.Range(0, 4);
