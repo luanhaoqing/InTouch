@@ -5,6 +5,7 @@ public class GenerateMap : NetworkBehaviour {
     [SyncVar]
     public int RanTileNum;
     public GameObject[] tiles;
+    
 	// Use this for initialization
 	void Start () {
 	
@@ -27,6 +28,7 @@ public class GenerateMap : NetworkBehaviour {
     {
         if (!isServer)
             return;
+    
         int ran = Random.Range(0, 4);
         RanTileNum = ran;
     }

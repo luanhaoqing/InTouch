@@ -8,8 +8,9 @@ public class TileHealthyManager : MonoBehaviour {
     public int health;
     public GameObject _text;
     public GameObject[] tiles;
-	// Use this for initialization
-	void Start () {
+    private bool HasExploded;
+    // Use this for initialization
+    void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
         health = 5;
     }
@@ -25,14 +26,18 @@ public class TileHealthyManager : MonoBehaviour {
     {
         if(other.CompareTag("PlayerOnBoard"))
         {
+            
             health -= 1;
             this.GetComponentInChildren<Text>().text = health.ToString();
             //    this.GetComponent<MeshRenderer>().enabled = true;
-            this.GetComponentInParent<GenerateMap>().getRandomTile();
-            GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
-            tmp.transform.position = this.transform.position;
-            tmp.transform.parent = this.transform;
-            
+            if (!HasExploded)
+            {
+                this.GetComponentInParent<GenerateMap>().getRandomTile();
+                GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
+                tmp.transform.position = this.transform.position;
+                tmp.transform.parent = this.transform;
+                HasExploded = true;
+            }
         }
     }
     private void CheckHeath()
