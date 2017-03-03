@@ -32,7 +32,8 @@ public class TileHealthyManager : MonoBehaviour {
             //    this.GetComponent<MeshRenderer>().enabled = true;
             if (!HasExploded)
             {
-                this.GetComponentInParent<GenerateMap>().getRandomTile();
+
+                this.GetComponentInParent<GenerateMap>().getRandomTile(other.gameObject);
                 GameObject tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
                 tmp.transform.position = this.transform.position;
                 tmp.transform.parent = this.transform;

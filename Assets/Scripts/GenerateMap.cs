@@ -24,12 +24,12 @@ public class GenerateMap : NetworkBehaviour {
         tmp.transform.position = position;
         tmp.transform.parent = this.transform;
     }
-    public void getRandomTile()
+    public void getRandomTile(GameObject player)
     {
-        if (!isServer)
-            return;
-    
-        int ran = Random.Range(0, 4);
-        RanTileNum = ran;
+        if (GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId == player.GetComponent<PlayerIDOnBoard>().PlayerIDOB)
+        {
+            int ran = Random.Range(0, 4);
+            RanTileNum = ran;
+        }
     }
 }
