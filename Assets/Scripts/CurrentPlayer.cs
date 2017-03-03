@@ -86,7 +86,7 @@ public class CurrentPlayer : NetworkBehaviour {
             {
 
                 GameObject[] tmp = TileManager.GetComponent<TileManager>().tiles;
-                for(int i=0;i<tmp.Length;i++)
+                for(int i=1;i<48;i++)
                 {
                     if(tmp[i].GetComponent<TileHealthyManager>().HasExploded)
                     {
