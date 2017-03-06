@@ -40,7 +40,7 @@ public class TileHealthyManager : MonoBehaviour {
             {
                 tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
         
-                tmp.transform.position = this.transform.position;
+                tmp.transform.position = this.transform.position+new Vector3(0,0.002f,0);
                 tmp.transform.parent = this.transform;
                 HasExploded = true;
                 _text.SetActive(true);
