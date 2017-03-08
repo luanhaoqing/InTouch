@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 public class PlayerIDOnBoard : NetworkBehaviour {
+    [SyncVar]
     public int PlayerIDOB;
 	// Use this for initialization
 	void Start () {
