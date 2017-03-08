@@ -611,8 +611,8 @@ GameObject:
   - 114: {fileID: 114000010862172514}
   - 114: {fileID: 114000011049440612}
   - 114: {fileID: 114000011095726876}
-  - 114: {fileID: 114000010894576786}
   - 114: {fileID: 114000010578552004}
+  - 114: {fileID: 114000013190912030}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -964,9 +964,9 @@ GameObject:
   - 135: {fileID: 135000011780727282}
   - 23: {fileID: 23000012878581852}
   - 54: {fileID: 54000011241501956}
-  - 114: {fileID: 114000011118052030}
   - 114: {fileID: 114000013834225778}
   - 114: {fileID: 114000012726419240}
+  - 114: {fileID: 114000010359912852}
   m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
@@ -2480,6 +2480,17 @@ MonoBehaviour:
   _LeftHand: {fileID: 1000014126976122}
   _RightHand: {fileID: 1000011127075696}
   _Body: {fileID: 1000012099814650}
+--- !u!114 &114000010359912852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014237513524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fd162be6911e243af6a44169b1b231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010422815480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2551,21 +2562,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114000010894576786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012655082612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf54a6b10500044c93e4ed3261cd3d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LastSendTime: 0
-  m_SyncVarGuard: 0
-  m_MyView: {fileID: 0}
-  PlayerIDOB: 0
 --- !u!114 &114000011049440612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2598,17 +2594,6 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
---- !u!114 &114000011118052030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014237513524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8cc145e97e3be24a9d22ed7191ef6e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000011267960510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2834,6 +2819,18 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114000013190912030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012655082612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf54a6b10500044c93e4ed3261cd3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIDOB: 0
 --- !u!114 &114000013834225778
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,6 +13,7 @@ TagManager:
   - PlayerOnBoard
   - Tiles
   - Tile
+  - ITEM
   layers:
   - Default
   - TransparentFX
