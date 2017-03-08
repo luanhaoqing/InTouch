@@ -20,4 +20,9 @@ public class ItemsProperty : MonoBehaviour {
             this.transform.position = other.transform.parent.transform.position;
         }
     }
+    public void TradeItem()
+    {
+
+    }
+
 }
