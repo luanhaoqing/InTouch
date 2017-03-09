@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class ItemsProperty : MonoBehaviour {
+using UnityEngine.Networking;
+public class ItemsProperty : NetworkBehaviour {
     public int Player_ID;
     public bool trade;
 	// Use this for initialization
@@ -11,6 +11,7 @@ public class ItemsProperty : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 	if(trade)
         {
             TradeItem();
