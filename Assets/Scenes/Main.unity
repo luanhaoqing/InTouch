@@ -742,7 +742,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546915958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.473, y: 0, z: 0.022}
   m_LocalScale: {x: 0.09327173, y: 0.093271725, z: 0.093271725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player_ID: 0
+  trade: 0
 --- !u!54 &546915961
 Rigidbody:
   m_ObjectHideFlags: 0
