@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-public class ItemsProperty : MonoBehaviour {
+public class ItemsProperty : NetworkBehaviour {
     public int Player_ID;
+    [SyncVar]
     public bool trade;
 	// Use this for initialization
 	void Start () {
@@ -11,9 +12,10 @@ public class ItemsProperty : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-    if(Input.GetKeyDown(KeyCode.T))
+    if(trade)
         {
             TradeItem();
+            trade = false;
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -21,8 +23,8 @@ public class ItemsProperty : MonoBehaviour {
         if(other.CompareTag("PlayerOnBoard"))
         {
          //   Player_ID = other.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB;
-            this.transform.position = other.transform.parent.transform.position;
-            this.transform.parent = other.transform;
+            this.transform.parent.transform.position = other.transform.parent.transform.position;
+            this.transform.parent.transform.parent = other.transform;
         }
     }
     public void TradeItem()
@@ -33,11 +35,11 @@ public class ItemsProperty : MonoBehaviour {
         
         for(int i=0;i<2;i++)
         {
-            if(this.transform.parent!=Players[i])
+            if(this.transform.parent.transform.parent!=Players[i])
             {
                 
-                this.gameObject.transform.position = Players[i].transform.position;
-                this.transform.parent = Players[i].transform;
+                this.transform.parent.gameObject.transform.position = Players[i].transform.position;
+                this.transform.parent.transform.parent = Players[i].transform;
             }
         }
     }
