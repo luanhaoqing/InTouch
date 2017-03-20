@@ -30,8 +30,8 @@ public class HandControl : MonoBehaviour
                     {
 
                         players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber] = this.GetComponentInParent<PlayerIDOnBoard>().Items[this.GetComponentInParent<PlayerIDOnBoard>().ItemNumber - 1];
-                        players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber].transform.position = this.transform.parent.transform.position;
-                        players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber].transform.parent = this.transform.parent;
+                        players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber].transform.position = players[i].transform.position;
+                        players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber].transform.parent = players[i].transform;
                         players[i].GetComponent<PlayerIDOnBoard>().ItemNumber++;
 
                         this.GetComponentInParent<PlayerIDOnBoard>().ItemNumber--;
