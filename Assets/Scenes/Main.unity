@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 93711188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4806}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -742,7 +742,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546915958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.473, y: 0, z: 0.022}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.09327173, y: 0.093271725, z: 0.093271725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1290,10 +1290,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012655082612, guid: bad93bd15b47df74ab76c2e6cd3a724d, type: 2}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 114000010343492556, guid: bad93bd15b47df74ab76c2e6cd3a724d,
         type: 2}
       propertyPath: LeftHand
@@ -1309,6 +1305,10 @@ Prefab:
       propertyPath: Body
       value: 
       objectReference: {fileID: 1225543942}
+    - target: {fileID: 1000012655082612, guid: bad93bd15b47df74ab76c2e6cd3a724d, type: 2}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1000012655082612, guid: bad93bd15b47df74ab76c2e6cd3a724d, type: 2}
       propertyPath: m_IsActive
       value: 0

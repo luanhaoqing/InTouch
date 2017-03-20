@@ -2831,6 +2831,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIDOB: 0
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114000013834225778
 MonoBehaviour:
   m_ObjectHideFlags: 1

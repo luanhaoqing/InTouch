@@ -25,6 +25,9 @@ public class ItemsProperty : NetworkBehaviour {
          //   Player_ID = other.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB;
             this.transform.parent.transform.position = other.transform.parent.transform.position;
             this.transform.parent.transform.parent = other.transform;
+            int size = other.gameObject.GetComponentInParent<PlayerIDOnBoard>().ItemNumber;
+            other.gameObject.GetComponentInParent<PlayerIDOnBoard>().Items[size] = this.transform.parent.gameObject;
+            other.gameObject.GetComponentInParent<PlayerIDOnBoard>().ItemNumber++;
         }
     }
     public void TradeItem()
