@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-public class ItemsProperty : NetworkBehaviour {
+public class ItemsProperty : MonoBehaviour {
     public int Player_ID;
-    [SyncVar]
+   
     public bool trade;
 	// Use this for initialization
 	void Start () {
