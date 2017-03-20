@@ -50,6 +50,24 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 target = detectBall.transform.position;
                 detectBall.transform.position = PlayerOnBoard.transform.position;
             }
+            if(Input.GetKeyDown(KeyCode.T))
+            {
+                if(this.GetComponent<PlayerIDOnBoard>().ItemNumber!=0)
+                {
+                   
+                    GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                    for(int i=0;i<2;i++)
+                    {
+                        if(players[i]!=this.gameObject)
+                        {
+                            players[i].GetComponent<PlayerIDOnBoard>().Items[players[i].GetComponent<PlayerIDOnBoard>().ItemNumber] = this.GetComponent<PlayerIDOnBoard>().Items[this.GetComponent<PlayerIDOnBoard>().ItemNumber-1];
+                            players[i].GetComponent<PlayerIDOnBoard>().ItemNumber++;
+                            this.GetComponent<PlayerIDOnBoard>().ItemNumber--;
+                            this.GetComponent<PlayerIDOnBoard>().Items[this.GetComponent<PlayerIDOnBoard>().ItemNumber] = null;
+                        }
+                    }
+                }
+            }
         }
         if(BeginMove)
         {
