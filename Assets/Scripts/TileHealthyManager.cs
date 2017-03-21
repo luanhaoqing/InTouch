@@ -42,8 +42,14 @@ public class TileHealthyManager : MonoBehaviour {
         
                 tmp.transform.position = this.transform.position+new Vector3(0,0.002f,0);
                 tmp.transform.parent = this.transform;
+                tmp.transform.localScale = new Vector3(5, 8, 5);
                 HasExploded = true;
-                _text.SetActive(true);
+                GameObject[] flames = this.GetComponent<UpdateHP>().flame;
+                for(int i=0;i<4;i++)
+                {
+                    flames[i].SetActive(true);
+                }
+           //     _text.SetActive(true);
                 Invoke("getRanTile",1.0f);
                
             }
