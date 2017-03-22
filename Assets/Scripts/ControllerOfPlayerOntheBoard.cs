@@ -7,6 +7,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject detectBall;
     private Vector3 target;
     private bool BeginMove;
+
+
+
 	// Use this for initialization
 	void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.2606f,0.02f,-0.5f);
@@ -23,22 +26,22 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Debug.Log("TEST");
           //  PlayerOnBoard.transform.Rotate(0, x, 0);
           //  PlayerOnBoard.transform.Translate(0, 0, z);
-          if(Input.GetKeyDown(KeyCode.W))
+          if(Input.GetKeyDown(KeyCode.W) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp)) 
             {
-            //    Debug.Log("w");
+                  Debug.Log("Thumbstick: " + OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp));
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f,0,0);
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown))
             {
            //     Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft))
             {
              //   Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight))
             {
              //   Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
