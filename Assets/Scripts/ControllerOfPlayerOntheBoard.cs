@@ -26,27 +26,27 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Debug.Log("TEST");
           //  PlayerOnBoard.transform.Rotate(0, x, 0);
           //  PlayerOnBoard.transform.Translate(0, 0, z);
-          if(Input.GetKeyDown(KeyCode.W) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp)) 
+          if(Input.GetKeyDown(KeyCode.W) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp)) 
             {
-                  Debug.Log("Thumbstick: " + OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp));
+            //    Debug.Log("Thumbstick: " + OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp));
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f,0,0);
             }
-            if (Input.GetKeyDown(KeyCode.S) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown))
+            if (Input.GetKeyDown(KeyCode.S) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown))
             {
-           //     Debug.Log("w");
+            //    Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
             }
-            if (Input.GetKeyDown(KeyCode.A) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft))
+            if (Input.GetKeyDown(KeyCode.A) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
             {
              //   Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
             }
-            if (Input.GetKeyDown(KeyCode.D) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight))
+            if (Input.GetKeyDown(KeyCode.D) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
             {
              //   Debug.Log("w");
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Three))
             {
                 //  Debug.Log("w");
                 BeginMove = true;
