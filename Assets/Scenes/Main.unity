@@ -90,39 +90,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &93711188 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011938974262, guid: cc14f0d4f84b323488182708103d2362,
-    type: 2}
-  m_PrefabInternal: {fileID: 791182864}
---- !u!54 &93711189
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93711188}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &93711190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93711188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3cf6a33076073a47820b6f724bc60c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player_ID: 0
-  trade: 0
 --- !u!1 &139250894
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,17 +949,8 @@ Prefab:
       propertyPath: m_Name
       value: Tile (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011938974262, guid: cc14f0d4f84b323488182708103d2362, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1000010779827398, guid: cc14f0d4f84b323488182708103d2362, type: 2}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013328958336, guid: cc14f0d4f84b323488182708103d2362,
-        type: 2}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
