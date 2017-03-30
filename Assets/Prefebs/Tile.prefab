@@ -112,13 +112,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012510188148}
+  - 65: {fileID: 65000012649609568}
   m_Layer: 0
   m_Name: ITEM
   m_TagString: ITEM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000012056063088
 GameObject:
   m_ObjectHideFlags: 1
@@ -665,10 +666,22 @@ BoxCollider:
   m_GameObject: {fileID: 1000010140475702}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65000012649609568
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011938974262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.15, z: 0.1}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &95000010389915644
 Animator:
   serializedVersion: 3

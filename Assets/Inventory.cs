@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour {
                 GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
                 for (int j = 0; j < 2; j++)
                 {
-                    if (players[j] != this.transform.parent.parent.gameObject)
+                    if (players[j] != this.transform.parent.gameObject)
                     {
                         players[j].GetComponentInChildren<Inventory>().Setpositon(obj);
                     }

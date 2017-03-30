@@ -47,8 +47,6 @@ public class HandControl : MonoBehaviour
                 }
         
             }*/
-
-            Debug.Log("trade");
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
     }
