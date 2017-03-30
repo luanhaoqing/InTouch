@@ -12,7 +12,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        PlayerOnBoard.transform.position = new Vector3(0.2606f,0.02f,-0.5f);
+        PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);
 	}
 	
 	// Update is called once per frame
@@ -29,6 +29,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
           if(Input.GetKeyDown(KeyCode.W) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp)) 
             {
             //    Debug.Log("Thumbstick: " + OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp));
+                
                 detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f,0,0);
             }
             if (Input.GetKeyDown(KeyCode.S) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown))
@@ -48,10 +49,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Three))
             {
-                //  Debug.Log("w");
-                BeginMove = true;
-                target = detectBall.transform.position;
-                detectBall.transform.position = PlayerOnBoard.transform.position;
+                if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
+                {
+                    //  Debug.Log("w");
+                    BeginMove = true;
+                    target = detectBall.transform.position;
+                    detectBall.transform.position = PlayerOnBoard.transform.position;
+                }
             }
             if(Input.GetKeyDown(KeyCode.T))
             {

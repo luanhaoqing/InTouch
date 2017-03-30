@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class DetectionandHighLight : MonoBehaviour {
+    bool CouldMove=false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class DetectionandHighLight : MonoBehaviour {
     {
         if(other.CompareTag("Tile"))
         {
+            CouldMove = true;
             other.GetComponent<MeshRenderer>().enabled = true;
         }
     }
@@ -23,7 +25,12 @@ public class DetectionandHighLight : MonoBehaviour {
     {
         if (other.CompareTag("Tile"))
         {
+            CouldMove = false;
             other.GetComponent<MeshRenderer>().enabled = false;
         }
+    }
+    public bool IfCouldMove()
+    {
+        return CouldMove;
     }
 }

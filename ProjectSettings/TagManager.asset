@@ -15,6 +15,7 @@ TagManager:
   - Tile
   - ITEM
   - Trade
+  - END
   layers:
   - Default
   - TransparentFX

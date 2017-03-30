@@ -11,11 +11,16 @@ public class TileHealthyManager : MonoBehaviour {
     public bool HasExploded;
     private GameObject player;
     private GameObject tmp;
+    private bool HasPlayer;
+    public GameObject End;
+    public GameObject Gem;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
         health = 5;
         _text.SetActive(false);
+        End = GameObject.FindGameObjectWithTag("END");
+        
     }
 	
 	// Update is called once per frame
@@ -26,16 +31,19 @@ public class TileHealthyManager : MonoBehaviour {
             Destroy(tmp);
             tmp = null;
             HasExploded = false;
+            if (HasPlayer)
+                End.GetComponent<MeshRenderer>().enabled = true;
+            this.gameObject.SetActive(false);
         }
 	}
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("PlayerOnBoard"))
         {
+            HasPlayer = true;
             player = other.gameObject;
             GameObject.Find("TrunCounter").GetComponent<CurrentPlayer>().RemainActionPoint--;
             health -= 1;
-  
             if (!HasExploded)
             {
                 tmp = Instantiate(tiles[this.GetComponentInParent<GenerateMap>().RanTileNum]);
@@ -49,10 +57,18 @@ public class TileHealthyManager : MonoBehaviour {
                 {
                     flames[i].SetActive(true);
                 }
-           //     _text.SetActive(true);
+                Gem.SetActive(true);
+                //     _text.SetActive(true);
                 Invoke("getRanTile",1.0f);
                
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            HasPlayer = false;
         }
     }
     private void getRanTile()
