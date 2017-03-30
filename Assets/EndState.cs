@@ -17,7 +17,7 @@ public class EndState : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerOnTheBoard"))
+        if(other.CompareTag("PlayerOnBoard"))
         {
            if( other.GetComponentInParent<Inventory>().HasKey)
             {
@@ -27,7 +27,7 @@ public class EndState : MonoBehaviour {
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("PlayerOnTheBoard"))
+        if (other.CompareTag("PlayerOnBoard"))
         {
             if (other.GetComponentInParent<Inventory>().HasKey)
             {
