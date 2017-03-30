@@ -21,7 +21,9 @@ public class KeyPropoty : MonoBehaviour {
             {
                 other.GetComponentInParent<Inventory>().delete3Gem();
                 other.GetComponentInParent<Inventory>().Setpositon(this.gameObject);
-              
+                other.GetComponentInParent<Inventory>().HasKey = true;
+
+
             }
         }
     }

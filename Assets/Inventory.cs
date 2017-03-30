@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour {
     public int ItemNumber = 0;
     public Transform[] positions;
     public int GemNumber = 0;
+    public bool HasKey=false;
     // Use this for initialization
     void Start () {
         Items = new GameObject[4];
