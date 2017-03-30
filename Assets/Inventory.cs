@@ -61,7 +61,7 @@ public class Inventory : MonoBehaviour {
     public void delete3Gem()
     {
         int deleteNum=0;
-        for(int i=0;i<4||deleteNum<3;i++)
+        for(int i=0;i<4&&deleteNum<3;i++)
         {
             if (Items[i] == null)
                 continue;
