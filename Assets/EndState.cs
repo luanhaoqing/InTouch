@@ -19,7 +19,7 @@ public class EndState : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
-           if( other.GetComponent<Inventory>().HasKey)
+           if( other.GetComponentInChildren<Inventory>().HasKey)
             {
                 Pass++;
             }
@@ -29,7 +29,7 @@ public class EndState : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (other.GetComponent<Inventory>().HasKey)
+            if (other.GetComponentInChildren<Inventory>().HasKey)
             {
                 Pass--;
             }
