@@ -13,7 +13,6 @@ public class TileHealthyManager : MonoBehaviour {
     private GameObject tmp;
     private bool HasPlayer;
     public GameObject End;
-    public GameObject Gem;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
@@ -57,7 +56,6 @@ public class TileHealthyManager : MonoBehaviour {
                 {
                     flames[i].SetActive(true);
                 }
-                Gem.SetActive(true);
                 //     _text.SetActive(true);
                 Invoke("getRanTile",1.0f);
                

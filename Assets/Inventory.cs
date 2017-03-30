@@ -5,6 +5,7 @@ public class Inventory : MonoBehaviour {
     public GameObject[] Items;
     public int ItemNumber = 0;
     public Transform[] positions;
+    public int GemNumber = 0;
     // Use this for initialization
     void Start () {
         Items = new GameObject[4];
@@ -16,6 +17,8 @@ public class Inventory : MonoBehaviour {
 	}
     public void Setpositon(GameObject objct)
     {
+        if (objct.tag == "ITEM")
+            GemNumber++;
         if (ItemNumber < 4)
         {
             objct.transform.position = positions[ItemNumber].position;
@@ -26,30 +29,63 @@ public class Inventory : MonoBehaviour {
     }
     public void Trade(GameObject obj)
     {
-        for(int i=0; i<4;i++)
+        if (obj.tag == "ITEM")
         {
-            if(Items[i]==obj)
+            for (int i = 0; i < 4; i++)
             {
-                Items[i] = null;
-                ItemNumber--;
-                //re-arrange inventory
-                for (int j =i+1;j<ItemNumber;j++)
+                if (Items[i] == obj)
                 {
-                    Items[j - 1] = Items[j];
-                }
-                //change to other's 
-                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-                for (int j = 0; j < 2; j++)
-                {
-                    if (players[j] != this.transform.parent.gameObject)
+                    Items[i] = null;
+                    ItemNumber--;
+                    GemNumber--;
+                    //re-arrange inventory
+                    for (int j = i + 1; j < ItemNumber; j++)
                     {
-                        players[j].GetComponentInChildren<Inventory>().Setpositon(obj);
+                        Items[j - 1] = Items[j];
                     }
-                   
+                    //change to other's 
+                    GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                    for (int j = 0; j < 2; j++)
+                    {
+                        if (players[j] != this.transform.parent.gameObject)
+                        {
+                            players[j].GetComponentInChildren<Inventory>().Setpositon(obj);
+                        }
+
+                    }
+                    break;
                 }
-                break;
             }
-        }    
+        }  
      }
+    public void delete3Gem()
+    {
+        int deleteNum=0;
+        for(int i=0;i<4||deleteNum<3;i++)
+        {
+            if (Items[i] == null)
+                continue;
+            if(Items[i].tag=="ITEM")
+            {
+                Destroy(Items[i]);
+                Items[i] = null;
+                deleteNum++;
+            }
+        }
+        ItemNumber -= 3;
+        Rearrange();
+    }
+    private void Rearrange()
+    {
+        int i = 0;
+        while(Items[i]==null)
+        {
+            i++;
+            if (i == 3)
+                break;
+        }
+        Items[0] = Items[i];
+        Items[i] = null;
+    }
         
 }
