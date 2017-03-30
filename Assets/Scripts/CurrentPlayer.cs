@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+
 public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     public int CurrentPlayerID;
@@ -66,6 +68,7 @@ public class CurrentPlayer : NetworkBehaviour {
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
+                TEXT.GetComponentInChildren<Text>().text = "Your Turn\n" + "Remain Action Point: "+RemainActionPoint;
                 MyTurn = true;
 
 
@@ -77,14 +80,11 @@ public class CurrentPlayer : NetworkBehaviour {
             }
 
 
-            if (turnCount != 0 && turnCount == 2)
+            if ( turnCount == 4)
             {
                 //  Debug.Log("1 TURN OVER");
-                if (!HealthDown)
-                {
                     Invoke("TurnOverHealthDown", 0.5f);
-                    HealthDown = true;
-                }
+                    turnCount = 0;
 
             }
 
@@ -101,7 +101,6 @@ public class CurrentPlayer : NetworkBehaviour {
 
             }
         }
-        turnCount = 0;
     }
 
 
