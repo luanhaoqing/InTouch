@@ -18,6 +18,7 @@ public class EventPropoty : MonoBehaviour {
         {
             Debug.Log("EVENT TRIGGER:AP TO 0");
             turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
+            this.gameObject.SetActive(false);
         }
     }
 }
