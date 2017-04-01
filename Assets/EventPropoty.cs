@@ -5,7 +5,7 @@ public class EventPropoty : MonoBehaviour {
     public GameObject turnCounter;
 	// Use this for initialization
 	void Start () {
-	
+        turnCounter = GameObject.Find("TrunCounter");
 	}
 	
 	// Update is called once per frame
