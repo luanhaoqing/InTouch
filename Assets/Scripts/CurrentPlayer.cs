@@ -84,7 +84,7 @@ public class CurrentPlayer : NetworkBehaviour {
             if ( turnCount == 2&&!LoseHealth)
             {
                     LoseHealth = true;
-                //  Debug.Log("1 TURN OVER");
+                   Debug.Log("1 TURN OVER");
                     Invoke("TurnOverHealthDown", 0.5f);
 
                     if(isServer)
