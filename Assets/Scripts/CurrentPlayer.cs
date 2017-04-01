@@ -17,6 +17,7 @@ public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     private int ran;
     public bool MyTurn = false;
+    [SyncVar]
     public int RemainActionPoint = 3;
     [SyncVar]
     public int turnCount=0;
@@ -69,7 +70,7 @@ public class CurrentPlayer : NetworkBehaviour {
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
-                TEXT.GetComponentInChildren<Text>().text = "Your Turn\n" + "Remain Action Point: "+RemainActionPoint;
+                TEXT.GetComponentInChildren<Text>().text = "Your Turn\n" + "Remain Action Point:"+RemainActionPoint;
                 MyTurn = true;
 
 
@@ -81,10 +82,10 @@ public class CurrentPlayer : NetworkBehaviour {
             }
 
 
-            if ( turnCount == 2&&!LoseHealth)
+            if ( turnCount == 4&&!LoseHealth)
             {
                     LoseHealth = true;
-                   Debug.Log("1 TURN OVER");
+                 
                     Invoke("TurnOverHealthDown", 0.5f);
 
                     
