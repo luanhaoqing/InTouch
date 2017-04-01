@@ -87,8 +87,7 @@ public class CurrentPlayer : NetworkBehaviour {
                    Debug.Log("1 TURN OVER");
                     Invoke("TurnOverHealthDown", 0.5f);
 
-                    if(isServer)
-                    turnCount = 0;
+                    
 
             }
 
@@ -105,6 +104,8 @@ public class CurrentPlayer : NetworkBehaviour {
 
             }
         }
+        if (isServer)
+            turnCount = 0;
         LoseHealth = false;
     }
 
