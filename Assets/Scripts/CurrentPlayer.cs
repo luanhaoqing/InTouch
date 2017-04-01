@@ -22,6 +22,7 @@ public class CurrentPlayer : NetworkBehaviour {
     public int turnCount=0;
     public GameObject TileManager;
     private bool HealthDown;
+    private bool LoseHealth;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -80,10 +81,13 @@ public class CurrentPlayer : NetworkBehaviour {
             }
 
 
-            if ( turnCount == 4)
+            if ( turnCount == 2&&!LoseHealth)
             {
+                    LoseHealth = true;
                 //  Debug.Log("1 TURN OVER");
                     Invoke("TurnOverHealthDown", 0.5f);
+
+                    if(isServer)
                     turnCount = 0;
 
             }
@@ -101,6 +105,7 @@ public class CurrentPlayer : NetworkBehaviour {
 
             }
         }
+        LoseHealth = false;
     }
 
 
