@@ -445,10 +445,10 @@ MonoBehaviour:
   health: 0
   _text: {fileID: 1000011825410742}
   tiles:
-  - {fileID: 1000011845446408, guid: 3937bba0d8652fb40b6331b342966305, type: 2}
-  - {fileID: 1000011845446408, guid: 3937bba0d8652fb40b6331b342966305, type: 2}
-  - {fileID: 1000011845446408, guid: 3937bba0d8652fb40b6331b342966305, type: 2}
-  - {fileID: 1000011845446408, guid: 3937bba0d8652fb40b6331b342966305, type: 2}
+  - {fileID: 1000011588458534, guid: 1440e0dc244dcf549b09b0f798a5f847, type: 2}
+  - {fileID: 1000011588458534, guid: 935385e1081ab2b4c9b441679b72eff8, type: 2}
+  - {fileID: 1000011588458534, guid: ce297a40aeac2b540af8abf686fdfae6, type: 2}
+  - {fileID: 1000011588458534, guid: 9c1c07d7b662e1744a7ed12eb96f2b7c, type: 2}
   HasExploded: 0
   End: {fileID: 0}
 --- !u!114 &114000011775637216
