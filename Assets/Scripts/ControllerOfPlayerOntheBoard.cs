@@ -70,7 +70,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.P) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown)) // choose item
+            if (Input.GetKeyDown(KeyCode.P) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight)) // choose item
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
@@ -78,7 +78,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.L) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft)) // choose exit
+            if (Input.GetKeyDown(KeyCode.L) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown)) // choose exit
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
