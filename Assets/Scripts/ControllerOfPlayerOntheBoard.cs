@@ -106,7 +106,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         }
         else
         {
-            Debug.Log(controlMode);
+            //Debug.Log(controlMode);
             switch (controlMode)
             {
                 // Control Mode: Move
@@ -167,6 +167,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 case 2:
                     // enable touch-send control
                     GetComponentInChildren<HandControl>().ActivateTrade(true);
+
                     // do something to tell players they are in item mode
 
                     break;
