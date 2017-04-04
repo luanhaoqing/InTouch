@@ -42,7 +42,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (!isLocalPlayer)
             return;
 
-        if (Input.GetKeyDown(KeyCode.K) && !menuOpen)
+        if ((Input.GetKeyDown(KeyCode.K) || OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick)) && !menuOpen)
         {
             menuOpen = true;
         }
@@ -52,7 +52,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             handUI.SetActive(true); // UI pops up
 
             // Highlighting options
-            if (Input.GetKeyDown(KeyCode.I)) // choose move
+            if (Input.GetKeyDown(KeyCode.I) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft)) // choose move
             {
                 currentHighlight = (int)Status.Move;
                 MoveButton.Select();
@@ -61,7 +61,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.O)) // choose send
+            if (Input.GetKeyDown(KeyCode.O) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp)) // choose send
             {
                 currentHighlight = (int)Status.Send;
                 SendButton.Select();
@@ -70,7 +70,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.P)) // choose item
+            if (Input.GetKeyDown(KeyCode.P) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown)) // choose item
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
@@ -78,7 +78,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.L)) // choose exit
+            if (Input.GetKeyDown(KeyCode.L) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft)) // choose exit
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
@@ -92,7 +92,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // exit
             if (currentHighlight == (int)Status.Exit)
             {
-                if (Input.GetKeyDown(KeyCode.K))
+                if (Input.GetKeyDown(KeyCode.K) || OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
                 {
                     controlMode = previousControlMode;
                     handUI.SetActive(false);
