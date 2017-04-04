@@ -1353,6 +1353,11 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 223000012948193884, guid: bad93bd15b47df74ab76c2e6cd3a724d,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1225543943}
     - target: {fileID: 1000012655082612, guid: bad93bd15b47df74ab76c2e6cd3a724d, type: 2}
       propertyPath: m_IsActive
       value: 0

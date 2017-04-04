@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 
 public class HandControl : MonoBehaviour
 {
+    public bool TradeModeActive = false;
 
     // Use this for initialization
     void Start()
@@ -18,7 +19,7 @@ public class HandControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ITEM"))
+        if (other.CompareTag("ITEM") && TradeModeActive)
         {
             /*
             if (this.GetComponentInParent<Inventory>().ItemNumber != 0)
@@ -50,4 +51,10 @@ public class HandControl : MonoBehaviour
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
     }
+
+    public void ActivateTrade(bool command)
+    {
+        TradeModeActive = command;
+    }
+
 }

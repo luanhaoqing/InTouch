@@ -16,6 +16,7 @@ TagManager:
   - ITEM
   - Trade
   - END
+  - RightHandUI
   layers:
   - Default
   - TransparentFX
