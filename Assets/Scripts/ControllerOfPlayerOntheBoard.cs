@@ -10,7 +10,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
     private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
     private int previousControlMode = 1;
-    private GameObject handUI;
+    private GameObject rightHandUI;
     public int currentHighlight = 0; // UI higlight
 
     public UnityEngine.UI.Button MoveButton;
@@ -29,6 +29,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         Exit
     }
 
+    // declare five controller mapping: four for choosing menu options, one for confirm.
     private bool controllerMoveMapping;
     private bool controllerSendMapping;
     private bool controllerItemMapping;
@@ -40,8 +41,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // Use this for initialization
     void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);
-        handUI = GameObject.FindGameObjectWithTag("RightHandUI");
-        handUI.SetActive(false);
+        rightHandUI = GameObject.FindGameObjectWithTag("RightHandUI");
+        rightHandUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -76,7 +77,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
         if (menuOpen)
         {
-            handUI.SetActive(true); // UI pops up
+            rightHandUI.SetActive(true); // UI pops up
 
             // Highlighting options
             if (controllerMoveMapping) // choose move
@@ -162,6 +163,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             switch (controlMode)
             {
                 // Control Mode: Move
+                // below is all the character movement code.
                 case 1:
                     if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
                     {
@@ -268,7 +270,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // To turn off anything that needs to be turned off whenever enters menu.
     void ChangeControlMode()
     {
-        handUI.SetActive(false);
+        rightHandUI.SetActive(false);
         menuOpen = false;
         currentHighlight = (int)Status.None;
         Debug.Log("Turning off Menu");
