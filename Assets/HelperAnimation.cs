@@ -3,9 +3,11 @@ using System.Collections;
 using UnityEngine.Networking;
 public class HelperAnimation : NetworkBehaviour {
     public GameObject turnCount;
+    public GameObject helper;
 	// Use this for initialization
 	void Start () {
-	if(!isLocalPlayer)
+        if (!isLocalPlayer)
+            return;
         {
             turnCount = GameObject.Find("TrunCounter");
         }
@@ -13,15 +15,16 @@ public class HelperAnimation : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if(!isLocalPlayer)
+        if (!isLocalPlayer)
+            return;
         {
             if(turnCount.GetComponent<TurnCounter>().OwnId==turnCount.GetComponent<CurrentPlayer>().CurrentPlayerID)
             {
-                this.GetComponent<Animator>().SetBool("fly",true);
+                helper.GetComponent<Animator>().SetBool("fly",true);
             }
             else
             {
-                this.GetComponent<Animator>().SetBool("fly", false);
+                helper.GetComponent<Animator>().SetBool("fly", false);
             }
         }
 	}

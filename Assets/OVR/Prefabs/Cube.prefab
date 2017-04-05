@@ -1201,8 +1201,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014031273740}
   - 95: {fileID: 95000011117110240}
-  - 114: {fileID: 114000013111955302}
-  - 114: {fileID: 114000010789008348}
   m_Layer: 0
   m_Name: helper
   m_TagString: Untagged
@@ -1582,6 +1580,7 @@ GameObject:
   - 114: {fileID: 114000011095726876}
   - 114: {fileID: 114000010578552004}
   - 114: {fileID: 114000013190912030}
+  - 114: {fileID: 114000011357540344}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Player
@@ -5904,38 +5903,6 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
---- !u!114 &114000010789008348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012063317834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 186
-    i1: 217
-    i2: 59
-    i3: 209
-    i4: 91
-    i5: 71
-    i6: 223
-    i7: 116
-    i8: 171
-    i9: 118
-    i10: 194
-    i11: 230
-    i12: 205
-    i13: 58
-    i14: 114
-    i15: 77
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!114 &114000010843973560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6059,6 +6026,19 @@ MonoBehaviour:
     i15: 77
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114000011357540344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012655082612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2845b2f50a39278428283689064ee752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnCount: {fileID: 0}
+  helper: {fileID: 1000012063317834}
 --- !u!114 &114000011375586808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6632,18 +6612,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000013111955302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012063317834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2845b2f50a39278428283689064ee752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnCount: {fileID: 0}
 --- !u!114 &114000013190912030
 MonoBehaviour:
   m_ObjectHideFlags: 1
