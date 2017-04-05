@@ -13,13 +13,14 @@ public class TileHealthyManager : MonoBehaviour {
     private GameObject tmp;
     private bool HasPlayer;
     public GameObject End;
+    public GameObject clock;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
         health = 5;
         _text.SetActive(false);
-        End = GameObject.FindGameObjectWithTag("END");
-        
+        clock = GameObject.Find("pf_Clock");
+        End = GameObject.Find("you_lose");
     }
 	
 	// Update is called once per frame
@@ -31,8 +32,11 @@ public class TileHealthyManager : MonoBehaviour {
             tmp = null;
             HasExploded = false;
             if (HasPlayer)
-                End.GetComponent<MeshRenderer>().enabled = true;
-            this.gameObject.SetActive(false);
+            {
+                clock.SetActive(false);
+                End.SetActive(true);
+            }
+                this.gameObject.SetActive(false);
         }
 	}
     private void OnTriggerEnter(Collider other)
