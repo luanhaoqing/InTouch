@@ -19,7 +19,7 @@ public class HandControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ITEM") && TradeModeActive)
+        if (other.CompareTag("ITEM"))
         {
             /*
             if (this.GetComponentInParent<Inventory>().ItemNumber != 0)

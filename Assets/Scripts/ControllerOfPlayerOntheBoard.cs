@@ -38,7 +38,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool controllerExitMapping;
     private bool controllerClickMapping;
 
-   
+    //
+    public GameObject rightHand;
+    public GameObject leftHand;
 
     // Use this for initialization
     void Start () {
@@ -326,6 +328,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         currentHighlight = (int)Status.None;
         Debug.Log("Turning off Menu");
         GetComponentInChildren<HandControl>().ActivateTrade(false);
+
         Debug.Log("Trade Mode OFF");
     }
 }
