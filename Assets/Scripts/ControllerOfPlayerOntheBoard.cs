@@ -29,6 +29,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         Exit
     }
 
+    private bool controllerMoveMapping;
+    private bool controllerSendMapping;
+    private bool controllerItemMapping;
+    private bool controllerExitMapping;
+    private bool controllerClickMapping;
+
+
 
     // Use this for initialization
     void Start () {
@@ -42,7 +49,26 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (!isLocalPlayer)
             return;
 
-        if ((Input.GetKeyDown(KeyCode.K) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)) && !menuOpen)
+        // Set Controller Mapping, get situation at current frame.
+        controllerMoveMapping = (Input.GetKeyDown(KeyCode.I)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft));
+        controllerSendMapping = (Input.GetKeyDown(KeyCode.O)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp));
+        controllerItemMapping = (Input.GetKeyDown(KeyCode.P)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight));
+        controllerExitMapping = (Input.GetKeyDown(KeyCode.L)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
+        controllerClickMapping = ((Input.GetKeyDown(KeyCode.K)
+                    || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                    || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+
+
+        // Open Menu whenever it's not on.
+        if (controllerClickMapping)
         {
             menuOpen = true;
             Debug.Log("turning ON menu");
@@ -53,7 +79,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             handUI.SetActive(true); // UI pops up
 
             // Highlighting options
-            if (Input.GetKeyDown(KeyCode.I) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft)) // choose move
+            if (controllerMoveMapping) // choose move
             {
                 currentHighlight = (int)Status.Move;
                 MoveButton.Select();
@@ -62,7 +88,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.O) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp)) // choose send
+            if (controllerSendMapping) // choose send
             {
                 currentHighlight = (int)Status.Send;
                 SendButton.Select();
@@ -71,7 +97,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.P) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight)) // choose item
+            if (controllerItemMapping) // choose item
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
@@ -79,7 +105,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.L) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown)) // choose exit
+            if (controllerExitMapping) // choose exit
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
@@ -89,19 +115,44 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             }
 
             // After Highlighting -- Make choices
-
-            // exit
-            if (currentHighlight == (int)Status.Exit)
+            // 1) Set Mode to Move
+            if (currentHighlight == (int)Status.Move)
             {
-                if (Input.GetKeyDown(KeyCode.K) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+                if (controllerClickMapping)
                 {
-                    controlMode = previousControlMode;
-                    handUI.SetActive(false);
-                    menuOpen = false;
-                    currentHighlight = (int)Status.None;
-                    Debug.Log("Turning off Menu");
+                    ChangeControlMode();
+                    controlMode = 1;
                 }
             }
+            // 2) Set Mode to Send
+            if (currentHighlight == (int)Status.Send)
+            {
+                if (controllerClickMapping)
+                {
+                    ChangeControlMode();
+                    controlMode = 2;
+                }
+            }
+            // 3) Set Mode to Item
+            if (currentHighlight == (int)Status.Item)
+            {
+                if (controllerClickMapping)
+                {
+                    ChangeControlMode();
+                    controlMode = 3;
+                }
+            }
+            // 4) Exit and return to previous mode
+            if (currentHighlight == (int)Status.Exit)
+            {
+
+                if (controllerClickMapping)
+                {
+                    ChangeControlMode();
+                    controlMode = previousControlMode;
+                }
+            }
+
 
 
         }
@@ -119,28 +170,38 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         // Debug.Log("TEST");
                         //  PlayerOnBoard.transform.Rotate(0, x, 0);
                         //  PlayerOnBoard.transform.Translate(0, 0, z);
-                        if (Input.GetKeyDown(KeyCode.W) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
+                        if (Input.GetKeyDown(KeyCode.W) 
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) 
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
                         {
                             //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.S) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
+                        if (Input.GetKeyDown(KeyCode.S) 
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) 
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
                         {
                             //    Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.A) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                        if (Input.GetKeyDown(KeyCode.A) 
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) 
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
                         {
                             //   Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.D) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
+                        if (Input.GetKeyDown(KeyCode.D) 
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) 
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
                         {
                             //   Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.G) || OVRInput.GetDown(OVRInput.Button.One) || OVRInput.GetDown(OVRInput.Button.Three))
+                        if (Input.GetKeyDown(KeyCode.G) 
+                            || OVRInput.GetDown(OVRInput.Button.One) 
+                            || OVRInput.GetDown(OVRInput.Button.Three))
                         {
                             if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
                             {
@@ -167,8 +228,12 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 // Control mode: Send
                 case 2:
                     // enable touch-send control
-                    GetComponentInChildren<HandControl>().ActivateTrade(true);
-
+                    if (!GetComponentInChildren<HandControl>().TradeModeActive)
+                    {
+                        GetComponentInChildren<HandControl>().ActivateTrade(true);
+                        Debug.Log("Trade Mode ON");
+                    }
+                    
                     // do something to tell players they are in item mode
 
                     break;
@@ -203,6 +268,11 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // To turn off anything that needs to be turned off whenever enters menu.
     void ChangeControlMode()
     {
+        handUI.SetActive(false);
+        menuOpen = false;
+        currentHighlight = (int)Status.None;
+        Debug.Log("Turning off Menu");
         GetComponentInChildren<HandControl>().ActivateTrade(false);
+        Debug.Log("Trade Mode OFF");
     }
 }
