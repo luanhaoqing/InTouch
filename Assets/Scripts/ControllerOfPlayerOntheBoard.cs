@@ -45,6 +45,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if ((Input.GetKeyDown(KeyCode.K) || OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick)) && !menuOpen)
         {
             menuOpen = true;
+            Debug.Log("turning ON menu");
         }
 
         if (menuOpen)
@@ -56,7 +57,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Move;
                 MoveButton.Select();
-                Debug.Log("Move Button Highlighted");
+                //Debug.Log("Move Button Highlighted");
                 return;
 
             }
@@ -65,7 +66,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Send;
                 SendButton.Select();
-                Debug.Log("Send Button Highlighted");
+                //Debug.Log("Send Button Highlighted");
                 return;
 
             }
@@ -74,7 +75,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
-                Debug.Log("Item Button Highlighted");
+                //Debug.Log("Item Button Highlighted");
                 return;
             }
 
@@ -82,7 +83,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
-                Debug.Log("Exit Button Highlighted");
+                //Debug.Log("Exit Button Highlighted");
                 return;
 
             }
