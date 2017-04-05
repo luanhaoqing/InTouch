@@ -56,7 +56,10 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     void Update () {
         if (!isLocalPlayer)
             return;
-
+        if (TurnCounter.GetComponent<TurnCounter>().OwnId == 1)
+        {
+            counterDirection = true;
+        }
         // Set Controller Mapping, get situation at current frame.
         controllerMoveMapping = (Input.GetKeyDown(KeyCode.I)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
