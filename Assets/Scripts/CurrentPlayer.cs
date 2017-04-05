@@ -24,6 +24,7 @@ public class CurrentPlayer : NetworkBehaviour {
     public GameObject TileManager;
     private bool HealthDown;
     private bool LoseHealth;
+    public GameObject clock;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -45,6 +46,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     counter = 30f;
                     RemainActionPoint = 3;
                     turnCount++;
+                    clock.GetComponent<Clock>().DecreaseTurn();
 
                 }
             }
@@ -58,6 +60,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     counter = 0;
                     RemainActionPoint = 3;
                     turnCount++;
+                    clock.GetComponent<Clock>().DecreaseTurn();
                 }
             }
         }

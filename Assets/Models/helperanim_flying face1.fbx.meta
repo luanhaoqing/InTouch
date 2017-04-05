@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 36ada87523d70cb4aa5bfc973b9ed9cd
+timeCreated: 1491349690
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: joint2
+    100004: joint3
+    100006: joint4
+    100008: joint6
+    100010: joint6 1
+    100012: joint8
+    100014: joint8 1
+    100016: pCube1
+    100018: pCube2
+    100020: Rhand
+    100022: Rhand1
+    100024: Rleg
+    100026: Rleg1
+    100028: spine
+    400000: //RootNode
+    400002: joint2
+    400004: joint3
+    400006: joint4
+    400008: joint6
+    400010: joint6 1
+    400012: joint8
+    400014: joint8 1
+    400016: pCube1
+    400018: pCube2
+    400020: Rhand
+    400022: Rhand1
+    400024: Rleg
+    400026: Rleg1
+    400028: spine
+    2300000: pCube2
+    3300000: pCube2
+    4300000: pCube1
+    4300002: pCube2
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: spine
+        weight: 1
+      - path: spine/joint2
+        weight: 1
+      - path: spine/joint2/joint3
+        weight: 1
+      - path: spine/joint2/joint3/joint4
+        weight: 1
+      - path: spine/joint2/joint3/Rhand
+        weight: 1
+      - path: spine/joint2/joint3/Rhand/joint6
+        weight: 1
+      - path: spine/joint2/joint3/Rhand1
+        weight: 1
+      - path: spine/joint2/joint3/Rhand1/joint6 1
+        weight: 1
+      - path: spine/Rleg
+        weight: 1
+      - path: spine/Rleg/joint8
+        weight: 1
+      - path: spine/Rleg1
+        weight: 1
+      - path: spine/Rleg1/joint8 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

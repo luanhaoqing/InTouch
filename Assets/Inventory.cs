@@ -7,15 +7,43 @@ public class Inventory : MonoBehaviour {
     public Transform[] positions;
     public int GemNumber = 0;
     public bool HasKey=false;
+    public GameObject turnCounter;
+    public GameObject[] Aplights;
     // Use this for initialization
     void Start () {
         Items = new GameObject[4];
+        turnCounter = GameObject.Find("TrunCounter");
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if(turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
+        {
+            for(int i=0;i<3;i++)
+            {
+                Aplights[i].SetActive(true);
+            }
+        }
+        if(turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint == 2)
+        {
+            Aplights[0].SetActive(false);
+            Aplights[1].SetActive(true);
+            Aplights[2].SetActive(true);
+        }
+        if (turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint == 1)
+        {
+            Aplights[0].SetActive(false);
+            Aplights[1].SetActive(false);
+            Aplights[2].SetActive(true);
+        }
+        if (turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint == 0)
+        {
+            Aplights[0].SetActive(false);
+            Aplights[1].SetActive(false);
+            Aplights[2].SetActive(false);
+        }
+
+    }
     public void Setpositon(GameObject objct)
     {
         if (objct.tag == "ITEM")
