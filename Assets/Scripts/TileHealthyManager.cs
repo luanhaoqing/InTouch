@@ -34,7 +34,7 @@ public class TileHealthyManager : MonoBehaviour {
             if (HasPlayer)
             {
                 clock.SetActive(false);
-                End.SetActive(true);
+                End.transform.localScale = new Vector3(2, 2, 2);
             }
                 this.gameObject.SetActive(false);
         }
