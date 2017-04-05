@@ -256,7 +256,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         }
                         if (Input.GetKeyDown(KeyCode.G) 
                             || OVRInput.GetDown(OVRInput.Button.One) 
-                            || OVRInput.GetDown(OVRInput.Button.Three))
+                            || OVRInput.GetDown(OVRInput.Button.Three)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
                         {
                             if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
                             {
