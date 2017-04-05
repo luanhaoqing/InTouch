@@ -60,6 +60,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         {
             counterDirection = true;
         }
+        else
+            counterDirection = false;
         // Set Controller Mapping, get situation at current frame.
         controllerMoveMapping = (Input.GetKeyDown(KeyCode.I)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
