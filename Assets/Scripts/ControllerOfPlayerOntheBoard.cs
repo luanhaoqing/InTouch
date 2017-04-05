@@ -42,7 +42,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (!isLocalPlayer)
             return;
 
-        if ((Input.GetKeyDown(KeyCode.K) || OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick)) && !menuOpen)
+        if ((Input.GetKeyDown(KeyCode.K) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)) && !menuOpen)
         {
             menuOpen = true;
             Debug.Log("turning ON menu");
@@ -53,7 +53,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             handUI.SetActive(true); // UI pops up
 
             // Highlighting options
-            if (Input.GetKeyDown(KeyCode.I) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft)) // choose move
+            if (Input.GetKeyDown(KeyCode.I) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft)) // choose move
             {
                 currentHighlight = (int)Status.Move;
                 MoveButton.Select();
@@ -62,7 +62,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.O) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp)) // choose send
+            if (Input.GetKeyDown(KeyCode.O) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp)) // choose send
             {
                 currentHighlight = (int)Status.Send;
                 SendButton.Select();
@@ -71,7 +71,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             }
 
-            if (Input.GetKeyDown(KeyCode.P) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight)) // choose item
+            if (Input.GetKeyDown(KeyCode.P) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight)) // choose item
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
@@ -79,7 +79,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.L) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown)) // choose exit
+            if (Input.GetKeyDown(KeyCode.L) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown)) // choose exit
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
@@ -93,7 +93,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // exit
             if (currentHighlight == (int)Status.Exit)
             {
-                if (Input.GetKeyDown(KeyCode.K) || OVRInput.Get(OVRInput.Button.PrimaryThumbstick) || OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
+                if (Input.GetKeyDown(KeyCode.K) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
                 {
                     controlMode = previousControlMode;
                     handUI.SetActive(false);
@@ -119,23 +119,23 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         // Debug.Log("TEST");
                         //  PlayerOnBoard.transform.Rotate(0, x, 0);
                         //  PlayerOnBoard.transform.Translate(0, 0, z);
-                        if (Input.GetKeyDown(KeyCode.W) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickUp))
+                        if (Input.GetKeyDown(KeyCode.W) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
                         {
-                            //    Debug.Log("Thumbstick: " + OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp));
+                            //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.S) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickDown))
+                        if (Input.GetKeyDown(KeyCode.S) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
                         {
                             //    Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.A) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
+                        if (Input.GetKeyDown(KeyCode.A) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
                         {
                             //   Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.D) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
+                        if (Input.GetKeyDown(KeyCode.D) || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
                         {
                             //   Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
