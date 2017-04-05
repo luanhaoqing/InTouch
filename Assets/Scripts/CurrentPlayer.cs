@@ -120,7 +120,7 @@ public class CurrentPlayer : NetworkBehaviour {
         }
         if (isServer)
             turnCount = 0;
-        LoseHealth = false;
+        Invoke("setLoseHealth",0.5f);
     }
     public void setClock()
     {
@@ -129,6 +129,10 @@ public class CurrentPlayer : NetworkBehaviour {
             clock.GetComponent<Clock>().DecreaseTurn();
             HasTurn = true;
         }
+    }
+    public void setLoseHealth()
+    {
+        LoseHealth = false;
     }
 
 
