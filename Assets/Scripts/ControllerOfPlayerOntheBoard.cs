@@ -56,7 +56,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     void Update () {
         if (!isLocalPlayer)
             return;
-        Debug.Log(TurnCounter.GetComponent<TurnCounter>().OwnId);
+
         if (TurnCounter.GetComponent<TurnCounter>().OwnId == 1)
         {
             counterDirection = true;

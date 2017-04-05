@@ -19,7 +19,8 @@ public class UpdateHP : MonoBehaviour {
         // this.GetComponent<Text>().text= tile.GetComponent<TileHealthyManager>().health.ToString();
       if(tile.GetComponent<TileHealthyManager>().health!= numberofFlame && tile.GetComponent<TileHealthyManager>().health<4)
         {
-            flame[numberofFlame-1].SetActive(false);
+            flame[numberofFlame - 1].GetComponent<Animator>().SetTrigger("breakdown");
+        //    flame[numberofFlame - 1].GetComponent<Animator>().SetBool("break",true);
             numberofFlame--;
 
 
