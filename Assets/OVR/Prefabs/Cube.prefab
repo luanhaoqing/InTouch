@@ -2753,7 +2753,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012311625378}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.030857055, y: 0.016026162, z: -0.110372655}
+  m_LocalPosition: {x: 0.0022, y: 0.016026162, z: -0.0787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -3053,8 +3053,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013969218046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9, y: -0.874, z: 2.03}
-  m_LocalScale: {x: 420, y: 40, z: 50}
+  m_LocalPosition: {x: 5.32, y: -0.515, z: 2.812}
+  m_LocalScale: {x: 400, y: 25, z: 60}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000014294184006}
@@ -3327,7 +3327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010597773386}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0015936875, y: 0.002066245, z: 0.04412672}
+  m_LocalPosition: {x: -0.0015936875, y: 0.002066245, z: 0.0773}
   m_LocalScale: {x: 1.801147, y: 0.5117052, z: 5.415743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4224,10 +4224,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014255604670}
-  m_LocalRotation: {x: 0, y: -0.34000325, z: -0, w: 0.94042426}
-  m_LocalPosition: {x: -0.033407643, y: 0.024708586, z: -0.06697812}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.0003, y: 0.024708586, z: -0.0021}
   m_LocalScale: {x: 1, y: 0.8450804, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011247900356}
   m_RootOrder: 3
@@ -4333,10 +4333,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012063317834}
-  m_LocalRotation: {x: -0, y: -0.29789373, z: -0, w: 0.9545991}
-  m_LocalPosition: {x: 1.487, y: 0.12073748, z: -0.4610951}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.159, y: 0.12073748, z: 0.965}
   m_LocalScale: {x: 9.582342, y: 9.58234, z: 9.582341}
-  m_LocalEulerAnglesHint: {x: 0, y: -34.862003, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children:
   - {fileID: 4000012807707486}
   - {fileID: 4000012170810200}
@@ -5970,6 +5970,8 @@ MonoBehaviour:
   PlayerOnBoard: {fileID: 1000012043316932}
   detectBall: {fileID: 1000014237513524}
   currentHighlight: 0
+  TurnCounter: {fileID: 0}
+  counterDirection: 0
   MoveButton: {fileID: 114000012660467284}
   SendButton: {fileID: 114000012396132156}
   ItemButton: {fileID: 114000012781214574}
