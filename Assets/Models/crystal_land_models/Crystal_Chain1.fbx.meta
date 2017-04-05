@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 11e0ff299b60d8046956fcf4ea8cfe32
+timeCreated: 1490914364
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Chian1
+    100002: Chian1 1
+    100004: Crystal1
+    100006: //RootNode
+    100008: group10
+    100010: group11
+    100012: group2
+    100014: group3
+    100016: group4
+    100018: group5
+    100020: group6
+    100022: group7
+    100024: group8
+    100026: group9
+    100028: pasted__group3
+    100030: pasted__group3 1
+    100032: pasted__group3 2
+    100034: pasted__group4
+    100036: pasted__group6
+    100038: pasted__group7
+    100040: pasted__group8
+    100042: pasted__group9
+    100044: pasted__pasted__group3
+    100046: pasted__pasted__group3 1
+    100048: pasted__pasted__group3 2
+    100050: pasted__pasted__group6
+    100052: pasted__pasted__group7
+    100054: pasted__pasted__pasted__group3
+    100056: pasted__pasted__pasted__group6
+    100058: pasted__pasted__pasted__pasted__pCube2
+    100060: pasted__pasted__pasted__pasted__pCube2 1
+    100062: pasted__pasted__pasted__pCube2
+    100064: pasted__pasted__pasted__pCube2 1
+    100066: pasted__pasted__pasted__pCube2 2
+    100068: pasted__pasted__pCube2
+    100070: pasted__pasted__pCube2 1
+    100072: pasted__pasted__pCube2 2
+    100074: pasted__pCube2
+    100076: pasted__pCube2 1
+    100078: pasted__pCube2 2
+    100080: pCube2
+    100082: Ring
+    100084: shard1
+    100086: shard10
+    100088: shard11
+    100090: shard2
+    100092: shard3
+    100094: shard4
+    100096: shard5
+    100098: shard6
+    100100: shard7
+    100102: shard8
+    100104: shard9
+    400000: Chian1
+    400002: Chian1 1
+    400004: Crystal1
+    400006: //RootNode
+    400008: group10
+    400010: group11
+    400012: group2
+    400014: group3
+    400016: group4
+    400018: group5
+    400020: group6
+    400022: group7
+    400024: group8
+    400026: group9
+    400028: pasted__group3
+    400030: pasted__group3 1
+    400032: pasted__group3 2
+    400034: pasted__group4
+    400036: pasted__group6
+    400038: pasted__group7
+    400040: pasted__group8
+    400042: pasted__group9
+    400044: pasted__pasted__group3
+    400046: pasted__pasted__group3 1
+    400048: pasted__pasted__group3 2
+    400050: pasted__pasted__group6
+    400052: pasted__pasted__group7
+    400054: pasted__pasted__pasted__group3
+    400056: pasted__pasted__pasted__group6
+    400058: pasted__pasted__pasted__pasted__pCube2
+    400060: pasted__pasted__pasted__pasted__pCube2 1
+    400062: pasted__pasted__pasted__pCube2
+    400064: pasted__pasted__pasted__pCube2 1
+    400066: pasted__pasted__pasted__pCube2 2
+    400068: pasted__pasted__pCube2
+    400070: pasted__pasted__pCube2 1
+    400072: pasted__pasted__pCube2 2
+    400074: pasted__pCube2
+    400076: pasted__pCube2 1
+    400078: pasted__pCube2 2
+    400080: pCube2
+    400082: Ring
+    400084: shard1
+    400086: shard10
+    400088: shard11
+    400090: shard2
+    400092: shard3
+    400094: shard4
+    400096: shard5
+    400098: shard6
+    400100: shard7
+    400102: shard8
+    400104: shard9
+    2300000: pasted__pasted__pasted__pasted__pCube2
+    2300002: pasted__pasted__pasted__pasted__pCube2 1
+    2300004: pasted__pasted__pasted__pCube2
+    2300006: pasted__pasted__pasted__pCube2 1
+    2300008: pasted__pasted__pasted__pCube2 2
+    2300010: pasted__pasted__pCube2
+    2300012: pasted__pasted__pCube2 1
+    2300014: pasted__pasted__pCube2 2
+    2300016: pasted__pCube2
+    2300018: pasted__pCube2 1
+    2300020: pasted__pCube2 2
+    2300022: pCube2
+    2300024: shard1
+    2300026: shard10
+    2300028: shard11
+    2300030: shard2
+    2300032: shard3
+    2300034: shard4
+    2300036: shard5
+    2300038: shard6
+    2300040: shard7
+    2300042: shard8
+    2300044: shard9
+    3300000: pasted__pasted__pasted__pasted__pCube2
+    3300002: pasted__pasted__pasted__pasted__pCube2 1
+    3300004: pasted__pasted__pasted__pCube2
+    3300006: pasted__pasted__pasted__pCube2 1
+    3300008: pasted__pasted__pasted__pCube2 2
+    3300010: pasted__pasted__pCube2
+    3300012: pasted__pasted__pCube2 1
+    3300014: pasted__pasted__pCube2 2
+    3300016: pasted__pCube2
+    3300018: pasted__pCube2 1
+    3300020: pasted__pCube2 2
+    3300022: pCube2
+    3300024: shard1
+    3300026: shard10
+    3300028: shard11
+    3300030: shard2
+    3300032: shard3
+    3300034: shard4
+    3300036: shard5
+    3300038: shard6
+    3300040: shard7
+    3300042: shard8
+    3300044: shard9
+    4300000: shard1
+    4300002: shard3
+    4300004: shard4
+    4300006: shard2
+    4300008: shard5
+    4300010: shard6
+    4300012: shard7
+    4300014: shard10
+    4300016: shard8
+    4300018: shard11
+    4300020: shard9
+    4300022: pCube2
+    4300024: pasted__pCube2
+    4300026: pasted__pCube2
+    4300028: pasted__pasted__pCube2
+    4300030: pasted__pasted__pCube2
+    4300032: pasted__pasted__pasted__pCube2
+    4300034: pasted__pasted__pasted__pCube2
+    4300036: pasted__pasted__pasted__pasted__pCube2
+    4300038: pasted__pCube2
+    4300040: pasted__pasted__pCube2
+    4300042: pasted__pasted__pasted__pasted__pCube2
+    4300044: pasted__pasted__pasted__pCube2
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
