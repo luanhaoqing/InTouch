@@ -25,6 +25,8 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool HealthDown;
     private bool LoseHealth;
     public GameObject clock;
+    [SyncVar]
+    private bool HasTurn=true;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -46,7 +48,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     counter = 30f;
                     RemainActionPoint = 3;
                     turnCount++;
-                    clock.GetComponent<Clock>().DecreaseTurn();
+                    HasTurn = false;
 
                 }
             }
@@ -60,7 +62,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     counter = 0;
                     RemainActionPoint = 3;
                     turnCount++;
-                    clock.GetComponent<Clock>().DecreaseTurn();
+                    HasTurn = false;
                 }
             }
         }
@@ -69,13 +71,21 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
+            if (!HasTurn)
+            {
+                clock.GetComponent<Clock>().DecreaseTurn();
+                HasTurn = true;
+            }
+
+
+
             //    Debug.Log(turnCount);
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
             {
                 TEXT.SetActive(true);
                 TEXT.GetComponentInChildren<Text>().text = "Your Turn\n" + "Remain Action Point:"+RemainActionPoint;
                 MyTurn = true;
-
+               
 
             }
             else
@@ -112,7 +122,14 @@ public class CurrentPlayer : NetworkBehaviour {
             turnCount = 0;
         LoseHealth = false;
     }
-
+    public void setClock()
+    {
+        if (!HasTurn)
+        {
+            clock.GetComponent<Clock>().DecreaseTurn();
+            HasTurn = true;
+        }
+    }
 
 
 
