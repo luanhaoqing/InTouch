@@ -117,7 +117,7 @@ public class Clock : MonoBehaviour {
                 Reset();
             }
 
-            outerTransform.rotation = Quaternion.Lerp(currRotation, targetRotation, totalTime/ time);
+            outerTransform.localRotation = Quaternion.Lerp(currRotation, targetRotation, totalTime/ time);
             yield return null;
         }
 
