@@ -1891,6 +1891,7 @@ GameObject:
   - 33: {fileID: 1620490150}
   - 23: {fileID: 1620490148}
   - 54: {fileID: 1620490152}
+  - 65: {fileID: 1620490149}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Tile
@@ -1928,6 +1929,18 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!65 &1620490149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620490147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 8, z: 8}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1620490150
 MeshFilter:
   m_ObjectHideFlags: 0

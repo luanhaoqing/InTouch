@@ -17,7 +17,8 @@ public class EventPropoty : MonoBehaviour {
         if(other.CompareTag("PlayerOnBoard"))
         {
             Debug.Log("EVENT TRIGGER:AP TO 0");
-            turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
+            if(turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint!=3)
+                turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
             this.gameObject.SetActive(false);
         }
     }
