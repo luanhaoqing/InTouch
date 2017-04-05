@@ -186,67 +186,67 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         // Debug.Log("TEST");
                         //  PlayerOnBoard.transform.Rotate(0, x, 0);
                         //  PlayerOnBoard.transform.Translate(0, 0, z);
-                        if (Input.GetKeyDown(KeyCode.W) 
+                        if ((Input.GetKeyDown(KeyCode.W) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
                             && !counterDirection)
                         {
                             //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.W)
+                        if ((Input.GetKeyDown(KeyCode.W)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
                             && counterDirection)
                         {
                             //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.S) 
+                        if ((Input.GetKeyDown(KeyCode.S) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
                             && !counterDirection)
                         {
                             //    Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.S)
+                        if ((Input.GetKeyDown(KeyCode.S)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
                             && counterDirection)
                         {
                             //    Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
-                        if (Input.GetKeyDown(KeyCode.A) 
+                        if ((Input.GetKeyDown(KeyCode.A) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft)
-                            && !counterDirection)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                            && counterDirection)
                         {
-                          
+                         
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.A)
+                        if ((Input.GetKeyDown(KeyCode.A)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft)
-                            && counterDirection)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                            && !counterDirection)
                         {
-
+                            
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.D) 
+                        if ((Input.GetKeyDown(KeyCode.D) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
                             && !counterDirection)
                         {
                             //   Debug.Log("w");
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
-                        if (Input.GetKeyDown(KeyCode.D)
+                        if ((Input.GetKeyDown(KeyCode.D)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
                             && counterDirection)
                         {
                             //   Debug.Log("w");
