@@ -223,7 +223,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         if ((Input.GetKeyDown(KeyCode.A) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) 
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && counterDirection)
+                            && !counterDirection)
                         {
                          
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
@@ -231,7 +231,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         if ((Input.GetKeyDown(KeyCode.A)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && !counterDirection)
+                            && counterDirection)
                         {
                             
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
