@@ -27,7 +27,10 @@ public class Clock : MonoBehaviour {
 
     void Update()
     {
-     
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            DecreaseTurn();
+        }
     }
 
     public void DecreaseTurn(){
@@ -102,7 +105,7 @@ public class Clock : MonoBehaviour {
     //Rotate Outer
     IEnumerator RotateOuter(float time, float coreTime){
         float totalTime = 0;
-        Quaternion currRotation = outerTransform.transform.rotation;
+        Quaternion currRotation = outerTransform.transform.localRotation;
 
         float targetAngle = _patternIndex == 1 ? 180 : 0;
         Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.left);
