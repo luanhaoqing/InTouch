@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 99f452698abf18643ad84dba3b8ef49a
-timeCreated: 1491343744
+guid: 40dfe59931b8e0e43b4981501d23966f
+timeCreated: 1491508201
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -12,78 +12,75 @@ ModelImporter:
     100008: Gate_frame 1
     100010: Gate_sides
     100012: Gate_sides2
-    100014: group15
-    100016: group16
-    100018: group17
-    100020: group18
-    100022: group19
-    100024: Lock
-    100026: Lock_2
-    100028: pasted__Door1
-    100030: pasted__Gate_sides
-    100032: pasted__group15
-    100034: pasted__group17
-    100036: pasted__group18
-    100038: pasted__group3
-    100040: pasted__Lock
-    100042: pasted__pasted__group3
-    100044: pasted__pasted__pasted__pasted__pasted__pCube6
-    100046: pasted__pasted__pasted__pasted__pasted__pCube7
-    100048: pasted__pasted__pasted__pasted__pCube6
-    100050: pasted__pasted__pasted__pasted__pCube6 1
-    100052: pasted__pasted__pasted__pasted__pCube7
-    100054: pasted__pasted__pasted__pasted__pCube7 1
-    100056: pasted__pasted__pasted__pasted__pCube8
-    100058: pasted__pasted__pasted__pCube6
-    100060: pasted__pasted__pasted__pCube6 1
-    100062: pasted__pasted__pasted__pCube6 2
-    100064: pasted__pasted__pasted__pCube7
-    100066: pasted__pasted__pasted__pCube7 1
-    100068: pasted__pasted__pasted__pCube8
-    100070: pasted__pasted__pCube2
-    100072: pasted__pasted__pCube6
-    100074: pasted__pasted__pCube6 1
-    100076: pasted__pasted__pCube6 2
-    100078: pasted__pasted__pCube7
-    100080: pasted__pasted__pCube8
-    100082: pasted__pasted__pCylinder1
-    100084: pasted__pCube2
-    100086: pasted__pCube2 1
-    100088: pasted__pCube6
-    100090: pasted__pCube6 1
-    100092: pasted__pCube7
-    100094: pasted__pCube8
-    100096: pasted__pCylinder1
-    100098: pasted__pCylinder1 1
-    100100: pasted__pCylinder2
-    100102: pasted__pCylinder3
-    100104: pasted__polySurface10
-    100106: pasted__polySurface11
-    100108: pasted__polySurface12
-    100110: pasted__polySurface13
-    100112: pasted__polySurface6
-    100114: pasted__polySurface7
-    100116: pasted__polySurface8
-    100118: pasted__polySurface9
-    100120: pasted__transform6
-    100122: pCube2
-    100124: pCube3
-    100126: pCube6
-    100128: pCube7
-    100130: pCylinder1
-    100132: pCylinder2
-    100134: pCylinder3
-    100136: polySurface10
-    100138: polySurface11
-    100140: polySurface12
-    100142: polySurface13
-    100144: polySurface6
-    100146: polySurface7
-    100148: polySurface8
-    100150: polySurface9
-    100152: Rune
-    100154: Rune_2
-    100156: transform6
+    100014: group16
+    100016: group17
+    100018: group18
+    100020: group19
+    100022: Lock
+    100024: Lock_2
+    100026: pasted__Door1
+    100028: pasted__Gate_sides
+    100030: pasted__group15
+    100032: pasted__group17
+    100034: pasted__group18
+    100036: pasted__group3
+    100038: pasted__Lock
+    100040: pasted__pasted__group3
+    100042: pasted__pasted__pasted__pasted__pasted__pCube6
+    100044: pasted__pasted__pasted__pasted__pasted__pCube7
+    100046: pasted__pasted__pasted__pasted__pCube6
+    100048: pasted__pasted__pasted__pasted__pCube6 1
+    100050: pasted__pasted__pasted__pasted__pCube7
+    100052: pasted__pasted__pasted__pasted__pCube7 1
+    100054: pasted__pasted__pasted__pasted__pCube8
+    100056: pasted__pasted__pasted__pCube6
+    100058: pasted__pasted__pasted__pCube6 1
+    100060: pasted__pasted__pasted__pCube6 2
+    100062: pasted__pasted__pasted__pCube7
+    100064: pasted__pasted__pasted__pCube7 1
+    100066: pasted__pasted__pasted__pCube8
+    100068: pasted__pasted__pCube2
+    100070: pasted__pasted__pCube6
+    100072: pasted__pasted__pCube6 1
+    100074: pasted__pasted__pCube6 2
+    100076: pasted__pasted__pCube7
+    100078: pasted__pasted__pCube8
+    100080: pasted__pasted__pCylinder1
+    100082: pasted__pCube2
+    100084: pasted__pCube2 1
+    100086: pasted__pCube6
+    100088: pasted__pCube6 1
+    100090: pasted__pCube7
+    100092: pasted__pCube8
+    100094: pasted__pCylinder1
+    100096: pasted__pCylinder1 1
+    100098: pasted__pCylinder2
+    100100: pasted__pCylinder3
+    100102: pasted__polySurface10
+    100104: pasted__polySurface11
+    100106: pasted__polySurface12
+    100108: pasted__polySurface13
+    100110: pasted__polySurface6
+    100112: pasted__polySurface7
+    100114: pasted__polySurface8
+    100116: pasted__polySurface9
+    100118: pCube2
+    100120: pCube3
+    100122: pCube6
+    100124: pCube7
+    100126: pCylinder1
+    100128: pCylinder2
+    100130: pCylinder3
+    100132: polySurface10
+    100134: polySurface11
+    100136: polySurface12
+    100138: polySurface13
+    100140: polySurface6
+    100142: polySurface7
+    100144: polySurface8
+    100146: polySurface9
+    100148: Rune
+    100150: Rune_2
     400000: Door
     400002: Door1
     400004: //RootNode
@@ -91,78 +88,75 @@ ModelImporter:
     400008: Gate_frame 1
     400010: Gate_sides
     400012: Gate_sides2
-    400014: group15
-    400016: group16
-    400018: group17
-    400020: group18
-    400022: group19
-    400024: Lock
-    400026: Lock_2
-    400028: pasted__Door1
-    400030: pasted__Gate_sides
-    400032: pasted__group15
-    400034: pasted__group17
-    400036: pasted__group18
-    400038: pasted__group3
-    400040: pasted__Lock
-    400042: pasted__pasted__group3
-    400044: pasted__pasted__pasted__pasted__pasted__pCube6
-    400046: pasted__pasted__pasted__pasted__pasted__pCube7
-    400048: pasted__pasted__pasted__pasted__pCube6
-    400050: pasted__pasted__pasted__pasted__pCube6 1
-    400052: pasted__pasted__pasted__pasted__pCube7
-    400054: pasted__pasted__pasted__pasted__pCube7 1
-    400056: pasted__pasted__pasted__pasted__pCube8
-    400058: pasted__pasted__pasted__pCube6
-    400060: pasted__pasted__pasted__pCube6 1
-    400062: pasted__pasted__pasted__pCube6 2
-    400064: pasted__pasted__pasted__pCube7
-    400066: pasted__pasted__pasted__pCube7 1
-    400068: pasted__pasted__pasted__pCube8
-    400070: pasted__pasted__pCube2
-    400072: pasted__pasted__pCube6
-    400074: pasted__pasted__pCube6 1
-    400076: pasted__pasted__pCube6 2
-    400078: pasted__pasted__pCube7
-    400080: pasted__pasted__pCube8
-    400082: pasted__pasted__pCylinder1
-    400084: pasted__pCube2
-    400086: pasted__pCube2 1
-    400088: pasted__pCube6
-    400090: pasted__pCube6 1
-    400092: pasted__pCube7
-    400094: pasted__pCube8
-    400096: pasted__pCylinder1
-    400098: pasted__pCylinder1 1
-    400100: pasted__pCylinder2
-    400102: pasted__pCylinder3
-    400104: pasted__polySurface10
-    400106: pasted__polySurface11
-    400108: pasted__polySurface12
-    400110: pasted__polySurface13
-    400112: pasted__polySurface6
-    400114: pasted__polySurface7
-    400116: pasted__polySurface8
-    400118: pasted__polySurface9
-    400120: pasted__transform6
-    400122: pCube2
-    400124: pCube3
-    400126: pCube6
-    400128: pCube7
-    400130: pCylinder1
-    400132: pCylinder2
-    400134: pCylinder3
-    400136: polySurface10
-    400138: polySurface11
-    400140: polySurface12
-    400142: polySurface13
-    400144: polySurface6
-    400146: polySurface7
-    400148: polySurface8
-    400150: polySurface9
-    400152: Rune
-    400154: Rune_2
-    400156: transform6
+    400014: group16
+    400016: group17
+    400018: group18
+    400020: group19
+    400022: Lock
+    400024: Lock_2
+    400026: pasted__Door1
+    400028: pasted__Gate_sides
+    400030: pasted__group15
+    400032: pasted__group17
+    400034: pasted__group18
+    400036: pasted__group3
+    400038: pasted__Lock
+    400040: pasted__pasted__group3
+    400042: pasted__pasted__pasted__pasted__pasted__pCube6
+    400044: pasted__pasted__pasted__pasted__pasted__pCube7
+    400046: pasted__pasted__pasted__pasted__pCube6
+    400048: pasted__pasted__pasted__pasted__pCube6 1
+    400050: pasted__pasted__pasted__pasted__pCube7
+    400052: pasted__pasted__pasted__pasted__pCube7 1
+    400054: pasted__pasted__pasted__pasted__pCube8
+    400056: pasted__pasted__pasted__pCube6
+    400058: pasted__pasted__pasted__pCube6 1
+    400060: pasted__pasted__pasted__pCube6 2
+    400062: pasted__pasted__pasted__pCube7
+    400064: pasted__pasted__pasted__pCube7 1
+    400066: pasted__pasted__pasted__pCube8
+    400068: pasted__pasted__pCube2
+    400070: pasted__pasted__pCube6
+    400072: pasted__pasted__pCube6 1
+    400074: pasted__pasted__pCube6 2
+    400076: pasted__pasted__pCube7
+    400078: pasted__pasted__pCube8
+    400080: pasted__pasted__pCylinder1
+    400082: pasted__pCube2
+    400084: pasted__pCube2 1
+    400086: pasted__pCube6
+    400088: pasted__pCube6 1
+    400090: pasted__pCube7
+    400092: pasted__pCube8
+    400094: pasted__pCylinder1
+    400096: pasted__pCylinder1 1
+    400098: pasted__pCylinder2
+    400100: pasted__pCylinder3
+    400102: pasted__polySurface10
+    400104: pasted__polySurface11
+    400106: pasted__polySurface12
+    400108: pasted__polySurface13
+    400110: pasted__polySurface6
+    400112: pasted__polySurface7
+    400114: pasted__polySurface8
+    400116: pasted__polySurface9
+    400118: pCube2
+    400120: pCube3
+    400122: pCube6
+    400124: pCube7
+    400126: pCylinder1
+    400128: pCylinder2
+    400130: pCylinder3
+    400132: polySurface10
+    400134: polySurface11
+    400136: polySurface12
+    400138: polySurface13
+    400140: polySurface6
+    400142: polySurface7
+    400144: polySurface8
+    400146: polySurface9
+    400148: Rune
+    400150: Rune_2
     2300000: Door1
     2300002: pasted__Door1
     2300004: pasted__pasted__pasted__pasted__pasted__pCube6
@@ -338,7 +332,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
