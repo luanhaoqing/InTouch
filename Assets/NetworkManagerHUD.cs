@@ -86,7 +86,34 @@ namespace UnityEngine.Networking
                         }
                         ypos += spacing;
                     }
+                    // Demo buttons
+                    // Start from here
+                    if (GUI.Button(new Rect(xpos, ypos, 100, 30), "DEMO-10 (TV)"))
+                    {
+                        manager.networkAddress = testMachinesAddresses[2];
+                        manager.StartClient();
+                    }
 
+                    if (GUI.Button(new Rect(xpos + 110, ypos, 100, 30), "DEMO-16"))
+                    {
+                        manager.networkAddress = testMachinesAddresses[3];
+                        manager.StartClient();
+                    }
+
+
+                    if (GUI.Button(new Rect(xpos + 220, ypos, 100, 30), "Jeremy's"))
+                    {
+                        manager.networkAddress = testMachinesAddresses[1];
+                        manager.StartClient();
+                    }
+
+                    if (GUI.Button(new Rect(xpos + 330, ypos, 100, 30), "Michael's"))
+                    {
+                        manager.networkAddress = testMachinesAddresses[0];
+                        manager.StartClient();
+                    }
+
+                    ypos += spacing + 10;
                     if (GUI.Button(new Rect(xpos, ypos, 105, 20), "LAN Client(C)"))
                     {
                         manager.StartClient();
@@ -97,35 +124,7 @@ namespace UnityEngine.Networking
                     manager.networkAddress = GUI.TextField(new Rect(xpos + 100, ypos, 95, 20), manager.networkAddress);
                     ypos += spacing;
 
-                    // Demo buttons
-                    // Start from here
 
-                    if (GUI.Button(new Rect(xpos, ypos, 100, 30), "DEMO-10"))
-                    {
-                        manager.StartClient();
-                        manager.networkAddress = testMachinesAddresses[2];
-                    }
-
-                    if (GUI.Button(new Rect(xpos + 110, ypos, 100, 30), "DEMO-16"))
-                    {
-                        manager.StartClient();
-                        manager.networkAddress = testMachinesAddresses[3];
-                    }
-
-
-                    if (GUI.Button(new Rect(xpos + 220, ypos, 100, 30), "Jeremy's"))
-                    {
-                        manager.StartClient();
-                        manager.networkAddress = testMachinesAddresses[1];
-                    }
-
-                    if (GUI.Button(new Rect(xpos + 330, ypos, 100, 30), "Michael's"))
-                    {
-                        manager.StartClient();
-                        manager.networkAddress = testMachinesAddresses[0];
-                    }
-
-                    ypos += spacing + 10;
 
 
                     if (UnityEngine.Application.platform == RuntimePlatform.WebGLPlayer)
