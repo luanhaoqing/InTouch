@@ -80,11 +80,11 @@ namespace UnityEngine.Networking
                 {
                     if (UnityEngine.Application.platform != RuntimePlatform.WebGLPlayer)
                     {
-                        if (GUI.Button(new Rect(xpos, ypos, 200, 20), "LAN Host(H)"))
+                        if (GUI.Button(new Rect(xpos, ypos, 210, 30), "LAN Host(H)"))
                         {
                             manager.StartHost();
                         }
-                        ypos += spacing;
+                        ypos += spacing + 10;
                     }
                     // Demo buttons
                     // Start from here
