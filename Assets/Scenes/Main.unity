@@ -1412,6 +1412,7 @@ GameObject:
   - 4: {fileID: 802632203}
   - 114: {fileID: 802632202}
   - 114: {fileID: 802632201}
+  - 114: {fileID: 802632204}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -1425,7 +1426,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802632200}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 227461547, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -1516,6 +1517,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &802632204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802632200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1759ed2b19f71884381d5cf49b4c4652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 802632202}
+  showGUI: 1
+  offsetX: 0
+  offsetY: 0
+  testMachinesAddresses:
+  - 128.2.238.125
+  - 128.2.238.56
+  - 128.2.239.14
+  - 128.2.236.156
 --- !u!1001 &1026073907
 Prefab:
   m_ObjectHideFlags: 0
