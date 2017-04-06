@@ -97,10 +97,32 @@ namespace UnityEngine.Networking
                     manager.networkAddress = GUI.TextField(new Rect(xpos + 100, ypos, 95, 20), manager.networkAddress);
                     ypos += spacing;
 
-                    if (GUI.Button(new Rect(xpos, ypos, 100, 30), "DEMO-16"))
+                    // Demo buttons
+                    // Start from here
+
+                    if (GUI.Button(new Rect(xpos, ypos, 100, 30), "DEMO-10"))
+                    {
+                        manager.StartClient();
+                        manager.networkAddress = testMachinesAddresses[2];
+                    }
+
+                    if (GUI.Button(new Rect(xpos + 110, ypos, 100, 30), "DEMO-16"))
                     {
                         manager.StartClient();
                         manager.networkAddress = testMachinesAddresses[3];
+                    }
+
+
+                    if (GUI.Button(new Rect(xpos + 220, ypos, 100, 30), "Jeremy's"))
+                    {
+                        manager.StartClient();
+                        manager.networkAddress = testMachinesAddresses[1];
+                    }
+
+                    if (GUI.Button(new Rect(xpos + 330, ypos, 100, 30), "Michael's"))
+                    {
+                        manager.StartClient();
+                        manager.networkAddress = testMachinesAddresses[0];
                     }
 
                     ypos += spacing + 10;
