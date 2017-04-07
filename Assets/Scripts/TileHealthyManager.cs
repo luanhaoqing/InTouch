@@ -17,6 +17,7 @@ public class TileHealthyManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
+
         health = 5;
         _text.SetActive(false);
         clock = GameObject.Find("pf_Clock");
@@ -76,5 +77,24 @@ public class TileHealthyManager : MonoBehaviour {
     private void getRanTile()
     {
         this.GetComponentInParent<GenerateMap>().getRandomTile(player);
+    }
+
+    public void turnOffCursor() { 
+        this.GetComponent<MeshRenderer>().enabled = false;
+        foreach (Transform child in transform) 
+            if (child.CompareTag("Cursor"))
+            {
+                child.gameObject.SetActive(false);
+            }
+    }
+
+    public void turnOnCursor()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
+        foreach (Transform child in transform)
+            if (child.CompareTag("Cursor"))
+            {
+                child.gameObject.SetActive(true);
+            }
     }
 }
