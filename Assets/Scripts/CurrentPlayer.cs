@@ -71,14 +71,14 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-           /* if (!HasTurn)
-            {
-                Debug.Log("asdc");
-                clock.GetComponent<Clock>().DecreaseTurn();
-                HasTurn = true;
-            }
-    */
-
+            /* if (!HasTurn)
+             {
+                 Debug.Log("asdc");
+                 clock.GetComponent<Clock>().DecreaseTurn();
+                 HasTurn = true;
+             }
+     */
+            Invoke("setClock", 0.5f);
 
             //    Debug.Log(turnCount);
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
