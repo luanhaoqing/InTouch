@@ -71,12 +71,13 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-            if (!HasTurn)
+           /* if (!HasTurn)
             {
+                Debug.Log("asdc");
                 clock.GetComponent<Clock>().DecreaseTurn();
                 HasTurn = true;
             }
-
+    */
 
 
             //    Debug.Log(turnCount);
