@@ -40,8 +40,8 @@ public class CurrentPlayer : NetworkBehaviour {
         {
             if (!reverse)
             {
-                counter += Time.deltaTime;
-                if (counter >= 30f || RemainActionPoint == 0)
+              //  counter += Time.deltaTime;
+                if ( RemainActionPoint == 0&&CurrentPlayerID==1)
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
@@ -54,8 +54,8 @@ public class CurrentPlayer : NetworkBehaviour {
             }
             else
             {
-                counter -= Time.deltaTime;
-                if (counter <= 0f || RemainActionPoint == 0)
+               // counter -= Time.deltaTime;
+                if ( RemainActionPoint == 0 && CurrentPlayerID == 2)
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
@@ -121,6 +121,7 @@ public class CurrentPlayer : NetworkBehaviour {
         if (isServer)
             turnCount = 0;
         Invoke("setLoseHealth",0.5f);
+        Invoke("setClock",0.5f);
     }
     public void setClock()
     {
