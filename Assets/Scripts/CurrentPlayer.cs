@@ -126,6 +126,7 @@ public class CurrentPlayer : NetworkBehaviour {
     }
     public void setClock()
     {
+        Debug.Log("abcd");
         if (!HasTurn)
         {
             clock.GetComponent<Clock>().DecreaseTurn();
