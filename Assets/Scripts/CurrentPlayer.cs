@@ -26,7 +26,8 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool LoseHealth;
     public GameObject clock;
     [SyncVar]
-    private bool HasTurn=true;
+    public bool HasTurn=true;
+    private bool localHasTurn=true;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -71,14 +72,9 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-            /* if (!HasTurn)
-             {
-                 Debug.Log("asdc");
-                 clock.GetComponent<Clock>().DecreaseTurn();
-                 HasTurn = true;
-             }
-     */
-            Invoke("setClock", 0.5f);
+            localHasTurn = HasTurn;
+            if(!localHasTurn)
+                Invoke("setClock", 0.5f);
 
             //    Debug.Log(turnCount);
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
@@ -126,12 +122,18 @@ public class CurrentPlayer : NetworkBehaviour {
     }
     public void setClock()
     {
-        Debug.Log("abcd");
-        if (!HasTurn)
+     
+        if (!HasTurn&&!localHasTurn)
         {
             clock.GetComponent<Clock>().DecreaseTurn();
-            HasTurn = true;
+            localHasTurn = true;
+            Invoke("SetHasTurn",0.5f);
         }
+    }
+
+    public void SetHasTurn()
+    {
+        HasTurn = true;
     }
     public void setLoseHealth()
     {
