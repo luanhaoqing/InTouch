@@ -84,15 +84,15 @@ public class CurrentPlayer : NetworkBehaviour {
             //    Debug.Log(turnCount);
             if (CurrentPlayerID == this.GetComponent<TurnCounter>().OwnId)
             {
-                TEXT.SetActive(true);
-                TEXT.GetComponentInChildren<Text>().text = "Your Turn\n" + "Remain Action Point:"+RemainActionPoint;
+                //TEXT.SetActive(true);
+               // TEXT.GetComponentInChildren<Text>().text = "You have "+ RemainActionPoint + " action left";
                 MyTurn = true;
                
 
             }
             else
             {
-                TEXT.SetActive(false);
+              //  TEXT.SetActive(false);
                 MyTurn = false;
             }
 

@@ -18,7 +18,7 @@ public class IdentySelf : NetworkBehaviour {
     }
     public override void OnStartLocalPlayer()
     {
-        body.GetComponent<MeshRenderer>().material.color = Color.blue;
+      //  body.GetComponent<MeshRenderer>().material.color = Color.blue;
         LH.GetComponent<MeshRenderer>().material.color = Color.blue;
         RH.GetComponent<MeshRenderer>().material.color = Color.blue;
     }

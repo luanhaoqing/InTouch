@@ -35,8 +35,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool controllerMoveMapping;
     private bool controllerSendMapping;
     private bool controllerItemMapping;
-    private bool controllerExitMapping;
+    private bool controllerDownMapping;
     private bool controllerClickMapping;
+    private bool controllerCancelMapping;
 
     //
     public GameObject rightHand;
@@ -67,28 +68,30 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         else
             counterDirection = false;
         // Set Controller Mapping, get situation at current frame.
-        controllerMoveMapping = (Input.GetKeyDown(KeyCode.I)
+        controllerSendMapping = (Input.GetKeyDown(KeyCode.I)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft));
-        controllerSendMapping = (Input.GetKeyDown(KeyCode.O)
+        controllerMoveMapping = (Input.GetKeyDown(KeyCode.O)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp));
         controllerItemMapping = (Input.GetKeyDown(KeyCode.P)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight));
-        controllerExitMapping = (Input.GetKeyDown(KeyCode.L)
+        controllerDownMapping = (Input.GetKeyDown(KeyCode.L)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
-        controllerClickMapping = ((Input.GetKeyDown(KeyCode.K)
-                    || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-                    || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+        controllerCancelMapping = (Input.GetKeyDown(KeyCode.Backspace)
+                || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
+                || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
 
 
         // Open Menu whenever it's not on.
         if (controllerClickMapping)
         {
-            menuOpen = true;
-            Debug.Log("turning ON menu");
+            SetUIActive(true);
         }
 
         if (menuOpen)
@@ -125,7 +128,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 return;
             }
 
-            if (controllerExitMapping) // choose exit
+            if (controllerDownMapping) // choose exit
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
@@ -153,6 +156,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     ChangeControlMode();
                     controlMode = 2;
+                    // Here I need to reactivate Trade Mode. For now it's missing because trade mode cannot be syncronized across two clients.
                     AudioCenter.PlaySelectionConfirm();
 
                 }
@@ -169,16 +173,11 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 }
             }
             // 4) Exit and return to previous mode
-            if (currentHighlight == (int)Status.Exit)
+            if (controllerCancelMapping)
             {
-
-                if (controllerClickMapping)
-                {
-                    ChangeControlMode();
-                    controlMode = previousControlMode;
-                    AudioCenter.PlaySelectionConfirm();
-
-                }
+                ChangeControlMode();
+                controlMode = previousControlMode;
+                AudioCenter.PlaySelectionConfirm();
             }
 
 
@@ -346,5 +345,12 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         GetComponentInChildren<HandControl>().ActivateTrade(false);
 
         Debug.Log("Trade Mode OFF");
+    }
+
+    public void SetUIActive(bool boolean)
+    {
+        rightHandUI.SetActive(boolean);
+        menuOpen = boolean;
+        Debug.Log("turning ON menu");
     }
 }
