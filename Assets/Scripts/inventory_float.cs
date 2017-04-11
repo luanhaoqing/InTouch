@@ -18,5 +18,7 @@ public class inventory_float : MonoBehaviour {
     public void InventoryMoveUp()
     {
         iTween.MoveBy(gameObject, iTween.Hash("y", riseHeight, "space","world", "easeType", "easeInOutCubic", "loopType", "pingPong", "delay", 5));
+        AudioCenter.PlayCantDoThat();
+        Debug.Log("Play Sound: Can't Do That");
     }
 }

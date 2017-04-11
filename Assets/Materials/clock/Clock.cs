@@ -38,10 +38,12 @@ public class Clock : MonoBehaviour {
 
         int idx = _pattern[_patternIndex, _index++];
         outerRenderer[idx].material = outerMaterial[(int)STATUS.ON];
+        AudioCenter.PlayTurnOver();
 
         if (_index > outerRenderer.Length - 1){
             _patternIndex = ++_patternIndex % _pattern.GetLength(0);
             StartCoroutine(ChangeCore(0.2f, true, rotationTime));
+            AudioCenter.PlayRoundOver();
         }
     }
 

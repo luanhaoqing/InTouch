@@ -17,7 +17,7 @@ public class ItemsProperty : MonoBehaviour {
         {
             //   Player_ID = other.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB;
             other.GetComponentInParent<Inventory>().Setpositon(this.gameObject);
-            
+            AudioCenter.PlayGetItem();
         }
     }
    

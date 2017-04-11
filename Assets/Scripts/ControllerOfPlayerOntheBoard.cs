@@ -100,6 +100,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Move;
                 MoveButton.Select();
+                AudioCenter.PlaySelectionAlt();
                 //Debug.Log("Move Button Highlighted");
                 return;
 
@@ -109,6 +110,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Send;
                 SendButton.Select();
+                AudioCenter.PlaySelectionAlt();
                 //Debug.Log("Send Button Highlighted");
                 return;
 
@@ -118,6 +120,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Item;
                 ItemButton.Select();
+                AudioCenter.PlaySelectionAlt();
                 //Debug.Log("Item Button Highlighted");
                 return;
             }
@@ -126,6 +129,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 currentHighlight = (int)Status.Exit;
                 ExitButton.Select();
+                AudioCenter.PlaySelectionAlt();
                 //Debug.Log("Exit Button Highlighted");
                 return;
 
@@ -139,6 +143,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     ChangeControlMode();
                     controlMode = 1;
+                    AudioCenter.PlaySelectionConfirm();
                 }
             }
             // 2) Set Mode to Send
@@ -148,6 +153,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     ChangeControlMode();
                     controlMode = 2;
+                    AudioCenter.PlaySelectionConfirm();
+
                 }
             }
             // 3) Set Mode to Item
@@ -157,6 +164,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     ChangeControlMode();
                     controlMode = 3;
+                    AudioCenter.PlaySelectionConfirm();
+
                 }
             }
             // 4) Exit and return to previous mode
@@ -167,6 +176,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     ChangeControlMode();
                     controlMode = previousControlMode;
+                    AudioCenter.PlaySelectionConfirm();
+
                 }
             }
 
