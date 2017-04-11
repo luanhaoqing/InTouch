@@ -14,6 +14,7 @@ public class TileHealthyManager : MonoBehaviour {
     private bool HasPlayer;
     public GameObject End;
     public GameObject clock;
+    public GameObject cursor;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;

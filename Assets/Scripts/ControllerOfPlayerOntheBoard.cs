@@ -265,7 +265,10 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                                 //  Debug.Log("w");
                                 BeginMove = true;
                                 target = detectBall.transform.position;
-                                detectBall.transform.position = PlayerOnBoard.transform.position;
+                                Vector3 temp = PlayerOnBoard.transform.position;
+                                temp.y = 10f;
+                                detectBall.transform.position = temp;
+                                detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
                             }
                         }
                         if (Input.GetKeyDown(KeyCode.T))

@@ -3,10 +3,10 @@ using System.Collections;
 
 public class DetectionandHighLight : MonoBehaviour {
     bool CouldMove=false;
-
+    public GameObject cursor;
 	// Use this for initialization
 	void Start () {
-	
+        cursor.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -18,16 +18,21 @@ public class DetectionandHighLight : MonoBehaviour {
     {
         if(other.CompareTag("Tile")) //&& this.transform.position != transform.parent.position) // add this condition to make sure the cursor does not bounce back and forth.
         {
+            cursor.SetActive(true);
             CouldMove = true;
-            other.GetComponent<MeshRenderer>().enabled = true;
+            if(!other.GetComponent<TileHealthyManager>().HasExploded)
+                other.GetComponent<TileHealthyManager>().cursor.SetActive(true);
+            //other.GetComponent<MeshRenderer>().enabled = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Tile"))
         {
+            cursor.SetActive(false); 
             CouldMove = false;
-            other.GetComponent<MeshRenderer>().enabled = false;
+            other.GetComponent<TileHealthyManager>().cursor.SetActive(false);
+            //  other.GetComponent<MeshRenderer>().enabled = false;
         }
     }
     public bool IfCouldMove()
