@@ -4,6 +4,10 @@ using UnityEngine.Networking;
 public class HelperAnimation : NetworkBehaviour {
     public GameObject turnCount;
     public GameObject helper;
+
+    bool prompted;
+    bool first_time = true;
+
 	// Use this for initialization
 	void Start () {
         if (!isLocalPlayer)
@@ -21,11 +25,33 @@ public class HelperAnimation : NetworkBehaviour {
             if(turnCount.GetComponent<TurnCounter>().OwnId==turnCount.GetComponent<CurrentPlayer>().CurrentPlayerID)
             {
                 helper.GetComponent<Animator>().SetBool("fly",true);
+
+                if (!prompted)
+                {
+                    HelperPrompt();
+                }
             }
             else
             {
                 helper.GetComponent<Animator>().SetBool("fly", false);
+                prompted = false;
             }
         }
 	}
+
+    void HelperPrompt()
+    {
+        if (!first_time) {
+            AudioCenter.PlayHelperPrompt();
+            prompted = true;
+        }
+
+        else
+        {
+            first_time = false;
+            prompted = true;
+        }
+
+
+    }
 }

@@ -20,22 +20,22 @@ public class AudioCenter {
 
     public static void PlayCantDoThat()
     {
-        audioCenter.PlayOneShot(cantDoThat);
+        audioCenter.PlayOneShot(cantDoThat, 0.5f);
     }
 
     public static void PlayEventTrigger()
     {
-        audioCenter.PlayOneShot(eventTrigger);
+        audioCenter.PlayOneShot(eventTrigger, 0.5f);
     }
 
     public static void PlayGetItem()
     {
-        audioCenter.PlayOneShot(getItem);
+        audioCenter.PlayOneShot(getItem, 0.5f);
     }
 
     public static void PlayLoseItem()
     {
-        audioCenter.PlayOneShot(loseItem);
+        audioCenter.PlayOneShot(loseItem, 0.5f);
     }
 
     public static void PlayRoundOver()
@@ -55,7 +55,7 @@ public class AudioCenter {
 
     public static void PlaySelectionAlt()
     {
-        audioCenter.PlayOneShot(selectionAlt);
+        audioCenter.PlayOneShot(selectionAlt, 1f);
     }
 
 
@@ -64,6 +64,6 @@ public class AudioCenter {
     {
         int length = helperPromptList.Length;
         int randNumber = Random.Range(1, length);
-        audioCenter.PlayOneShot(helperPromptList[randNumber]);
+        audioCenter.PlayOneShot(helperPromptList[randNumber], 0.5f);
     }
 }

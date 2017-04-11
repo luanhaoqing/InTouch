@@ -1818,6 +1818,16 @@ MonoBehaviour:
   selectionAlt: {fileID: 8300000, guid: 16865de1b77025d44a90907376027310, type: 3}
   helperPromptList:
   - {fileID: 8300000, guid: 237c00e4aca09be48924bc9b3c82f162, type: 3}
+  - {fileID: 8300000, guid: 862858bac44263e478142763f14c3d8d, type: 3}
+  - {fileID: 8300000, guid: d721211906f5e1849bfd133d4bf72657, type: 3}
+  - {fileID: 8300000, guid: 0b7d9cfa4180dae4c8718ecb2bb9455c, type: 3}
+  - {fileID: 8300000, guid: 5a2334281a800f94bb5197fb56108434, type: 3}
+  - {fileID: 8300000, guid: d989962aa3ed9c347b2f3b82225edd77, type: 3}
+  - {fileID: 8300000, guid: 9764ea4a4d00dba46b167c16826a321a, type: 3}
+  - {fileID: 8300000, guid: 0d1e9f0933489a04fa610d77751a2453, type: 3}
+  - {fileID: 8300000, guid: e3a1c3ce9176b4c4e9faf68fd0e06ec1, type: 3}
+  - {fileID: 8300000, guid: 2b4f66ac30b6ed7448592aa8e462edce, type: 3}
+  - {fileID: 8300000, guid: 605950b7203f736498896d56de35acee, type: 3}
   - {fileID: 8300000, guid: 128dba48f1013d744bddd7efb8fbd4e1, type: 3}
 --- !u!82 &1249515457
 AudioSource:
