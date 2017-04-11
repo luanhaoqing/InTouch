@@ -30,15 +30,7 @@ public class TileHealthyManager : MonoBehaviour {
 	if(health==0)
         {
             // this.gameObject.SetActive(false);
-            Destroy(tmp);
-            tmp = null;
-            HasExploded = false;
-            if (HasPlayer)
-            {
-                clock.SetActive(false);
-                End.transform.localScale = new Vector3(2, 2, 2);
-            }
-                this.gameObject.SetActive(false);
+            Invoke("DetectDeath", 0.5f);         
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -97,5 +89,17 @@ public class TileHealthyManager : MonoBehaviour {
             {
                 child.gameObject.SetActive(true);
             }
+    }
+    public void DetectDeath()
+    {
+        if (HasPlayer)
+        {
+            clock.SetActive(false);
+            End.transform.localScale = new Vector3(2, 2, 2);
+            Destroy(tmp);
+            tmp = null;
+            HasExploded = false;
+            this.gameObject.SetActive(false);
+        }
     }
 }

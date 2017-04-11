@@ -20,14 +20,14 @@ public class DetectionandHighLight : MonoBehaviour {
         {
             cursor.SetActive(true);
             CouldMove = true;
-            if(!other.GetComponent<TileHealthyManager>().HasExploded)
+            if(other.gameObject.name != "Tile"&&!other.GetComponent<TileHealthyManager>().HasExploded)
                 other.GetComponent<TileHealthyManager>().cursor.SetActive(true);
             //other.GetComponent<MeshRenderer>().enabled = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Tile"))
+        if (other.CompareTag("Tile") && other.gameObject.name != "Tile")
         {
             cursor.SetActive(false); 
             CouldMove = false;
