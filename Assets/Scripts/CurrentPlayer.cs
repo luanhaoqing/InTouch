@@ -95,7 +95,8 @@ public class CurrentPlayer : NetworkBehaviour {
                 currentplayer = MyPlayer;
             else
                 currentplayer = otherPlayer;
-            if (currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().rabbit.transform.position.x > 10)
+            float temp = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().rabbit.transform.position.x;
+            if (temp > 20||temp<-20)
                 TradeOn = true;
             else
                 TradeOn = false;
