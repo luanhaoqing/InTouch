@@ -6,7 +6,7 @@ public class HandControl : NetworkBehaviour
 {
     public bool TradeModeActive = false;
     [SyncVar]
-    int test=0;
+    public int test=0;
     // Use this for initialization
     void Start()
     {
