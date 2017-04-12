@@ -30,6 +30,7 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool localHasTurn=false;
     [SyncVar]
     public bool TradeOn=false;
+    public GameObject currentplayer;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -78,9 +79,16 @@ public class CurrentPlayer : NetworkBehaviour {
 
         if (isClient)
         {
-
-          
-        
+            GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
+            for(int i=0;i<2;i++)
+            {
+                if(Players[i].GetComponent<PlayerIDOnBoard>().PlayerIDOB==this.GetComponent<TurnCounter>().OwnId)
+                {
+                    currentplayer = Players[i];
+                    break;
+                }
+            }
+            TradeOn = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().tradeon;
             if (!localHasTurn&&!HasTurn)
             {
               
