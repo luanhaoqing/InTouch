@@ -18,6 +18,7 @@ TagManager:
   - END
   - RightHandUI
   - Cursor
+  - RightHandHoverMenu
   layers:
   - Default
   - TransparentFX

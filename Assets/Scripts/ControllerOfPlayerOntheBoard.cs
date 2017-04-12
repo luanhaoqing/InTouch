@@ -10,7 +10,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
     private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
     private int previousControlMode = 1;
-    private GameObject rightHandUI;
+    private GameObject rightHandMenu;
+    private GameObject rightHandHoverUI;
     public int currentHighlight = 0; // UI higlight
     public GameObject TurnCounter;
     public bool counterDirection;
@@ -21,6 +22,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public UnityEngine.UI.Button ExitButton;
 
     public bool menuOpen = false;
+    private bool menuHasOpened = false;
 
     enum Status
     {
@@ -46,8 +48,10 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // Use this for initialization
     void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);
-        rightHandUI = GameObject.FindGameObjectWithTag("RightHandUI");
-        rightHandUI.SetActive(false);
+        rightHandMenu = GameObject.FindGameObjectWithTag("RightHandUI");
+        rightHandMenu.SetActive(false);
+        rightHandHoverUI = GameObject.FindGameObjectWithTag("RightHandHoverMenu");
+        rightHandHoverUI.SetActive(false);
         TurnCounter = GameObject.Find("TrunCounter");
         if(TurnCounter.GetComponent<TurnCounter>().OwnId==1)
         {
@@ -88,15 +92,30 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
 
 
-        // Open Menu whenever it's not on.
-        if (controllerClickMapping)
+        // Open Menu whenever it's your turn. Turn it off whenever it's not.
+        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !menuHasOpened)
         {
-            SetUIActive(true);
+            menuHasOpened = true;
+            SetMenuActive(true);
+            SetHoverUIActive(true);
+        }
+        else if (!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && menuHasOpened)
+        {
+            menuHasOpened = false;
+            SetMenuActive(false);
+            SetHoverUIActive(false);
+
+        }
+
+        // Open menu with trigger after you chose something in this turn.
+        if (!menuOpen && controllerCancelMapping && menuHasOpened)
+        {
+            SetMenuActive(true);
         }
 
         if (menuOpen)
         {
-            rightHandUI.SetActive(true); // UI pops up
+            // rightHandUI.SetActive(true); // UI pops up
 
             // Highlighting options
             if (controllerMoveMapping) // choose move
@@ -173,13 +192,15 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 }
             }
             // 4) Exit and return to previous mode
+            // obsolete because the menu is the highest rank you can go back to.
+            /*
             if (controllerCancelMapping)
             {
                 ChangeControlMode();
                 controlMode = previousControlMode;
                 AudioCenter.PlaySelectionConfirm();
             }
-
+            */
 
 
         }
@@ -338,7 +359,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // To turn off anything that needs to be turned off whenever enters menu.
     void ChangeControlMode()
     {
-        rightHandUI.SetActive(false);
+        SetMenuActive(false);
         menuOpen = false;
         currentHighlight = (int)Status.None;
         Debug.Log("Turning off Menu");
@@ -347,10 +368,16 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         Debug.Log("Trade Mode OFF");
     }
 
-    public void SetUIActive(bool boolean)
+    public void SetMenuActive(bool boolean)
     {
-        rightHandUI.SetActive(boolean);
+        rightHandMenu.SetActive(boolean);
         menuOpen = boolean;
-        Debug.Log("turning ON menu");
+        Debug.Log("Set handmenu activity: " + boolean);
+    }
+
+    public void SetHoverUIActive(bool boolean)
+    {
+        rightHandHoverUI.SetActive(boolean);
+        Debug.Log("Set hand hover UI activity: " + boolean);
     }
 }
