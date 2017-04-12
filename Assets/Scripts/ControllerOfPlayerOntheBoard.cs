@@ -320,7 +320,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     // enable touch-send control
                     if (!GetComponentInChildren<HandControl>().TradeModeActive)
                     {
-                        GetComponentInChildren<HandControl>().ActivateTrade(true);
+                        // GetComponentInChildren<HandControl>().ActivateTrade(true);
+                        GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
                         Debug.Log("Trade Mode ON");
                     }
                     
