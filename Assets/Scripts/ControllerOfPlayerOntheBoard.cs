@@ -113,7 +113,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
         if (menuOpen)
         {
-            // rightHandUI.SetActive(true); // UI pops up
+            hideCursor();
 
             // Highlighting options
             if (controllerMoveMapping) // choose move
@@ -301,10 +301,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                                 //  Debug.Log("w");
                                 BeginMove = true;
                                 target = detectBall.transform.position;
-                                Vector3 temp = PlayerOnBoard.transform.position;
-                                temp.y = 10f;
-                                detectBall.transform.position = temp;
-                                detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
+                                hideCursor();
                             }
                         }
                         if (Input.GetKeyDown(KeyCode.T))
@@ -378,12 +375,18 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     {
         rightHandMenu.SetActive(boolean);
         menuOpen = boolean;
-        Debug.Log("Set handmenu activity: " + boolean);
     }
 
     public void SetHoverUIActive(bool boolean)
     {
         rightHandHoverUI.SetActive(boolean);
-        Debug.Log("Set hand hover UI activity: " + boolean);
+    }
+
+    void hideCursor()
+    {
+        Vector3 temp = PlayerOnBoard.transform.position;
+        temp.y = 10f;
+        detectBall.transform.position = temp;
+        detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
     }
 }
