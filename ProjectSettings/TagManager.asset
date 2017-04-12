@@ -19,6 +19,7 @@ TagManager:
   - RightHandUI
   - Cursor
   - RightHandHoverMenu
+  - EventAnimationManager
   layers:
   - Default
   - TransparentFX
