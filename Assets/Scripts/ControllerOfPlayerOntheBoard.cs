@@ -92,13 +92,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
 
         // Open Menu whenever it's your turn. Turn it off whenever it's not.
-        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !menuHasOpened)
+        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (!menuHasOpened))
         {
             menuHasOpened = true;
             SetMenuActive(true);
             SetHoverUIActive(true);
         }
-        else if (!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && menuHasOpened)
+        else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && menuHasOpened)
         {
             menuHasOpened = false;
             SetMenuActive(false);
