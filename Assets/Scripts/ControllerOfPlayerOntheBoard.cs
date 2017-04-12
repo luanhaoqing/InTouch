@@ -42,8 +42,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool controllerCancelMapping;
 
     //
-    public GameObject rightHand;
-    public GameObject leftHand;
+
 
     // Use this for initialization
     void Start () {
