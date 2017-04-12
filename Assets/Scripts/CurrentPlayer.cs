@@ -80,7 +80,7 @@ public class CurrentPlayer : NetworkBehaviour {
         if (isClient)
         {
             GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
-            for(int i=0;i<2;i++)
+            for(int i=0;i<Players.Length;i++)
             {
                 if(Players[i].GetComponent<PlayerIDOnBoard>().PlayerIDOB==this.GetComponent<TurnCounter>().OwnId)
                 {
@@ -95,7 +95,12 @@ public class CurrentPlayer : NetworkBehaviour {
                 currentplayer = MyPlayer;
             else
                 currentplayer = otherPlayer;
-            TradeOn = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().tradeon;
+            if (currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().rabbit.transform.position.x > 10)
+                TradeOn = true;
+            else
+                TradeOn = false;
+
+         //   TradeOn = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().tradeon;
             if (!localHasTurn&&!HasTurn)
             {
               

@@ -7,7 +7,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject detectBall;
     private Vector3 target;
     private bool BeginMove;
-
+    public GameObject rabbit;
     private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
@@ -326,7 +326,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     {
                         // GetComponentInChildren<HandControl>().ActivateTrade(true);
                         //GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
-                        tradeon = true;
+                        //  tradeon = true;
+                        rabbit.transform.position = new Vector3(100, 100, 100);
                         Debug.Log("Trade Mode ON");
                     }
                     
@@ -370,6 +371,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         Debug.Log("Turning off Menu");
         // GetComponentInChildren<HandControl>().ActivateTrade(false);
         tradeon = false;
+        rabbit.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Trade Mode OFF");
     }
 

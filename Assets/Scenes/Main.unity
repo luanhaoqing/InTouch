@@ -2552,6 +2552,9 @@ MonoBehaviour:
   clock: {fileID: 56119058}
   HasTurn: 1
   TradeOn: 0
+  MyPlayer: {fileID: 0}
+  otherPlayer: {fileID: 0}
+  currentplayer: {fileID: 0}
 --- !u!1 &1945824444
 GameObject:
   m_ObjectHideFlags: 0

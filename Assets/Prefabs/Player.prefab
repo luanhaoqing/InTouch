@@ -387,6 +387,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000010371842518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013666319448}
+  - 114: {fileID: 114000013062590538}
+  - 114: {fileID: 114000012545199460}
+  - 114: {fileID: 114000010538108200}
+  m_Layer: 0
+  m_Name: rabbit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010376587290
 GameObject:
   m_ObjectHideFlags: 1
@@ -1508,6 +1526,7 @@ GameObject:
   - 114: {fileID: 114000012132409494}
   - 114: {fileID: 114000011418461502}
   - 114: {fileID: 114000012604458652}
+  - 114: {fileID: 114000010770155398}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4297,6 +4316,7 @@ Transform:
   - {fileID: 4000012560031870}
   - {fileID: 4000010657358380}
   - {fileID: 4000011714496554}
+  - {fileID: 4000013666319448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000011925216674
@@ -5336,6 +5356,19 @@ Transform:
   - {fileID: 4000012965193634}
   m_Father: {fileID: 4000010005948522}
   m_RootOrder: 0
+--- !u!4 &4000013666319448
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010371842518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011919883412}
+  m_RootOrder: 5
 --- !u!4 &4000013711724764
 Transform:
   m_ObjectHideFlags: 1
@@ -7236,6 +7269,17 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &114000010538108200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010371842518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90315fc6d1aab7a479a9fe54e8129627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010664345056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7320,6 +7364,25 @@ MonoBehaviour:
     i15: 83
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114000010770155398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011950342710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000013666319448}
+  m_ChildIndex: 5
+  m_SendInterval: 0.083333336
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000010896051568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7891,6 +7954,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000012545199460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010371842518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.055555556
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000012604458652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7992,6 +8075,38 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010040682678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114000013062590538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010371842518}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
@@ -8365,11 +8480,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerOnBoard: {fileID: 1000013608104778}
   detectBall: {fileID: 1000010040682678}
+  rabbit: {fileID: 1000013126529036}
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}
   currentHighlight: 0
   TurnCounter: {fileID: 0}
   counterDirection: 0
+  tradeon: 0
   MoveButton: {fileID: 114000011129975778}
   SendButton: {fileID: 114000011164090636}
   ItemButton: {fileID: 114000012421304404}
