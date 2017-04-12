@@ -82,7 +82,7 @@ public class CurrentPlayer : NetworkBehaviour {
             GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
             for(int i=0;i<2;i++)
             {
-                if(Players[i].GetComponent<PlayerIDOnBoard>().PlayerIDOB==this.GetComponent<TurnCounter>().OwnId)
+                if(Players[i].GetComponent<PlayerIDOnBoard>().PlayerIDOB==CurrentPlayerID)
                 {
                     currentplayer = Players[i];
                     break;
