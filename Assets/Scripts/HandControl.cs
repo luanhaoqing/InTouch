@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class HandControl : MonoBehaviour
+public class HandControl : NetworkBehaviour
 {
     public bool TradeModeActive = false;
     [SyncVar]
@@ -20,6 +20,8 @@ public class HandControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (!isLocalPlayer)
+            return;
         if (other.CompareTag("ITEM"))
         {
             /*
