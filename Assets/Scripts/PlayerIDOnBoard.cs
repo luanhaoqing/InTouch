@@ -2,8 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 public class PlayerIDOnBoard : NetworkBehaviour {
-    [SyncVar]
-    public int PlayerIDOB;
+    public int PlayerIDOB=0;
   //  public GameObject[] Items;
    // public int ItemNumber=0;
 	// Use this for initialization

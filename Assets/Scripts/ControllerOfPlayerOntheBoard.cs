@@ -15,6 +15,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public int currentHighlight = 0; // UI higlight
     public GameObject TurnCounter;
     public bool counterDirection;
+    public bool tradeon=false;
 
     public UnityEngine.UI.Button MoveButton;
     public UnityEngine.UI.Button SendButton;
@@ -324,7 +325,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     if (!GetComponentInChildren<HandControl>().TradeModeActive)
                     {
                         // GetComponentInChildren<HandControl>().ActivateTrade(true);
-                        GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
+                        //GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
+                        tradeon = true;
                         Debug.Log("Trade Mode ON");
                     }
                     
@@ -366,8 +368,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         menuOpen = false;
         currentHighlight = (int)Status.None;
         Debug.Log("Turning off Menu");
-        GetComponentInChildren<HandControl>().ActivateTrade(false);
-
+        // GetComponentInChildren<HandControl>().ActivateTrade(false);
+        tradeon = false;
         Debug.Log("Trade Mode OFF");
     }
 
