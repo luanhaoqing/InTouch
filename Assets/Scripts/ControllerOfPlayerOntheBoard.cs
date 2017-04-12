@@ -10,8 +10,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
     private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
     private int previousControlMode = 1;
-    private GameObject rightHandMenu;
-    private GameObject rightHandHoverUI;
+    public GameObject rightHandMenu;
+    public GameObject rightHandHoverUI;
     public int currentHighlight = 0; // UI higlight
     public GameObject TurnCounter;
     public bool counterDirection;
@@ -46,10 +46,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);
-        rightHandMenu = GameObject.FindGameObjectWithTag("RightHandUI");
+        PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);     
         rightHandMenu.SetActive(false);
-        rightHandHoverUI = GameObject.FindGameObjectWithTag("RightHandHoverMenu");
         rightHandHoverUI.SetActive(false);
         TurnCounter = GameObject.Find("TrunCounter");
         if(TurnCounter.GetComponent<TurnCounter>().OwnId==1)
@@ -97,13 +95,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             menuHasOpened = true;
             SetMenuActive(true);
             SetHoverUIActive(true);
+            Debug.Log("Opened");
         }
         else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && menuHasOpened)
         {
             menuHasOpened = false;
             SetMenuActive(false);
             SetHoverUIActive(false);
-
+            Debug.Log("Closed");
         }
 
         // Open menu with trigger after you chose something in this turn.

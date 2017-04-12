@@ -8365,6 +8365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerOnBoard: {fileID: 1000013608104778}
   detectBall: {fileID: 1000010040682678}
+  rightHandMenu: {fileID: 1000010710203540}
+  rightHandHoverUI: {fileID: 1000012803643664}
   currentHighlight: 0
   TurnCounter: {fileID: 0}
   counterDirection: 0
