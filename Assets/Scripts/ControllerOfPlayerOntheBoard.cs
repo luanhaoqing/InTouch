@@ -183,10 +183,17 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 if (controllerClickMapping)
                 {
+                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
+                    Debug.Log("Use Item Not Implemented Yet");
+                    AudioCenter.PlayCantDoThat();
+
+                    // Cannot change control mode right now:
+                    // De-commit when it is implemented
+                    /*
                     ChangeControlMode();
                     controlMode = 3;
                     AudioCenter.PlaySelectionConfirm();
-
+                    */
                 }
             }
             // 4) Exit and return to previous mode
@@ -286,8 +293,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         if (Input.GetKeyDown(KeyCode.G) 
                             || OVRInput.GetDown(OVRInput.Button.One) 
                             || OVRInput.GetDown(OVRInput.Button.Three)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
                         {
                             if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
                             {
