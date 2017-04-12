@@ -2,14 +2,15 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class HandControl : NetworkBehaviour
+public class HandControl : MonoBehaviour
 {
     public bool TradeModeActive = false;
-    [SyncVar]
-    public int test=0;
+    public GameObject TurnCounter;
+
     // Use this for initialization
     void Start()
     {
+        TurnCounter = GameObject.Find("TrunCounter");
 
     }
 
@@ -20,37 +21,9 @@ public class HandControl : NetworkBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!isLocalPlayer)
-            return;
-        if (other.CompareTag("ITEM"))
-        {
-            /*
-            if (this.GetComponentInParent<Inventory>().ItemNumber != 0)
-            {
-                
-                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-                for (int i = 0; i < 2; i++)
-                {
-                    if(players[i] == this.transform.parent.gameObject)
-                    {
-                        players[i].GetComponentInChildren<Inventory>().Setpositon(other.gameObject);
-                    }
-                    if (players[i] != this.transform.parent.gameObject)
-                    {
-                        
-                        players[i].GetComponent<Inventory>().Items[players[i].GetComponent<Inventory>().ItemNumber] = this.GetComponentInParent<Inventory>().Items[this.GetComponentInParent<Inventory>().ItemNumber - 1];
-                        players[i].GetComponent<Inventory>().Items[players[i].GetComponent<Inventory>().ItemNumber].transform.position = players[i].transform.position;
-                        players[i].GetComponent<Inventory>().Items[players[i].GetComponent<Inventory>().ItemNumber].transform.parent = players[i].transform;
-                        players[i].GetComponent<Inventory>().ItemNumber++;
 
-                        this.GetComponentInParent<Inventory>().ItemNumber--;
-                        this.GetComponentInParent<Inventory>().Items[this.GetComponentInParent<Inventory>().ItemNumber] = null;
-                        
-                        players[i].GetComponentInChildren<Inventory>().Setpositon(other.gameObject);                
-                     }
-                }
-        
-            }*/
+        if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().MyTurn&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn)
+        {
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
     }

@@ -28,6 +28,8 @@ public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     public bool HasTurn=true;
     private bool localHasTurn=false;
+    [SyncVar]
+    public bool TradeOn=false;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -50,6 +52,8 @@ public class CurrentPlayer : NetworkBehaviour {
                     RemainActionPoint = 3;
                     turnCount++;
                     HasTurn = false;
+                    TradeOn = false;
+
 
                 }
             }
@@ -64,6 +68,8 @@ public class CurrentPlayer : NetworkBehaviour {
                     RemainActionPoint = 3;
                     turnCount++;
                     HasTurn = false;
+                    TradeOn = false;
+
                 }
             }
         }
