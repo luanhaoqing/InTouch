@@ -5,7 +5,8 @@ using UnityEngine.Networking;
 public class HandControl : MonoBehaviour
 {
     public bool TradeModeActive = false;
-
+    [SyncVar]
+    int test=0;
     // Use this for initialization
     void Start()
     {
