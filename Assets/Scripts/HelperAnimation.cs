@@ -22,6 +22,7 @@ public class HelperAnimation : NetworkBehaviour {
     int helperTalkIndex = 0;
     float helperTalkDuration = 0;
     float thisTalkDuration = 0;
+
     //helper grey out animation
     bool helperGreyActive = false;
     float helperGreyCounter = 0;
@@ -38,8 +39,7 @@ public class HelperAnimation : NetworkBehaviour {
         helperBodyMaterial = helper.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material;
         oldMaterial = helperBodyMaterial;
 
-        SetHelperTalkActive(true, 5f);
-        //SetHelperSad(3f);
+        //SetHelperTalkActive(true, 5f);
 
     }
 
@@ -106,6 +106,11 @@ public class HelperAnimation : NetworkBehaviour {
                 helperGreyActive = false;
             }
         }
+
+        // grey after hand touch.
+
+
+
     }
 
     void HelperPrompt()
@@ -138,7 +143,7 @@ public class HelperAnimation : NetworkBehaviour {
     {
         helperGreyActive = true;
         helperGreyDuration = seconds;
-        helperBodyMaterial = helperGreyMaterial;
+        //        helperBodyMaterial = helperGreyMaterial;
         Debug.Log("Change Material");
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
     }
