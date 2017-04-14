@@ -2041,6 +2041,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010042115376, guid: 8bf50649de60abb43b41f2097c51991f, type: 2}
+      propertyPath: m_TagString
+      value: EventAnimationManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bf50649de60abb43b41f2097c51991f, type: 2}
   m_IsPrefabParent: 0
