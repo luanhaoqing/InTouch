@@ -316,6 +316,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010657358380}
   - 95: {fileID: 95000014023294848}
+  - 114: {fileID: 114000014238725344}
   m_Layer: 0
   m_Name: helper
   m_TagString: Untagged
@@ -7701,6 +7702,19 @@ MonoBehaviour:
   turnCount: {fileID: 0}
   helper: {fileID: 1000010312030890}
   countsShow: {fileID: 1000011283416568}
+  helperTalkTextureArray:
+  - {fileID: 2800000, guid: 94db1329c85d26e4da1b2031161bec40, type: 3}
+  - {fileID: 2800000, guid: d30226d0ef48cb440a30188df08f806c, type: 3}
+  - {fileID: 2800000, guid: cb8959d1546d0fe4c8dfe7700d1b20c3, type: 3}
+  - {fileID: 2800000, guid: 127eadb841411f4468fbc32b20412263, type: 3}
+  - {fileID: 2800000, guid: 3773fdb4f254a8747973bc14afac7ddb, type: 3}
+  - {fileID: 2800000, guid: 3d5f6f77b162fe1419a1d11723a42d56, type: 3}
+  - {fileID: 2800000, guid: a5ef790fb61469746ad5d288fd1f546e, type: 3}
+  - {fileID: 2800000, guid: 6aad3b9a3ec39d84db6d5bcf96802f66, type: 3}
+  - {fileID: 2800000, guid: c3bb921589dd21546a9964d6c1b55919, type: 3}
+  - {fileID: 2800000, guid: 65be10c0620fd5c4c8a7f4819dfca7ac, type: 3}
+  - {fileID: 2800000, guid: 4dd98e6a1baac6240895ec6087396276, type: 3}
+  - {fileID: 2800000, guid: 46c996e2240366f40a70f7c78c713391, type: 3}
 --- !u!114 &114000011422894960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8492,6 +8506,38 @@ MonoBehaviour:
   ItemButton: {fileID: 114000012421304404}
   ExitButton: {fileID: 114000010978955468}
   menuOpen: 0
+--- !u!114 &114000014238725344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010312030890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114000014271250826
 MonoBehaviour:
   m_ObjectHideFlags: 1

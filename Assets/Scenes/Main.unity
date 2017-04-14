@@ -619,11 +619,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1225543943}
+    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
     - target: {fileID: 114000010184426404, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: LeftHand
@@ -639,12 +644,7 @@ Prefab:
       propertyPath: Body
       value: 
       objectReference: {fileID: 1225543942}
-    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
-    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cantDoThat: {fileID: 8300000, guid: e6191e009b451d2469e8a7bb10aa2ce1, type: 3}
   eventTrigger: {fileID: 8300000, guid: 80125658449d63d49aaf48dc8dc8328d, type: 3}
-  getItem: {fileID: 8300000, guid: 1b609ba68f35665468a3410ac4127710, type: 3}
+  getItem: {fileID: 8300000, guid: b5841edb532256448a210a8ea50ec45d, type: 3}
   loseItem: {fileID: 8300000, guid: 1fa398e8e7c6ced4099be05468acac34, type: 3}
   roundOver: {fileID: 8300000, guid: c5162375ad878a64aae7a5988a12d655, type: 3}
   turnOver: {fileID: 8300000, guid: 11166cf063b9c1c489fe29770be5853c, type: 3}
