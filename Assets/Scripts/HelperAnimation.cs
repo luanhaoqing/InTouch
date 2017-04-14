@@ -27,7 +27,6 @@ public class HelperAnimation : NetworkBehaviour {
             return;
         turnCount = GameObject.Find("TrunCounter");
         helperBodyMaterial = helper.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material;
-        SetHelperTalkActive(true, 5);
     }
 
     // Update is called once per frame
