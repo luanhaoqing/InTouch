@@ -29,11 +29,11 @@ public class EventSheetMovement : MonoBehaviour {
 
         iTween.FadeTo(transform.GetChild(0).gameObject, iTween.Hash(
             "alpha", 1,
-            "time", 1f,
+            "time", 2.5f,
             "oncompletetarget", gameObject
             ));
         iTween.MoveTo(transform.GetChild(0).gameObject, iTween.Hash(
-            "position", targetPosition.position + targetPosition.forward * 0.3f,
+            "position", targetPosition.position + targetPosition.forward * 0.6f,
             "looktarget", targetPosition.position,
             "time", 3f,
             "easetype", iTween.EaseType.easeOutSine,
