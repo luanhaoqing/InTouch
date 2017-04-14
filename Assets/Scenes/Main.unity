@@ -619,16 +619,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1225543943}
-    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
     - target: {fileID: 114000010184426404, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: LeftHand
@@ -644,12 +639,29 @@ Prefab:
       propertyPath: Body
       value: 
       objectReference: {fileID: 1225543942}
-    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
+    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1225543943}
     - target: {fileID: 1000011950342710, guid: d5ae8652797944044817ee4975312653, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013268496660, guid: d5ae8652797944044817ee4975312653, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000003195422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011145438860, guid: d5ae8652797944044817ee4975312653, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.011988131
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010242202722, guid: d5ae8652797944044817ee4975312653, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
