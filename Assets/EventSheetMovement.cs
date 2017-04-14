@@ -33,7 +33,7 @@ public class EventSheetMovement : MonoBehaviour {
             "oncompletetarget", gameObject
             ));
         iTween.MoveTo(transform.GetChild(0).gameObject, iTween.Hash(
-            "position", targetPosition.position + targetPosition.forward * 0.2f,
+            "position", targetPosition.position + targetPosition.forward * 0.3f,
             "looktarget", targetPosition.position,
             "time", 3f,
             "easetype", iTween.EaseType.easeOutSine,
