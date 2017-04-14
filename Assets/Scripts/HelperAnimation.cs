@@ -27,7 +27,6 @@ public class HelperAnimation : NetworkBehaviour {
     bool helperGreyActive = false;
     float helperGreyCounter = 0;
     float helperGreyDuration = 0;
-    Material oldMaterial;
 
 
     // Use this for initialization
@@ -37,7 +36,6 @@ public class HelperAnimation : NetworkBehaviour {
         }
         turnCount = GameObject.Find("TrunCounter");
         helperBodyMaterial = helper.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material;
-        oldMaterial = helperBodyMaterial;
 
         //SetHelperTalkActive(true, 5f);
 
@@ -102,8 +100,8 @@ public class HelperAnimation : NetworkBehaviour {
             if (helperGreyCounter > helperGreyDuration) // go back after time is done
             {
                 helperBodyMaterial.SetTexture("_MainTex", helperTalkTextureArray[9]);
-                helperBodyMaterial = oldMaterial;
                 helperGreyActive = false;
+                helperGreyCounter = 0;
             }
         }
 
@@ -144,7 +142,6 @@ public class HelperAnimation : NetworkBehaviour {
         helperGreyActive = true;
         helperGreyDuration = seconds;
         //        helperBodyMaterial = helperGreyMaterial;
-        Debug.Log("Change Material");
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
     }
 }

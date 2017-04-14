@@ -32,7 +32,7 @@ public class HandControl : MonoBehaviour
         // Poke helper to trigger some feedback
         if (pokeHelperGrey && (other.gameObject == helper))
         {
-            other.GetComponentInParent<Inventory>().Trade(other.gameObject);
+
             this.transform.GetComponentInParent<HelperAnimation>().SetHelperSad(3f);
         }
     }

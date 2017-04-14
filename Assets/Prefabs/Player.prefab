@@ -7690,7 +7690,7 @@ MonoBehaviour:
   TradeModeActive: 0
   TurnCounter: {fileID: 0}
   helper: {fileID: 1000010312030890}
-  pokeHelperGrey: 0
+  pokeHelperGrey: 1
 --- !u!114 &114000011418461502
 MonoBehaviour:
   m_ObjectHideFlags: 1
