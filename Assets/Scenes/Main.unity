@@ -1729,7 +1729,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 109d1df0d7672d74c9e4836860ce237e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e490a1922e8e4084da7611671d680129, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -1969,7 +1969,7 @@ MonoBehaviour:
   roundOver: {fileID: 8300000, guid: c5162375ad878a64aae7a5988a12d655, type: 3}
   turnOver: {fileID: 8300000, guid: 11166cf063b9c1c489fe29770be5853c, type: 3}
   selectionConfirm: {fileID: 8300000, guid: f7dd238b89602224c92c42df414439ce, type: 3}
-  selectionAlt: {fileID: 8300000, guid: 16865de1b77025d44a90907376027310, type: 3}
+  selectionAlt: {fileID: 8300000, guid: 86aba52ed9c479a44b120232141b4be1, type: 3}
   helperPromptList:
   - {fileID: 8300000, guid: 237c00e4aca09be48924bc9b3c82f162, type: 3}
   - {fileID: 8300000, guid: 862858bac44263e478142763f14c3d8d, type: 3}
