@@ -20,6 +20,7 @@ TagManager:
   - Cursor
   - RightHandHoverMenu
   - EventAnimationManager
+  - TutorialStateManager
   layers:
   - Default
   - TransparentFX
