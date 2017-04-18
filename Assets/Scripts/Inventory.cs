@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour {
     public bool HasKey=false;
     public GameObject turnCounter;
     public GameObject[] Aplights;
+    public bool ItemActive=false;
+    private GameObject _preuseItem;
     // Use this for initialization
     void Start () {
         Items = new GameObject[4];
@@ -52,22 +54,47 @@ public class Inventory : MonoBehaviour {
         {
             if (Items[i].tag =="ITEM"&& Items[i].GetComponent<ItemsProperty>().CouldUse)
             {
-                Items[i].transform.position += new Vector3(0, 1, 0);
+                Items[i].transform.position += new Vector3(0, 0.1f, 0);
             }
         }
+        ItemActive = true;
     }
     public void DeActiveUseItem()
     {
-        for (int i = 0; i < ItemNumber; i++)
+        if (ItemActive)
         {
-            if (Items[i].tag == "ITEM" && Items[i].GetComponent<ItemsProperty>().CouldUse)
+            for (int i = 0; i < ItemNumber; i++)
             {
-                Items[i].transform.position -= new Vector3(0, 1, 0);
+                if (Items[i].tag == "ITEM" && Items[i].GetComponent<ItemsProperty>().CouldUse)
+                {
+                    Items[i].transform.position -= new Vector3(0, 0.1f, 0);
+                }
             }
+            ItemActive = false;
         }
     }
 
-
+    public void preuseItem(GameObject healingItem)
+    {
+        healingItem.SetActive(false);
+        _preuseItem = healingItem;
+    }
+    public void UseItem()
+    {
+        if(_preuseItem!=null)
+        {
+            for(int i=0;i<ItemNumber;i++)
+            {
+                if(Items[i]==_preuseItem)
+                {
+                    Items[i] = null;
+                    Destroy(_preuseItem);
+                    Rearrange();
+                    break;
+                }
+            }
+        }
+    }
     public void Setpositon(GameObject objct)
     {
         if (objct.tag == "ITEM"&& !objct.GetComponent<ItemsProperty>().CouldUse)

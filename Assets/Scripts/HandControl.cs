@@ -34,6 +34,8 @@ public class HandControl : MonoBehaviour
         {
             //use item
             Debug.Log("use item");
+            other.GetComponentInParent<Inventory>().preuseItem(other.gameObject);
+            GetComponentInParent<ControllerOfPlayerOntheBoard>().controlMode = 5;
         }
         // Poke helper to trigger some feedback
         if (pokeHelperGrey && (other.gameObject == helper))

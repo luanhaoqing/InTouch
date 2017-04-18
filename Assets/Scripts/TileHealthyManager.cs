@@ -62,6 +62,10 @@ public class TileHealthyManager : MonoBehaviour {
             }
         }
     }
+
+
+
+
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))

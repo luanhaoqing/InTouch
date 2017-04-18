@@ -5,12 +5,13 @@ using UnityEngine.Networking;
 public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject PlayerOnBoard;
     public GameObject detectBall;
+    public GameObject HealingCursor;
     public GameObject PlayerModel;
     private Vector3 target;
     private bool BeginMove;
     public GameObject rabbit;
     public GameObject rabbitForItem;
-    private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
+    public int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu, 5 = ready to heal
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
     public GameObject rightHandHoverUI;
@@ -186,17 +187,17 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             {
                 if (controllerClickMapping)
                 {
-                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
-                    Debug.Log("Use Item Not Implemented Yet");
-                    AudioCenter.PlayCantDoThat();
+                    //rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
+                    //Debug.Log("Use Item Not Implemented Yet");
+                    //AudioCenter.PlayCantDoThat();
 
                     // Cannot change control mode right now:
                     // De-commit when it is implemented
-                    /*
+                    
                     ChangeControlMode();
                     controlMode = 3;
                     AudioCenter.PlaySelectionConfirm();
-                    */
+                    
                 }
             }
             // 4) Exit and return to previous mode
@@ -344,6 +345,88 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         rabbitForItem.transform.position = new Vector3(100, 100, 100);
                         GetComponentInChildren<Inventory>().ActiveUseItem();
                         Debug.Log("Use Item Mode On");
+                    }
+                        break;
+               //choose which tile to use heal
+                case 5:
+                    HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
+                    if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
+                    {
+
+                        if ((Input.GetKeyDown(KeyCode.W)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
+                            && !counterDirection)
+                        {
+                            HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.W)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
+                            && counterDirection)
+                        {
+
+
+                            HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.S)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
+                            && !counterDirection)
+                        {
+                            //    Debug.Log("w");
+                            HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.S)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
+                            && counterDirection)
+                        {
+                            //    Debug.Log("w");
+                            HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.A)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                            && !counterDirection)
+                        {
+                            HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.A)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                            && counterDirection)
+                        {
+                            HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.D)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
+                            && !counterDirection)
+                        {
+                            //   Debug.Log("w");
+                            HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
+                        }
+                        if ((Input.GetKeyDown(KeyCode.D)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
+                            && counterDirection)
+                        {
+                            //   Debug.Log("w");
+                            HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
+                        }
+                        if (Input.GetKeyDown(KeyCode.G)
+                            || OVRInput.GetDown(OVRInput.Button.One)
+                            || OVRInput.GetDown(OVRInput.Button.Three)
+                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+                        {
+                            if (HealingCursor.GetComponent<DetectHealing>().couldHeal)
+                            {
+                                HealingCursor.transform.position -= new Vector3(0, 200f, 0);
+                                SetMenuActive(true);
+                            }
+                        }
                     }
                         break;
             }

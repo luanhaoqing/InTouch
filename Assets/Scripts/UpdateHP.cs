@@ -31,11 +31,18 @@ public class UpdateHP : MonoBehaviour {
         }
     }
 
+    public void Heal()
+    {
+        tile.GetComponent<TileHealthyManager>().health++;
+        numberofFlame++;
+        flame[numberofFlame].SetActive(true);
+        Debug.Log("Healing the tile!!");
+    }
     IEnumerator WaitAndDelete()
     {
         yield return new WaitForSeconds(length);
 
-        Destroy(flame[numberofFlame]);
+        flame[numberofFlame].SetActive(false);
         //yield return null ;
     }
 }
