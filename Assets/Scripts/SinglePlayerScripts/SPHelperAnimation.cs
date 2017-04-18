@@ -39,6 +39,7 @@ public class SPHelperAnimation : MonoBehaviour {
     void Update()
     {
 
+
         // The helper talking animation
         // check if switch is on
         if (helperTalkActive)
@@ -59,8 +60,8 @@ public class SPHelperAnimation : MonoBehaviour {
                     helperTalkIndex = 0;
                 }
             }
-            if (thisTalkDuration >= helperTalkDuration) // when cycle is over, turn it off.
-            {
+           if (thisTalkDuration >= helperTalkDuration) // when cycle is over, turn it off.
+           {
                 SetHelperTalkActive(false, 0);
             }
         }
@@ -104,7 +105,7 @@ public class SPHelperAnimation : MonoBehaviour {
     public void SetHelperTalkActive(bool boolean, float seconds)
     {
         helperTalkActive = boolean;
-        helperTalkDuration = seconds;
+        if (seconds > 0f) { helperTalkDuration = seconds; }
         if (boolean == false) // when turning off, make it go back to closed mouth.
         {
             helperBodyMaterial.SetTexture("_MainTex", helperTalkTextureArray[9]);
@@ -117,6 +118,11 @@ public class SPHelperAnimation : MonoBehaviour {
         helperGreyDuration = seconds;
         //        helperBodyMaterial = helperGreyMaterial;
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
+    }
+
+    public bool getHelperTalkStatus()
+    {
+        return helperTalkActive;
     }
 
 }
