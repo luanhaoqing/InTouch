@@ -81,6 +81,7 @@ public class Inventory : MonoBehaviour {
     {
         healingItem.SetActive(false);
         _preuseItem = healingItem;
+        GetComponentInChildren<DetectHealing>().model.transform.position -= new Vector3(0, 100, 0);
     }
     public void UseItem()
     {

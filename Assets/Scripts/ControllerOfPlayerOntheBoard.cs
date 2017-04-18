@@ -349,7 +349,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         break;
                //choose which tile to use heal
                 case 5:
-                    HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
+                  //  HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
                     if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
                     {
 

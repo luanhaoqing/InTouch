@@ -7,7 +7,7 @@ public class DetectHealing : MonoBehaviour {
     private GameObject currentTile;
 	// Use this for initialization
 	void Start () {
-        model.SetActive(false);
+        model.transform.position+=new Vector3(0,100,0);
 	}
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class DetectHealing : MonoBehaviour {
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Tile") && other.GetComponent<TileHealthyManager>().HasExploded)
+        if (other.CompareTag("Tile") && other.name != "StartTile" && other.GetComponent<TileHealthyManager>().HasExploded)
         {
             couldHeal = false;
             currentTile = null;
