@@ -16524,7 +16524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a722bc9f9317244990c4064dd57ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helper: {fileID: 1267328239}
+  helper: {fileID: 1375107265}
   helperTalkTextureArray:
   - {fileID: 2800000, guid: 94db1329c85d26e4da1b2031161bec40, type: 3}
   - {fileID: 2800000, guid: d30226d0ef48cb440a30188df08f806c, type: 3}
