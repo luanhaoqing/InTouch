@@ -19,7 +19,7 @@ public class DetectHealing : MonoBehaviour {
             {
                 hasHeal = true;
                 Heal();
-                Invoke("afterHeal", 1f);
+                Invoke("afterHeal", 2f);
             }
         }
 	}
