@@ -12,6 +12,20 @@ public class SPAudioCenter
     public static AudioClip positiveFeedback2;
     public static AudioClip lookAtItems;
     public static AudioClip getItemsReminder;
+    public static AudioClip reviveItem;
+
+    public static AudioClip sendItemFriend;
+    public static AudioClip sendItemReminder;
+    public static AudioClip goodJobToSend;
+    public static AudioClip handMenu;
+    public static AudioClip learnTileHealth;
+    public static AudioClip goodJobMovingToSafeTile;
+    public static AudioClip allTilesLostHealth;
+    public static AudioClip clockInstruction;
+    public static AudioClip gameGoal;
+    public static AudioClip getKey;
+    public static AudioClip goToDoor;
+    public static AudioClip enterGame;
 
     public static AudioClip moveMe;
     public static AudioClip moveButton;
@@ -31,9 +45,7 @@ public class SPAudioCenter
         audioCenter.spatialBlend = (1.0f);
         audioCenter.PlayOneShot(hello, 0.5f);
         audioCenter.spatialBlend = (0f);
-
     }
-
     public static void PlaySkipThisPart()
     {
         audioCenter.PlayOneShot(skipThisPart, 0.5f);
@@ -71,6 +83,26 @@ public class SPAudioCenter
     public static void PlaygetItemsReminder()
     {
         audioCenter.PlayOneShot(getItemsReminder, 0.5f);
+    }
+
+    public static void PlayreviveItem()
+    {
+        audioCenter.PlayOneShot(reviveItem, 0.5f);
+    }
+
+    public static void PlaySendItemFriend()
+    {
+        audioCenter.PlayOneShot(sendItemFriend, 0.5f);
+    }
+
+    public static void PlaySendItemReminder()
+    {
+        audioCenter.PlayOneShot(sendItemReminder, 0.5f);
+    }
+
+    public static void PlayGoodJobToSend()
+    {
+        audioCenter.PlayOneShot(goodJobToSend, 0.5f);
     }
 
 
