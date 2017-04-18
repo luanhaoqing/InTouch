@@ -5,7 +5,9 @@ public class GenerateMap : NetworkBehaviour {
     [SyncVar]
     public int RanTileNum;
     public GameObject[] tiles;
-    
+    private int GemNumbers = 6;
+    private int KeyNumbers = 2;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,15 +28,18 @@ public class GenerateMap : NetworkBehaviour {
     }
     public void getRandomTile(GameObject player)
     {
-        //   Debug.Log(GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId);
-        //    Debug.Log(player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB);
-        //    if (GameObject.Find("TrunCounter").GetComponent<TurnCounter>().OwnId == player.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB)
         if (!isServer)
             return;
         {
-        //    Debug.Log("generateRandom");
             int ran = Random.Range(0, 4);
-            RanTileNum = ran;
+            if (ran == 2)
+                GemNumbers--;
+            if(GemNumbers==0)
+            {
+                RanTileNum = 0;
+            }
+            else
+                RanTileNum = ran;
         }
     }
 }

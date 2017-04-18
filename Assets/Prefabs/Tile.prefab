@@ -11438,13 +11438,15 @@ MonoBehaviour:
   _text: {fileID: 1000011825410742}
   tiles:
   - {fileID: 1000012338386600, guid: 47ffe1e8411f7e240a6cf12ccda22968, type: 2}
-  - {fileID: 1000012338386600, guid: 2b2616ad21a376a428c147e82e076f1c, type: 2}
+  - {fileID: 1000012338386600, guid: 47ffe1e8411f7e240a6cf12ccda22968, type: 2}
   - {fileID: 1000012338386600, guid: 2b2616ad21a376a428c147e82e076f1c, type: 2}
   - {fileID: 1000012338386600, guid: 6ba076418dc751f4b92a582fe739d96d, type: 2}
   HasExploded: 0
+  tmp: {fileID: 0}
   End: {fileID: 0}
   clock: {fileID: 0}
   cursor: {fileID: 1000013634284748}
+  TileManager: {fileID: 0}
 --- !u!114 &114000011775637216
 MonoBehaviour:
   m_ObjectHideFlags: 1
