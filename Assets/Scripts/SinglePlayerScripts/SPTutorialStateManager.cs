@@ -15,6 +15,9 @@ public class SPTutorialStateManager : MonoBehaviour {
         task3_send_item_well_done,
         task3_action_point_light,
         task4_island_health,
+        task4_fail,
+        task4_success,
+        task5_clock,
 
         skip_scene }
     int currentState = (int)TutorialState.begin_idle;
@@ -29,6 +32,8 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject inventoryOther;
     public GameObject crystalOnInvOther;
     public GameObject actionPoints;
+    public GameObject healthPoints;
+    public GameObject crystalToBreak;
 
     float counter = 0;
 
@@ -38,10 +43,12 @@ public class SPTutorialStateManager : MonoBehaviour {
     bool moveButtonFlashed = false;
     bool sendButtonFlashed = false;
     bool itemShown = false;
+
     public bool firstMoveComplete = false;
     public bool getItemComplete = false;
     public bool sendItemComplete = false;
-
+    public bool islandHealthComplete = false;
+    bool islandHealthFail = false;
 
     // Use this for initialization
     void Start () {
@@ -357,8 +364,69 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task4_island_health:
-                Debug.Log(" --- Last State ---");
+                // play voice: island health
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    SPAudioCenter.PlayLearnTileHealth();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.learnTileHealth.length);
+                    
+                    // helper flys to center island.
+                    iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0.18f, 0.0671f, 0.65f), "easytype", iTween.EaseType.easeInOutSine));
 
+                    // two islands shows different health status.
+                    healthPoints.SetActive(true);
+
+                    // allow movement now.
+
+                    // right move: set islandHealthCompele to true.
+
+                    // wrong move: set islandHealthFail tp true.
+
+
+
+                }
+
+                if (islandHealthComplete && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus()==false)
+                {
+                    playedVoice = false;
+                    //go to successful state
+                    currentState = (int)TutorialState.task4_success;
+                }
+                
+                if (islandHealthFail)
+                {
+                    playedVoice = false;
+                    currentState = (int)TutorialState.task4_fail;
+                    // go to fail state
+                }
+
+                break;
+
+            case (int)TutorialState.task4_fail:
+                Debug.Log("Island health task - failed");
+                break;
+
+            case (int)TutorialState.task4_success:
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    // say good choice.
+                    SPAudioCenter.PlayGoodJobMovingToSafeTile();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.goodJobMovingToSafeTile.length);
+                }
+
+                if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    playedVoice = false;
+                    // next state
+                    currentState += 1;
+                }
+
+                break;
+
+            case (int)TutorialState.task5_clock:
+                Debug.Log(" --- Last State ---");
                 break;
 
             case (int)TutorialState.skip_scene:

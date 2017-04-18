@@ -110,6 +110,18 @@ public class SPAudioCenter
         audioCenter.PlayOneShot(handMenu, 0.5f);
     }
 
+    public static void PlayLearnTileHealth()
+    {
+        audioCenter.PlayOneShot(learnTileHealth, 0.5f);
+    }
+
+    public static void PlayGoodJobMovingToSafeTile()
+    {
+        audioCenter.PlayOneShot(goodJobMovingToSafeTile, 0.5f);
+    }
+
+
+
 
 
     public static void PlayMoveMe()
