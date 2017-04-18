@@ -22,7 +22,7 @@ public class DetectHealing : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Tile") && other.GetComponent<TileHealthyManager>().HasExploded)
+        if (other.CompareTag("Tile")&&other.name!="StartTile" && other.GetComponent<TileHealthyManager>().HasExploded)
         {
             if (other.GetComponent<TileHealthyManager>().health < 4)
             {
@@ -41,6 +41,6 @@ public class DetectHealing : MonoBehaviour {
     }
     public void Heal()
     {
-        currentTile.GetComponent<TileHealthyManager>().health++;
+        currentTile.GetComponent<UpdateHP>().Heal();
     }
 }
