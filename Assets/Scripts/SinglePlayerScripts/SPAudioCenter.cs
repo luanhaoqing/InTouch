@@ -105,6 +105,12 @@ public class SPAudioCenter
         audioCenter.PlayOneShot(goodJobToSend, 0.5f);
     }
 
+    public static void PlayHandMenu()
+    {
+        audioCenter.PlayOneShot(handMenu, 0.5f);
+    }
+
+
 
     public static void PlayMoveMe()
     {

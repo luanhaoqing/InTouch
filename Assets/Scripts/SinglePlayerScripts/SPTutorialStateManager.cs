@@ -14,6 +14,7 @@ public class SPTutorialStateManager : MonoBehaviour {
         task3_send_item,
         task3_send_item_well_done,
         task3_action_point_light,
+        task4_island_health,
 
         skip_scene }
     int currentState = (int)TutorialState.begin_idle;
@@ -27,6 +28,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject crystalOnInv;
     public GameObject inventoryOther;
     public GameObject crystalOnInvOther;
+    public GameObject actionPoints;
 
     float counter = 0;
 
@@ -317,7 +319,46 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task3_action_point_light:
-                Debug.Log("last state");
+
+                // play voice
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    SPAudioCenter.PlayHandMenu();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.handMenu.length);
+                }
+
+                // action points start to go off one by one
+                counter += Time.deltaTime;
+                if (counter >= 2)
+                {
+                    actionPoints.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                if (counter >= 4)
+                {
+                    actionPoints.transform.GetChild(1).gameObject.SetActive(false);
+                }
+                if (counter >= 6)
+                {
+                    actionPoints.transform.GetChild(2).gameObject.SetActive(false);
+                }
+
+                // after talking, go to next
+                if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    actionPoints.transform.GetChild(0).gameObject.SetActive(true);
+                    actionPoints.transform.GetChild(1).gameObject.SetActive(true);
+                    actionPoints.transform.GetChild(2).gameObject.SetActive(true);
+                    counter = 0;
+                    playedVoice = false;
+
+                    currentState += 1;
+                }
+                break;
+
+            case (int)TutorialState.task4_island_health:
+                Debug.Log(" --- Last State ---");
+
                 break;
 
             case (int)TutorialState.skip_scene:
