@@ -59,7 +59,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000010027977704
 GameObject:
   m_ObjectHideFlags: 1
@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000010452842736
 GameObject:
   m_ObjectHideFlags: 1
@@ -1131,7 +1131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011318394994
 GameObject:
   m_ObjectHideFlags: 1
@@ -1474,7 +1474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011934791586
 GameObject:
   m_ObjectHideFlags: 1
@@ -1529,6 +1529,8 @@ GameObject:
   - 114: {fileID: 114000011418461502}
   - 114: {fileID: 114000012604458652}
   - 114: {fileID: 114000010770155398}
+  - 114: {fileID: 114000014017999912}
+  - 114: {fileID: 114000012554646344}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1609,13 +1611,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013203440516}
   - 95: {fileID: 95000013925609562}
+  - 114: {fileID: 114000013026617232}
+  - 114: {fileID: 114000014073468140}
   m_Layer: 0
   m_Name: Blue_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000012093396606
 GameObject:
   m_ObjectHideFlags: 1
@@ -2384,13 +2388,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011344144944}
   - 95: {fileID: 95000010498371598}
+  - 114: {fileID: 114000011538678626}
+  - 114: {fileID: 114000013963577780}
   m_Layer: 0
   m_Name: Male White Wizard 06 Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013378385632
 GameObject:
   m_ObjectHideFlags: 1
@@ -2500,7 +2506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013488715656
 GameObject:
   m_ObjectHideFlags: 1
@@ -2898,7 +2904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013898221258
 GameObject:
   m_ObjectHideFlags: 1
@@ -7760,6 +7766,38 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114000011538678626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013377495034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114000011657549904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7993,6 +8031,25 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114000012554646344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011950342710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000013203440516}
+  m_ChildIndex: 7
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000012604458652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8005,15 +8062,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mine:
-  - {fileID: 1000010376587290}
-  - {fileID: 1000011284461404}
-  - {fileID: 1000011914754920}
-  - {fileID: 1000012086940406}
-  pre:
   - {fileID: 1000013892730658}
   - {fileID: 1000010019774196}
   - {fileID: 1000013478451154}
   - {fileID: 1000013377495034}
+  pre:
+  - {fileID: 1000010376587290}
+  - {fileID: 1000011284461404}
+  - {fileID: 1000011914754920}
+  - {fileID: 1000012086940406}
 --- !u!114 &114000012908693048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8094,6 +8151,38 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010040682678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114000013026617232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012086940406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
@@ -8275,6 +8364,26 @@ MonoBehaviour:
     i15: 83
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114000013963577780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013377495034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000014005185548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8354,6 +8463,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014017999912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011950342710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000011344144944}
+  m_ChildIndex: 6
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000014022459488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8453,6 +8581,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014073468140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012086940406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000014180621246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8499,6 +8647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerOnBoard: {fileID: 1000013608104778}
   detectBall: {fileID: 1000010040682678}
+  PlayerModel: {fileID: 1000013377495034}
   rabbit: {fileID: 1000010371842518}
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}

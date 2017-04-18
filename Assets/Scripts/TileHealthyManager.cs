@@ -10,11 +10,12 @@ public class TileHealthyManager : MonoBehaviour {
     public GameObject[] tiles;
     public bool HasExploded;
     private GameObject player;
-    private GameObject tmp;
+    public GameObject tmp;
     private bool HasPlayer;
     public GameObject End;
     public GameObject clock;
     public GameObject cursor;
+    public GameObject TileManager;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
@@ -23,6 +24,7 @@ public class TileHealthyManager : MonoBehaviour {
         _text.SetActive(false);
         clock = GameObject.Find("pf_Clock");
         End = GameObject.Find("you_lose");
+        TileManager = GameObject.Find("TileManager");
     }
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class TileHealthyManager : MonoBehaviour {
 	if(health==0)
         {
             // this.gameObject.SetActive(false);
-            Invoke("DetectDeath", 0.5f);         
+            Invoke("DetectDeath", 1f);         
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -94,12 +96,26 @@ public class TileHealthyManager : MonoBehaviour {
     {
         if (HasPlayer)
         {
+            GameObject[] temp = TileManager.GetComponent<TileManager>().tiles;
+            for (int i = 1; i < 48; i++)
+            {
+                if (temp[i].GetComponent<TileHealthyManager>().HasExploded)
+                {
+                    temp[i].GetComponent<TileHealthyManager>().health = 0;
+                    temp[i].GetComponent<TileHealthyManager>().tmp.GetComponentInChildren<Animator>().SetTrigger("Break");
+
+                }
+            }
             clock.SetActive(false);
             End.transform.localScale = new Vector3(2, 2, 2);
-            Destroy(tmp);
-            tmp = null;
+           // Destroy(tmp);
+         //   tmp = null;
             HasExploded = false;
-            this.gameObject.SetActive(false);
+         //   this.gameObject.SetActive(false);
+        }
+        else
+        {
+            tmp.GetComponentInChildren<Animator>().SetTrigger("Break");
         }
     }
 }

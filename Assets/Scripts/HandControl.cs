@@ -24,8 +24,9 @@ public class HandControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn)
+        if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
         {
+            TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
 

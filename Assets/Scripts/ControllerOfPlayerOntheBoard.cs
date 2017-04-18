@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject PlayerOnBoard;
     public GameObject detectBall;
+    public GameObject PlayerModel;
     private Vector3 target;
     private bool BeginMove;
     public GameObject rabbit;
@@ -47,7 +48,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        PlayerOnBoard.transform.position = new Vector3(0.29f,0.04f,-0.4544f);     
+        PlayerOnBoard.transform.position = new Vector3(0.29f+0.2f*2,0.04f,-0.4544f+0.2f*3);     
         rightHandMenu.SetActive(false);
         rightHandHoverUI.SetActive(false);
         TurnCounter = GameObject.Find("TrunCounter");
@@ -220,18 +221,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 case 1:
                     if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
                     {
-                        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-                        //  var z = Input.GetAxis("Vertical") * Time.deltaTime * 0.05f;
-                        // Debug.Log("TEST");
-                        //  PlayerOnBoard.transform.Rotate(0, x, 0);
-                        //  PlayerOnBoard.transform.Translate(0, 0, z);
+                        
                         if ((Input.GetKeyDown(KeyCode.W) 
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) 
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
                             && !counterDirection)
                         {
-                            //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
                         if ((Input.GetKeyDown(KeyCode.W)
@@ -240,7 +237,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             && counterDirection)
                         {
                             //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
-
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
                         if ((Input.GetKeyDown(KeyCode.S) 
@@ -249,6 +246,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             && !counterDirection)
                         {
                             //    Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
                         if ((Input.GetKeyDown(KeyCode.S)
@@ -257,6 +255,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             && counterDirection)
                         {
                             //    Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
                         if ((Input.GetKeyDown(KeyCode.A) 
@@ -264,7 +263,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
                             && !counterDirection)
                         {
-                         
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
                         if ((Input.GetKeyDown(KeyCode.A)
@@ -272,7 +271,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
                             && counterDirection)
                         {
-                            
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
                         if ((Input.GetKeyDown(KeyCode.D) 
@@ -281,6 +280,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             && !counterDirection)
                         {
                             //   Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
                         if ((Input.GetKeyDown(KeyCode.D)
@@ -289,6 +289,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                             && counterDirection)
                         {
                             //   Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
                         if (Input.GetKeyDown(KeyCode.G) 

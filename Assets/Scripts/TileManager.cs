@@ -10,9 +10,9 @@ public class TileManager : NetworkBehaviour {
     {
         if (isServer)
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (int j = 0; j < 6; j++)
                 {
                     int ran = Random.Range(0, 5);
 
@@ -22,11 +22,11 @@ public class TileManager : NetworkBehaviour {
             if (isClient)
             {
                 int k = 1;
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    for (int j = 0; j < 8; j++)
+                    for (int j = 0; j < 6; j++)
                     {
-                        if (i == 0 && j == 0)
+                        if (i == 3 && j == 2)
                             continue;
                         // GameObject tmp = Instantiate(tile);
                         // this.GetComponent<GenerateMap>().GenerateTile(new Vector3(0.26f + j * 0.2f, 0, -0.46f + i * 0.2f), 0);
