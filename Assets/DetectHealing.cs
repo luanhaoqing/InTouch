@@ -5,6 +5,7 @@ public class DetectHealing : MonoBehaviour {
     public bool couldHeal=false;
     public GameObject model;
     private GameObject currentTile;
+    private bool hasHeal=false;
 	// Use this for initialization
 	void Start () {
         model.transform.position+=new Vector3(0,100,0);
@@ -14,10 +15,12 @@ public class DetectHealing : MonoBehaviour {
 	void Update () {
 	if(this.transform.position.y<-50)
         {
-            Heal();
-            this.transform.position = this.transform.parent.transform.position;
-            model.SetActive(false);
-            GetComponentInParent<Inventory>().UseItem();
+            if (!hasHeal)
+            {
+                hasHeal = true;
+                Heal();
+                Invoke("afterHeal", 1f);
+            }
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -42,5 +45,12 @@ public class DetectHealing : MonoBehaviour {
     public void Heal()
     {
         currentTile.GetComponent<UpdateHP>().Heal();
+    }
+    public void afterHeal()
+    {
+        this.transform.position = this.transform.parent.transform.position;
+        model.transform.position += new Vector3(0, 100, 0);
+        GetComponentInParent<Inventory>().UseItem();
+        hasHeal = false;
     }
 }
