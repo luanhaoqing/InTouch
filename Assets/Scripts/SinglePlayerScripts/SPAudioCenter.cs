@@ -119,8 +119,12 @@ public class SPAudioCenter
     {
         audioCenter.PlayOneShot(goodJobMovingToSafeTile, 0.5f);
     }
+    public static void PlayAllTilesLostHealth()
+    {
+        audioCenter.PlayOneShot(allTilesLostHealth, 0.5f);
+    }
 
-
+    
 
 
 

@@ -18,9 +18,10 @@ public class SPTutorialStateManager : MonoBehaviour {
         task4_fail,
         task4_success,
         task5_clock,
+        task5_fly_to_clock,
 
         skip_scene }
-    int currentState = (int)TutorialState.begin_idle;
+    public int currentState = (int)TutorialState.begin_idle;
 
     // stuff
     public GameObject player;
@@ -34,6 +35,11 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject actionPoints;
     public GameObject healthPoints;
     public GameObject crystalToBreak;
+    public GameObject clock;
+    public GameObject[] crystalsToBreakByClock;
+    public GameObject fallingIsland;
+    public GameObject[] crystalsToBreakByClockSecond;
+
 
     float counter = 0;
 
@@ -43,6 +49,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     bool moveButtonFlashed = false;
     bool sendButtonFlashed = false;
     bool itemShown = false;
+    bool clockFirstAnimPlayed = false;
 
     public bool firstMoveComplete = false;
     public bool getItemComplete = false;
@@ -426,8 +433,52 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task5_clock:
+                // clock shows up.
+                clock.SetActive(true);
+                if (!clockFirstAnimPlayed)
+                {
+                    clockFirstAnimPlayed = true;
+                    // move the clock high
+                    iTween.MoveAdd(clock, iTween.Hash("y", 1f, "easytype", iTween.EaseType.easeInOutSine));
+
+                    // play the round over anim
+                    clock.GetComponent<Clock>().DecreaseTurn();
+                    clock.GetComponent<Clock>().DecreaseTurn();
+                    clock.GetComponent<Clock>().DecreaseTurn();
+                    clock.GetComponent<Clock>().DecreaseTurn();
+
+                    // reduce all island health
+                    foreach (GameObject crystal in crystalsToBreakByClock)
+                    {
+                        crystal.GetComponent<Animator>().SetTrigger("breakdown");
+                    }
+
+                    // make first island fall
+                    fallingIsland.GetComponent<Animator>().SetTrigger("Break");
+                }
+
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    // say lost health
+                    SPAudioCenter.PlayAllTilesLostHealth();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.goodJobMovingToSafeTile.length);
+                }
+
+                if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    playedVoice = false;
+                    // next stage
+                    currentState += 1;
+                }
+
+                    break;
+
+            case (int)TutorialState.task5_fly_to_clock:
+
                 Debug.Log(" --- Last State ---");
                 break;
+
 
             case (int)TutorialState.skip_scene:
                 // fade black
