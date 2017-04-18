@@ -7,6 +7,12 @@ public class SPAudioCenter
     public static AudioClip hello;
     public static AudioClip skipThisPart;
     public static AudioClip moveToIsland;
+    public static AudioClip moveToIslandReminder;
+    public static AudioClip positiveFeedback1;
+    public static AudioClip positiveFeedback2;
+    public static AudioClip lookAtItems;
+    public static AudioClip getItemsReminder;
+
     public static AudioClip moveMe;
     public static AudioClip moveButton;
     public static AudioClip youAreNatural;
@@ -36,6 +42,35 @@ public class SPAudioCenter
     public static void PlaymoveToIsland()
     {
         audioCenter.PlayOneShot(moveToIsland, 0.5f);
+    }
+
+    public static void PlaymoveToIslandReminder()
+    {
+        audioCenter.Stop();
+        audioCenter.PlayOneShot(moveToIslandReminder, 0.5f);
+    }
+
+    public static void PlaypositiveFeedback1()
+    {
+        audioCenter.Stop();
+        audioCenter.PlayOneShot(positiveFeedback1, 0.5f);
+    }
+
+    public static void PlaypositiveFeedback2()
+    {
+        audioCenter.Stop();
+        audioCenter.PlayOneShot(positiveFeedback2, 0.5f);
+    }
+
+    public static void PlaylookAtItems()
+    {
+        audioCenter.Stop();
+        audioCenter.PlayOneShot(lookAtItems, 0.5f);
+    }
+
+    public static void PlaygetItemsReminder()
+    {
+        audioCenter.PlayOneShot(getItemsReminder, 0.5f);
     }
 
 
