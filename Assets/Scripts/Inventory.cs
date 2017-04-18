@@ -50,14 +50,17 @@ public class Inventory : MonoBehaviour {
 
     public void ActiveUseItem()
     {
-        for (int i = 0; i < ItemNumber; i++)
+        if (!ItemActive)
         {
-            if (Items[i].tag =="ITEM"&& Items[i].GetComponent<ItemsProperty>().CouldUse)
+            for (int i = 0; i < ItemNumber; i++)
             {
-                Items[i].transform.position += new Vector3(0, 0.1f, 0);
+                if (Items[i].tag == "ITEM" && Items[i].GetComponent<ItemsProperty>().CouldUse)
+                {
+                    Items[i].transform.position += new Vector3(0, 0.1f, 0);
+                }
             }
+            ItemActive = true;
         }
-        ItemActive = true;
     }
     public void DeActiveUseItem()
     {
