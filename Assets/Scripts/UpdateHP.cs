@@ -34,8 +34,8 @@ public class UpdateHP : MonoBehaviour {
     public void Heal()
     {
         tile.GetComponent<TileHealthyManager>().health++;
-        numberofFlame++;
         flame[numberofFlame].SetActive(true);
+        numberofFlame++;
         Debug.Log("Healing the tile!!");
     }
     IEnumerator WaitAndDelete()
