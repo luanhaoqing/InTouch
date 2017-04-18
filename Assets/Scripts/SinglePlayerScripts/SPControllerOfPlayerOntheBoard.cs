@@ -95,14 +95,14 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
             menuHasOpened = true;
             SetMenuActive(true);
             SetHoverUIActive(true);
-            Debug.Log("Opened");
+            Debug.Log("Menu Opened");
         }
         else if ((!menuHasOpened))
         {
             menuHasOpened = false;
             SetMenuActive(false);
             SetHoverUIActive(false);
-            Debug.Log("Closed");
+            Debug.Log("Menu Closed");
         }
 
         // Open menu with trigger after you chose something in this turn.

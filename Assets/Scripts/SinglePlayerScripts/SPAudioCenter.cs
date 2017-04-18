@@ -6,6 +6,7 @@ public class SPAudioCenter
 
     public static AudioClip hello;
     public static AudioClip skipThisPart;
+    public static AudioClip moveToIsland;
     public static AudioClip moveMe;
     public static AudioClip moveButton;
     public static AudioClip youAreNatural;
@@ -31,6 +32,12 @@ public class SPAudioCenter
     {
         audioCenter.PlayOneShot(skipThisPart, 0.5f);
     }
+
+    public static void PlaymoveToIsland()
+    {
+        audioCenter.PlayOneShot(moveToIsland, 0.5f);
+    }
+
 
     public static void PlayMoveMe()
     {

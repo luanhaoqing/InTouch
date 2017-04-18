@@ -88,6 +88,7 @@ public class HelperAnimation : NetworkBehaviour {
             }
             if (thisTalkDuration >= helperTalkDuration) // when cycle is over, turn it off.
             {
+                thisTalkDuration = 0;
                 SetHelperTalkActive(false, 0);
             }
         }

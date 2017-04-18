@@ -7,6 +7,7 @@ public class SPTutorialStateManager : MonoBehaviour {
         task0_begin,
         task0_ready_to_skip,
         task0_islands_show,
+        task1_move,
 
         skip_scene }
     int currentState = (int)TutorialState.begin_idle;
@@ -14,6 +15,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     // stuff
     public GameObject player;
     public GameObject helper;
+    public GameObject twoMoreTiles;
 
     float counter = 0;
 
@@ -57,7 +59,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     currentState = (int)TutorialState.task0_ready_to_skip;
                     playedVoice = false;
                 }
-                
+
                 break;
 
             case (int)TutorialState.task0_ready_to_skip:
@@ -81,12 +83,40 @@ public class SPTutorialStateManager : MonoBehaviour {
                 }
                 // count for five seconds
                 // go to next state
-                StartCoroutine(WaitAndChangeState(7, (int)TutorialState.task0_islands_show));
+                counter += Time.deltaTime;
+                if (counter >= 7)
+                {
+                    currentState = (int)TutorialState.task0_islands_show;
+                    playedVoice = false;
+                }
                 break;
 
             case (int)TutorialState.task0_islands_show:
+                // play voiceover
+                if (!playedVoice)
+                {
+                    SPAudioCenter.PlaymoveToIsland();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.moveToIsland.length);
+                    playedVoice = true;
+                    Debug.Log("Length:" + SPAudioCenter.moveToIsland.length);
+                }
+
+                // two more islands shows up
+                twoMoreTiles.SetActive(true);
+                Debug.Log(helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus());
+                // wait for voiceover to end
+                // go to next state
+                /*
+                if (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    currentState = (int)TutorialState.task1_move;
+                    playedVoice = false;
+                }*/
+
                 break;
 
+            case (int)TutorialState.task1_move:
+                break;
 
             case (int)TutorialState.skip_scene:
                 // fade black
@@ -103,12 +133,6 @@ public class SPTutorialStateManager : MonoBehaviour {
         currentState = (int)TutorialState.skip_scene;
     }
 
-
-    IEnumerator WaitAndChangeState(float seconds, int state)
-    {
-        yield return new WaitForSeconds(seconds);
-        currentState = state;
-    }
 
     IEnumerator ButtonFlash()
     {
