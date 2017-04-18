@@ -11,6 +11,10 @@ public class SPTutorialStateManager : MonoBehaviour {
         task2_get_item,
         task2_inventory_up,
         task2_show_item,
+        task3_send_item,
+        task3_send_item_well_done,
+        task3_action_point_light,
+        task4_island_health,
 
         skip_scene }
     int currentState = (int)TutorialState.begin_idle;
@@ -21,6 +25,10 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject twoMoreTiles;
     public GameObject healItem;
     public GameObject inventory;
+    public GameObject crystalOnInv;
+    public GameObject inventoryOther;
+    public GameObject crystalOnInvOther;
+    public GameObject actionPoints;
 
     float counter = 0;
 
@@ -28,8 +36,12 @@ public class SPTutorialStateManager : MonoBehaviour {
     bool playedVoice = false;
     bool exitButtonFlashed = false;
     bool moveButtonFlashed = false;
+    bool sendButtonFlashed = false;
+    bool itemShown = false;
     public bool firstMoveComplete = false;
     public bool getItemComplete = false;
+    public bool sendItemComplete = false;
+
 
     // Use this for initialization
     void Start () {
@@ -209,7 +221,144 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task2_show_item:
-                Debug.Log("last state");
+
+                // wait for 2 seconds
+                counter += Time.deltaTime;
+                if (counter <= 2)
+                {
+                    return;
+                }
+
+                if (!itemShown)
+                {
+                    itemShown = true;
+                    // rise crystal a bit when introduced.
+                    iTween.MoveAdd(crystalOnInv, iTween.Hash("y", 0.05f, "easytype", iTween.EaseType.easeInOutSine));
+                    // play voice: here's the magical crystal.
+                    SPAudioCenter.PlayreviveItem();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.reviveItem.length);
+                }
+
+                // when finished talking
+                if (itemShown && (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false))
+                {
+                    // go to next state
+                    currentState += 1;
+                    counter = 0;
+                }
+
+                break;
+
+            case (int)TutorialState.task3_send_item:
+                // send button flash
+                if (!sendButtonFlashed)
+                {
+                    StartCoroutine(sendButtonFlash());
+                    sendButtonFlashed = true;
+                }
+
+                // other inventory shows up
+                healItem.SetActive(false);
+                inventoryOther.SetActive(true);
+
+                // play voice: uh oh
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    SPAudioCenter.PlaySendItemFriend();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.sendItemFriend.length);
+                }
+
+                // prompt every five seconds
+                counter += Time.deltaTime;
+                if (counter > (5 + SPAudioCenter.sendItemReminder.length))
+                {
+                    //play send item friend reminder
+                    SPAudioCenter.PlaySendItemReminder();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.sendItemReminder.length);
+                    counter = 0;
+                }
+
+
+                // if item sent, wait for talk to finish
+                if (sendItemComplete)
+                {
+                    crystalOnInv.SetActive(false);
+                    crystalOnInvOther.SetActive(true);
+                    if (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                    {
+                        playedVoice = false;
+                        counter = 0;
+                        currentState += 1;
+                    }
+                }
+
+
+                break;
+
+            case (int)TutorialState.task3_send_item_well_done:
+                // chosen item disappears & shows up at the other inventory
+
+                if (!playedVoice)
+                {
+                    // rise a bit of other item
+                    iTween.MoveAdd(crystalOnInvOther, iTween.Hash("y", 0.05f, "easytype", iTween.EaseType.easeInOutSine));
+                    // say "well done"
+                    playedVoice = true;
+                    SPAudioCenter.PlayGoodJobToSend();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.goodJobToSend.length);
+                }
+
+                // finish talk and go to next state
+                if (playedVoice && (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)) 
+                {
+                    playedVoice = false;
+                    currentState += 1;
+                }
+
+                break;
+
+            case (int)TutorialState.task3_action_point_light:
+
+                // play voice
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    SPAudioCenter.PlayHandMenu();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.handMenu.length);
+                }
+
+                // action points start to go off one by one
+                counter += Time.deltaTime;
+                if (counter >= 2)
+                {
+                    actionPoints.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                if (counter >= 4)
+                {
+                    actionPoints.transform.GetChild(1).gameObject.SetActive(false);
+                }
+                if (counter >= 6)
+                {
+                    actionPoints.transform.GetChild(2).gameObject.SetActive(false);
+                }
+
+                // after talking, go to next
+                if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    actionPoints.transform.GetChild(0).gameObject.SetActive(true);
+                    actionPoints.transform.GetChild(1).gameObject.SetActive(true);
+                    actionPoints.transform.GetChild(2).gameObject.SetActive(true);
+                    counter = 0;
+                    playedVoice = false;
+
+                    currentState += 1;
+                }
+                break;
+
+            case (int)TutorialState.task4_island_health:
+                Debug.Log(" --- Last State ---");
+
                 break;
 
             case (int)TutorialState.skip_scene:
@@ -265,4 +414,24 @@ public class SPTutorialStateManager : MonoBehaviour {
         player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = originalColor;
         yield return new WaitForSeconds(1f);
     }
+
+    IEnumerator sendButtonFlash()
+    {
+        Color originalColor = Color.white;
+        Color lerpedColor = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+    }
+
 }

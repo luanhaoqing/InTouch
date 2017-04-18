@@ -9,6 +9,21 @@ public class SPAudioContainer : MonoBehaviour {
     public AudioClip moveToIslandReminder;
     public AudioClip lookAtItems;
     public AudioClip getItemsReminder;
+    public AudioClip reviveItem;
+
+    public AudioClip sendItemFriend;
+    public AudioClip sendItemReminder;
+    public AudioClip goodJobToSend;
+    public AudioClip handMenu;
+    public AudioClip learnTileHealth;
+    public AudioClip goodJobMovingToSafeTile;
+    public AudioClip allTilesLostHealth;
+    public AudioClip clockInstruction;
+    public AudioClip gameGoal;
+    public AudioClip getKey;
+    public AudioClip goToDoor;
+    public AudioClip enterGame;
+
 
     public AudioClip positiveFeedback1;
     public AudioClip positiveFeedback2;
@@ -25,14 +40,28 @@ public class SPAudioContainer : MonoBehaviour {
         SPAudioCenter.skipThisPart = skipThisPart;
         SPAudioCenter.moveToIsland = moveToIsland;
         SPAudioCenter.moveToIslandReminder = moveToIslandReminder;
-        SPAudioCenter.positiveFeedback1 = positiveFeedback1;
-        SPAudioCenter.positiveFeedback2 = positiveFeedback2;
 
         SPAudioCenter.lookAtItems = lookAtItems;
         SPAudioCenter.getItemsReminder = getItemsReminder;
+        SPAudioCenter.reviveItem = reviveItem;
+
+        SPAudioCenter.sendItemFriend = sendItemFriend;
+        SPAudioCenter.sendItemReminder = sendItemReminder;
+        SPAudioCenter.goodJobToSend = goodJobToSend;
+        SPAudioCenter.handMenu = handMenu;
+        SPAudioCenter.learnTileHealth = learnTileHealth;
+        SPAudioCenter.goodJobMovingToSafeTile = goodJobMovingToSafeTile;
+        SPAudioCenter.allTilesLostHealth = allTilesLostHealth;
+        SPAudioCenter.clockInstruction = clockInstruction;
+        SPAudioCenter.gameGoal = gameGoal;
+        SPAudioCenter.getKey = getKey;
+        SPAudioCenter.goToDoor = goToDoor;
+        SPAudioCenter.enterGame = enterGame;
 
 
 
+        SPAudioCenter.positiveFeedback1 = positiveFeedback1;
+        SPAudioCenter.positiveFeedback2 = positiveFeedback2;
         SPAudioCenter.moveMe = moveMe;
         SPAudioCenter.moveButton = moveButton;
         SPAudioCenter.youAreNatural = youAreNatural;
