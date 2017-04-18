@@ -8,6 +8,9 @@ public class SPTutorialStateManager : MonoBehaviour {
         task0_ready_to_skip,
         task0_islands_show,
         task1_move,
+        task2_get_item,
+        task2_inventory_up,
+        task2_show_item,
 
         skip_scene }
     int currentState = (int)TutorialState.begin_idle;
@@ -16,12 +19,17 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject player;
     public GameObject helper;
     public GameObject twoMoreTiles;
+    public GameObject healItem;
+    public GameObject inventory;
 
     float counter = 0;
 
     // flags for things to happen only once
     bool playedVoice = false;
     bool exitButtonFlashed = false;
+    bool moveButtonFlashed = false;
+    public bool firstMoveComplete = false;
+    public bool getItemComplete = false;
 
     // Use this for initialization
     void Start () {
@@ -77,8 +85,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                 // exit button flash
                 if (!exitButtonFlashed)
                 {
-                    //Fading();
-                    StartCoroutine(ButtonFlash());
+                    StartCoroutine(skipButtonFlash());
                     exitButtonFlashed = true;
                 }
                 // count for five seconds
@@ -88,6 +95,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                 {
                     currentState = (int)TutorialState.task0_islands_show;
                     playedVoice = false;
+                    counter = 0;
                 }
                 break;
 
@@ -98,24 +106,110 @@ public class SPTutorialStateManager : MonoBehaviour {
                     SPAudioCenter.PlaymoveToIsland();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.moveToIsland.length);
                     playedVoice = true;
-                    Debug.Log("Length:" + SPAudioCenter.moveToIsland.length);
                 }
 
                 // two more islands shows up
                 twoMoreTiles.SetActive(true);
-                Debug.Log(helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus());
                 // wait for voiceover to end
                 // go to next state
-                /*
+                
                 if (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
                 {
                     currentState = (int)TutorialState.task1_move;
                     playedVoice = false;
-                }*/
+                }
 
                 break;
 
             case (int)TutorialState.task1_move:
+                // move button flash yellow
+                if (!moveButtonFlashed)
+                {
+                    StartCoroutine(moveButtonFlash());
+                    moveButtonFlashed = true;
+                    // disable other buttons
+                }
+
+                // can move now
+
+                counter += Time.deltaTime;
+                // play prompt VO every 5 seconds
+                if (counter > (5+ SPAudioCenter.moveToIslandReminder.length))
+                {
+                    //play reminder
+                    SPAudioCenter.PlaymoveToIslandReminder();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.moveToIslandReminder.length);
+                    counter = 0;
+                }
+
+                // if move completed:
+                // move to next stage
+                if (firstMoveComplete)
+                {
+                    currentState = (int)TutorialState.task2_get_item;
+                    // voice: you are natural!
+                    SPAudioCenter.PlaypositiveFeedback1();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.positiveFeedback1.length);
+                    moveButtonFlashed = false;
+                }
+                break;
+
+            case (int)TutorialState.task2_get_item:
+                // an item shows up
+                healItem.SetActive(true);
+
+                // move button flash
+                if (!moveButtonFlashed)
+                {
+                    StartCoroutine(moveButtonFlash());
+                    moveButtonFlashed = true;
+                }
+
+                // wait for 2 seconds and play voice: look at items!
+                // 
+                if (!playedVoice)
+                {
+                    SPAudioCenter.PlaylookAtItems();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.lookAtItems.length);
+                    playedVoice = true;
+                }
+
+                // play prompt VO every 5 seconds
+                counter += Time.deltaTime;
+                if (counter > (5 + SPAudioCenter.getItemsReminder.length))
+                {
+                    //play reminder
+                    SPAudioCenter.PlaygetItemsReminder();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.getItemsReminder.length);
+                    counter = 0;
+                }
+
+                // if got item
+                if (getItemComplete)
+                {
+                    // play "well done!"
+                    SPAudioCenter.PlaypositiveFeedback2();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, 1f);
+                    playedVoice = false;
+                    counter = 0;
+                    // go to next state
+                    currentState += 1;
+                }
+
+                break;
+
+            case (int)TutorialState.task2_inventory_up:
+                // inventory shows up
+                inventory.SetActive(true);
+                // helper do successful animation.
+                helper.GetComponent<Animator>().SetTrigger("success");
+                // helper flies to the inventory
+                iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0f, 0.0671f, 0.5f), "easetype", iTween.EaseType.easeInOutSine));
+                currentState += 1;
+                break;
+
+            case (int)TutorialState.task2_show_item:
+                Debug.Log("last state");
                 break;
 
             case (int)TutorialState.skip_scene:
@@ -134,30 +228,41 @@ public class SPTutorialStateManager : MonoBehaviour {
     }
 
 
-    IEnumerator ButtonFlash()
+    IEnumerator skipButtonFlash()
     {
         Color originalColor = Color.white;
         Color lerpedColor = Color.yellow;
-
         yield return new WaitForSeconds(0.5f);
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = lerpedColor;
         yield return new WaitForSeconds(1f);
-
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = originalColor;
         yield return new WaitForSeconds(1f);
-
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = lerpedColor;
         yield return new WaitForSeconds(1f);
-
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = originalColor;
         yield return new WaitForSeconds(1f);
-
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = lerpedColor;
         yield return new WaitForSeconds(1f);
-
         player.GetComponent<SPControllerOfPlayerOntheBoard>().SkipButton.image.color = originalColor;
         yield return new WaitForSeconds(1f);
-
     }
 
+    IEnumerator moveButtonFlash()
+    {
+        Color originalColor = Color.white;
+        Color lerpedColor = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(1f);
+        player.GetComponent<SPControllerOfPlayerOntheBoard>().MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(1f);
+    }
 }

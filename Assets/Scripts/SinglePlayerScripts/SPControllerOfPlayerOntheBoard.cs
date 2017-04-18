@@ -27,6 +27,9 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
     public bool canControl = false;
 
+    public bool sendItemDisabled = true;
+    public bool useItemDisable = true;
+
     SPTutorialStateManager tutorialStateManager;
 
     enum Status
@@ -169,7 +172,13 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
             // 2) Set Mode to Send
             if (currentHighlight == (int)Status.Send)
             {
-                if (controllerClickMapping)
+                if (sendItemDisabled && controllerClickMapping)
+                {
+                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
+                    AudioCenter.PlayCantDoThat();
+                }
+
+                if (!sendItemDisabled && controllerClickMapping)
                 {
                     ChangeControlMode();
                     controlMode = 2;
@@ -184,7 +193,6 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 if (controllerClickMapping)
                 {
                     rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
-                    Debug.Log("Use Item Not Implemented Yet");
                     AudioCenter.PlayCantDoThat();
 
                     // Cannot change control mode right now:
