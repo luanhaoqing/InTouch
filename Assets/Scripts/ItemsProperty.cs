@@ -2,10 +2,11 @@
 using System.Collections;
 using UnityEngine.Networking;
 public class ItemsProperty : MonoBehaviour {
-
+    public bool CouldUse=false;
 	// Use this for initialization
 	void Start () {
-	
+        if (this.gameObject.name == "HealingItem")
+            CouldUse = true;
 	}
 	
 	// Update is called once per frame

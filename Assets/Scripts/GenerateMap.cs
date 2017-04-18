@@ -31,7 +31,7 @@ public class GenerateMap : NetworkBehaviour {
         if (!isServer)
             return;
         {
-            int ran = Random.Range(0, 4);
+            int ran = Random.Range(0, 5);
             if (ran == 2)
                 GemNumbers--;
             if(GemNumbers==0)

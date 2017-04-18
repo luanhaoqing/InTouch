@@ -9,6 +9,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private Vector3 target;
     private bool BeginMove;
     public GameObject rabbit;
+    public GameObject rabbitForItem;
     private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
@@ -338,7 +339,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
                 // Control mode: Use Item
                 case 3:
-                    break;
+                    if (!GetComponentInChildren<HandControl>().UseItemActive)
+                    {
+                        rabbitForItem.transform.position = new Vector3(100, 100, 100);
+                        GetComponentInChildren<Inventory>().ActiveUseItem();
+                        Debug.Log("Use Item Mode On");
+                    }
+                        break;
             }
         }
 
@@ -373,6 +380,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         // GetComponentInChildren<HandControl>().ActivateTrade(false);
         tradeon = false;
         rabbit.transform.position = new Vector3(0, 0, 0);
+        rabbitForItem.transform.position = new Vector3(0,0,0);
+        GetComponentInChildren<Inventory>().DeActiveUseItem();
         Debug.Log("Trade Mode OFF");
     }
 

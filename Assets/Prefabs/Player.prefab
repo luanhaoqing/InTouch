@@ -401,7 +401,7 @@ GameObject:
   - 114: {fileID: 114000012545199460}
   - 114: {fileID: 114000010538108200}
   m_Layer: 0
-  m_Name: rabbit
+  m_Name: rabbitForItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,6 +1147,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011322764928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010040330656}
+  - 114: {fileID: 114000014028043118}
+  - 114: {fileID: 114000010803304512}
+  - 114: {fileID: 114000013355569930}
+  m_Layer: 0
+  m_Name: rabbit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011364933598
 GameObject:
   m_ObjectHideFlags: 1
@@ -1531,6 +1549,7 @@ GameObject:
   - 114: {fileID: 114000010770155398}
   - 114: {fileID: 114000014017999912}
   - 114: {fileID: 114000012554646344}
+  - 114: {fileID: 114000010998377300}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3191,6 +3210,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012368710456}
   m_RootOrder: 0
+--- !u!4 &4000010040330656
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011322764928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011919883412}
+  m_RootOrder: 5
 --- !u!4 &4000010044286516
 Transform:
   m_ObjectHideFlags: 1
@@ -4324,6 +4356,7 @@ Transform:
   - {fileID: 4000012560031870}
   - {fileID: 4000010657358380}
   - {fileID: 4000011714496554}
+  - {fileID: 4000010040330656}
   - {fileID: 4000013666319448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -5370,13 +5403,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010371842518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011919883412}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &4000013711724764
 Transform:
   m_ObjectHideFlags: 1
@@ -7383,7 +7416,7 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 4000013666319448}
+  m_Target: {fileID: 4000010040330656}
   m_ChildIndex: 5
   m_SendInterval: 0.083333336
   m_SyncRotationAxis: 7
@@ -7391,6 +7424,26 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &114000010803304512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011322764928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.055555556
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000010896051568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7476,6 +7529,25 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000010998377300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011950342710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000013666319448}
+  m_ChildIndex: 8
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000011121709488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7694,6 +7766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TradeModeActive: 0
+  UseItemActive: 0
   TurnCounter: {fileID: 0}
   helper: {fileID: 1000010312030890}
   pokeHelperGrey: 1
@@ -8305,6 +8378,17 @@ MonoBehaviour:
   - {fileID: 1000011364933598}
   - {fileID: 1000013646591880}
   - {fileID: 1000012807188152}
+--- !u!114 &114000013355569930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011322764928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90315fc6d1aab7a479a9fe54e8129627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013506467414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8534,6 +8618,38 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 0.9
   m_Text: 'Cost: 1'
+--- !u!114 &114000014028043118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011322764928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114000014037834588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8648,7 +8764,8 @@ MonoBehaviour:
   PlayerOnBoard: {fileID: 1000013608104778}
   detectBall: {fileID: 1000010040682678}
   PlayerModel: {fileID: 1000013377495034}
-  rabbit: {fileID: 1000010371842518}
+  rabbit: {fileID: 1000011322764928}
+  rabbitForItem: {fileID: 1000010371842518}
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}
   currentHighlight: 0

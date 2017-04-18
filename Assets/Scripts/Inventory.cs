@@ -44,9 +44,33 @@ public class Inventory : MonoBehaviour {
         }
 
     }
+
+
+    public void ActiveUseItem()
+    {
+        for (int i = 0; i < ItemNumber; i++)
+        {
+            if (Items[i].tag =="ITEM"&& Items[i].GetComponent<ItemsProperty>().CouldUse)
+            {
+                Items[i].transform.position += new Vector3(0, 1, 0);
+            }
+        }
+    }
+    public void DeActiveUseItem()
+    {
+        for (int i = 0; i < ItemNumber; i++)
+        {
+            if (Items[i].tag == "ITEM" && Items[i].GetComponent<ItemsProperty>().CouldUse)
+            {
+                Items[i].transform.position -= new Vector3(0, 1, 0);
+            }
+        }
+    }
+
+
     public void Setpositon(GameObject objct)
     {
-        if (objct.tag == "ITEM")
+        if (objct.tag == "ITEM"&& !objct.GetComponent<ItemsProperty>().CouldUse)
             GemNumber++;
         if (ItemNumber < 4)
         {

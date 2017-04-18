@@ -30,6 +30,8 @@ public class CurrentPlayer : NetworkBehaviour {
     private bool localHasTurn=false;
     [SyncVar]
     public bool TradeOn=false;
+    [SyncVar]
+    public bool UseItemOn = false;
     public GameObject MyPlayer,otherPlayer,currentplayer;
     // Use this for initialization
     void Start () {
@@ -54,7 +56,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     turnCount++;
                     HasTurn = false;
                     TradeOn = false;
-
+                    UseItemOn = false;
 
                 }
             }
@@ -70,6 +72,7 @@ public class CurrentPlayer : NetworkBehaviour {
                     turnCount++;
                     HasTurn = false;
                     TradeOn = false;
+                    UseItemOn = false;
 
                 }
             }
@@ -97,11 +100,21 @@ public class CurrentPlayer : NetworkBehaviour {
                     currentplayer = MyPlayer;
                 else
                     currentplayer = otherPlayer;
+                /*Use for detect rabbit position to open or close trade mode and item use mode*/
                 float temp = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().rabbit.transform.position.x;
                 if (temp > 20 || temp < -20)
                     TradeOn = true;
                 else
                     TradeOn = false;
+
+                temp = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().rabbitForItem.transform.position.x;
+                if (temp > 20 || temp < -20)
+                    UseItemOn = true;
+                else
+                    UseItemOn = false;
+
+
+
             }
          //   TradeOn = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().tradeon;
             if (!localHasTurn&&!HasTurn)
