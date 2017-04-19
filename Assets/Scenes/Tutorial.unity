@@ -7127,11 +7127,12 @@ MonoBehaviour:
   healthPoints: {fileID: 644375107}
   crystalToBreak: {fileID: 1744622825}
   clock: {fileID: 56119058}
+  clockSidePlace: {fileID: 796659988}
   crystalsToBreakByClock:
   - {fileID: 2053955886}
   - {fileID: 198980881}
   - {fileID: 364195072}
-  fallingIsland: {fileID: 1390290634}
+  fallingIsland: {fileID: 1130271039}
   crystalsToBreakByClockSecond:
   - {fileID: 1279182150}
   - {fileID: 1731233548}
@@ -14432,7 +14433,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 796659987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.125, z: -0.1}
+  m_LocalPosition: {x: 0.15, y: -0.125, z: -0.175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -22477,6 +22478,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1704745072}
   m_RootOrder: 0
+--- !u!1 &1130271039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 223c6c713297a3e4f8ff7629135f56b4, type: 3}
+  m_PrefabInternal: {fileID: 1626062789}
 --- !u!1 &1145161176
 GameObject:
   m_ObjectHideFlags: 0
@@ -25956,10 +25961,6 @@ Transform:
   - {fileID: 598323674}
   m_Father: {fileID: 2050665326}
   m_RootOrder: 2
---- !u!1 &1390290634 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100094, guid: fa96fae6569c47942a0d1464598ed652, type: 3}
-  m_PrefabInternal: {fileID: 423423706}
 --- !u!1 &1394531051
 GameObject:
   m_ObjectHideFlags: 0
@@ -31924,6 +31925,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: cebd798406c290340b5db58b84be532b, type: 2}
+    - target: {fileID: 100000, guid: 223c6c713297a3e4f8ff7629135f56b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 223c6c713297a3e4f8ff7629135f56b4, type: 3}
   m_IsPrefabParent: 0

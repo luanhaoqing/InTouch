@@ -38,6 +38,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject healthPoints;
     public GameObject crystalToBreak;
     public GameObject clock;
+    public Transform clockSidePlace;
     public GameObject[] crystalsToBreakByClock;
     public GameObject fallingIsland;
     public GameObject[] crystalsToBreakByClockSecond;
@@ -172,7 +173,7 @@ public class SPTutorialStateManager : MonoBehaviour {
 
                 // if move completed:
                 // move to next stage
-                if (firstMoveComplete)
+                if (firstMoveComplete && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
                 {
                     currentState = (int)TutorialState.task2_get_item;
                     // voice: you are natural!
@@ -437,6 +438,8 @@ public class SPTutorialStateManager : MonoBehaviour {
 
             case (int)TutorialState.task5_clock:
                 // clock shows up.
+                bool breakdownPlayed = false;
+                counter += Time.deltaTime;
                 clock.SetActive(true);
                 if (!clockFirstAnimPlayed)
                 {
@@ -444,20 +447,32 @@ public class SPTutorialStateManager : MonoBehaviour {
                     // move the clock high
                     iTween.MoveAdd(clock, iTween.Hash("y", 1f, "easytype", iTween.EaseType.easeInOutSine));
 
-                    // play the round over anim
-                    clock.GetComponent<Clock>().DecreaseTurn();
-                    clock.GetComponent<Clock>().DecreaseTurn();
-                    clock.GetComponent<Clock>().DecreaseTurn();
-                    clock.GetComponent<Clock>().DecreaseTurn();
+                    // play the round over sound
+                    AudioCenter.PlayRoundOver();
 
                     // reduce all island health
                     foreach (GameObject crystal in crystalsToBreakByClock)
                     {
                         crystal.GetComponent<Animator>().SetTrigger("breakdown");
+                        breakdownPlayed = true;
                     }
 
                     // make first island fall
                     fallingIsland.GetComponent<Animator>().SetTrigger("Break");
+                }
+
+                if (counter >= 0.85f)
+                {
+                    foreach (GameObject crystal in crystalsToBreakByClock)
+                    {
+                        crystal.SetActive(false);
+                    }
+                }
+
+                if (counter >= 1.7f)
+                {
+                    fallingIsland.SetActive(false);
+                    breakdownPlayed = false;
                 }
 
                 if (!playedVoice)
@@ -465,12 +480,13 @@ public class SPTutorialStateManager : MonoBehaviour {
                     playedVoice = true;
                     // say lost health
                     SPAudioCenter.PlayAllTilesLostHealth();
-                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.goodJobMovingToSafeTile.length);
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.allTilesLostHealth.length);
                 }
 
                 if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
                 {
                     playedVoice = false;
+                    counter = 0;
                     // next stage
                     currentState += 1;
                 }
@@ -478,9 +494,35 @@ public class SPTutorialStateManager : MonoBehaviour {
                     break;
 
             case (int)TutorialState.task5_fly_to_clock:
+                if (!playedVoice)
+                {
+                    playedVoice = true;
 
+                    // helper fly to clock
+                    iTween.MoveTo(helper, iTween.Hash("position", clockSidePlace, "easytype", iTween.EaseType.easeInOutSine));
+
+                    // play voice: instuction of clock
+                    SPAudioCenter.PlayClockInstruction();
+                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.clockInstruction.length);
+
+                    // play another round of clock animation
+                    StartCoroutine(playClockAnim());
+
+                }
+
+                if (playedVoice && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
+                {
+                    playedVoice = false;
+                    //next state
+                    currentState += 1;
+                }
+
+                break;
+
+            case (int)TutorialState.task6_begin:
                 Debug.Log(" --- Last State ---");
                 break;
+
 
 
             case (int)TutorialState.skip_scene:
@@ -558,7 +600,9 @@ public class SPTutorialStateManager : MonoBehaviour {
 
     IEnumerator playClockAnim()
     {
-        float waitTime = 2f;
+        float waitTime = 3f;
+
+        yield return new WaitForSeconds(6f);
 
         clock.GetComponent<Clock>().DecreaseTurn();
         yield return new WaitForSeconds(waitTime);
@@ -570,7 +614,6 @@ public class SPTutorialStateManager : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
 
         clock.GetComponent<Clock>().DecreaseTurn();
-        yield return new WaitForSeconds(waitTime);
 
     }
 }
