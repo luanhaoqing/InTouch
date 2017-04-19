@@ -37,6 +37,9 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject inventory;
     public GameObject crystalOnInv;
     public GameObject inventoryOther;
+    public Transform inventoryPlace;
+    public Transform centerIslePlace;
+
     public GameObject crystalOnInvOther;
     public GameObject actionPoints;
     public GameObject healthPoints;
@@ -253,7 +256,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                         counter2 = 0;
 
                         // helper face right direction
-                        helper.transform.LookAt(helper.transform.position + new Vector3(0f, 0, -0.2f));
+                        helper.transform.LookAt(helper.transform.position + new Vector3(-0.2f, 0, 0));
 
                         // go to next state
                         currentState += 1;
@@ -273,7 +276,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                 StartCoroutine(playHelperSuccessAnim());
 
                 // helper flies to the inventory
-                iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0f, 0.0671f, 0.5f), "easetype", iTween.EaseType.easeInOutSine));
+                iTween.MoveTo(helper, iTween.Hash("position", inventoryPlace, "easetype", iTween.EaseType.easeInOutSine));
 
                 currentState += 1;
                 break;
@@ -437,7 +440,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.learnTileHealth.length);
 
                     // helper flys to center island.
-                    iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0.18f, 0.0671f, 0.65f), "easytype", iTween.EaseType.easeInOutSine));
+                    iTween.MoveTo(helper, iTween.Hash("position", centerIslePlace, "easytype", iTween.EaseType.easeInOutSine));
 
                     // two islands shows different health status.
                     healthPoints.SetActive(true);
