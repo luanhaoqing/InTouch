@@ -115,6 +115,9 @@ public class SPTutorialStateManager : MonoBehaviour {
             case (int)TutorialState.task0_ready_to_skip:
                 // turn on control
                 player.GetComponent<SPControllerOfPlayerOntheBoard>().SetControlActive(true);
+                player.GetComponent<SPControllerOfPlayerOntheBoard>().SetMenuActive(true);
+                helper.GetComponent<TutMove>().moveHelperEnabled = false;
+
 
                 // play voiceover
                 if (!playedVoice)
@@ -167,6 +170,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                 // move button flash yellow
                 if (!moveButtonFlashed)
                 {
+                    helper.GetComponent<TutMove>().moveHelperEnabled = true;
                     StartCoroutine(moveButtonFlash());
                     moveButtonFlashed = true;
                     // disable other buttons
@@ -267,7 +271,9 @@ public class SPTutorialStateManager : MonoBehaviour {
 
             case (int)TutorialState.task2_inventory_up:
                 // turn off control
-                player.GetComponent<SPControllerOfPlayerOntheBoard>().canControl = false;
+                player.GetComponent<SPControllerOfPlayerOntheBoard>().SetControlActive(false);
+                player.GetComponent<SPControllerOfPlayerOntheBoard>().SetMenuActive(true);
+                helper.GetComponent<TutMove>().moveHelperEnabled = false;
 
                 // inventory shows up
                 inventory.SetActive(true);
@@ -398,6 +404,9 @@ public class SPTutorialStateManager : MonoBehaviour {
                 // play voice
                 if (!playedVoice)
                 {
+                    //turn off menu
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().SetMenuActive(false);
+
                     playedVoice = true;
                     SPAudioCenter.PlayHandMenu();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.handMenu.length);

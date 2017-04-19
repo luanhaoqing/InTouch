@@ -110,10 +110,12 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         */
 
         // Open menu with trigger after you chose something in this turn.
-        if (!menuOpen && controllerCancelMapping && menuHasOpened)
+        if (!menuOpen && controllerCancelMapping)
         {
             SetMenuActive(true);
         }
+
+        Debug.Log("menuOpen: "+ menuOpen);
 
         if (menuOpen)
         {
@@ -215,9 +217,9 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 }
             }
 
-
+            return;
         }
-        else
+        if (!menuOpen)
         {
             //Debug.Log(controlMode);
             switch (controlMode)
@@ -225,7 +227,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 // Control Mode: Move
                 // below is all the character movement code.
                 case 1:
-                    if ( !BeginMove)
+                    /*if ( !BeginMove)
                     {
                         //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
                         //  var z = Input.GetAxis("Vertical") * Time.deltaTime * 0.05f;
@@ -321,7 +323,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                             BeginMove = false;
                     }
                     break;
-
+                    */
                 // Control mode: Send
                 case 2:
                     // enable touch-send control

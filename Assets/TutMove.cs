@@ -7,6 +7,7 @@ public class TutMove : MonoBehaviour {
     public GameObject detectBall;
     public GameObject PlayerOnBoard;
     private Vector3 target;
+    public bool moveHelperEnabled;
     // Use this for initialization
     void Start () {
 	
@@ -14,6 +15,11 @@ public class TutMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!moveHelperEnabled)
+        {
+            return;
+        }
+
         if ( !BeginMove)
         {
 
