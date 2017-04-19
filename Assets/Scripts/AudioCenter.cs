@@ -11,7 +11,7 @@ public class AudioCenter {
     public static AudioClip turnOver;
     public static AudioClip selectionConfirm;
     public static AudioClip selectionAlt;
-
+    public static AudioClip helperPoke;
     public static AudioClip[] helperPromptList;
 
     public static AudioSource audioCenter;
@@ -65,5 +65,10 @@ public class AudioCenter {
         int length = helperPromptList.Length;
         int randNumber = Random.Range(1, length);
         audioCenter.PlayOneShot(helperPromptList[randNumber], 0.5f);
+    }
+
+    public static void PlayHelperPoke()
+    {
+        audioCenter.PlayOneShot(helperPoke, 0.5f);
     }
 }

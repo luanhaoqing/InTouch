@@ -11,7 +11,7 @@ public class AudioContainer : MonoBehaviour {
     public AudioClip selectionConfirm;
     public AudioClip selectionAlt;
     public AudioClip[] helperPromptList;
-
+    public AudioClip helperPoke;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +25,7 @@ public class AudioContainer : MonoBehaviour {
         AudioCenter.selectionConfirm = selectionConfirm;
         AudioCenter.selectionAlt = selectionAlt;
         AudioCenter.helperPromptList = helperPromptList;
+        AudioCenter.helperPoke = helperPoke;
     }
 
     // Update is called once per frame

@@ -142,6 +142,7 @@ public class HelperAnimation : NetworkBehaviour {
     {
         helperGreyActive = true;
         helperGreyDuration = seconds;
+        AudioCenter.PlayHelperPoke();
         //        helperBodyMaterial = helperGreyMaterial;
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
     }
