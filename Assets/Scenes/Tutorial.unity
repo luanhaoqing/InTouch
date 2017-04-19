@@ -15553,6 +15553,7 @@ MonoBehaviour:
   selectionConfirm: {fileID: 8300000, guid: f7dd238b89602224c92c42df414439ce, type: 3}
   selectionAlt: {fileID: 8300000, guid: 86aba52ed9c479a44b120232141b4be1, type: 3}
   helperPromptList: []
+  helperPoke: {fileID: 8300000, guid: 595973ae9eb6a3e4c9e09b2e3e085c0d, type: 3}
 --- !u!1 &1253700762
 GameObject:
   m_ObjectHideFlags: 0
