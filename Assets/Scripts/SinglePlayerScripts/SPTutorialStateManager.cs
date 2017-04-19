@@ -19,6 +19,7 @@ public class SPTutorialStateManager : MonoBehaviour {
         task4_success,
         task5_clock,
         task5_fly_to_clock,
+        task6_begin,
 
         skip_scene }
     public int currentState = (int)TutorialState.begin_idle;
@@ -26,6 +27,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     // stuff
     public GameObject player;
     public GameObject helper;
+    public GameObject helperSuccessAnim;
     public GameObject twoMoreTiles;
     public GameObject healItem;
     public GameObject inventory;
@@ -228,7 +230,8 @@ public class SPTutorialStateManager : MonoBehaviour {
                 // inventory shows up
                 inventory.SetActive(true);
                 // helper do successful animation.
-                helper.GetComponent<Animator>().SetTrigger("success");
+                helperSuccessAnim.SetActive(true);
+
                 // helper flies to the inventory
                 iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0f, 0.0671f, 0.5f), "easetype", iTween.EaseType.easeInOutSine));
                 currentState += 1;
@@ -553,4 +556,21 @@ public class SPTutorialStateManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
     }
 
+    IEnumerator playClockAnim()
+    {
+        float waitTime = 2f;
+
+        clock.GetComponent<Clock>().DecreaseTurn();
+        yield return new WaitForSeconds(waitTime);
+
+        clock.GetComponent<Clock>().DecreaseTurn();
+        yield return new WaitForSeconds(waitTime);
+
+        clock.GetComponent<Clock>().DecreaseTurn();
+        yield return new WaitForSeconds(waitTime);
+
+        clock.GetComponent<Clock>().DecreaseTurn();
+        yield return new WaitForSeconds(waitTime);
+
+    }
 }
