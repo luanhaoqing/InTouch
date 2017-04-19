@@ -39,7 +39,7 @@ public class DetectHealing : MonoBehaviour {
         if (other.CompareTag("Tile") && other.name != "StartTile" && other.GetComponent<TileHealthyManager>().HasExploded)
         {
             couldHeal = false;
-            currentTile = null;
+         //   currentTile = null;
         }
     }
     public void Heal()
