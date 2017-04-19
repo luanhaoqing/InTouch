@@ -297,6 +297,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     counter = 0;
                 }
 
+                // can send item
 
                 // if item sent, wait for talk to finish
                 if (sendItemComplete)

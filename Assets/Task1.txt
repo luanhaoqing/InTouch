@@ -1,0 +1,70 @@
+
+
+Task 1
+
+Helper
+
+Cursor
+
+Controller
+
+Island
+
+float counter = 0
+
+switch (substate):
+    case 1:
+        Controller.ShowUp();
+        substate = 2;
+    
+    case 2:
+        if (Controller.hasDesiredInput("Confirm")) {
+            substate = 3;
+        }
+
+    case 3:
+        Cursor.ShowUp();
+        substate = 4
+
+    case 4:
+        if (Controller.hasDesiredInput("Right")) {
+            substate = 5;
+        }
+
+
+
+    case 5:
+        Cursor.MoveRight()
+        counter = 0
+        substate = 5.1
+    case 5.1:
+        if (counter < 3) {
+            counter = counter + Time.deltaTime;
+        } else {
+            substate = 6
+        }
+
+
+        
+    case 6:
+        if (Controller.hasDesiredInput("Confirm")) {
+            substate = 7;
+        }
+
+    case 7:
+        Helper.MoveRight();
+        counter = 0
+        substate = 7.1
+
+    case 7.1:
+        if (counter < helperMoveTime){
+        counter = counter + Time.deltaTime;
+    } else {
+        Trigger.FirstTaskComplete();
+    }
+
+       
+
+
+
+

@@ -1,0 +1,17 @@
+Item,
+Controller,
+
+case 1:
+
+    Controller.ShowUp();
+    substate = 2
+    
+case 2:
+    if (Controller.hasDesiredInput("Confirm Send")) {
+        substate = 3;
+    }
+
+case 3:
+    if(Controller.TouchItem){
+        Trigger.sendItemComplete;
+    }

@@ -377,7 +377,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         Debug.Log("Turning off Menu");
         // GetComponentInChildren<HandControl>().ActivateTrade(false);
         tradeon = false;
-        rabbit.transform.position = new Vector3(0, 0, 0);
+     //   rabbit.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Trade Mode OFF");
     }
 
