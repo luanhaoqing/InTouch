@@ -5,7 +5,7 @@ public class UpdateHP : MonoBehaviour {
     public GameObject tile;
     public GameObject[] flame;
     private int numberofFlame=4;
-    private float length = 1.4f;
+    private float length = 0.9f;
 
 	// Use this for initialization
 	void Start () {
