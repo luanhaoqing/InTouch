@@ -2835,7 +2835,7 @@ GameObject:
   - 65: {fileID: 121499603}
   - 114: {fileID: 121499602}
   m_Layer: 0
-  m_Name: task2Detector
+  m_Name: task4Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2848,12 +2848,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121499600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.006471823, y: -0.02505556, z: 0.014611086}
+  m_LocalScale: {x: 1.2222223, y: 1.2222223, z: 1.2222223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 682685033}
-  m_RootOrder: 7
+  m_Father: {fileID: 977924510}
+  m_RootOrder: 4
 --- !u!114 &121499602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21511,6 +21511,7 @@ Transform:
   - {fileID: 1346444797}
   - {fileID: 1406790011}
   - {fileID: 1095018305}
+  - {fileID: 121499601}
   m_Father: {fileID: 644375108}
   m_RootOrder: 1
 --- !u!1 &984349792

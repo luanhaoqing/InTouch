@@ -91,7 +91,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
 
-
+/*
         // Open Menu whenever it's your turn. Turn it off whenever it's not.
         if ((!menuHasOpened))
         {
@@ -107,6 +107,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
             SetHoverUIActive(false);
             Debug.Log("Menu Closed");
         }
+        */
 
         // Open menu with trigger after you chose something in this turn.
         if (!menuOpen && controllerCancelMapping && menuHasOpened)
@@ -310,10 +311,6 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                                 target = detectBall.transform.position;
                                 //hideCursor();
                             }
-                        }
-                        if (Input.GetKeyDown(KeyCode.T))
-                        {
-
                         }
                     }
                     if (BeginMove)

@@ -45,6 +45,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     public moveDetector taskOneDetector;
     public moveDetector taskTwoDetector;
     public touchDetector taskThreeDetector;
+    public moveDetector taskFourDetector;
 
 
     float counter = 0;
@@ -190,7 +191,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     SPAudioCenter.PlaypositiveFeedback1();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.positiveFeedback1.length);
                     moveButtonFlashed = false;
-                    playHelperSuccessAnim();
+                    StartCoroutine(playHelperSuccessAnim());
                 }
                 break;
 
@@ -238,7 +239,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     counter2 += Time.deltaTime;
 
                     if (counter2 > 1f) { 
-                        playHelperSuccessAnim();
+                        StartCoroutine(playHelperSuccessAnim());
                         // play "well done!"
                         SPAudioCenter.PlaypositiveFeedback2();
                         helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, 1f);
@@ -247,7 +248,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                         counter2 = 0;
 
                         // helper face right direction
-                        helper.transform.LookAt(helper.transform.position + new Vector3(0.2f, 0, 0));
+                        helper.transform.LookAt(helper.transform.position + new Vector3(0f, 0, -0.2f));
 
                         // go to next state
                         currentState += 1;
@@ -257,6 +258,9 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task2_inventory_up:
+                // turn off control
+                player.GetComponent<SPControllerOfPlayerOntheBoard>().canControl = false;
+
                 // inventory shows up
                 inventory.SetActive(true);
                 healItem.SetActive(false);
@@ -426,7 +430,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     playedVoice = true;
                     SPAudioCenter.PlayLearnTileHealth();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.learnTileHealth.length);
-                    
+
                     // helper flys to center island.
                     iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0.18f, 0.0671f, 0.65f), "easytype", iTween.EaseType.easeInOutSine));
 
@@ -434,14 +438,17 @@ public class SPTutorialStateManager : MonoBehaviour {
                     healthPoints.SetActive(true);
 
                     // allow movement now.
-
-                    // right move: set islandHealthCompele to true.
-
-                    // wrong move: set islandHealthFail tp true.
-
-
-
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().canControl = true;
                 }
+
+                // right move: set islandHealthCompele to true.
+                if (taskFourDetector.IfTouched())
+                {
+                    islandHealthComplete = true;
+                }
+
+                // wrong move: set islandHealthFail tp true.
+                
 
                 if (islandHealthComplete && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus()==false)
                 {
