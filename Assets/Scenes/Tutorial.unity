@@ -7235,6 +7235,7 @@ MonoBehaviour:
   taskOneDetector: {fileID: 587360450}
   taskTwoDetector: {fileID: 121499602}
   taskThreeDetector: {fileID: 246481179}
+  taskFourDetector: {fileID: 121499602}
   firstMoveComplete: 0
   getItemComplete: 0
   sendItemComplete: 0
