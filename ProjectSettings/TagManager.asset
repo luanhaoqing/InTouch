@@ -21,6 +21,8 @@ TagManager:
   - RightHandHoverMenu
   - EventAnimationManager
   - TutorialStateManager
+  - SPHelper
+  - SPHand
   layers:
   - Default
   - TransparentFX

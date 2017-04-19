@@ -42,9 +42,13 @@ public class SPTutorialStateManager : MonoBehaviour {
     public GameObject[] crystalsToBreakByClock;
     public GameObject fallingIsland;
     public GameObject[] crystalsToBreakByClockSecond;
+    public moveDetector taskOneDetector;
+    public moveDetector taskTwoDetector;
+    public touchDetector taskThreeDetector;
 
 
     float counter = 0;
+    float counter2 = 0;
 
     // flags for things to happen only once
     bool playedVoice = false;
@@ -171,6 +175,12 @@ public class SPTutorialStateManager : MonoBehaviour {
                     counter = 0;
                 }
 
+                // detect collision for task 1
+                if (taskOneDetector.IfTouched() && firstMoveComplete == false)
+                {
+                    firstMoveComplete = true;
+                }
+
                 // if move completed:
                 // move to next stage
                 if (firstMoveComplete && helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
@@ -180,6 +190,7 @@ public class SPTutorialStateManager : MonoBehaviour {
                     SPAudioCenter.PlaypositiveFeedback1();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.positiveFeedback1.length);
                     moveButtonFlashed = false;
+                    playHelperSuccessAnim();
                 }
                 break;
 
@@ -213,16 +224,34 @@ public class SPTutorialStateManager : MonoBehaviour {
                     counter = 0;
                 }
 
+                // check if got item
+                if (taskTwoDetector.IfTouched() && getItemComplete==false)
+                {
+                    getItemComplete = true;
+                    
+                }
+
+
                 // if got item
                 if (getItemComplete)
                 {
-                    // play "well done!"
-                    SPAudioCenter.PlaypositiveFeedback2();
-                    helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, 1f);
-                    playedVoice = false;
-                    counter = 0;
-                    // go to next state
-                    currentState += 1;
+                    counter2 += Time.deltaTime;
+
+                    if (counter2 > 1f) { 
+                        playHelperSuccessAnim();
+                        // play "well done!"
+                        SPAudioCenter.PlaypositiveFeedback2();
+                        helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, 1f);
+                        playedVoice = false;
+                        counter = 0;
+                        counter2 = 0;
+
+                        // helper face right direction
+                        helper.transform.LookAt(helper.transform.position + new Vector3(0.2f, 0, 0));
+
+                        // go to next state
+                        currentState += 1;
+                    }
                 }
 
                 break;
@@ -230,11 +259,13 @@ public class SPTutorialStateManager : MonoBehaviour {
             case (int)TutorialState.task2_inventory_up:
                 // inventory shows up
                 inventory.SetActive(true);
+                healItem.SetActive(false);
                 // helper do successful animation.
-                helperSuccessAnim.SetActive(true);
+                StartCoroutine(playHelperSuccessAnim());
 
                 // helper flies to the inventory
                 iTween.MoveTo(helper, iTween.Hash("position", new Vector3(0f, 0.0671f, 0.5f), "easetype", iTween.EaseType.easeInOutSine));
+
                 currentState += 1;
                 break;
 
@@ -271,12 +302,13 @@ public class SPTutorialStateManager : MonoBehaviour {
                 // send button flash
                 if (!sendButtonFlashed)
                 {
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().SetMenuActive(true);
                     StartCoroutine(sendButtonFlash());
                     sendButtonFlashed = true;
                 }
 
                 // other inventory shows up
-                healItem.SetActive(false);
+                
                 inventoryOther.SetActive(true);
 
                 // play voice: uh oh
@@ -285,6 +317,8 @@ public class SPTutorialStateManager : MonoBehaviour {
                     playedVoice = true;
                     SPAudioCenter.PlaySendItemFriend();
                     helper.GetComponent<SPHelperAnimation>().SetHelperTalkActive(true, SPAudioCenter.sendItemFriend.length);
+                    // can send item
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().sendItemDisabled = false;
                 }
 
                 // prompt every five seconds
@@ -297,11 +331,21 @@ public class SPTutorialStateManager : MonoBehaviour {
                     counter = 0;
                 }
 
-                // can send item
+                
+
+                // check if item sent
+                if (taskThreeDetector.IfTouched() && sendItemComplete == false)
+                {
+                    sendItemComplete = true;
+                }
 
                 // if item sent, wait for talk to finish
                 if (sendItemComplete)
                 {
+                    // cannot send anymore
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().sendItemDisabled = true;
+                    player.GetComponent<SPControllerOfPlayerOntheBoard>().SetMenuActive(true);
+
                     crystalOnInv.SetActive(false);
                     crystalOnInvOther.SetActive(true);
                     if (helper.GetComponent<SPHelperAnimation>().getHelperTalkStatus() == false)
@@ -541,6 +585,13 @@ public class SPTutorialStateManager : MonoBehaviour {
         currentState = (int)TutorialState.skip_scene;
     }
 
+    IEnumerator playHelperSuccessAnim()
+    {
+        helperSuccessAnim.SetActive(false);
+        helperSuccessAnim.SetActive(true);
+        AudioCenter.PlayGetItem();
+        yield return null;
+    }
 
     IEnumerator skipButtonFlash()
     {

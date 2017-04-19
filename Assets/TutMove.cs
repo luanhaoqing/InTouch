@@ -67,7 +67,7 @@ public class TutMove : MonoBehaviour {
                     //  Debug.Log("w");
                     BeginMove = true;
                     target = detectBall.transform.position;
-      
+                    hideCursor();
                 }
             }
            
@@ -79,5 +79,13 @@ public class TutMove : MonoBehaviour {
             if (PlayerOnBoard.transform.position == target)
                 BeginMove = false;
         }
+    }
+
+    void hideCursor()
+    {
+        Vector3 temp = PlayerOnBoard.transform.position;
+        temp.y = 10f;
+        detectBall.transform.position = temp;
+        detectBall.GetComponent<TutDetectBall>().cursor.SetActive(false);
     }
 }

@@ -192,7 +192,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
             {
                 if (controllerClickMapping)
                 {
-                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
+                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
                     AudioCenter.PlayCantDoThat();
 
                     // Cannot change control mode right now:
@@ -404,4 +404,5 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     {
         canControl = boolean;
     }
+
 }
