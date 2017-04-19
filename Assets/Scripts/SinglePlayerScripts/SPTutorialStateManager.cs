@@ -20,7 +20,11 @@ public class SPTutorialStateManager : MonoBehaviour {
         task5_clock,
         task5_fly_to_clock,
         task6_begin,
+        task6_runes,
+        task6_key,
+        task6_door,
 
+        before_skip_scene,
         skip_scene }
     public int currentState = (int)TutorialState.begin_idle;
 
@@ -58,6 +62,7 @@ public class SPTutorialStateManager : MonoBehaviour {
     bool sendButtonFlashed = false;
     bool itemShown = false;
     bool clockFirstAnimPlayed = false;
+    bool readyToSkipScene = false;
 
     public bool firstMoveComplete = false;
     public bool getItemComplete = false;
@@ -572,13 +577,69 @@ public class SPTutorialStateManager : MonoBehaviour {
                 break;
 
             case (int)TutorialState.task6_begin:
-                Debug.Log(" --- Last State ---");
+                // do once:
+                    // helper flies back to island
+                    // door and a key show up
+
+                // next state
+                break;
+            case (int)TutorialState.task6_runes:
+                // do once:
+                    // two runes show up in item
+                    // an island with rune show up
+
+                // wait for desired input:
+                    // if rune detect touch
+
+                // if rune touched:
+                    // rune goes to item
+                    // move to next state
                 break;
 
+            case (int)TutorialState.task6_key:
+                // wait for desired input:
+                    // if key detect touch
 
+                // if key touched:
+                    // rune goes to item
+                    // key goes to item
+                    // move to next state
+
+                
+                break;
+
+            case (int)TutorialState.task6_door:
+                // do once:
+                    // play VO
+
+                // wait for desired input:
+                    // if door detect touch
+
+                // if door touched
+                    // play final VO
+                    // play door animation
+                    // play helper fly through door (later)
+                    // go to next state
+                    
+
+            case (int)TutorialState.before_skip_scene:
+                Debug.Log(" --- Last State Before Skip ---");
+               
+                if (!playedVoice)
+                {
+                    playedVoice = true;
+                    StartCoroutine(WaitBeforeSkipScene());
+                }
+
+                // do once:
+                    // wait for animation to play thru
+                if (readyToSkipScene)
+                {
+                    currentState = (int)TutorialState.skip_scene;
+                }
+                break;
 
             case (int)TutorialState.skip_scene:
-                // fade black
 
                 // change scene
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
@@ -674,5 +735,11 @@ public class SPTutorialStateManager : MonoBehaviour {
 
         clock.GetComponent<Clock>().DecreaseTurn();
 
+    }
+
+    IEnumerator WaitBeforeSkipScene()
+    {
+        yield return new WaitForSeconds(5f);
+        readyToSkipScene = true;
     }
 }
