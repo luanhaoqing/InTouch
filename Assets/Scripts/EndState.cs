@@ -7,6 +7,7 @@ public class EndState : MonoBehaviour {
     public int Pass=0;
     public GameObject Clock;
     public GameObject win;
+    public GameObject door;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +21,7 @@ public class EndState : MonoBehaviour {
             Debug.Log("Win");
             Clock.SetActive(false);
             win.SetActive(true);
+            door.GetComponent<Animator>().SetTrigger("DoorOpen");
         }
     }
     private void OnTriggerEnter(Collider other)

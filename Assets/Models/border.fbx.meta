@@ -4019,7 +4019,1681 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Chian1
+        weight: 1
+      - path: Chian1/Ring
+        weight: 1
+      - path: Chian2
+        weight: 1
+      - path: Chian2/pasted__Ring
+        weight: 1
+      - path: Chian3
+        weight: 1
+      - path: Chian3/pasted__Chian7
+        weight: 1
+      - path: Chian3/pasted__Chian7/pasted__pasted__Chian11
+        weight: 1
+      - path: Chian3/pasted__Chian7/pasted__pasted__Chian11/pasted__pasted__pasted__Ring
+        weight: 1
+      - path: Chian4
+        weight: 1
+      - path: Crystal1
+        weight: 1
+      - path: Crystal1/group2
+        weight: 1
+      - path: Crystal2
+        weight: 1
+      - path: Crystal2/pasted__Crystal
+        weight: 1
+      - path: Crystal2/pasted__Crystal/pasted__group2
+        weight: 1
+      - path: Crystal3
+        weight: 1
+      - path: Crystal3/pasted__Crystal1
+        weight: 1
+      - path: Crystal3/pasted__Crystal1/pasted__pasted__Crystal
+        weight: 1
+      - path: Crystal3/pasted__Crystal1/pasted__pasted__Crystal/pasted__pasted__group2
+        weight: 1
+      - path: Crystal4
+        weight: 1
+      - path: Crystal4/pasted__Crystal3
+        weight: 1
+      - path: Crystal4/pasted__Crystal3/pasted__pasted__Crystal1
+        weight: 1
+      - path: Crystal4/pasted__Crystal3/pasted__pasted__Crystal1/pasted__pasted__pasted__Crystal
+        weight: 1
+      - path: Crystal4/pasted__Crystal3/pasted__pasted__Crystal1/pasted__pasted__pasted__Crystal/pasted__pasted__pasted__group2
+        weight: 1
+      - path: imagePlane2
+        weight: 1
+      - path: land
+        weight: 1
+      - path: land/group3
+        weight: 1
+      - path: land/group3/group4
+        weight: 1
+      - path: land/group3/group5
+        weight: 1
+      - path: land/group3/group6
+        weight: 1
+      - path: land/group3/group6/polySurface7
+        weight: 1
+      - path: land/group3/group6/polySurface13
+        weight: 1
+      - path: land/group3/group6/polySurface18
+        weight: 1
+      - path: land/group3/group6/polySurface19
+        weight: 1
+      - path: land/group3/group6/polySurface20
+        weight: 1
+      - path: land/group3/group6/polySurface21
+        weight: 1
+      - path: land/group3/group6/polySurface22
+        weight: 1
+      - path: land/group3/group6/polySurface23
+        weight: 1
+      - path: land/group3/group6/polySurface24
+        weight: 1
+      - path: land/group3/group6/polySurface25
+        weight: 1
+      - path: land/group3/group6/polySurface26
+        weight: 1
+      - path: land/group3/group6/polySurface27
+        weight: 1
+      - path: land/group3/group6/polySurface28
+        weight: 1
+      - path: land/group3/group6/polySurface29
+        weight: 1
+      - path: land/group3/group6/polySurface30
+        weight: 1
+      - path: land/group3/group6/polySurface31
+        weight: 1
+      - path: land/group3/group6/polySurface32
+        weight: 1
+      - path: land/group3/group6/polySurface33
+        weight: 1
+      - path: land/group3/group6/polySurface34
+        weight: 1
+      - path: land/group3/group6/polySurface35
+        weight: 1
+      - path: land/group3/group6/polySurface36
+        weight: 1
+      - path: land/group3/group6/polySurface37
+        weight: 1
+      - path: land/group3/group6/polySurface38
+        weight: 1
+      - path: land/group3/group6/polySurface39
+        weight: 1
+      - path: land/group3/group6/polySurface40
+        weight: 1
+      - path: land/group3/group6/polySurface41
+        weight: 1
+      - path: land/group3/group6/polySurface42
+        weight: 1
+      - path: land/group3/group6/polySurface43
+        weight: 1
+      - path: land/group3/group6/polySurface44
+        weight: 1
+      - path: land/group3/group6/polySurface46
+        weight: 1
+      - path: land/group3/group6/polySurface47
+        weight: 1
+      - path: land/group3/group6/polySurface48
+        weight: 1
+      - path: land/group3/group6/polySurface49
+        weight: 1
+      - path: land/group3/group6/polySurface50
+        weight: 1
+      - path: land/group3/group6/polySurface51
+        weight: 1
+      - path: land/group3/group6/polySurface52
+        weight: 1
+      - path: land/group3/group6/polySurface53
+        weight: 1
+      - path: land/group3/group6/polySurface54
+        weight: 1
+      - path: land/group3/group6/polySurface55
+        weight: 1
+      - path: land/group3/group6/polySurface56
+        weight: 1
+      - path: land/group3/group6/polySurface57
+        weight: 1
+      - path: land/group3/group6/polySurface58
+        weight: 1
+      - path: land/group3/group6/polySurface59
+        weight: 1
+      - path: land/group3/group6/polySurface60
+        weight: 1
+      - path: land/group3/group6/polySurface61
+        weight: 1
+      - path: land/group3/group6/polySurface62
+        weight: 1
+      - path: land/group3/group6/polySurface63
+        weight: 1
+      - path: land/group3/group6/polySurface64
+        weight: 1
+      - path: land/group3/group6/polySurface65
+        weight: 1
+      - path: land/group3/group6/polySurface66
+        weight: 1
+      - path: land/group3/group6/polySurface68
+        weight: 1
+      - path: land/group3/group6/polySurface69
+        weight: 1
+      - path: land/group3/group6/polySurface70
+        weight: 1
+      - path: land/group3/group6/polySurface71
+        weight: 1
+      - path: land/group3/group6/polySurface72
+        weight: 1
+      - path: land/group3/group6/polySurface73
+        weight: 1
+      - path: land/group3/group6/polySurface76
+        weight: 1
+      - path: land/group3/group6/polySurface78
+        weight: 1
+      - path: land/group3/group6/polySurface79
+        weight: 1
+      - path: land/group3/group6/polySurface80
+        weight: 1
+      - path: land/group3/group6/polySurface81
+        weight: 1
+      - path: land/group3/group6/polySurface82
+        weight: 1
+      - path: land/group3/group6/polySurface83
+        weight: 1
+      - path: land/group3/group6/polySurface84
+        weight: 1
+      - path: land/group3/group6/polySurface85
+        weight: 1
+      - path: land/group3/group6/polySurface86
+        weight: 1
+      - path: land/group3/group6/polySurface87
+        weight: 1
+      - path: land/group3/group6/polySurface89
+        weight: 1
+      - path: land/group3/group6/polySurface90
+        weight: 1
+      - path: land/group3/group6/polySurface91
+        weight: 1
+      - path: land/group3/group6/polySurface92
+        weight: 1
+      - path: land/group3/group6/polySurface94
+        weight: 1
+      - path: land/group3/group6/polySurface96
+        weight: 1
+      - path: land/group3/group6/polySurface97
+        weight: 1
+      - path: land/group3/group6/polySurface98
+        weight: 1
+      - path: land/group3/group6/polySurface99
+        weight: 1
+      - path: land/group3/group6/polySurface100
+        weight: 1
+      - path: land/group3/group6/polySurface101
+        weight: 1
+      - path: land/group3/group6/polySurface102
+        weight: 1
+      - path: land/group3/group6/polySurface104
+        weight: 1
+      - path: land/group3/group6/polySurface105
+        weight: 1
+      - path: land/group3/group6/polySurface106
+        weight: 1
+      - path: land/group3/group6/polySurface107
+        weight: 1
+      - path: land/group3/group6/polySurface108
+        weight: 1
+      - path: land/group3/group6/polySurface278
+        weight: 1
+      - path: land/group3/group6/polySurface279
+        weight: 1
+      - path: land/group3/group6/polySurface280
+        weight: 1
+      - path: land/group3/group6/polySurface281
+        weight: 1
+      - path: land/group3/group6/polySurface282
+        weight: 1
+      - path: land/group3/group6/polySurface283
+        weight: 1
+      - path: land/group3/group6/polySurface284
+        weight: 1
+      - path: land/group3/group6/polySurface285
+        weight: 1
+      - path: land/group3/group6/polySurface286
+        weight: 1
+      - path: land/group3/group6/polySurface287
+        weight: 1
+      - path: land/group3/group6/polySurface288
+        weight: 1
+      - path: land/group3/group6/polySurface289
+        weight: 1
+      - path: land/group3/group6/polySurface290
+        weight: 1
+      - path: land/group3/group6/polySurface292
+        weight: 1
+      - path: land/group3/group6/polySurface293
+        weight: 1
+      - path: land/group3/group6/polySurface294
+        weight: 1
+      - path: land/group3/group6/polySurface295
+        weight: 1
+      - path: land/group3/group6/polySurface296
+        weight: 1
+      - path: land/group3/group6/polySurface297
+        weight: 1
+      - path: land/group3/group6/polySurface298
+        weight: 1
+      - path: land/group3/group6/polySurface299
+        weight: 1
+      - path: land/group3/group6/polySurface300
+        weight: 1
+      - path: land/group3/group6/polySurface301
+        weight: 1
+      - path: land/group3/group6/polySurface302
+        weight: 1
+      - path: land/group3/group6/polySurface303
+        weight: 1
+      - path: land/group3/group6/polySurface304
+        weight: 1
+      - path: land/group3/group6/polySurface307
+        weight: 1
+      - path: land/group3/group6/polySurface308
+        weight: 1
+      - path: land/group3/group6/polySurface309
+        weight: 1
+      - path: land/group3/group6/polySurface310
+        weight: 1
+      - path: land/group3/group6/polySurface311
+        weight: 1
+      - path: land/group3/group6/polySurface312
+        weight: 1
+      - path: land/group3/group6/polySurface313
+        weight: 1
+      - path: land/group3/group6/polySurface314
+        weight: 1
+      - path: land/group3/group6/polySurface315
+        weight: 1
+      - path: land/group3/group6/polySurface316
+        weight: 1
+      - path: land/group3/group6/polySurface317
+        weight: 1
+      - path: land/group3/group6/polySurface318
+        weight: 1
+      - path: land/group3/group6/polySurface319
+        weight: 1
+      - path: land/group3/group6/polySurface320
+        weight: 1
+      - path: land/group3/group6/polySurface321
+        weight: 1
+      - path: land/group3/group6/polySurface323
+        weight: 1
+      - path: land/group3/group6/polySurface324
+        weight: 1
+      - path: land/group3/group6/polySurface325
+        weight: 1
+      - path: land/group3/group6/polySurface326
+        weight: 1
+      - path: land/group3/group6/polySurface327
+        weight: 1
+      - path: land/group3/group6/polySurface328
+        weight: 1
+      - path: land/group3/group6/polySurface329
+        weight: 1
+      - path: land/group3/group6/polySurface330
+        weight: 1
+      - path: land/group3/group6/polySurface332
+        weight: 1
+      - path: land/group3/group6/polySurface333
+        weight: 1
+      - path: land/group3/group6/polySurface334
+        weight: 1
+      - path: land/group3/group6/polySurface335
+        weight: 1
+      - path: land/group3/group6/polySurface336
+        weight: 1
+      - path: land/group3/group6/polySurface337
+        weight: 1
+      - path: land/group3/group6/polySurface338
+        weight: 1
+      - path: land/group3/group6/polySurface339
+        weight: 1
+      - path: land/group3/group6/polySurface340
+        weight: 1
+      - path: land/group3/group6/polySurface342
+        weight: 1
+      - path: land/group3/group6/polySurface343
+        weight: 1
+      - path: land/group3/group6/polySurface344
+        weight: 1
+      - path: land/group3/group6/polySurface345
+        weight: 1
+      - path: land/group3/group6/polySurface346
+        weight: 1
+      - path: land/group3/group6/polySurface347
+        weight: 1
+      - path: land/group3/group6/polySurface348
+        weight: 1
+      - path: land/group3/group6/polySurface349
+        weight: 1
+      - path: land/group3/group6/polySurface351
+        weight: 1
+      - path: land/group3/group6/polySurface352
+        weight: 1
+      - path: land/group3/group6/polySurface353
+        weight: 1
+      - path: land/group3/group6/polySurface354
+        weight: 1
+      - path: land/group3/group6/polySurface355
+        weight: 1
+      - path: land/group3/group6/polySurface356
+        weight: 1
+      - path: land/group3/group6/polySurface357
+        weight: 1
+      - path: land/group3/group6/polySurface358
+        weight: 1
+      - path: land/group3/group6/polySurface359
+        weight: 1
+      - path: land/group3/group6/polySurface360
+        weight: 1
+      - path: land/group3/group6/polySurface361
+        weight: 1
+      - path: land/group3/group6/polySurface362
+        weight: 1
+      - path: land/group3/group6/polySurface363
+        weight: 1
+      - path: land/group3/group6/polySurface364
+        weight: 1
+      - path: land/group3/group6/polySurface365
+        weight: 1
+      - path: land/group3/group6/polySurface366
+        weight: 1
+      - path: land/group3/group6/polySurface368
+        weight: 1
+      - path: land/group3/group6/polySurface369
+        weight: 1
+      - path: land/group3/group6/polySurface371
+        weight: 1
+      - path: land/group3/group6/polySurface372
+        weight: 1
+      - path: land/group3/group6/polySurface374
+        weight: 1
+      - path: land/group3/group6/polySurface375
+        weight: 1
+      - path: land/group3/group6/polySurface376
+        weight: 1
+      - path: land/group3/group6/polySurface377
+        weight: 1
+      - path: land/group3/group6/polySurface378
+        weight: 1
+      - path: land/group3/group6/polySurface379
+        weight: 1
+      - path: land/group3/group6/polySurface380
+        weight: 1
+      - path: land/group3/group6/polySurface381
+        weight: 1
+      - path: land/group3/group6/polySurface383
+        weight: 1
+      - path: land/group3/group6/polySurface384
+        weight: 1
+      - path: land/group3/group6/polySurface385
+        weight: 1
+      - path: land/group3/group6/polySurface386
+        weight: 1
+      - path: land/group3/group6/polySurface388
+        weight: 1
+      - path: land/group3/group6/polySurface389
+        weight: 1
+      - path: land/group3/group6/polySurface390
+        weight: 1
+      - path: land/group3/group6/polySurface391
+        weight: 1
+      - path: land/group3/group6/polySurface392
+        weight: 1
+      - path: land/group3/group6/polySurface393
+        weight: 1
+      - path: land/group3/group6/polySurface394
+        weight: 1
+      - path: land/group3/group6/polySurface395
+        weight: 1
+      - path: land/group3/group6/polySurface396
+        weight: 1
+      - path: land/group3/group6/polySurface398
+        weight: 1
+      - path: land/group3/group6/polySurface399
+        weight: 1
+      - path: land/group3/group6/polySurface400
+        weight: 1
+      - path: land/group3/group6/polySurface401
+        weight: 1
+      - path: land/group3/group6/polySurface402
+        weight: 1
+      - path: land/group3/group6/polySurface716
+        weight: 1
+      - path: land/group3/group6/polySurface717
+        weight: 1
+      - path: land/group3/group6/polySurface718
+        weight: 1
+      - path: land/group3/group7
+        weight: 1
+      - path: land/group3/group7/polySurface7 1
+        weight: 1
+      - path: land/group3/group7/polySurface13 1
+        weight: 1
+      - path: land/group3/group7/polySurface18 1
+        weight: 1
+      - path: land/group3/group7/polySurface19 1
+        weight: 1
+      - path: land/group3/group7/polySurface20 1
+        weight: 1
+      - path: land/group3/group7/polySurface21 1
+        weight: 1
+      - path: land/group3/group7/polySurface22 1
+        weight: 1
+      - path: land/group3/group7/polySurface23 1
+        weight: 1
+      - path: land/group3/group7/polySurface24 1
+        weight: 1
+      - path: land/group3/group7/polySurface25 1
+        weight: 1
+      - path: land/group3/group7/polySurface26 1
+        weight: 1
+      - path: land/group3/group7/polySurface27 1
+        weight: 1
+      - path: land/group3/group7/polySurface28 1
+        weight: 1
+      - path: land/group3/group7/polySurface29 1
+        weight: 1
+      - path: land/group3/group7/polySurface30 1
+        weight: 1
+      - path: land/group3/group7/polySurface31 1
+        weight: 1
+      - path: land/group3/group7/polySurface32 1
+        weight: 1
+      - path: land/group3/group7/polySurface33 1
+        weight: 1
+      - path: land/group3/group7/polySurface34 1
+        weight: 1
+      - path: land/group3/group7/polySurface35 1
+        weight: 1
+      - path: land/group3/group7/polySurface36 1
+        weight: 1
+      - path: land/group3/group7/polySurface37 1
+        weight: 1
+      - path: land/group3/group7/polySurface38 1
+        weight: 1
+      - path: land/group3/group7/polySurface39 1
+        weight: 1
+      - path: land/group3/group7/polySurface40 1
+        weight: 1
+      - path: land/group3/group7/polySurface41 1
+        weight: 1
+      - path: land/group3/group7/polySurface42 1
+        weight: 1
+      - path: land/group3/group7/polySurface43 1
+        weight: 1
+      - path: land/group3/group7/polySurface44 1
+        weight: 1
+      - path: land/group3/group7/polySurface46 1
+        weight: 1
+      - path: land/group3/group7/polySurface47 1
+        weight: 1
+      - path: land/group3/group7/polySurface48 1
+        weight: 1
+      - path: land/group3/group7/polySurface49 1
+        weight: 1
+      - path: land/group3/group7/polySurface50 1
+        weight: 1
+      - path: land/group3/group7/polySurface51 1
+        weight: 1
+      - path: land/group3/group7/polySurface52 1
+        weight: 1
+      - path: land/group3/group7/polySurface53 1
+        weight: 1
+      - path: land/group3/group7/polySurface54 1
+        weight: 1
+      - path: land/group3/group7/polySurface55 1
+        weight: 1
+      - path: land/group3/group7/polySurface56 1
+        weight: 1
+      - path: land/group3/group7/polySurface57 1
+        weight: 1
+      - path: land/group3/group7/polySurface58 1
+        weight: 1
+      - path: land/group3/group7/polySurface59 1
+        weight: 1
+      - path: land/group3/group7/polySurface60 1
+        weight: 1
+      - path: land/group3/group7/polySurface61 1
+        weight: 1
+      - path: land/group3/group7/polySurface62 1
+        weight: 1
+      - path: land/group3/group7/polySurface63 1
+        weight: 1
+      - path: land/group3/group7/polySurface64 1
+        weight: 1
+      - path: land/group3/group7/polySurface65 1
+        weight: 1
+      - path: land/group3/group7/polySurface66 1
+        weight: 1
+      - path: land/group3/group7/polySurface68 1
+        weight: 1
+      - path: land/group3/group7/polySurface69 1
+        weight: 1
+      - path: land/group3/group7/polySurface70 1
+        weight: 1
+      - path: land/group3/group7/polySurface71 1
+        weight: 1
+      - path: land/group3/group7/polySurface72 1
+        weight: 1
+      - path: land/group3/group7/polySurface73 1
+        weight: 1
+      - path: land/group3/group7/polySurface76 1
+        weight: 1
+      - path: land/group3/group7/polySurface78 1
+        weight: 1
+      - path: land/group3/group7/polySurface79 1
+        weight: 1
+      - path: land/group3/group7/polySurface80 1
+        weight: 1
+      - path: land/group3/group7/polySurface81 1
+        weight: 1
+      - path: land/group3/group7/polySurface82 1
+        weight: 1
+      - path: land/group3/group7/polySurface83 1
+        weight: 1
+      - path: land/group3/group7/polySurface84 1
+        weight: 1
+      - path: land/group3/group7/polySurface85 1
+        weight: 1
+      - path: land/group3/group7/polySurface86 1
+        weight: 1
+      - path: land/group3/group7/polySurface87 1
+        weight: 1
+      - path: land/group3/group7/polySurface89 1
+        weight: 1
+      - path: land/group3/group7/polySurface90 1
+        weight: 1
+      - path: land/group3/group7/polySurface91 1
+        weight: 1
+      - path: land/group3/group7/polySurface92 1
+        weight: 1
+      - path: land/group3/group7/polySurface94 1
+        weight: 1
+      - path: land/group3/group7/polySurface96 1
+        weight: 1
+      - path: land/group3/group7/polySurface97 1
+        weight: 1
+      - path: land/group3/group7/polySurface98 1
+        weight: 1
+      - path: land/group3/group7/polySurface99 1
+        weight: 1
+      - path: land/group3/group7/polySurface100 1
+        weight: 1
+      - path: land/group3/group7/polySurface101 1
+        weight: 1
+      - path: land/group3/group7/polySurface102 1
+        weight: 1
+      - path: land/group3/group7/polySurface104 1
+        weight: 1
+      - path: land/group3/group7/polySurface105 1
+        weight: 1
+      - path: land/group3/group7/polySurface106 1
+        weight: 1
+      - path: land/group3/group7/polySurface107 1
+        weight: 1
+      - path: land/group3/group7/polySurface108 1
+        weight: 1
+      - path: land/group3/group7/polySurface291
+        weight: 1
+      - path: land/group3/group7/polySurface305
+        weight: 1
+      - path: land/group3/group7/polySurface322
+        weight: 1
+      - path: land/group3/group7/polySurface331
+        weight: 1
+      - path: land/group3/group7/polySurface341
+        weight: 1
+      - path: land/group3/group7/polySurface367
+        weight: 1
+      - path: land/group3/group7/polySurface370
+        weight: 1
+      - path: land/group3/group7/polySurface373
+        weight: 1
+      - path: land/group3/group7/polySurface382
+        weight: 1
+      - path: land/group3/group7/polySurface387
+        weight: 1
+      - path: land/group3/group7/polySurface397
+        weight: 1
+      - path: land/group3/group7/polySurface403
+        weight: 1
+      - path: land/group3/group7/polySurface564
+        weight: 1
+      - path: land/group3/group7/polySurface565
+        weight: 1
+      - path: land/group3/group7/polySurface566
+        weight: 1
+      - path: land/group3/group7/polySurface567
+        weight: 1
+      - path: land/group3/group7/polySurface568
+        weight: 1
+      - path: land/group3/group7/polySurface569
+        weight: 1
+      - path: land/group3/group7/polySurface570
+        weight: 1
+      - path: land/group3/group7/polySurface571
+        weight: 1
+      - path: land/group3/group7/polySurface572
+        weight: 1
+      - path: land/group3/group7/polySurface573
+        weight: 1
+      - path: land/group3/group7/polySurface574
+        weight: 1
+      - path: land/group3/group7/polySurface575
+        weight: 1
+      - path: land/group3/group7/polySurface576
+        weight: 1
+      - path: land/group3/group7/polySurface577
+        weight: 1
+      - path: land/group3/group7/polySurface578
+        weight: 1
+      - path: land/group3/group7/polySurface579
+        weight: 1
+      - path: land/group3/group7/polySurface580
+        weight: 1
+      - path: land/group3/group7/polySurface581
+        weight: 1
+      - path: land/group3/group7/polySurface582
+        weight: 1
+      - path: land/group3/group7/polySurface583
+        weight: 1
+      - path: land/group3/group7/polySurface584
+        weight: 1
+      - path: land/group3/group7/polySurface585
+        weight: 1
+      - path: land/group3/group7/polySurface586
+        weight: 1
+      - path: land/group3/group7/polySurface587
+        weight: 1
+      - path: land/group3/group7/polySurface588
+        weight: 1
+      - path: land/group3/group7/polySurface589
+        weight: 1
+      - path: land/group3/group7/polySurface590
+        weight: 1
+      - path: land/group3/group7/polySurface591
+        weight: 1
+      - path: land/group3/group7/polySurface592
+        weight: 1
+      - path: land/group3/group7/polySurface593
+        weight: 1
+      - path: land/group3/group7/polySurface594
+        weight: 1
+      - path: land/group3/group7/polySurface595
+        weight: 1
+      - path: land/group3/group7/polySurface596
+        weight: 1
+      - path: land/group3/group7/polySurface597
+        weight: 1
+      - path: land/group3/group7/polySurface598
+        weight: 1
+      - path: land/group3/group7/polySurface599
+        weight: 1
+      - path: land/group3/group7/polySurface600
+        weight: 1
+      - path: land/group3/group7/polySurface601
+        weight: 1
+      - path: land/group3/group7/polySurface602
+        weight: 1
+      - path: land/group3/group7/polySurface603
+        weight: 1
+      - path: land/group3/group7/polySurface604
+        weight: 1
+      - path: land/group3/group7/polySurface605
+        weight: 1
+      - path: land/group3/group7/polySurface606
+        weight: 1
+      - path: land/group3/group7/polySurface607
+        weight: 1
+      - path: land/group3/group7/polySurface608
+        weight: 1
+      - path: land/group3/group7/polySurface609
+        weight: 1
+      - path: land/group3/group7/polySurface610
+        weight: 1
+      - path: land/group3/group7/polySurface611
+        weight: 1
+      - path: land/group3/group7/polySurface612
+        weight: 1
+      - path: land/group3/group7/polySurface613
+        weight: 1
+      - path: land/group3/group7/polySurface614
+        weight: 1
+      - path: land/group3/group7/polySurface615
+        weight: 1
+      - path: land/group3/group7/polySurface616
+        weight: 1
+      - path: land/group3/group7/polySurface617
+        weight: 1
+      - path: land/group3/group7/polySurface618
+        weight: 1
+      - path: land/group3/group7/polySurface619
+        weight: 1
+      - path: land/group3/group7/polySurface620
+        weight: 1
+      - path: land/group3/group7/polySurface621
+        weight: 1
+      - path: land/group3/group7/polySurface622
+        weight: 1
+      - path: land/group3/group7/polySurface623
+        weight: 1
+      - path: land/group3/group7/polySurface624
+        weight: 1
+      - path: land/group3/group7/polySurface625
+        weight: 1
+      - path: land/group3/group7/polySurface626
+        weight: 1
+      - path: land/group3/group7/polySurface627
+        weight: 1
+      - path: land/group3/group7/polySurface628
+        weight: 1
+      - path: land/group3/group7/polySurface629
+        weight: 1
+      - path: land/group3/group7/polySurface630
+        weight: 1
+      - path: land/group3/group7/polySurface631
+        weight: 1
+      - path: land/group3/group7/polySurface632
+        weight: 1
+      - path: land/group3/group7/polySurface633
+        weight: 1
+      - path: land/group3/group7/polySurface634
+        weight: 1
+      - path: land/group3/group7/polySurface635
+        weight: 1
+      - path: land/group3/group7/polySurface636
+        weight: 1
+      - path: land/group3/group7/polySurface637
+        weight: 1
+      - path: land/group3/group7/polySurface638
+        weight: 1
+      - path: land/group3/group7/polySurface639
+        weight: 1
+      - path: land/group3/group7/polySurface640
+        weight: 1
+      - path: land/group3/group7/polySurface641
+        weight: 1
+      - path: land/group3/group7/polySurface642
+        weight: 1
+      - path: land/group3/group7/polySurface643
+        weight: 1
+      - path: land/group3/group7/polySurface644
+        weight: 1
+      - path: land/group3/group7/polySurface645
+        weight: 1
+      - path: land/group3/group7/polySurface646
+        weight: 1
+      - path: land/group3/group7/polySurface647
+        weight: 1
+      - path: land/group3/group7/polySurface648
+        weight: 1
+      - path: land/group3/group7/polySurface649
+        weight: 1
+      - path: land/group3/group7/polySurface650
+        weight: 1
+      - path: land/group3/group7/polySurface651
+        weight: 1
+      - path: land/group3/group7/polySurface652
+        weight: 1
+      - path: land/group3/group7/polySurface653
+        weight: 1
+      - path: land/group3/group7/polySurface654
+        weight: 1
+      - path: land/group3/group7/polySurface655
+        weight: 1
+      - path: land/group3/group7/polySurface656
+        weight: 1
+      - path: land/group3/group7/polySurface657
+        weight: 1
+      - path: land/group3/group7/polySurface658
+        weight: 1
+      - path: land/group3/group7/polySurface659
+        weight: 1
+      - path: land/group3/group7/polySurface660
+        weight: 1
+      - path: land/group3/group7/polySurface661
+        weight: 1
+      - path: land/group3/group7/polySurface662
+        weight: 1
+      - path: land/group3/group7/polySurface663
+        weight: 1
+      - path: land/group3/group7/polySurface664
+        weight: 1
+      - path: land/group3/group7/polySurface665
+        weight: 1
+      - path: land/group3/group7/polySurface666
+        weight: 1
+      - path: land/group3/group7/polySurface667
+        weight: 1
+      - path: land/group3/group7/polySurface668
+        weight: 1
+      - path: land/group3/group7/polySurface669
+        weight: 1
+      - path: land/group3/group7/polySurface670
+        weight: 1
+      - path: land/group3/group7/polySurface671
+        weight: 1
+      - path: land/group3/group7/polySurface672
+        weight: 1
+      - path: land/group3/group7/polySurface673
+        weight: 1
+      - path: land/group3/group7/polySurface674
+        weight: 1
+      - path: land/group3/group7/polySurface675
+        weight: 1
+      - path: land/group3/group7/polySurface676
+        weight: 1
+      - path: land/group3/group7/polySurface677
+        weight: 1
+      - path: land/group3/group7/polySurface678
+        weight: 1
+      - path: land/group3/group7/polySurface679
+        weight: 1
+      - path: land/group3/group7/polySurface680
+        weight: 1
+      - path: land/group3/group7/polySurface681
+        weight: 1
+      - path: land/group3/group7/polySurface682
+        weight: 1
+      - path: land/group3/group7/polySurface683
+        weight: 1
+      - path: land/group3/group7/polySurface684
+        weight: 1
+      - path: land/group3/group7/polySurface685
+        weight: 1
+      - path: land/group3/group7/polySurface686
+        weight: 1
+      - path: land/group3/group7/polySurface687
+        weight: 1
+      - path: land/group3/group7/polySurface688
+        weight: 1
+      - path: land/group3/group7/polySurface689
+        weight: 1
+      - path: land/group3/group7/polySurface690
+        weight: 1
+      - path: land/group3/group7/polySurface691
+        weight: 1
+      - path: land/group3/group7/polySurface692
+        weight: 1
+      - path: land/group3/group7/polySurface693
+        weight: 1
+      - path: land/group3/group7/polySurface694
+        weight: 1
+      - path: land/group3/group7/polySurface695
+        weight: 1
+      - path: land/group3/group7/polySurface696
+        weight: 1
+      - path: land/group3/group7/polySurface697
+        weight: 1
+      - path: land/group3/group7/polySurface698
+        weight: 1
+      - path: land/group3/group7/polySurface699
+        weight: 1
+      - path: land/group3/group7/polySurface700
+        weight: 1
+      - path: land/group3/group7/polySurface701
+        weight: 1
+      - path: land/group3/group7/polySurface702
+        weight: 1
+      - path: land/group3/group7/polySurface703
+        weight: 1
+      - path: land/group3/group7/polySurface704
+        weight: 1
+      - path: land/group3/group7/polySurface705
+        weight: 1
+      - path: land/group3/group7/polySurface706
+        weight: 1
+      - path: land/group3/group7/polySurface707
+        weight: 1
+      - path: land/group3/group7/polySurface708
+        weight: 1
+      - path: land/group3/group7/polySurface709
+        weight: 1
+      - path: land/group3/group7/polySurface710
+        weight: 1
+      - path: land/group3/group7/polySurface711
+        weight: 1
+      - path: land/group3/group7/polySurface712
+        weight: 1
+      - path: land/group3/group7/polySurface713
+        weight: 1
+      - path: land/group3/group7/polySurface714
+        weight: 1
+      - path: land/group3/group7/polySurface715
+        weight: 1
+      - path: land/group3/group8
+        weight: 1
+      - path: land/group3/group8/polySurface109
+        weight: 1
+      - path: land/group3/group8/polySurface110
+        weight: 1
+      - path: land/group3/group8/polySurface111
+        weight: 1
+      - path: land/group3/group8/polySurface112
+        weight: 1
+      - path: land/group3/group8/polySurface113
+        weight: 1
+      - path: land/group3/group8/polySurface114
+        weight: 1
+      - path: land/group3/group8/polySurface115
+        weight: 1
+      - path: land/group3/group8/polySurface116
+        weight: 1
+      - path: land/group3/group8/polySurface117
+        weight: 1
+      - path: land/group3/group8/polySurface118
+        weight: 1
+      - path: land/group3/group8/polySurface119
+        weight: 1
+      - path: land/group3/group8/polySurface120
+        weight: 1
+      - path: land/group3/group8/polySurface121
+        weight: 1
+      - path: land/group3/group8/polySurface122
+        weight: 1
+      - path: land/group3/group8/polySurface123
+        weight: 1
+      - path: land/group3/group8/polySurface124
+        weight: 1
+      - path: land/group3/group8/polySurface125
+        weight: 1
+      - path: land/group3/group8/polySurface126
+        weight: 1
+      - path: land/group3/group8/polySurface127
+        weight: 1
+      - path: land/group3/group8/polySurface128
+        weight: 1
+      - path: land/group3/group8/polySurface129
+        weight: 1
+      - path: land/group3/group8/polySurface130
+        weight: 1
+      - path: land/group3/group8/polySurface131
+        weight: 1
+      - path: land/group3/group8/polySurface132
+        weight: 1
+      - path: land/group3/group8/polySurface133
+        weight: 1
+      - path: land/group3/group8/polySurface134
+        weight: 1
+      - path: land/group3/group8/polySurface135
+        weight: 1
+      - path: land/group3/group8/polySurface136
+        weight: 1
+      - path: land/group3/group8/polySurface137
+        weight: 1
+      - path: land/group3/group8/polySurface138
+        weight: 1
+      - path: land/group3/group8/polySurface139
+        weight: 1
+      - path: land/group3/group8/polySurface140
+        weight: 1
+      - path: land/group3/group8/polySurface141
+        weight: 1
+      - path: land/group3/group8/polySurface142
+        weight: 1
+      - path: land/group3/group8/polySurface143
+        weight: 1
+      - path: land/group3/group8/polySurface144
+        weight: 1
+      - path: land/group3/group8/polySurface145
+        weight: 1
+      - path: land/group3/group8/polySurface146
+        weight: 1
+      - path: land/group3/group8/polySurface147
+        weight: 1
+      - path: land/group3/group8/polySurface148
+        weight: 1
+      - path: land/group3/group8/polySurface149
+        weight: 1
+      - path: land/group3/group8/polySurface150
+        weight: 1
+      - path: land/group3/group8/polySurface151
+        weight: 1
+      - path: land/group3/group8/polySurface152
+        weight: 1
+      - path: land/group3/group8/polySurface153
+        weight: 1
+      - path: land/group3/group8/polySurface154
+        weight: 1
+      - path: land/group3/group8/polySurface155
+        weight: 1
+      - path: land/group3/group8/polySurface156
+        weight: 1
+      - path: land/group3/group8/polySurface157
+        weight: 1
+      - path: land/group3/group8/polySurface158
+        weight: 1
+      - path: land/group3/group8/polySurface159
+        weight: 1
+      - path: land/group3/group8/polySurface160
+        weight: 1
+      - path: land/group3/group8/polySurface161
+        weight: 1
+      - path: land/group3/group8/polySurface162
+        weight: 1
+      - path: land/group3/group8/polySurface163
+        weight: 1
+      - path: land/group3/group8/polySurface164
+        weight: 1
+      - path: land/group3/group8/polySurface165
+        weight: 1
+      - path: land/group3/group8/polySurface166
+        weight: 1
+      - path: land/group3/group8/polySurface167
+        weight: 1
+      - path: land/group3/group8/polySurface168
+        weight: 1
+      - path: land/group3/group8/polySurface169
+        weight: 1
+      - path: land/group3/group8/polySurface170
+        weight: 1
+      - path: land/group3/group8/polySurface171
+        weight: 1
+      - path: land/group3/group8/polySurface172
+        weight: 1
+      - path: land/group3/group8/polySurface173
+        weight: 1
+      - path: land/group3/group8/polySurface174
+        weight: 1
+      - path: land/group3/group8/polySurface175
+        weight: 1
+      - path: land/group3/group8/polySurface176
+        weight: 1
+      - path: land/group3/group8/polySurface177
+        weight: 1
+      - path: land/group3/group8/polySurface178
+        weight: 1
+      - path: land/group3/group8/polySurface179
+        weight: 1
+      - path: land/group3/group8/polySurface180
+        weight: 1
+      - path: land/group3/group8/polySurface181
+        weight: 1
+      - path: land/group3/group8/polySurface182
+        weight: 1
+      - path: land/group3/group8/polySurface183
+        weight: 1
+      - path: land/group3/group8/polySurface184
+        weight: 1
+      - path: land/group3/group8/polySurface185
+        weight: 1
+      - path: land/group3/group8/polySurface186
+        weight: 1
+      - path: land/group3/group8/polySurface187
+        weight: 1
+      - path: land/group3/group8/polySurface188
+        weight: 1
+      - path: land/group3/group8/polySurface189
+        weight: 1
+      - path: land/group3/group8/polySurface190
+        weight: 1
+      - path: land/group3/group8/polySurface191
+        weight: 1
+      - path: land/group3/group8/polySurface192
+        weight: 1
+      - path: land/group3/group8/polySurface193
+        weight: 1
+      - path: land/group3/group8/polySurface194
+        weight: 1
+      - path: land/group3/group8/polySurface195
+        weight: 1
+      - path: land/group3/group8/polySurface196
+        weight: 1
+      - path: land/group3/group8/polySurface197
+        weight: 1
+      - path: land/group3/group8/polySurface198
+        weight: 1
+      - path: land/group3/group8/polySurface199
+        weight: 1
+      - path: land/group3/group8/polySurface200
+        weight: 1
+      - path: land/group3/group8/polySurface201
+        weight: 1
+      - path: land/group3/group8/polySurface202
+        weight: 1
+      - path: land/group3/group8/polySurface203
+        weight: 1
+      - path: land/group3/group8/polySurface204
+        weight: 1
+      - path: land/group3/group8/polySurface205
+        weight: 1
+      - path: land/group3/group8/polySurface206
+        weight: 1
+      - path: land/group3/group8/polySurface207
+        weight: 1
+      - path: land/group3/group8/polySurface208
+        weight: 1
+      - path: land/group3/group8/polySurface209
+        weight: 1
+      - path: land/group3/group8/polySurface210
+        weight: 1
+      - path: land/group3/group8/polySurface211
+        weight: 1
+      - path: land/group3/group8/polySurface212
+        weight: 1
+      - path: land/group3/group8/polySurface213
+        weight: 1
+      - path: land/group3/group8/polySurface214
+        weight: 1
+      - path: land/group3/group8/polySurface215
+        weight: 1
+      - path: land/group3/group8/polySurface216
+        weight: 1
+      - path: land/group3/group8/polySurface217
+        weight: 1
+      - path: land/group3/group8/polySurface218
+        weight: 1
+      - path: land/group3/group8/polySurface219
+        weight: 1
+      - path: land/group3/group8/polySurface220
+        weight: 1
+      - path: land/group3/group8/polySurface221
+        weight: 1
+      - path: land/group3/group8/polySurface222
+        weight: 1
+      - path: land/group3/group8/polySurface223
+        weight: 1
+      - path: land/group3/group8/polySurface224
+        weight: 1
+      - path: land/group3/group8/polySurface225
+        weight: 1
+      - path: land/group3/group8/polySurface226
+        weight: 1
+      - path: land/group3/group8/polySurface227
+        weight: 1
+      - path: land/group3/group8/polySurface228
+        weight: 1
+      - path: land/group3/group8/polySurface229
+        weight: 1
+      - path: land/group3/group8/polySurface230
+        weight: 1
+      - path: land/group3/group8/polySurface231
+        weight: 1
+      - path: land/group3/group8/polySurface232
+        weight: 1
+      - path: land/group3/group8/polySurface233
+        weight: 1
+      - path: land/group3/group8/polySurface234
+        weight: 1
+      - path: land/group3/group8/polySurface235
+        weight: 1
+      - path: land/group3/group8/polySurface236
+        weight: 1
+      - path: land/group3/group8/polySurface237
+        weight: 1
+      - path: land/group3/group8/polySurface238
+        weight: 1
+      - path: land/group3/group8/polySurface239
+        weight: 1
+      - path: land/group3/group8/polySurface240
+        weight: 1
+      - path: land/group3/group8/polySurface241
+        weight: 1
+      - path: land/group3/group8/polySurface242
+        weight: 1
+      - path: land/group3/group8/polySurface243
+        weight: 1
+      - path: land/group3/group8/polySurface244
+        weight: 1
+      - path: land/group3/group8/polySurface245
+        weight: 1
+      - path: land/group3/group8/polySurface246
+        weight: 1
+      - path: land/group3/group8/polySurface247
+        weight: 1
+      - path: land/group3/group8/polySurface248
+        weight: 1
+      - path: land/group3/group8/polySurface249
+        weight: 1
+      - path: land/group3/group8/polySurface250
+        weight: 1
+      - path: land/group3/group8/polySurface251
+        weight: 1
+      - path: land/group3/group8/polySurface252
+        weight: 1
+      - path: land/group3/group8/polySurface253
+        weight: 1
+      - path: land/group3/group8/polySurface254
+        weight: 1
+      - path: land/group3/group8/polySurface255
+        weight: 1
+      - path: land/group3/group8/polySurface256
+        weight: 1
+      - path: land/group3/group8/polySurface257
+        weight: 1
+      - path: land/group3/group8/polySurface258
+        weight: 1
+      - path: land/group3/group8/polySurface259
+        weight: 1
+      - path: land/group3/group8/polySurface260
+        weight: 1
+      - path: land/group3/group8/polySurface261
+        weight: 1
+      - path: land/group3/group8/polySurface262
+        weight: 1
+      - path: land/group3/group8/polySurface263
+        weight: 1
+      - path: land/group3/group8/polySurface264
+        weight: 1
+      - path: land/group3/group8/polySurface265
+        weight: 1
+      - path: land/group3/group8/polySurface266
+        weight: 1
+      - path: land/group3/group8/polySurface267
+        weight: 1
+      - path: land/group3/group8/polySurface268
+        weight: 1
+      - path: land/group3/group8/polySurface269
+        weight: 1
+      - path: land/group3/group8/polySurface270
+        weight: 1
+      - path: land/group3/group8/polySurface271
+        weight: 1
+      - path: land/group3/group8/polySurface272
+        weight: 1
+      - path: land/group3/group8/polySurface273
+        weight: 1
+      - path: land/group3/group8/polySurface274
+        weight: 1
+      - path: land/group3/group8/polySurface275
+        weight: 1
+      - path: land/group3/group8/polySurface276
+        weight: 1
+      - path: land/group3/group8/polySurface277
+        weight: 1
+      - path: land/group3/group8/polySurface306
+        weight: 1
+      - path: land/group3/group8/polySurface350
+        weight: 1
+      - path: land/group3/group8/polySurface404
+        weight: 1
+      - path: land/group3/group8/polySurface405
+        weight: 1
+      - path: land/group3/group8/polySurface406
+        weight: 1
+      - path: land/group3/group8/polySurface407
+        weight: 1
+      - path: land/group3/group8/polySurface408
+        weight: 1
+      - path: land/group3/group8/polySurface409
+        weight: 1
+      - path: land/group3/group8/polySurface410
+        weight: 1
+      - path: land/group3/group8/polySurface411
+        weight: 1
+      - path: land/group3/group8/polySurface412
+        weight: 1
+      - path: land/group3/group8/polySurface413
+        weight: 1
+      - path: land/group3/group8/polySurface414
+        weight: 1
+      - path: land/group3/group8/polySurface415
+        weight: 1
+      - path: land/group3/group8/polySurface416
+        weight: 1
+      - path: land/group3/group8/polySurface417
+        weight: 1
+      - path: land/group3/group8/polySurface418
+        weight: 1
+      - path: land/group3/group8/polySurface419
+        weight: 1
+      - path: land/group3/group8/polySurface420
+        weight: 1
+      - path: land/group3/group8/polySurface421
+        weight: 1
+      - path: land/group3/group8/polySurface422
+        weight: 1
+      - path: land/group3/group8/polySurface423
+        weight: 1
+      - path: land/group3/group8/polySurface424
+        weight: 1
+      - path: land/group3/group8/polySurface425
+        weight: 1
+      - path: land/group3/group8/polySurface426
+        weight: 1
+      - path: land/group3/group8/polySurface427
+        weight: 1
+      - path: land/group3/group8/polySurface428
+        weight: 1
+      - path: land/group3/group8/polySurface429
+        weight: 1
+      - path: land/group3/group8/polySurface430
+        weight: 1
+      - path: land/group3/group8/polySurface431
+        weight: 1
+      - path: land/group3/group8/polySurface432
+        weight: 1
+      - path: land/group3/group8/polySurface433
+        weight: 1
+      - path: land/group3/group8/polySurface434
+        weight: 1
+      - path: land/group3/group8/polySurface435
+        weight: 1
+      - path: land/group3/group8/polySurface436
+        weight: 1
+      - path: land/group3/group8/polySurface437
+        weight: 1
+      - path: land/group3/group8/polySurface438
+        weight: 1
+      - path: land/group3/group8/polySurface439
+        weight: 1
+      - path: land/group3/group8/polySurface440
+        weight: 1
+      - path: land/group3/group8/polySurface441
+        weight: 1
+      - path: land/group3/group8/polySurface442
+        weight: 1
+      - path: land/group3/group8/polySurface443
+        weight: 1
+      - path: land/group3/group8/polySurface444
+        weight: 1
+      - path: land/group3/group8/polySurface445
+        weight: 1
+      - path: land/group3/group8/polySurface446
+        weight: 1
+      - path: land/group3/group8/polySurface447
+        weight: 1
+      - path: land/group3/group8/polySurface448
+        weight: 1
+      - path: land/group3/group8/polySurface449
+        weight: 1
+      - path: land/group3/group8/polySurface450
+        weight: 1
+      - path: land/group3/group8/polySurface451
+        weight: 1
+      - path: land/group3/group8/polySurface452
+        weight: 1
+      - path: land/group3/group8/polySurface453
+        weight: 1
+      - path: land/group3/group8/polySurface454
+        weight: 1
+      - path: land/group3/group8/polySurface455
+        weight: 1
+      - path: land/group3/group8/polySurface456
+        weight: 1
+      - path: land/group3/group8/polySurface457
+        weight: 1
+      - path: land/group3/group8/polySurface458
+        weight: 1
+      - path: land/group3/group8/polySurface459
+        weight: 1
+      - path: land/group3/group8/polySurface460
+        weight: 1
+      - path: land/group3/group8/polySurface461
+        weight: 1
+      - path: land/group3/group8/polySurface462
+        weight: 1
+      - path: land/group3/group8/polySurface463
+        weight: 1
+      - path: land/group3/group8/polySurface464
+        weight: 1
+      - path: land/group3/group8/polySurface465
+        weight: 1
+      - path: land/group3/group8/polySurface466
+        weight: 1
+      - path: land/group3/group8/polySurface467
+        weight: 1
+      - path: land/group3/group8/polySurface468
+        weight: 1
+      - path: land/group3/group8/polySurface469
+        weight: 1
+      - path: land/group3/group8/polySurface470
+        weight: 1
+      - path: land/group3/group8/polySurface471
+        weight: 1
+      - path: land/group3/group8/polySurface472
+        weight: 1
+      - path: land/group3/group8/polySurface473
+        weight: 1
+      - path: land/group3/group8/polySurface474
+        weight: 1
+      - path: land/group3/group8/polySurface475
+        weight: 1
+      - path: land/group3/group8/polySurface476
+        weight: 1
+      - path: land/group3/group8/polySurface477
+        weight: 1
+      - path: land/group3/group8/polySurface478
+        weight: 1
+      - path: land/group3/group8/polySurface479
+        weight: 1
+      - path: land/group3/group8/polySurface480
+        weight: 1
+      - path: land/group3/group8/polySurface481
+        weight: 1
+      - path: land/group3/group8/polySurface482
+        weight: 1
+      - path: land/group3/group8/polySurface483
+        weight: 1
+      - path: land/group3/group8/polySurface484
+        weight: 1
+      - path: land/group3/group8/polySurface485
+        weight: 1
+      - path: land/group3/group8/polySurface486
+        weight: 1
+      - path: land/group3/group8/polySurface487
+        weight: 1
+      - path: land/group3/group8/polySurface488
+        weight: 1
+      - path: land/group3/group8/polySurface489
+        weight: 1
+      - path: land/group3/group8/polySurface490
+        weight: 1
+      - path: land/group3/group8/polySurface491
+        weight: 1
+      - path: land/group3/group8/polySurface492
+        weight: 1
+      - path: land/group3/group8/polySurface493
+        weight: 1
+      - path: land/group3/group8/polySurface494
+        weight: 1
+      - path: land/group3/group8/polySurface495
+        weight: 1
+      - path: land/group3/group8/polySurface496
+        weight: 1
+      - path: land/group3/group8/polySurface497
+        weight: 1
+      - path: land/group3/group8/polySurface498
+        weight: 1
+      - path: land/group3/group8/polySurface499
+        weight: 1
+      - path: land/group3/group8/polySurface500
+        weight: 1
+      - path: land/group3/group8/polySurface501
+        weight: 1
+      - path: land/group3/group8/polySurface502
+        weight: 1
+      - path: land/group3/group8/polySurface503
+        weight: 1
+      - path: land/group3/group8/polySurface504
+        weight: 1
+      - path: land/group3/group8/polySurface505
+        weight: 1
+      - path: land/group3/group8/polySurface506
+        weight: 1
+      - path: land/group3/group8/polySurface507
+        weight: 1
+      - path: land/group3/group8/polySurface508
+        weight: 1
+      - path: land/group3/group8/polySurface509
+        weight: 1
+      - path: land/group3/group8/polySurface510
+        weight: 1
+      - path: land/group3/group8/polySurface511
+        weight: 1
+      - path: land/group3/group8/polySurface512
+        weight: 1
+      - path: land/group3/group8/polySurface513
+        weight: 1
+      - path: land/group3/group8/polySurface514
+        weight: 1
+      - path: land/group3/group8/polySurface515
+        weight: 1
+      - path: land/group3/group8/polySurface516
+        weight: 1
+      - path: land/group3/group8/polySurface517
+        weight: 1
+      - path: land/group3/group8/polySurface518
+        weight: 1
+      - path: land/group3/group8/polySurface519
+        weight: 1
+      - path: land/group3/group8/polySurface520
+        weight: 1
+      - path: land/group3/group8/polySurface521
+        weight: 1
+      - path: land/group3/group8/polySurface522
+        weight: 1
+      - path: land/group3/group8/polySurface523
+        weight: 1
+      - path: land/group3/group8/polySurface524
+        weight: 1
+      - path: land/group3/group8/polySurface525
+        weight: 1
+      - path: land/group3/group8/polySurface526
+        weight: 1
+      - path: land/group3/group8/polySurface527
+        weight: 1
+      - path: land/group3/group8/polySurface528
+        weight: 1
+      - path: land/group3/group8/polySurface529
+        weight: 1
+      - path: land/group3/group8/polySurface530
+        weight: 1
+      - path: land/group3/group8/polySurface531
+        weight: 1
+      - path: land/group3/group8/polySurface532
+        weight: 1
+      - path: land/group3/group8/polySurface533
+        weight: 1
+      - path: land/group3/group8/polySurface534
+        weight: 1
+      - path: land/group3/group8/polySurface535
+        weight: 1
+      - path: land/group3/group8/polySurface536
+        weight: 1
+      - path: land/group3/group8/polySurface537
+        weight: 1
+      - path: land/group3/group8/polySurface538
+        weight: 1
+      - path: land/group3/group8/polySurface539
+        weight: 1
+      - path: land/group3/group8/polySurface540
+        weight: 1
+      - path: land/group3/group8/polySurface541
+        weight: 1
+      - path: land/group3/group8/polySurface542
+        weight: 1
+      - path: land/group3/group8/polySurface543
+        weight: 1
+      - path: land/group3/group8/polySurface544
+        weight: 1
+      - path: land/group3/group8/polySurface545
+        weight: 1
+      - path: land/group3/group8/polySurface546
+        weight: 1
+      - path: land/group3/group8/polySurface547
+        weight: 1
+      - path: land/group3/group8/polySurface548
+        weight: 1
+      - path: land/group3/group8/polySurface549
+        weight: 1
+      - path: land/group3/group8/polySurface550
+        weight: 1
+      - path: land/group3/group8/polySurface551
+        weight: 1
+      - path: land/group3/group8/polySurface552
+        weight: 1
+      - path: land/group3/group8/polySurface553
+        weight: 1
+      - path: land/group3/group8/polySurface554
+        weight: 1
+      - path: land/group3/group8/polySurface555
+        weight: 1
+      - path: land/group3/group8/polySurface556
+        weight: 1
+      - path: land/group3/group8/polySurface557
+        weight: 1
+      - path: land/group3/group8/polySurface558
+        weight: 1
+      - path: land/group3/group8/polySurface559
+        weight: 1
+      - path: land/group3/group8/polySurface560
+        weight: 1
+      - path: land/group3/group8/polySurface561
+        weight: 1
+      - path: land/group3/group8/polySurface562
+        weight: 1
+      - path: land/group3/group8/polySurface563
+        weight: 1
+      - path: land/group3/group8/polySurface719
+        weight: 1
+      - path: land/group3/group8/polySurface720
+        weight: 1
+      - path: land/group3/group8/polySurface721
+        weight: 1
+      - path: land/group3/group8/polySurface722
+        weight: 1
+      - path: land/surfaceShatter
+        weight: 1
+      - path: land/surfaceShatter1
+        weight: 1
+      - path: land/surfaceShatter2
+        weight: 1
+      - path: persp1
+        weight: 1
+      - path: Rocks
+        weight: 1
+      - path: Rocks/group
+        weight: 1
+      - path: Rocks/group1
+        weight: 1
+      - path: Rocks/group1/pasted__group
+        weight: 1
+      - path: Steps
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

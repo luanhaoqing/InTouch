@@ -110,6 +110,11 @@ public class TileHealthyManager : MonoBehaviour {
 
                 }
             }
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            for(int i=0;i<2;i++)
+            {
+                players[i].GetComponent<ControllerOfPlayerOntheBoard>().PlayerOnBoard.SetActive(false);
+            }
             clock.SetActive(false);
             End.transform.localScale = new Vector3(2, 2, 2);
            // Destroy(tmp);

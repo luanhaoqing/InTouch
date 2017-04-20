@@ -33,6 +33,7 @@ public class CurrentPlayer : NetworkBehaviour {
     [SyncVar]
     public bool UseItemOn = false;
     public GameObject MyPlayer,otherPlayer,currentplayer;
+    public GameObject lightning;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -142,7 +143,8 @@ public class CurrentPlayer : NetworkBehaviour {
             if ( turnCount == 4&&!LoseHealth)
             {
                     LoseHealth = true;
-                 
+                    lightning.SetActive(false);
+                    lightning.SetActive(true);
                     Invoke("TurnOverHealthDown", 0.5f);
 
                     
