@@ -1,0 +1,33 @@
+Task0
+
+- Helper
+- Controller Menu
+- Billboard
+
+
+Start:
+    put everything in place.
+
+case 1: # Waiting State
+
+    Helper.Speak(VO_Greet);
+    Billboard.ShowTutorial();
+    
+    if (Helper.FinishedTalking()){
+        substate = 2;
+    }
+    
+
+case 2: # instant
+
+    Helper.Speak(VO_Skip);
+    ControllerMenu.ShowUP;
+    ControllerMenu.(StartCoroutine(SkipBlink()));
+    substate = 3;
+
+
+case 3: # Waiting 
+
+    if (Helper.FinishedTalking()){
+        OverallManager.StartTask1();
+    }
