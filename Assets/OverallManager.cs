@@ -17,7 +17,8 @@ public class OverallManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
+	StartCoroutine(StartEverything());
+
 	}
 	
 	// Update is called once per frame
