@@ -29,7 +29,7 @@ public class HandControl : MonoBehaviour
         {
             Debug.Log("TouchTradeItem");
             TradeCoolDown = false;
-            Invoke("reduceActionPoint", 1.0f);
+            Invoke("reduceActionPoint", 2.0f);
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
         if(other.CompareTag("ITEM") && other.GetComponent<ItemsProperty>().CouldUse&& TurnCounter.GetComponent<CurrentPlayer>().UseItemOn)
