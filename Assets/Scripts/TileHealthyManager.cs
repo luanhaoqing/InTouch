@@ -68,7 +68,7 @@ public class TileHealthyManager : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("PlayerOnBoard"))
         {
             HasPlayer = false;
         }
@@ -125,6 +125,13 @@ public class TileHealthyManager : MonoBehaviour {
         else
         {
             tmp.GetComponentInChildren<Animator>().SetTrigger("Break");
+            Invoke("DeleteIsland", 2.0f);
         }
+    }
+
+    public void DeleteIsland()
+    {
+        Destroy(tmp);
+        HasExploded = false;
     }
 }

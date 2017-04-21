@@ -11438,9 +11438,9 @@ MonoBehaviour:
   _text: {fileID: 1000011825410742}
   tiles:
   - {fileID: 1000012338386600, guid: 47ffe1e8411f7e240a6cf12ccda22968, type: 2}
-  - {fileID: 1000012338386600, guid: 47ffe1e8411f7e240a6cf12ccda22968, type: 2}
   - {fileID: 1000012338386600, guid: 2b2616ad21a376a428c147e82e076f1c, type: 2}
   - {fileID: 1000012338386600, guid: 6ba076418dc751f4b92a582fe739d96d, type: 2}
+  - {fileID: 1000012338386600, guid: 9bfeb94297b6df54a8128f24b2c22390, type: 2}
   - {fileID: 1000010181381894, guid: e71a0af2478b1604dba7aed1ae3b8076, type: 2}
   HasExploded: 0
   tmp: {fileID: 0}
