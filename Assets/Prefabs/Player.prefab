@@ -5650,7 +5650,7 @@ Transform:
   m_GameObject: {fileID: 1000013240616144}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 95.823364, y: 95.823395, z: 95.8234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012918847942}
@@ -9365,7 +9365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   couldHeal: 0
-  model: {fileID: 1000010984203554}
+  model: {fileID: 1000013332812526}
   Healingparticle: {fileID: 1000013240616144}
 --- !u!114 &114000013352153940
 MonoBehaviour:
