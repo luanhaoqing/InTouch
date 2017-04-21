@@ -23,7 +23,8 @@ public class UpdateHP : MonoBehaviour {
         // this.GetComponent<Text>().text= tile.GetComponent<TileHealthyManager>().health.ToString();
         if (tile.GetComponent<TileHealthyManager>().health != numberofFlame && tile.GetComponent<TileHealthyManager>().health < 4)
         {
-            flame[numberofFlame - 1].GetComponent<Animator>().SetTrigger("breakdown");
+            if(numberofFlame>0)
+                flame[numberofFlame - 1].GetComponent<Animator>().SetTrigger("breakdown");
             // delete after playing animation
             numberofFlame--;
 

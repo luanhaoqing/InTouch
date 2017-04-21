@@ -125,6 +125,7 @@ public class TileHealthyManager : MonoBehaviour {
         else
         {
             tmp.GetComponentInChildren<Animator>().SetTrigger("Break");
+            HasExploded = false;
             Invoke("DeleteIsland", 2.0f);
         }
     }
@@ -132,6 +133,6 @@ public class TileHealthyManager : MonoBehaviour {
     public void DeleteIsland()
     {
         Destroy(tmp);
-        HasExploded = false;
+        
     }
 }
