@@ -16,11 +16,11 @@ public class Task0Manager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Billboard.SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
         switch (substate)
         {
@@ -28,7 +28,6 @@ public class Task0Manager : MonoBehaviour {
                 if (!state1Passed) {
                     state1Passed = true;
                     Helper.GetComponent<SPHelperTalk>().Speak(VOs[0]);
-                    Billboard.SetActive(true);
                 }
 
                 if (Helper.GetComponent<SPHelperAnimation>().FinishedTalking())

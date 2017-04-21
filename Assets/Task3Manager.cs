@@ -39,7 +39,6 @@ public class Task3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Task 3 - state: " + substate);
 
         switch (substate)
         {

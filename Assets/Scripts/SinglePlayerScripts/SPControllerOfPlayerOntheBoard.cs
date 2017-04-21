@@ -289,6 +289,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 if (!menuOpen && controllerCancelMapping)
                 {
                     controlMode = 0;
+                    AudioCenter.PlaySelectionConfirm();
                 }
 
                 break;

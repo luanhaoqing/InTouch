@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class OverallManager : MonoBehaviour {
+    public Animator helperAnim;
+
     public GameObject task0ObjectWrapper;
     public GameObject task1ObjectWrapper;
     public GameObject task2ObjectWrapper;
@@ -48,19 +50,16 @@ public class OverallManager : MonoBehaviour {
 
     public void startTask2()
     {
-        Debug.Log("TASK #2 START");
         task2ObjectWrapper.SetActive(true);
     }
 
     public void startTask3()
     {
-        Debug.Log("TASK #3 START");
         task3ObjectWrapper.SetActive(true);
     }
 
     public void startTask4()
     {
-        Debug.Log("TASK #4 START");
         task4ObjectWrapper.SetActive(true);
     }
 
@@ -71,12 +70,21 @@ public class OverallManager : MonoBehaviour {
 
     public void startTask6()
     {
+        Debug.Log("TASK #6 START");
         task6ObjectWrapper.SetActive(true);
     }
 
     public void skipScene()
     {
         skipSceneTrigger = true;
+    }
+
+    IEnumerator StartEverything()
+    {
+        yield return new WaitForSeconds(1f);
+        helperAnim.SetBool("fly",true);
+        yield return new WaitForSeconds(1.5f);
+        startTask0();
     }
 
 }
