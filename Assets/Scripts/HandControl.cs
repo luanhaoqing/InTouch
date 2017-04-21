@@ -25,6 +25,8 @@ public class HandControl : NetworkBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
+
   
         if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3&& TradeCoolDown)
         {

@@ -117,7 +117,6 @@ public class CurrentPlayer : NetworkBehaviour {
 
 
             }
-         //   TradeOn = currentplayer.GetComponent<ControllerOfPlayerOntheBoard>().tradeon;
             if (!localHasTurn&&!HasTurn)
             {
               
