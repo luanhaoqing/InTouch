@@ -9,7 +9,7 @@ public class HandControl : MonoBehaviour
     public GameObject TurnCounter;
     public GameObject helper;
     public bool pokeHelperGrey;
-
+    private bool TradeCoolDown = true;
     // Use this for initialization
     void Start()
     {
@@ -25,9 +25,10 @@ public class HandControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
   
-        if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
+        if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3&& TradeCoolDown)
         {
-            TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
+            TradeCoolDown = false;
+            Invoke("reduceActionPoint", 1.0f);
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
         if(other.CompareTag("ITEM") && other.GetComponent<ItemsProperty>().CouldUse&& TurnCounter.GetComponent<CurrentPlayer>().UseItemOn)
@@ -49,7 +50,11 @@ public class HandControl : MonoBehaviour
     {
         TradeModeActive = command;
     }
-
+    public void reduceActionPoint()
+    {
+        TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
+        TradeCoolDown = true;
+    }
 
 
 
