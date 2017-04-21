@@ -38,7 +38,7 @@ public class Task4Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Task 4 - state: " + substate);
+        Billboard.GetComponent<BillboardManager>().SetDebugInfo("Task 4 - State: " + substate);
 
         switch (substate)
         {

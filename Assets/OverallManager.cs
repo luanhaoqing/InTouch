@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class OverallManager : MonoBehaviour {
+    public bool AutoStart;
     public Animator helperAnim;
 
     public GameObject task0ObjectWrapper;
@@ -17,9 +18,10 @@ public class OverallManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	StartCoroutine(StartEverything());
-
-	}
+        if (AutoStart) { 
+	        StartCoroutine(StartEverything());
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

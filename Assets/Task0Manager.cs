@@ -21,6 +21,7 @@ public class Task0Manager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        Billboard.GetComponent<BillboardManager>().SetDebugInfo("Task 0 - State: " + substate);
 	
         switch (substate)
         {

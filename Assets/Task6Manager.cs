@@ -43,6 +43,9 @@ public class Task6Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
+
+        Billboard.GetComponent<BillboardManager>().SetDebugInfo("Task 6 - State: " + substate);
+
         switch (substate)
         {
             case 1:

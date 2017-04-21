@@ -6,6 +6,7 @@ public class BillboardManager : MonoBehaviour {
     public GameObject[] Right;
     public GameObject[] Left;
     public Sprite checkedPicture;
+    public Text DebugInfo;
 	// Use this for initialization
 	void Start () {
 	
@@ -22,5 +23,14 @@ public class BillboardManager : MonoBehaviour {
     public void HighLight(int lineNum)
     {
         Right[lineNum].GetComponent<Text>().color = Color.yellow;
+    }
+
+    public void SetDebugInfo(string thing)
+    {
+        if (DebugInfo == null)
+        {
+            return;
+        }
+        DebugInfo.text = thing;
     }
 }
