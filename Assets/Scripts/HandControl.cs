@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.Networking;
 
-public class HandControl : MonoBehaviour
+public class HandControl : NetworkBehaviour
 {
     public bool TradeModeActive = false;
     public bool UseItemActive = false;
@@ -53,7 +54,8 @@ public class HandControl : MonoBehaviour
     }
     public void reduceActionPoint()
     {
-        TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
+        if(isServer)
+            TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
         TradeCoolDown = true;
     }
 
