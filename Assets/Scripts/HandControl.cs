@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
-using UnityEngine.Networking;
+
 
 public class HandControl : NetworkBehaviour
 {
@@ -54,6 +54,7 @@ public class HandControl : NetworkBehaviour
     }
     public void reduceActionPoint()
     {
+        Debug.Log("reducedActionPoint");
         if(isServer)
             TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
         TradeCoolDown = true;
