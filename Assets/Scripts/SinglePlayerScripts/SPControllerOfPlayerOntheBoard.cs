@@ -4,12 +4,11 @@ using System.Collections;
 public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
     public GameObject PlayerOnBoard;
+    public GameObject PlayerModel;
     public GameObject detectBall;
     private Vector3 target;
     private bool BeginMove;
-    public GameObject rabbit;
-    private int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu
-    private int previousControlMode = 1;
+    public int controlMode = 4; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = nothing
     public GameObject rightHandMenu;
     public GameObject rightHandHoverUI;
     public int currentHighlight = 0; // UI higlight
@@ -29,8 +28,9 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
     public bool sendItemDisabled = true;
     public bool useItemDisable = true;
+    public bool moveDisabled = false;
 
-    SPTutorialStateManager tutorialStateManager;
+    public OverallManager tutorialStateManager;
 
     enum Status
     {
@@ -55,10 +55,8 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        rightHandMenu.SetActive(false);
-        rightHandHoverUI.SetActive(false);
+        SetMenuActive(false);
         TurnCounter = GameObject.Find("TrunCounter");
-        tutorialStateManager = GameObject.FindGameObjectWithTag("TutorialStateManager").GetComponent<SPTutorialStateManager>();
     }
 
     // Update is called once per frame
@@ -90,230 +88,180 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         controllerCancelMapping = (Input.GetKeyDown(KeyCode.Backspace)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
-
-/*
-        // Open Menu whenever it's your turn. Turn it off whenever it's not.
-        if ((!menuHasOpened))
-        {
-            menuHasOpened = true;
-            SetMenuActive(true);
-            SetHoverUIActive(true);
-            Debug.Log("Menu Opened");
-        }
-        else if ((!menuHasOpened))
-        {
-            menuHasOpened = false;
-            SetMenuActive(false);
-            SetHoverUIActive(false);
-            Debug.Log("Menu Closed");
-        }
-        */
+        
 
         // Open menu with trigger after you chose something in this turn.
-        if (!menuOpen && controllerCancelMapping)
+        /*
+         * if (!menuOpen && controllerCancelMapping)
         {
             SetMenuActive(true);
         }
-
-        Debug.Log("menuOpen: "+ menuOpen);
-
-        if (menuOpen)
-        {
-            //hideCursor();
-
-            // Highlighting options
-            if (controllerMoveMapping) // choose move
-            {
-                currentHighlight = (int)Status.Move;
-                MoveButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Move Button Highlighted");
-                return;
-
-            }
-
-            if (controllerSendMapping) // choose send
-            {
-                currentHighlight = (int)Status.Send;
-                SendButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Send Button Highlighted");
-                return;
-
-            }
-
-            if (controllerItemMapping) // choose item
-            {
-                currentHighlight = (int)Status.Item;
-                ItemButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Item Button Highlighted");
-                return;
-            }
-
-            if (controllerDownMapping) // choose exit
-            {
-                currentHighlight = (int)Status.Exit;
-                SkipButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Exit Button Highlighted");
-                return;
-
-            }
-
-            // After Highlighting -- Make choices
-            // 1) Set Mode to Move
-            if (currentHighlight == (int)Status.Move)
-            {
-                if (controllerClickMapping)
-                {
-                    ChangeControlMode();
-                    controlMode = 1;
-                    AudioCenter.PlaySelectionConfirm();
-                }
-            }
-            // 2) Set Mode to Send
-            if (currentHighlight == (int)Status.Send)
-            {
-                if (sendItemDisabled && controllerClickMapping)
-                {
-                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
-                    AudioCenter.PlayCantDoThat();
-                }
-
-                if (!sendItemDisabled && controllerClickMapping)
-                {
-                    ChangeControlMode();
-                    controlMode = 2;
-                    // Here I need to reactivate Trade Mode. For now it's missing because trade mode cannot be syncronized across two clients.
-                    AudioCenter.PlaySelectionConfirm();
-
-                }
-            }
-            // 3) Set Mode to Item
-            if (currentHighlight == (int)Status.Item)
-            {
-                if (controllerClickMapping)
-                {
-                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
-                    AudioCenter.PlayCantDoThat();
-
-                    // Cannot change control mode right now:
-                    // De-commit when it is implemented
-                    /*
-                    ChangeControlMode();
-                    controlMode = 3;
-                    AudioCenter.PlaySelectionConfirm();
-                    */
-                }
-            }
-            // 4) Exit and return to previous mode
-            if (currentHighlight == (int)Status.Exit)
-            {
-                if (controllerClickMapping)
-                {
-                    AudioCenter.PlaySelectionConfirm();
-                    tutorialStateManager.skipScene();
-                }
-            }
-
-            return;
-        }
-        if (!menuOpen)
-        {
+        */
             //Debug.Log(controlMode);
             switch (controlMode)
             {
                 // Control Mode: Move
                 // below is all the character movement code.
-                case 1:
-                    /*if ( !BeginMove)
+                case 0:
+
+                    if (!menuOpen)
+                {
+                    SetMenuActive(true);
+                    rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "";
+                }
+
+                    // Highlighting options
+                    if (controllerMoveMapping) // choose move
                     {
-                        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-                        //  var z = Input.GetAxis("Vertical") * Time.deltaTime * 0.05f;
-                        // Debug.Log("TEST");
-                        //  PlayerOnBoard.transform.Rotate(0, x, 0);
-                        //  PlayerOnBoard.transform.Translate(0, 0, z);
+                        currentHighlight = (int)Status.Move;
+                        MoveButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        return;
+
+                    }
+
+                    if (controllerSendMapping) // choose send
+                    {
+                        currentHighlight = (int)Status.Send;
+                        SendButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        return;
+
+                    }
+
+                    if (controllerItemMapping) // choose item
+                    {
+                        currentHighlight = (int)Status.Item;
+                        ItemButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        return;
+                    }
+
+                    if (controllerDownMapping) // choose exit
+                    {
+                        currentHighlight = (int)Status.Exit;
+                        SkipButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        return;
+
+                    }
+
+                    // After Highlighting -- Make choices
+                    // 1) Set Mode to Move
+                    if (currentHighlight == (int)Status.Move)
+                    {
+                        if (controllerClickMapping)
+                        {
+                            ChangeControlMode();
+                            controlMode = 1;
+                            AudioCenter.PlaySelectionConfirm();
+                            rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
+
+                    }
+
+                    if (moveDisabled && controllerClickMapping)
+                    {
+                        rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
+                        AudioCenter.PlayCantDoThat();
+                    }
+                }
+                // 2) Set Mode to Send
+                if (currentHighlight == (int)Status.Send)
+                    {
+                        if (sendItemDisabled && controllerClickMapping)
+                        {
+                            rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
+                            AudioCenter.PlayCantDoThat();
+                        }
+
+                        if (!sendItemDisabled && controllerClickMapping)
+                        {
+                            ChangeControlMode();
+                            controlMode = 2;
+                            AudioCenter.PlaySelectionConfirm();
+                            rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Send Mode";
+
+
+                    }
+                }
+                    // 3) Set Mode to Item
+                    if (currentHighlight == (int)Status.Item)
+                    {
+                        if (controllerClickMapping)
+                        {
+                            rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
+                            AudioCenter.PlayCantDoThat();
+                        }
+                    }
+                    // 4) Exit and return to previous mode
+                    if (currentHighlight == (int)Status.Exit)
+                    {
+                        if (controllerClickMapping)
+                        {
+                            AudioCenter.PlaySelectionConfirm();
+                            tutorialStateManager.skipScene();
+                        }
+                    }
+                    break;
+                case 1:
+
+                    if (!BeginMove)
+                    {
+
                         if ((Input.GetKeyDown(KeyCode.W)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && !counterDirection)
+                            )
                         {
-                            //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                         }
-                        if ((Input.GetKeyDown(KeyCode.W)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && counterDirection)
-                        {
-                            //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
 
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
-                        }
                         if ((Input.GetKeyDown(KeyCode.S)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && !counterDirection)
+                           )
                         {
                             //    Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
                         }
-                        if ((Input.GetKeyDown(KeyCode.S)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && counterDirection)
-                        {
-                            //    Debug.Log("w");
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
-                        }
+
                         if ((Input.GetKeyDown(KeyCode.A)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && !counterDirection)
+                           )
                         {
-
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                         }
-                        if ((Input.GetKeyDown(KeyCode.A)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && counterDirection)
-                        {
 
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
-                        }
                         if ((Input.GetKeyDown(KeyCode.D)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && !counterDirection)
+                            )
                         {
                             //   Debug.Log("w");
+                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
-                        if ((Input.GetKeyDown(KeyCode.D)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && counterDirection)
-                        {
-                            //   Debug.Log("w");
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
-                        }
+
                         if (Input.GetKeyDown(KeyCode.G)
                             || OVRInput.GetDown(OVRInput.Button.One)
                             || OVRInput.GetDown(OVRInput.Button.Three)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
                         {
-                            if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
+                            if (detectBall.GetComponent<TutDetectBall>().IfCouldMove())
                             {
                                 //  Debug.Log("w");
                                 BeginMove = true;
                                 target = detectBall.transform.position;
-                                //hideCursor();
+                                hideCursor();
                             }
                         }
+
                     }
                     if (BeginMove)
                     {
@@ -323,49 +271,31 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                             BeginMove = false;
                     }
                     break;
-                    */
                 // Control mode: Send
                 case 2:
-                    // enable touch-send control
-                    if (!GetComponentInChildren<HandControl>().TradeModeActive)
-                    {
-                        // GetComponentInChildren<HandControl>().ActivateTrade(true);
-                        //GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
-                        //  tradeon = true;
-                        rabbit.transform.position = new Vector3(100, 100, 100);
-                        Debug.Log("Trade Mode ON");
-                    }
-
-                    // do something to tell players they are in item mode
 
                     break;
 
                 // Control mode: Use Item
                 case 3:
                     break;
-            }
+
+                case 4:
+                if (menuOpen)
+                {
+                    SetMenuActive(false);
+                }
+
+                if (!menuOpen && controllerCancelMapping)
+                {
+                    controlMode = 0;
+                }
+
+                break;
+
         }
+      
 
-
-
-
-        /*
-
-                    // Control mode: Menu
-                    case 4:
-                        ChangeControlMode();
-                        // Turn on the hand menu! (right hand at the moment)
-                        handUI.SetActive(true);
-
-                        // make choices with highlighting - Keyboard: I,O,P,L , confirm with K
-
-
-
-
-                        // Exit the hand menu: return to last control mode, deactivate hand UI.
-
-            }
-            */
     }
     // To turn off anything that needs to be turned off whenever enters menu.
     void ChangeControlMode()
@@ -373,11 +303,6 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         SetMenuActive(false);
         menuOpen = false;
         currentHighlight = (int)Status.None;
-        Debug.Log("Turning off Menu");
-        // GetComponentInChildren<HandControl>().ActivateTrade(false);
-        tradeon = false;
-     //   rabbit.transform.position = new Vector3(0, 0, 0);
-        Debug.Log("Trade Mode OFF");
     }
 
     public void SetMenuActive(bool boolean)
@@ -390,18 +315,102 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     {
         rightHandHoverUI.SetActive(boolean);
     }
-    /*
+
+    public void SetControlActive(bool boolean)
+    {
+        canControl = boolean;
+    }
     void hideCursor()
     {
         Vector3 temp = PlayerOnBoard.transform.position;
         temp.y = 10f;
         detectBall.transform.position = temp;
-        detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
+        detectBall.GetComponent<TutDetectBall>().cursor.SetActive(false);
     }
-    */
-    public void SetControlActive(bool boolean)
+
+
+
+    // ---
+    // Button Flash Animation Couroutines
+    // ---
+    public void SkipButtonFlash()
     {
-        canControl = boolean;
+        if (!menuOpen)
+        {
+            return;
+        }
+        StartCoroutine(SkipButtonFlashAnim());
+    }
+    IEnumerator SkipButtonFlashAnim()
+    {
+        Color originalColor = Color.white;
+        Color lerpedColor = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SkipButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    public void MoveButtonFlash()
+    {
+        if (!menuOpen)
+        {
+            return;
+        }
+
+        StartCoroutine(MoveButtonFlashAnim());
+    }
+    IEnumerator MoveButtonFlashAnim()
+    {
+        Color originalColor = Color.white;
+        Color lerpedColor = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        MoveButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    public void SendButtonFlash()
+    {
+
+
+        StartCoroutine(SendButtonFlashAnim());
+    }
+    IEnumerator SendButtonFlashAnim()
+    {
+        Color originalColor = Color.white;
+        Color lerpedColor = Color.yellow;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = lerpedColor;
+        yield return new WaitForSeconds(0.5f);
+        SendButton.image.color = originalColor;
+        yield return new WaitForSeconds(0.5f);
     }
 
 }

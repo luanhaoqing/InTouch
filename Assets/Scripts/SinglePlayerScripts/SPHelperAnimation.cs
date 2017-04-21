@@ -9,8 +9,8 @@ public class SPHelperAnimation : MonoBehaviour {
     public Texture[] helperTalkTextureArray;
     public Texture helperGreyTexture;
     public Material helperGreyMaterial;
+    public GameObject helperSuccessAnim;
 
-    bool prompted;
     bool first_time = true;
 
     //helper talk animation
@@ -86,26 +86,12 @@ public class SPHelperAnimation : MonoBehaviour {
 
     }
 
-    void HelperPrompt()
-    {
-        if (!first_time)
-        {
-            AudioCenter.PlayHelperPrompt();
-            prompted = true;
-        }
 
-        else
-        {
-            first_time = false;
-            prompted = true;
-        }
-
-
-    }
 
     public void SetHelperTalkActive(bool boolean, float seconds)
     {
         helperTalkActive = boolean;
+        thisTalkDuration = 0;
         if (seconds > 0f)
         {
             helperTalkDuration = seconds;
@@ -125,9 +111,26 @@ public class SPHelperAnimation : MonoBehaviour {
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
     }
 
+    public bool FinishedTalking()
+    {
+        return !helperTalkActive;
+    }
     public bool getHelperTalkStatus()
     {
         return helperTalkActive;
+    }
+
+    public void Success()
+    {
+        StartCoroutine(playHelperSuccessAnim());
+    }
+
+    IEnumerator playHelperSuccessAnim()
+    {
+        helperSuccessAnim.SetActive(false);
+        helperSuccessAnim.SetActive(true);
+        AudioCenter.PlayGetItem();
+        yield return null;
     }
 
 }

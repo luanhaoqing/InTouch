@@ -146,4 +146,5 @@ public class HelperAnimation : NetworkBehaviour {
         //        helperBodyMaterial = helperGreyMaterial;
         helperBodyMaterial.SetTexture("_MainTex", helperGreyTexture);
     }
+
 }
