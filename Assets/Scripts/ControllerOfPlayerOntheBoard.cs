@@ -11,14 +11,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool BeginMove;
     public GameObject rabbit;
     public GameObject rabbitForItem;
-    public int controlMode = 1; // 1 = move, 2 = send, 3 = use item, 4 = in menu, 5 = ready to heal
+    public int controlMode = 0; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = null, 5 = ready to heal
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
     public GameObject rightHandHoverUI;
     public int currentHighlight = 0; // UI higlight
     public GameObject TurnCounter;
     public bool counterDirection;
-    public bool tradeon=false;
+    //public bool tradeon = false;
 
     public UnityEngine.UI.Button MoveButton;
     public UnityEngine.UI.Button SendButton;
@@ -38,16 +38,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     }
 
     // declare five controller mapping: four for choosing menu options, one for confirm.
-    private bool controllerMoveMapping;
-    private bool controllerSendMapping;
-    private bool controllerItemMapping;
+    private bool controllerUpMapping;
+    private bool controllerLeftMapping;
+    private bool controllerRightMapping;
     private bool controllerDownMapping;
     private bool controllerClickMapping;
-    private bool controllerCancelMapping;
+    private bool controllerTriggerMapping;
 
-    //
-
-
+    
     // Use this for initialization
     void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.29f+0.2f*2,0.04f,-0.4544f+0.2f*3);     
@@ -72,23 +70,24 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         }
         else
             counterDirection = false;
+
         // Set Controller Mapping, get situation at current frame.
-        controllerSendMapping = (Input.GetKeyDown(KeyCode.I)
+        controllerLeftMapping = (Input.GetKeyDown(KeyCode.A)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft));
-        controllerMoveMapping = (Input.GetKeyDown(KeyCode.O)
+        controllerUpMapping = (Input.GetKeyDown(KeyCode.W)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp));
-        controllerItemMapping = (Input.GetKeyDown(KeyCode.P)
+        controllerRightMapping = (Input.GetKeyDown(KeyCode.D)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight));
-        controllerDownMapping = (Input.GetKeyDown(KeyCode.L)
+        controllerDownMapping = (Input.GetKeyDown(KeyCode.S)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
         controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
-        controllerCancelMapping = (Input.GetKeyDown(KeyCode.Backspace)
+        controllerTriggerMapping = (Input.GetKeyDown(KeyCode.Backspace)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
 
@@ -110,334 +109,313 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         }
 
         // Open menu with trigger after you chose something in this turn.
-        if (!menuOpen && controllerCancelMapping && menuHasOpened)
+        switch (controlMode)
         {
-            SetMenuActive(true);
-        }
+            // Control Mode: Menu
+            case 0:
+                hideCursor();
 
-        if (menuOpen)
-        {
-            hideCursor();
-
-            // Highlighting options
-            if (controllerMoveMapping) // choose move
-            {
-                currentHighlight = (int)Status.Move;
-                MoveButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Move Button Highlighted");
-                return;
-
-            }
-
-            if (controllerSendMapping) // choose send
-            {
-                currentHighlight = (int)Status.Send;
-                SendButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Send Button Highlighted");
-                return;
-
-            }
-
-            if (controllerItemMapping) // choose item
-            {
-                currentHighlight = (int)Status.Item;
-                ItemButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Item Button Highlighted");
-                return;
-            }
-
-            if (controllerDownMapping) // choose exit
-            {
-                currentHighlight = (int)Status.Exit;
-                ExitButton.Select();
-                AudioCenter.PlaySelectionAlt();
-                //Debug.Log("Exit Button Highlighted");
-                return;
-
-            }
-
-            // After Highlighting -- Make choices
-            // 1) Set Mode to Move
-            if (currentHighlight == (int)Status.Move)
-            {
-                if (controllerClickMapping)
+                // Highlighting options
+                if (controllerUpMapping) // choose move
                 {
-                    ChangeControlMode();
-                    controlMode = 1;
-                    AudioCenter.PlaySelectionConfirm();
+                    currentHighlight = (int)Status.Move;
+                    MoveButton.Select();
+                    AudioCenter.PlaySelectionAlt();
+                    //Debug.Log("Move Button Highlighted");
+                    return;
                 }
-            }
-            // 2) Set Mode to Send
-            if (currentHighlight == (int)Status.Send)
-            {
-                if (controllerClickMapping)
+
+                if (controllerLeftMapping) // choose send
                 {
-                    ChangeControlMode();
-                    controlMode = 2;
-                    // Here I need to reactivate Trade Mode. For now it's missing because trade mode cannot be syncronized across two clients.
-                    AudioCenter.PlaySelectionConfirm();
-
+                    currentHighlight = (int)Status.Send;
+                    SendButton.Select();
+                    AudioCenter.PlaySelectionAlt();
+                    //Debug.Log("Send Button Highlighted");
+                    return;
                 }
-            }
-            // 3) Set Mode to Item
-            if (currentHighlight == (int)Status.Item)
-            {
-                if (controllerClickMapping)
+
+                if (controllerRightMapping) // choose item
                 {
-                    //rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
-                    //Debug.Log("Use Item Not Implemented Yet");
-                    //AudioCenter.PlayCantDoThat();
-
-                    // Cannot change control mode right now:
-                    // De-commit when it is implemented
-                    
-                    ChangeControlMode();
-                    controlMode = 3;
-                    AudioCenter.PlaySelectionConfirm();
-                    
+                    currentHighlight = (int)Status.Item;
+                    ItemButton.Select();
+                    AudioCenter.PlaySelectionAlt();
+                    return;
                 }
-            }
-            // 4) Exit and return to previous mode
-            // obsolete because the menu is the highest rank you can go back to.
-            /*
-            if (controllerCancelMapping)
-            {
-                ChangeControlMode();
-                controlMode = previousControlMode;
-                AudioCenter.PlaySelectionConfirm();
-            }
-            */
 
+                if (controllerDownMapping) // choose exit
+                {
+                    currentHighlight = (int)Status.Exit;
+                    ExitButton.Select();
+                    AudioCenter.PlaySelectionAlt();
+                    return;
+                }
 
-        }
-        else
-        {
-            //Debug.Log(controlMode);
-            switch (controlMode)
-            {
-                // Control Mode: Move
-                // below is all the character movement code.
-                case 1:
-                    if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
+                // After Highlighting -- Make choices
+                // 1) Set Mode to Move
+                if (currentHighlight == (int)Status.Move)
+                {
+                    if (controllerClickMapping)
                     {
+                        ChangeControlMode();
+                        controlMode = 1;
+                        AudioCenter.PlaySelectionConfirm();
+                    }
+                }
+                // 2) Set Mode to Send
+                if (currentHighlight == (int)Status.Send)
+                {
+                    if (controllerClickMapping)
+                    {
+                        ChangeControlMode();
+                        controlMode = 2;
+                        AudioCenter.PlaySelectionConfirm();
+
+                    }
+                }
+
+                // 3) Set Mode to Item
+                if (currentHighlight == (int)Status.Item)
+                {
+                    if (controllerClickMapping)
+                    {
+                        //rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
+                        //Debug.Log("Use Item Not Implemented Yet");
+                        //AudioCenter.PlayCantDoThat();
+
+                        ChangeControlMode();
+                        controlMode = 3;
+                        AudioCenter.PlaySelectionConfirm();
+
+                    }
+                }
+                break;
+
+
+            // Control Mode: Move
+            // below is all the character movement code.
+            case 1:
+                if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
+                {
                         
-                        if ((Input.GetKeyDown(KeyCode.W) 
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && !counterDirection)
-                        {
-
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.W)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && counterDirection)
-                        {
-                            //    Debug.Log("Thumbstick: " + OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp));
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.S) 
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && !counterDirection)
-                        {
-                            //    Debug.Log("w");
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.S)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && counterDirection)
-                        {
-                            //    Debug.Log("w");
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.A) 
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && !counterDirection)
-                        {
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.A)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && counterDirection)
-                        {
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.D) 
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight) 
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && !counterDirection)
-                        {
-                            //   Debug.Log("w");
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.D)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && counterDirection)
-                        {
-                            //   Debug.Log("w");
-                            PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
-                            detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
-                        }
-                        if (Input.GetKeyDown(KeyCode.G) 
-                            || OVRInput.GetDown(OVRInput.Button.One) 
-                            || OVRInput.GetDown(OVRInput.Button.Three)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
-                        {
-                            if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
-                            {
-                                //  Debug.Log("w");
-                                BeginMove = true;
-                                target = detectBall.transform.position;
-                                hideCursor();
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.T))
-                        {
-
-                        }
-                    }
-                    if (BeginMove)
+                    // Move Up
+                    if ((controllerUpMapping)
+                        && !counterDirection)
                     {
-                        float step = 0.1f * Time.deltaTime;
-                        PlayerOnBoard.transform.position = Vector3.MoveTowards(PlayerOnBoard.transform.position, target, step);
-                        if (PlayerOnBoard.transform.position == target)
-                            BeginMove = false;
+
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
                     }
+                    if ((controllerUpMapping)
+                        && counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
+                    }
+
+                    // Move Down
+                    if ((controllerDownMapping)
+                        && !counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(-0.2f, 0, 0);
+                    }
+                    if ((controllerDownMapping)
+                        && counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0.2f, 0, 0);
+                    }
+
+                    // Move Left
+                    if ((controllerLeftMapping)
+                        && !counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
+                    }
+                    if ((controllerLeftMapping)
+                        && counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
+                    }
+
+                    // Move Right
+                    if ((controllerRightMapping)
+                        && !counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
+                    }
+                    if ((controllerRightMapping)
+                        && counterDirection)
+                    {
+                        PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
+                        detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
+                    }
+
+
+                    if (Input.GetKeyDown(KeyCode.G) 
+                        || controllerClickMapping)
+                    {
+                        if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
+                        {
+                            //  Debug.Log("w");
+                            BeginMove = true;
+                            target = detectBall.transform.position;
+                            hideCursor();
+                        }
+                    }
+
+                    // Go Back to Menu
+                    if (controllerTriggerMapping)
+                    {
+                        SetMenuActive(true);
+                        controlMode = 0;
+                    }
+                }
+                if (BeginMove)
+                {
+                    float step = 0.1f * Time.deltaTime;
+                    PlayerOnBoard.transform.position = Vector3.MoveTowards(PlayerOnBoard.transform.position, target, step);
+                    if (PlayerOnBoard.transform.position == target)
+                        BeginMove = false;
+                }
+                break;
+
+            // Control mode: Send
+            case 2:
+                // enable touch-send control
+                if (!GetComponentInChildren<HandControl>().TradeModeActive)
+                {
+                    rabbit.transform.position = new Vector3(100, 100, 100);
+                    Debug.Log("Trade Mode ON");
+                }
+
+                // Go Back to Menu with trigger
+                if (controllerTriggerMapping)
+                {
+                    SetMenuActive(true);
+                    controlMode = 0;
+                }
+
+                // do something to tell players they are in item mode
+
+                break;
+
+            // Control mode: Use Item
+            case 3:
+                if (!GetComponentInChildren<HandControl>().UseItemActive)
+                {
+                    rabbitForItem.transform.position = new Vector3(100, 100, 100);
+                    GetComponentInChildren<Inventory>().ActiveUseItem();
+                    Debug.Log("Use Item Mode On");
+                }
+
+                // Go Back to Menu with trigger
+                if (controllerTriggerMapping)
+                {
+                    SetMenuActive(true);
+                    controlMode = 0;
+                }
+
+                break;
+
+
+
+            // choose which tile to use heal
+            // Jeremy never touched anything in case 5
+            case 5:
+
+                //  HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
+                if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
+                {
+
+                    if ((Input.GetKeyDown(KeyCode.W)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
+                        && !counterDirection)
+                    {
+                        HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.W)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
+                        && counterDirection)
+                    {
+
+
+                        HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.S)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
+                        && !counterDirection)
+                    {
+                        //    Debug.Log("w");
+                        HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.S)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
+                        && counterDirection)
+                    {
+                        //    Debug.Log("w");
+                        HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.A)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                        && !counterDirection)
+                    {
+                        HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.A)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
+                        && counterDirection)
+                    {
+                        HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.D)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
+                        && !counterDirection)
+                    {
+                        //   Debug.Log("w");
+                        HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
+                    }
+                    if ((Input.GetKeyDown(KeyCode.D)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
+                        && counterDirection)
+                    {
+                        //   Debug.Log("w");
+                        HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
+                    }
+                    if (Input.GetKeyDown(KeyCode.G)
+                        || OVRInput.GetDown(OVRInput.Button.One)
+                        || OVRInput.GetDown(OVRInput.Button.Three)
+                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+                    {
+                        if (HealingCursor.GetComponent<DetectHealing>().couldHeal)
+                        {
+                            HealingCursor.transform.position -= new Vector3(0, 200f, 0);
+                            SetMenuActive(true);
+                        }
+                    }
+                }
                     break;
-
-                // Control mode: Send
-                case 2:
-                    // enable touch-send control
-                    if (!GetComponentInChildren<HandControl>().TradeModeActive)
-                    {
-                        // GetComponentInChildren<HandControl>().ActivateTrade(true);
-                        //GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().TradeOn = true;
-                        //  tradeon = true;
-                        rabbit.transform.position = new Vector3(100, 100, 100);
-                        Debug.Log("Trade Mode ON");
-                    }
-                    
-                    // do something to tell players they are in item mode
-
-                    break;
-
-                // Control mode: Use Item
-                case 3:
-                    if (!GetComponentInChildren<HandControl>().UseItemActive)
-                    {
-                        rabbitForItem.transform.position = new Vector3(100, 100, 100);
-                        GetComponentInChildren<Inventory>().ActiveUseItem();
-                        Debug.Log("Use Item Mode On");
-                    }
-                        break;
-               //choose which tile to use heal
-                case 5:
-                  //  HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
-                    if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
-                    {
-
-                        if ((Input.GetKeyDown(KeyCode.W)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && !counterDirection)
-                        {
-                            HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.W)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
-                            && counterDirection)
-                        {
-
-
-                            HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.S)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && !counterDirection)
-                        {
-                            //    Debug.Log("w");
-                            HealingCursor.transform.position += new Vector3(-0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.S)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown))
-                            && counterDirection)
-                        {
-                            //    Debug.Log("w");
-                            HealingCursor.transform.position += new Vector3(0.2f, 0, 0);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.A)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && !counterDirection)
-                        {
-                            HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.A)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft))
-                            && counterDirection)
-                        {
-                            HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.D)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && !counterDirection)
-                        {
-                            //   Debug.Log("w");
-                            HealingCursor.transform.position += new Vector3(0, 0, -0.2f);
-                        }
-                        if ((Input.GetKeyDown(KeyCode.D)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight))
-                            && counterDirection)
-                        {
-                            //   Debug.Log("w");
-                            HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
-                        }
-                        if (Input.GetKeyDown(KeyCode.G)
-                            || OVRInput.GetDown(OVRInput.Button.One)
-                            || OVRInput.GetDown(OVRInput.Button.Three)
-                            || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-                            || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
-                        {
-                            if (HealingCursor.GetComponent<DetectHealing>().couldHeal)
-                            {
-                                HealingCursor.transform.position -= new Vector3(0, 200f, 0);
-                                SetMenuActive(true);
-                            }
-                        }
-                    }
-                        break;
-            }
-        }
+            
+    }
 
 
 
 
 /*
 
-            // Control mode: Menu
+        // Control mode: Menu
             case 4:
                 ChangeControlMode();
                 // Turn on the hand menu! (right hand at the moment)
@@ -445,10 +423,6 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
                 // make choices with highlighting - Keyboard: I,O,P,L , confirm with K
 
-                
-
-
-                // Exit the hand menu: return to last control mode, deactivate hand UI.
 
     }
     */
@@ -459,18 +433,21 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         SetMenuActive(false);
         menuOpen = false;
         currentHighlight = (int)Status.None;
-        Debug.Log("Turning off Menu");
         // GetComponentInChildren<HandControl>().ActivateTrade(false);
-        tradeon = false;
+        // tradeon = false;
+
         rabbit.transform.position = new Vector3(0, 0, 0);
         rabbitForItem.transform.position = new Vector3(0,0,0);
         GetComponentInChildren<Inventory>().DeActiveUseItem();
-        Debug.Log("Trade Mode OFF");
     }
 
     public void SetMenuActive(bool boolean)
     {
         rightHandMenu.SetActive(boolean);
+        if (boolean == true)
+        {
+            controlMode = 0;
+        }
         menuOpen = boolean;
     }
 
