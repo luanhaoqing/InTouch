@@ -27,6 +27,7 @@ public class HandControl : MonoBehaviour
   
         if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3&& TradeCoolDown)
         {
+            Debug.Log("TouchTradeItem");
             TradeCoolDown = false;
             Invoke("reduceActionPoint", 1.0f);
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
