@@ -34,6 +34,7 @@ public class CurrentPlayer : NetworkBehaviour {
     public bool UseItemOn = false;
     public GameObject MyPlayer,otherPlayer,currentplayer;
     public GameObject lightning;
+    private bool RoundEnd = false;
     // Use this for initialization
     void Start () {
         CurrentPlayerID = 1;
@@ -48,11 +49,12 @@ public class CurrentPlayer : NetworkBehaviour {
             if (!reverse)
             {
               //  counter += Time.deltaTime;
-                if ( RemainActionPoint == 0&&CurrentPlayerID==1)
+                if ( RemainActionPoint == 0&&CurrentPlayerID==1&& !RoundEnd)
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
                     //  counter = 30f;
+                    RoundEnd = true;
                     Invoke("SetActionPointBack", 1.0f);
                   //  RemainActionPoint = 3;
                     turnCount++;
@@ -65,11 +67,12 @@ public class CurrentPlayer : NetworkBehaviour {
             else
             {
                // counter -= Time.deltaTime;
-                if ( RemainActionPoint == 0 && CurrentPlayerID == 2)
+                if ( RemainActionPoint == 0 && CurrentPlayerID == 2&& !RoundEnd)
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
                     //    counter = 0;
+                    RoundEnd = true;
                     Invoke("SetActionPointBack", 1.0f);
                     //RemainActionPoint = 3;
                     turnCount++;
@@ -191,6 +194,7 @@ public class CurrentPlayer : NetworkBehaviour {
     public void SetActionPointBack()
     {
         RemainActionPoint = 3;
+        RoundEnd = false;
     }
 
 
