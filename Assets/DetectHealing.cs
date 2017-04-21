@@ -6,6 +6,7 @@ public class DetectHealing : MonoBehaviour {
     public GameObject model;
     private GameObject currentTile;
     private bool hasHeal=false;
+    public GameObject Healingparticle;
 	// Use this for initialization
 	void Start () {
         model.transform.position+=new Vector3(0,100,0);
@@ -45,6 +46,8 @@ public class DetectHealing : MonoBehaviour {
     public void Heal()
     {
         currentTile.GetComponent<UpdateHP>().Heal();
+        Healingparticle.SetActive(false);
+        Healingparticle.SetActive(true);
     }
     public void afterHeal()
     {
