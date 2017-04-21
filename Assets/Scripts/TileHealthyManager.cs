@@ -29,7 +29,7 @@ public class TileHealthyManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if(health==0)
+	if(health==0&&HasExploded)
         {
             // this.gameObject.SetActive(false);
             Invoke("DetectDeath", 1f);         
