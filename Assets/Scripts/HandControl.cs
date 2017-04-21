@@ -11,6 +11,7 @@ public class HandControl : MonoBehaviour
     public GameObject helper;
     public bool pokeHelperGrey;
     private bool TradeCoolDown = true;
+    private bool UseItemCoolDown = true;
     // Use this for initialization
     void Start()
     {
@@ -35,12 +36,13 @@ public class HandControl : MonoBehaviour
             Invoke("reduceActionPoint", 2.0f);
             other.GetComponentInParent<Inventory>().Trade(other.gameObject);
         }
-        if(other.CompareTag("ITEM") && other.GetComponent<ItemsProperty>().CouldUse&& TurnCounter.GetComponent<CurrentPlayer>().UseItemOn)
+        if(other.CompareTag("ITEM") && other.GetComponent<ItemsProperty>().CouldUse&& TurnCounter.GetComponent<CurrentPlayer>().UseItemOn&& UseItemCoolDown)
         {
             //use item
-           
             other.GetComponentInParent<Inventory>().preuseItem(other.gameObject);
             GetComponentInParent<ControllerOfPlayerOntheBoard>().controlMode = 5;
+       //     UseItemCoolDown = false;
+            
         }
         // Poke helper to trigger some feedback
         if (pokeHelperGrey && (other.gameObject == helper))
@@ -59,6 +61,10 @@ public class HandControl : MonoBehaviour
         Debug.Log("reducedActionPoint");
         TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
         TradeCoolDown = true;
+    }
+     void UseItem(GameObject other)
+    {
+       
     }
 
 
