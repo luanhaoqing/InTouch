@@ -5,6 +5,9 @@ public class OverallManager : MonoBehaviour {
     public bool AutoStart;
     public Animator helperAnim;
 
+    public GameObject SplashScreen;
+    public GameObject AfterOpeningWrapper;
+
     public GameObject task0ObjectWrapper;
     public GameObject task1ObjectWrapper;
     public GameObject task2ObjectWrapper;
@@ -25,6 +28,10 @@ public class OverallManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
+        // used to skip scene;
         if (skipSceneTrigger)
         {
             skipCounter += Time.deltaTime;
@@ -36,6 +43,12 @@ public class OverallManager : MonoBehaviour {
 	
 	}
     
+    public void afterSplash()
+    {
+        AfterOpeningWrapper.SetActive(true);
+        StartCoroutine(StartEverything());
+    }
+
     public void destroyStuff(GameObject GO)
     {
         GO.SetActive(false);
@@ -73,7 +86,6 @@ public class OverallManager : MonoBehaviour {
 
     public void startTask6()
     {
-        Debug.Log("TASK #6 START");
         task6ObjectWrapper.SetActive(true);
     }
 
