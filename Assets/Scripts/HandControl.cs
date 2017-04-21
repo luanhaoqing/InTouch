@@ -24,7 +24,7 @@ public class HandControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Touch Item");
+  
         if (other.CompareTag("ITEM")&& TurnCounter.GetComponent<CurrentPlayer>().TradeOn&& TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
         {
             TurnCounter.GetComponent<CurrentPlayer>().RemainActionPoint = 0;
@@ -33,7 +33,7 @@ public class HandControl : MonoBehaviour
         if(other.CompareTag("ITEM") && other.GetComponent<ItemsProperty>().CouldUse&& TurnCounter.GetComponent<CurrentPlayer>().UseItemOn)
         {
             //use item
-            Debug.Log("use item");
+           
             other.GetComponentInParent<Inventory>().preuseItem(other.gameObject);
             GetComponentInParent<ControllerOfPlayerOntheBoard>().controlMode = 5;
         }

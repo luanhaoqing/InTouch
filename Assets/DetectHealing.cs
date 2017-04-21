@@ -46,7 +46,7 @@ public class DetectHealing : MonoBehaviour {
     public void Heal()
     {
         currentTile.GetComponent<UpdateHP>().Heal();
-        Healingparticle.SetActive(false);
+      //  Healingparticle.SetActive(false);
         Healingparticle.SetActive(true);
     }
     public void afterHeal()
@@ -55,5 +55,6 @@ public class DetectHealing : MonoBehaviour {
         model.transform.position += new Vector3(0, 100, 0);
         GetComponentInParent<Inventory>().UseItem();
         hasHeal = false;
+        Healingparticle.SetActive(false);
     }
 }
