@@ -52,8 +52,9 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
-                    counter = 30f;
-                    RemainActionPoint = 3;
+                    //  counter = 30f;
+                    Invoke("SetActionPointBack", 1.0f);
+                  //  RemainActionPoint = 3;
                     turnCount++;
                     HasTurn = false;
                     TradeOn = false;
@@ -68,8 +69,9 @@ public class CurrentPlayer : NetworkBehaviour {
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
-                    counter = 0;
-                    RemainActionPoint = 3;
+                    //    counter = 0;
+                    Invoke("SetActionPointBack", 1.0f);
+                    //RemainActionPoint = 3;
                     turnCount++;
                     HasTurn = false;
                     TradeOn = false;
@@ -186,7 +188,10 @@ public class CurrentPlayer : NetworkBehaviour {
     {
         LoseHealth = false;
     }
-
+    public void SetActionPointBack()
+    {
+        RemainActionPoint = 3;
+    }
 
 
 }
