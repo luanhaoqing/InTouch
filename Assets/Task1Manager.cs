@@ -7,6 +7,7 @@ public class Task1Manager : MonoBehaviour
     public GameObject Helper;
     SPHelperAnimation helperAnim;
     public SPControllerOfPlayerOntheBoard Controller;
+    public Transform CameraPosition;
     public BillboardManager Billboard;
     public OverallManager overallManager;
     public Transform helperInitialPosition;
@@ -81,7 +82,7 @@ public class Task1Manager : MonoBehaviour
                 {
 
                     EventScrollOnBoard.SetActive(false);
-                    EventAnim.StartFlying(Controller.transform);
+                    EventAnim.StartFlying(CameraPosition);
                     AudioCenter.PlayEventTrigger();
                     Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[4]);
 
