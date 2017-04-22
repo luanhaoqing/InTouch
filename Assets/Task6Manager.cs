@@ -69,6 +69,7 @@ public class Task6Manager : MonoBehaviour
                     // Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[2]); Seems repeted;
                     Controller.canControl = true;
                     Controller.controlMode = 1;
+                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
                     substate = 4;
                 }
                 break;
