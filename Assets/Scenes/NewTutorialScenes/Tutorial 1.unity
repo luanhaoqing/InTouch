@@ -655,11 +655,11 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 1852314907}
   Task1VOs:
-  - {fileID: 8300000, guid: b87b06c5f4d41e1449049246d228f6f2, type: 3}
-  - {fileID: 8300000, guid: 4823b9d99e997724abc47de2b5d0136c, type: 3}
+  - {fileID: 8300000, guid: 7e76a4eca9febe841bd02552c1d1db09, type: 3}
+  - {fileID: 8300000, guid: 1eba2cc9bccf2334585a8af535e4a613, type: 3}
   - {fileID: 8300000, guid: 6aaf5028ccac54945b3cc56a9851a1b4, type: 3}
-  - {fileID: 8300000, guid: 7adef8ca34c98744fbaccf077c1703c0, type: 3}
-  - {fileID: 8300000, guid: c38aa8c0e828ff140823c7b1dbca85d8, type: 3}
+  - {fileID: 8300000, guid: eaf4683498e4b2d4c9a93013eb11adad, type: 3}
+  - {fileID: 8300000, guid: 4d98c77956e6f3845a41617d4e8f664b, type: 3}
   TwoMoreIslands: {fileID: 1971415825}
   FirstMoveDetector: {fileID: 587360450}
   EventScrollOnBoard: {fileID: 319747425}
@@ -3158,12 +3158,12 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 120467511}
   Task3VOs:
-  - {fileID: 8300000, guid: 55e0c28e5a6262041b75f725997e4385, type: 3}
-  - {fileID: 8300000, guid: a0d6d12a72ffd1c48af403941b760418, type: 3}
+  - {fileID: 8300000, guid: bc864153a834aa04ca7a6c010bcb4d3a, type: 3}
   - {fileID: 8300000, guid: 2d7bd1500f811084294b58ab95f51ab5, type: 3}
-  - {fileID: 8300000, guid: 286e5b3f24eb19444ba0e03503fb2716, type: 3}
-  - {fileID: 8300000, guid: 5bac4df33a58766469c4c4c17d7242f9, type: 3}
-  - {fileID: 8300000, guid: 950b8ed6bb0be0b4da8450c59c8bd5a2, type: 3}
+  - {fileID: 8300000, guid: 2d7bd1500f811084294b58ab95f51ab5, type: 3}
+  - {fileID: 8300000, guid: 8fee9787203a8a643a0c7cdb8be00ff0, type: 3}
+  - {fileID: 8300000, guid: 20bc91fc536c23f43b50af05390ea064, type: 3}
+  - {fileID: 8300000, guid: db58fd8cd9308454c845a0ebbdac56de, type: 3}
   ItemOnInventory: {fileID: 1366278481}
   OtherInventory: {fileID: 88441535}
   ItemOnOtherInventory: {fileID: 491858254}
@@ -4935,10 +4935,10 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 1852314907}
   Task4VOs:
-  - {fileID: 8300000, guid: b18ab329b63ccaa4b9d0a7f740bc53ef, type: 3}
-  - {fileID: 8300000, guid: f63b7026e28cfa247b3c212e039a73f9, type: 3}
-  - {fileID: 8300000, guid: d7de2915c1c239b47a07bb3fcfc2e156, type: 3}
-  - {fileID: 8300000, guid: 679ab1b6979652246a3a06d975c0e08a, type: 3}
+  - {fileID: 8300000, guid: 52c8de04766339845be71dc0bb6eb1cb, type: 3}
+  - {fileID: 8300000, guid: ffa7f7d392c62d843a44418b1c73d363, type: 3}
+  - {fileID: 8300000, guid: efb6609f7e9e14b4893525befba107bd, type: 3}
+  - {fileID: 8300000, guid: 7cd28e105d5622e43a64db4815d0aaac, type: 3}
   HealthPoints: {fileID: 644375107}
   oneCrystalToBreak: {fileID: 1116013242}
   IslandHealthMoveDetector: {fileID: 495268985}
@@ -5249,8 +5249,8 @@ MonoBehaviour:
   Billboard: {fileID: 2143177487}
   overallManager: {fileID: 406642204}
   VOs:
-  - {fileID: 8300000, guid: d883d8d28a09d6644a299281535d680d, type: 3}
-  - {fileID: 8300000, guid: 8ce3c684c38057e4da5043128b081ac6, type: 3}
+  - {fileID: 8300000, guid: 341a7fdfa864510448760722edcd8e24, type: 3}
+  - {fileID: 8300000, guid: 914a8b421362a9b42be4cb90f537b31f, type: 3}
 --- !u!4 &688336541
 Transform:
   m_ObjectHideFlags: 0
@@ -8697,8 +8697,8 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 461241161}
   Task5VOs:
-  - {fileID: 8300000, guid: c9ff63cd12a46ee45b7f8bcf531f0a5c, type: 3}
-  - {fileID: 8300000, guid: 342a1451362be694da3da906528898e7, type: 3}
+  - {fileID: 8300000, guid: 6816658ffcd9d7d49b307d386892685e, type: 3}
+  - {fileID: 8300000, guid: 2cfdcd02f6ef1824ca8d0361086ee4c0, type: 3}
   islandToFall: {fileID: 1110216797}
   firstBreakCrystals:
   - {fileID: 1376799563}
@@ -8857,11 +8857,11 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 1244770660}
   Task6VOs:
-  - {fileID: 8300000, guid: c172d310c0e20684a8e4836b4bc68987, type: 3}
-  - {fileID: 8300000, guid: 9f257be6cb845304cab4caade475f59f, type: 3}
-  - {fileID: 8300000, guid: 9f257be6cb845304cab4caade475f59f, type: 3}
-  - {fileID: 8300000, guid: 3f6139b0eb70a41439ba58c866f25e86, type: 3}
-  - {fileID: 8300000, guid: ecead61be58cb5249954b766e7ff752f, type: 3}
+  - {fileID: 8300000, guid: a2cc12f8bd75c5d4997ab8f2fd0a203d, type: 3}
+  - {fileID: 8300000, guid: 91a21d02b33e7ea43ae50d5bf89de381, type: 3}
+  - {fileID: 8300000, guid: 91a21d02b33e7ea43ae50d5bf89de381, type: 3}
+  - {fileID: 8300000, guid: 5766655910c19a74abcab50e78ea25a5, type: 3}
+  - {fileID: 8300000, guid: 3454dadfd4296104ab06a7b6bd0c8697, type: 3}
   RuneOnTile: {fileID: 1768054149}
   TwoRunesInInventory: {fileID: 937503594}
   ThirdRuneInInventory: {fileID: 1148022013}
@@ -13780,8 +13780,8 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 1852314907}
   Task2VOs:
-  - {fileID: 8300000, guid: 2476909d617c4554fae89034f6f2ee41, type: 3}
-  - {fileID: 8300000, guid: b3d0840dbf7bbc246a453ec98adedbe5, type: 3}
+  - {fileID: 8300000, guid: 6609eb9deccdead4b98a879cc1c467bf, type: 3}
+  - {fileID: 8300000, guid: 210ee2146bb6e4e4cb1007414c70a4e4, type: 3}
   Tiles: {fileID: 856092020}
   ItemMoveDetector: {fileID: 1608580101}
   ItemOnBoard: {fileID: 352891338}
