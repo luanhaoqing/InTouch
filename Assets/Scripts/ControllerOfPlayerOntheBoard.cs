@@ -112,8 +112,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         // Open menu with trigger after you chose something in this turn.
         switch (controlMode)
         {
-
-            
+       
             // Control Mode: Menu
             case 0:
                 hideCursor();
