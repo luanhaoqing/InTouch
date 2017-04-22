@@ -7,8 +7,11 @@ public class DetectHealing : MonoBehaviour {
     private GameObject currentTile;
     private bool hasHeal=false;
     public GameObject Healingparticle;
+    public float OriginHeight;
 	// Use this for initialization
 	void Start () {
+        OriginHeight = model.transform.position.y;
+
         model.transform.position+=new Vector3(0,100,0);
 	}
 	
