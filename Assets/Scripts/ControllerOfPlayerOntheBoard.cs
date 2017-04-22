@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject PlayerOnBoard;
@@ -15,27 +16,22 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
     public GameObject rightHandHoverUI;
-    public int currentHighlight = 0; // UI higlight
     public GameObject TurnCounter;
     public bool counterDirection;
+    UnityEngine.EventSystems.EventSystem myEventSystem;
     //public bool tradeon = false;
 
     public UnityEngine.UI.Button MoveButton;
     public UnityEngine.UI.Button SendButton;
     public UnityEngine.UI.Button ItemButton;
-    public UnityEngine.UI.Button ExitButton;
+
+    private Selectable CurrentHighlightButton;
+
 
     public bool menuOpen = false;
     private bool menuHasOpened = false;
+    Text constantText;
 
-    enum Status
-    {
-        None,
-        Move,
-        Send,
-        Item,
-        Exit
-    }
 
     // declare five controller mapping: four for choosing menu options, one for confirm.
     private bool controllerUpMapping;
@@ -49,13 +45,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     // Use this for initialization
     void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.29f+0.2f*2,0.04f,-0.4544f+0.2f*3);     
-        rightHandMenu.SetActive(false);
-        rightHandHoverUI.SetActive(false);
         TurnCounter = GameObject.Find("TrunCounter");
         if(TurnCounter.GetComponent<TurnCounter>().OwnId==1)
         {
             counterDirection = true;
         }
+        constantText = rightHandHoverUI.GetComponentInChildren<Text>();
+        myEventSystem = GameObject.Find("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem>();
     }
 
     // Update is called once per frame
@@ -93,99 +89,149 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
 
         // Open Menu whenever it's your turn. Turn it off whenever it's not.
-        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (!menuHasOpened))
+        /*
+        if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
-            menuHasOpened = true;
+            menuOpen = true;
             SetMenuActive(true);
             SetHoverUIActive(true);
-            Debug.Log("Opened");
+            constantText.text = "Your Turn";
         }
-        else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && menuHasOpened)
+        else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && menuOpen)
         {
-            menuHasOpened = false;
             SetMenuActive(false);
             SetHoverUIActive(false);
-            Debug.Log("Closed");
+            controlMode = -1;
         }
+        */
 
         // Open menu with trigger after you chose something in this turn.
         switch (controlMode)
         {
+
+            
             // Control Mode: Menu
             case 0:
                 hideCursor();
 
+
                 // Highlighting options
-                if (controllerUpMapping) // choose move
+                if (CurrentHighlightButton == null)
                 {
-                    currentHighlight = (int)Status.Move;
+                    Debug.Log("Nothing Selected");
                     MoveButton.Select();
-                    AudioCenter.PlaySelectionAlt();
-                    //Debug.Log("Move Button Highlighted");
-                    return;
+                    CurrentHighlightButton = MoveButton;
                 }
 
-                if (controllerLeftMapping) // choose send
+                else
                 {
-                    currentHighlight = (int)Status.Send;
-                    SendButton.Select();
-                    AudioCenter.PlaySelectionAlt();
-                    //Debug.Log("Send Button Highlighted");
-                    return;
+                    Debug.Log(CurrentHighlightButton.name);
+                    // press left and find left
+                    if (controllerLeftMapping)
+                    {
+                        Selectable newButton = CurrentHighlightButton.FindSelectableOnLeft();
+                        if (newButton != null)
+                        {
+                            newButton.Select();
+                            CurrentHighlightButton = newButton;
+                            AudioCenter.PlaySelectionAlt();
+                        }
+                        else
+                        {
+                            AudioCenter.PlayCantDoThat();
+                        }
+
+                    }
+
+                    if (controllerRightMapping)
+                    {
+                        Selectable newButton = CurrentHighlightButton.FindSelectableOnRight();
+                        if (newButton != null)
+                        {
+                            newButton.Select();
+                            CurrentHighlightButton = newButton;
+                            AudioCenter.PlaySelectionAlt();
+                        }
+                        else
+                        {
+                            AudioCenter.PlayCantDoThat();
+                        }
+
+                    }
                 }
 
-                if (controllerRightMapping) // choose item
-                {
-                    currentHighlight = (int)Status.Item;
-                    ItemButton.Select();
-                    AudioCenter.PlaySelectionAlt();
-                    return;
-                }
 
-                if (controllerDownMapping) // choose exit
-                {
-                    currentHighlight = (int)Status.Exit;
-                    ExitButton.Select();
-                    AudioCenter.PlaySelectionAlt();
-                    return;
-                }
 
-                // After Highlighting -- Make choices
-                // 1) Set Mode to Move
-                if (currentHighlight == (int)Status.Move)
+
+                    /*
+                     * Old control code - push and highlight
+                     * 
+                    if (controllerUpMapping) // choose move
+                    {
+                        currentHighlight = (int)Status.Move;
+                        MoveButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        //Debug.Log("Move Button Highlighted");
+                        return;
+                    }
+
+                    if (controllerLeftMapping) // choose send
+                    {
+                        currentHighlight = (int)Status.Send;
+                        SendButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        //Debug.Log("Send Button Highlighted");
+                        return;
+                    }
+
+                    if (controllerRightMapping) // choose item
+                    {
+                        currentHighlight = (int)Status.Item;
+                        ItemButton.Select();
+                        AudioCenter.PlaySelectionAlt();
+                        return;
+                    }
+                    */
+
+                    /*************************************
+                    // After Highlighting -- Make choices
+                    **************************************/
+                    // 1) Set Mode to Move
+                    if (CurrentHighlightButton == MoveButton)
                 {
                     if (controllerClickMapping)
                     {
                         ChangeControlMode();
                         controlMode = 1;
                         AudioCenter.PlaySelectionConfirm();
+                        constantText.text = "Move Mode";
                     }
                 }
                 // 2) Set Mode to Send
-                if (currentHighlight == (int)Status.Send)
+                if (CurrentHighlightButton == SendButton)
                 {
                     if (controllerClickMapping)
                     {
                         ChangeControlMode();
                         controlMode = 2;
                         AudioCenter.PlaySelectionConfirm();
+                        constantText.text = "Send Mode";
 
                     }
                 }
 
                 // 3) Set Mode to Item
-                if (currentHighlight == (int)Status.Item)
+                if (CurrentHighlightButton == ItemButton)
                 {
                     if (controllerClickMapping)
                     {
                         //rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
                         //Debug.Log("Use Item Not Implemented Yet");
                         //AudioCenter.PlayCantDoThat();
-
                         ChangeControlMode();
                         controlMode = 3;
                         AudioCenter.PlaySelectionConfirm();
-
+                        constantText.text = "Use Item Mode";
                     }
                 }
                 break;
@@ -267,7 +313,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         }
                     }
 
-                    // Go Back to Menu
+                    // Go Back to Menu from move
                     if (controllerTriggerMapping)
                     {
                         SetMenuActive(true);
@@ -292,11 +338,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     Debug.Log("Trade Mode ON");
                 }
 
-                // Go Back to Menu with trigger
+                // Go Back to Menu with trigger from Send
                 if (controllerTriggerMapping)
                 {
                     SetMenuActive(true);
                     controlMode = 0;
+                    CurrentHighlightButton = SendButton;
+                    SendButton.Select();
                 }
 
                 // do something to tell players they are in item mode
@@ -317,6 +365,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     SetMenuActive(true);
                     controlMode = 0;
+                    CurrentHighlightButton = ItemButton;
+                    ItemButton.Select();
                 }
 
                 break;
@@ -432,7 +482,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     {
         SetMenuActive(false);
         menuOpen = false;
-        currentHighlight = (int)Status.None;
+        CurrentHighlightButton = null;
         // GetComponentInChildren<HandControl>().ActivateTrade(false);
         // tradeon = false;
 
@@ -447,6 +497,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (boolean == true)
         {
             controlMode = 0;
+            CurrentHighlightButton = null;
+            myEventSystem.SetSelectedGameObject(null);
         }
         menuOpen = boolean;
     }
