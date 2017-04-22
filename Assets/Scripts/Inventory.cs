@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
+       /* if(turnCounter.GetComponent<CurrentPlayer>().RemainActionPoint==3)
         {
             for(int i=0;i<3;i++)
             {
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour {
             Aplights[0].SetActive(false);
             Aplights[1].SetActive(false);
             Aplights[2].SetActive(false);
-        }
+        }*/
 
     }
 
