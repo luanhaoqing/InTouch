@@ -580,16 +580,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1225543943}
-    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
     - target: {fileID: 114000010184426404, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: LeftHand
@@ -605,48 +600,19 @@ Prefab:
       propertyPath: Body
       value: 
       objectReference: {fileID: 1225543942}
-    - target: {fileID: 223000012820138750, guid: d5ae8652797944044817ee4975312653,
+    - target: {fileID: 23000012835296620, guid: d5ae8652797944044817ee4975312653,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d998706ffe75dc743a7cf823343a85dc, type: 2}
+    - target: {fileID: 223000013700933196, guid: d5ae8652797944044817ee4975312653,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1225543943}
     - target: {fileID: 1000011950342710, guid: d5ae8652797944044817ee4975312653, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013126529036, guid: d5ae8652797944044817ee4975312653, type: 2}
-      propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011348208126, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000013056285110, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011603075484, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012456953338, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 114000012456953338, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0.609
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000014010079582, guid: d5ae8652797944044817ee4975312653,
-        type: 2}
-      propertyPath: m_Text
-      value: Your Turn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5ae8652797944044817ee4975312653, type: 2}
