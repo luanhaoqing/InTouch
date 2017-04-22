@@ -62,7 +62,7 @@ public class GenerateMap : NetworkBehaviour {
             {
                 RanTileNum = 0;
             }
-            RanTileNum = 4; 
+          
            /* if (ran == 2)
                 GemNumbers--;
             if(GemNumbers==0)
