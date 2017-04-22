@@ -3320,8 +3320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoStart: 0
   helperAnim: {fileID: 1375107271}
-  SplashScreen: {fileID: 0}
-  AfterOpeningWrapper: {fileID: 0}
+  SplashScreen: {fileID: 982748961}
+  AfterOpeningWrapper: {fileID: 541841242}
   task0ObjectWrapper: {fileID: 688336539}
   task1ObjectWrapper: {fileID: 79655757}
   task2ObjectWrapper: {fileID: 1933013806}
@@ -9277,7 +9277,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

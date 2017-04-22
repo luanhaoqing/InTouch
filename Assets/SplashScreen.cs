@@ -18,14 +18,15 @@ public class SplashScreen : MonoBehaviour {
     void Start () {
         Panel = startPrompt.transform.GetChild(0).gameObject;
 
-        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
-        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+        
 
     }
 
     // Update is called once per frame
     void Update () {
+        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
+        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
+        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
         if (BlinkingStart) { 
             counter += Time.deltaTime;
             if ( counter> speed)
@@ -37,9 +38,9 @@ public class SplashScreen : MonoBehaviour {
                 startPrompt.SetActive(true);
                 counter = 0;
             }
-            return;
-
         }
+
+      
 
         if (!ThumbClicked)
         {
@@ -52,6 +53,8 @@ public class SplashScreen : MonoBehaviour {
 
         if (ThumbClicked)
         {
+            ThumbClicked = false;
+            Debug.Log("Clicked");
             StartCoroutine(AfterClickAnim());
         }
 
@@ -68,6 +71,6 @@ public class SplashScreen : MonoBehaviour {
             times ++;
         }
         overallManager.afterSplash();
-        Destroy(this);
+        this.gameObject.SetActive(false);
     }
 }
