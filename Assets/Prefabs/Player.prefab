@@ -9783,16 +9783,14 @@ MonoBehaviour:
   PlayerModel: {fileID: 1000013377495034}
   rabbit: {fileID: 1000011322764928}
   rabbitForItem: {fileID: 1000010371842518}
-  controlMode: 0
+  controlMode: -1
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}
-  currentHighlight: 0
   TurnCounter: {fileID: 0}
   counterDirection: 0
   MoveButton: {fileID: 114000011129975778}
   SendButton: {fileID: 114000011164090636}
   ItemButton: {fileID: 114000012421304404}
-  ExitButton: {fileID: 114000010978955468}
   menuOpen: 0
 --- !u!114 &114000014238725344
 MonoBehaviour:

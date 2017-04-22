@@ -12,7 +12,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool BeginMove;
     public GameObject rabbit;
     public GameObject rabbitForItem;
-    public int controlMode = 0; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = null, 5 = ready to heal
+    public int controlMode = -1; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = null, 5 = ready to heal
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
     public GameObject rightHandHoverUI;
@@ -46,6 +46,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     void Start () {
         PlayerOnBoard.transform.position = new Vector3(0.29f+0.2f*2,0.04f,-0.4544f+0.2f*3);     
         TurnCounter = GameObject.Find("TrunCounter");
+        SetMenuActive(false);
+        SetHoverUIActive(false);
+
         if(TurnCounter.GetComponent<TurnCounter>().OwnId==1)
         {
             counterDirection = true;
@@ -92,7 +95,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         
         if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
-            menuOpen = true;
+            
             SetMenuActive(true);
             SetHoverUIActive(true);
             constantText.text = "Your Turn";
