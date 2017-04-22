@@ -322,6 +322,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     {
                         SetMenuActive(true);
                         controlMode = 0;
+                        constantText.text = "Your Turn";
                     }
                 }
                 if (BeginMove)
@@ -349,6 +350,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     controlMode = 0;
                     CurrentHighlightButton = SendButton;
                     SendButton.Select();
+                    constantText.text = "Your Turn";
                 }
 
                 // do something to tell players they are in item mode
@@ -371,6 +373,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     controlMode = 0;
                     CurrentHighlightButton = ItemButton;
                     ItemButton.Select();
+                    constantText.text = "Your Turn";
                 }
 
                 break;

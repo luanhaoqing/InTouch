@@ -50,8 +50,6 @@ public class HelperAnimation : NetworkBehaviour {
         {
             if (turnCount.GetComponent<TurnCounter>().OwnId == turnCount.GetComponent<CurrentPlayer>().CurrentPlayerID)
             {
-                int remainAction = turnCount.GetComponent<CurrentPlayer>().RemainActionPoint;
-                countsShow.GetComponent<Text>().text = "You have " + remainAction + " action left";
                 helper.GetComponent<Animator>().SetBool("fly", true);
 
                 if (!prompted)
