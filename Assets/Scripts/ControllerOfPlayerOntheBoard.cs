@@ -100,7 +100,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             SetHoverUIActive(true);
             constantText.text = "Your Turn";
         }
-        else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn))
+        else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) &&    !BeginMove)
         {
             Debug.Log("Menu Close");
             SetMenuActive(false);
