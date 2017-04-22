@@ -460,22 +460,6 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             
     }
 
-
-
-
-/*
-
-        // Control mode: Menu
-            case 4:
-                ChangeControlMode();
-                // Turn on the hand menu! (right hand at the moment)
-                handUI.SetActive(true);
-
-                // make choices with highlighting - Keyboard: I,O,P,L , confirm with K
-
-
-    }
-    */
 }
     // To turn off anything that needs to be turned off whenever enters menu.
     void ChangeControlMode()
@@ -497,8 +481,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (boolean == true)
         {
             controlMode = 0;
-            CurrentHighlightButton = null;
-            myEventSystem.SetSelectedGameObject(null);
+            CurrentHighlightButton = MoveButton;
+            MoveButton.Select();
         }
         menuOpen = boolean;
     }
