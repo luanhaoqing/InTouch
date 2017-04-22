@@ -2744,6 +2744,7 @@ GameObject:
   - 54: {fileID: 54000013709755904}
   - 114: {fileID: 114000011281188754}
   - 114: {fileID: 114000010320369034}
+  - 65: {fileID: 65000010282513696}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -8851,6 +8852,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65000010282513696
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013017843368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7179615, y: 1.0441345, z: 1.7262137}
+  m_Center: {x: 0.05898072, y: -0.51804316, z: 0.068081304}
 --- !u!95 &95000010075750114
 Animator:
   serializedVersion: 3
@@ -10805,8 +10818,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.7
+  m_Center: {x: 0.2, y: 0, z: 1.7}
 --- !u!135 &135000011869794420
 SphereCollider:
   m_ObjectHideFlags: 1
