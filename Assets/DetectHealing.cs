@@ -45,6 +45,7 @@ public class DetectHealing : MonoBehaviour {
     }
     public void Heal()
     {
+        Debug.Log("Heal");
         currentTile.GetComponent<UpdateHP>().Heal();
       //  Healingparticle.SetActive(false);
         Healingparticle.SetActive(true);

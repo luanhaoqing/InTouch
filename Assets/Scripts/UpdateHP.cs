@@ -23,19 +23,21 @@ public class UpdateHP : MonoBehaviour {
         // this.GetComponent<Text>().text= tile.GetComponent<TileHealthyManager>().health.ToString();
         if (tile.GetComponent<TileHealthyManager>().health != numberofFlame && tile.GetComponent<TileHealthyManager>().health < 4)
         {
-            if(numberofFlame>0)
+            if (numberofFlame > 0)
+            {
                 flame[numberofFlame - 1].GetComponent<Animator>().SetTrigger("breakdown");
-            // delete after playing animation
-            numberofFlame--;
-
-            StartCoroutine(WaitAndDelete());
+                numberofFlame--;
+                StartCoroutine(WaitAndDelete());
+            }
+          
         }
     }
 
     public void Heal()
     {
         tile.GetComponent<TileHealthyManager>().health++;
-        flame[numberofFlame].SetActive(true);
+        if(numberofFlame<4)
+            flame[numberofFlame].SetActive(true);
         numberofFlame++;
         Debug.Log("Healing the tile!!");
     }
