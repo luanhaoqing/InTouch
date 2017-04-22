@@ -125,7 +125,8 @@ public class Inventory : MonoBehaviour {
                 {
                     Items[i] = null;
                     ItemNumber--;
-                    GemNumber--;
+                    if(!obj.GetComponent<ItemsProperty>().CouldUse)
+                        GemNumber--;
                     //re-arrange inventory
                     for (int j = i + 1; j < ItemNumber; j++)
                     {
@@ -153,7 +154,7 @@ public class Inventory : MonoBehaviour {
         {
             if (Items[i] == null)
                 continue;
-            if(Items[i].tag=="ITEM")
+            if(Items[i].tag=="ITEM"&& !Items[i].GetComponent<ItemsProperty>().CouldUse)
             {
                 Destroy(Items[i]);
                 Items[i] = null;
@@ -165,6 +166,28 @@ public class Inventory : MonoBehaviour {
     }
     private void Rearrange()
     {
+        GameObject[] temp = new GameObject[4];
+        for(int i=0;i<4;i++)
+        {
+            temp[i] = null;
+        }
+        int ItemNum=0;
+        for(int i=0;i<4;i++)
+        {
+            if(Items[i]!=null)
+            {
+                temp[ItemNum] = Items[i];
+                Items[i] = null;
+                ItemNum++;
+            }
+        }
+        ItemNumber = 0;
+        for(int i=0;i< ItemNum; i++)
+        {
+            Setpositon(temp[i]);
+        }
+
+        /*
         int i = 0;
         while(Items[i]==null)
         {
@@ -173,7 +196,7 @@ public class Inventory : MonoBehaviour {
                 break;
         }
         Items[0] = Items[i];
-        Items[i] = null;
+        Items[i] = null;*/
     }
         
 }
