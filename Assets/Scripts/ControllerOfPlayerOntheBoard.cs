@@ -89,7 +89,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
 
         // Open Menu whenever it's your turn. Turn it off whenever it's not.
-        /*
+        
         if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
             menuOpen = true;
@@ -103,7 +103,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             SetHoverUIActive(false);
             controlMode = -1;
         }
-        */
+        
 
         // Open menu with trigger after you chose something in this turn.
         switch (controlMode)
