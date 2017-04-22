@@ -476,7 +476,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
         rabbit.transform.position = new Vector3(0, 0, 0);
         rabbitForItem.transform.position = new Vector3(0,0,0);
-        GetComponentInChildren<Inventory>().DeActiveUseItem();
+      //  GetComponentInChildren<Inventory>().DeActiveUseItem();
     }
 
     public void SetMenuActive(bool boolean)
