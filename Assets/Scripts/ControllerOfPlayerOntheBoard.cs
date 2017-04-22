@@ -95,13 +95,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         
         if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
-            
+            Debug.Log("Menu Open");   
             SetMenuActive(true);
             SetHoverUIActive(true);
             constantText.text = "Your Turn";
         }
         else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && menuOpen)
         {
+            Debug.Log("Menu Close");
             SetMenuActive(false);
             SetHoverUIActive(false);
             controlMode = -1;
