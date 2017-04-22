@@ -80,10 +80,11 @@ public class Inventory : MonoBehaviour {
     public void preuseItem(GameObject healingItem)
     {
         Debug.Log("PreUseItem");
-        healingItem.SetActive(false);
-        _preuseItem = healingItem;
         Vector3 temp = GetComponentInChildren<DetectHealing>().model.transform.position;
         temp.y = healingItem.GetComponent<DetectHealing>().OriginHeight;
+        healingItem.SetActive(false);
+        _preuseItem = healingItem;
+       
         GetComponentInChildren<DetectHealing>().model.transform.position =temp;
     }
     public void UseItem()
