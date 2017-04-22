@@ -2609,7 +2609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000013251259628
 GameObject:
   m_ObjectHideFlags: 1
@@ -9367,6 +9367,7 @@ MonoBehaviour:
   couldHeal: 0
   model: {fileID: 1000013332812526}
   Healingparticle: {fileID: 1000013240616144}
+  OriginHeight: 0
 --- !u!114 &114000013352153940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9782,7 +9783,7 @@ MonoBehaviour:
   PlayerModel: {fileID: 1000013377495034}
   rabbit: {fileID: 1000011322764928}
   rabbitForItem: {fileID: 1000010371842518}
-  controlMode: 1
+  controlMode: 0
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}
   currentHighlight: 0
