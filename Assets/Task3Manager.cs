@@ -55,6 +55,7 @@ public class Task3Manager : MonoBehaviour
                     Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
                     Controller.canControl = true;
                     substate = 3;
+                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Trigger to go back to menu";
                 }
                 break;
             case 3:

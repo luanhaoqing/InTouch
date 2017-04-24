@@ -87,7 +87,7 @@ public class Task5Manager : MonoBehaviour
     IEnumerator HelperFlyToClock()
     {
         Clock.SetActive(true);
-        iTween.MoveAdd(Clock, iTween.Hash("y", 1f, "easytype", iTween.EaseType.easeInOutSine));
+        iTween.MoveAdd(Clock, iTween.Hash("y", 1.5f, "easytype", iTween.EaseType.easeInOutSine));
         AudioCenter.PlayRoundOver();
 
         yield return new WaitForSeconds(1f);

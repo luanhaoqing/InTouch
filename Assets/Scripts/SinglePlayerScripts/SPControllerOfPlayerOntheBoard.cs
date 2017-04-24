@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
@@ -15,6 +17,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     public GameObject TurnCounter;
     public bool counterDirection;
     public bool tradeon = false;
+    private Selectable CurrentHighlightButton;
 
     public UnityEngine.UI.Button MoveButton;
     public UnityEngine.UI.Button SendButton;
@@ -42,12 +45,12 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     }
 
     // declare five controller mapping: four for choosing menu options, one for confirm.
-    private bool controllerMoveMapping;
-    private bool controllerSendMapping;
-    private bool controllerItemMapping;
+    private bool controllerUpMapping;
+    private bool controllerLeftMapping;
+    private bool controllerRightMapping;
     private bool controllerDownMapping;
     private bool controllerClickMapping;
-    private bool controllerCancelMapping;
+    private bool controllerTriggerMapping;
 
     //
 
@@ -70,25 +73,25 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         else
             counterDirection = false;
         // Set Controller Mapping, get situation at current frame.
-        controllerSendMapping = (Input.GetKeyDown(KeyCode.I)
+        controllerLeftMapping = (Input.GetKeyDown(KeyCode.A)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickLeft));
-        controllerMoveMapping = (Input.GetKeyDown(KeyCode.O)
+        controllerUpMapping = (Input.GetKeyDown(KeyCode.W)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp));
-        controllerItemMapping = (Input.GetKeyDown(KeyCode.P)
+        controllerRightMapping = (Input.GetKeyDown(KeyCode.D)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickRight));
-        controllerDownMapping = (Input.GetKeyDown(KeyCode.L)
+        controllerDownMapping = (Input.GetKeyDown(KeyCode.S)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
         controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
-        controllerCancelMapping = (Input.GetKeyDown(KeyCode.Backspace)
+        controllerTriggerMapping = (Input.GetKeyDown(KeyCode.Backspace)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
-        
+
 
         // Open menu with trigger after you chose something in this turn.
         /*
@@ -97,8 +100,8 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
             SetMenuActive(true);
         }
         */
-            //Debug.Log(controlMode);
-            switch (controlMode)
+        //Debug.Log(controlMode);
+        switch (controlMode)
             {
                 // Control Mode: Move
                 // below is all the character movement code.
@@ -110,45 +113,72 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                     rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "";
                 }
 
-                    // Highlighting options
-                    if (controllerMoveMapping) // choose move
+                // Highlighting options
+                if (CurrentHighlightButton == null)
+                {
+                    Debug.Log("Nothing Selected");
+                    MoveButton.Select();
+                    CurrentHighlightButton = MoveButton;
+                }
+
+                else
+                {
+                    Debug.Log(CurrentHighlightButton.name);
+                    // press left and find left
+                    if (controllerLeftMapping)
                     {
-                        currentHighlight = (int)Status.Move;
-                        MoveButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        return;
+                        Selectable newButton = CurrentHighlightButton.FindSelectableOnLeft();
+                        if (newButton != null)
+                        {
+                            newButton.Select();
+                            CurrentHighlightButton = newButton;
+                            AudioCenter.PlaySelectionAlt();
+                        }
+                        else
+                        {
+                            AudioCenter.PlayCantDoThat();
+                        }
 
                     }
 
-                    if (controllerSendMapping) // choose send
+                    if (controllerRightMapping)
                     {
-                        currentHighlight = (int)Status.Send;
-                        SendButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        return;
+                        Selectable newButton = CurrentHighlightButton.FindSelectableOnRight();
+                        if (newButton != null)
+                        {
+                            newButton.Select();
+                            CurrentHighlightButton = newButton;
+                            AudioCenter.PlaySelectionAlt();
+                        }
+                        else
+                        {
+                            AudioCenter.PlayCantDoThat();
+                        }
 
                     }
-
-                    if (controllerItemMapping) // choose item
-                    {
-                        currentHighlight = (int)Status.Item;
-                        ItemButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        return;
-                    }
-
                     if (controllerDownMapping) // choose exit
+                        {
+                            currentHighlight = (int)Status.Exit;
+                            CurrentHighlightButton = SkipButton;
+                            SkipButton.Select();
+                            AudioCenter.PlaySelectionAlt();
+                            
+                        }
+                    if (controllerUpMapping) // choose move
                     {
-                        currentHighlight = (int)Status.Exit;
-                        SkipButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        return;
+                        MoveButton.Select();
+                        CurrentHighlightButton = MoveButton;
+                        AudioCenter.PlaySelectionAlt(); 
 
                     }
 
-                    // After Highlighting -- Make choices
-                    // 1) Set Mode to Move
-                    if (currentHighlight == (int)Status.Move)
+
+                }
+
+
+                // After Highlighting -- Make choices
+                // 1) Set Mode to Move
+                if (CurrentHighlightButton == MoveButton)
                     {
                         if (controllerClickMapping)
                         {
@@ -157,16 +187,17 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                             AudioCenter.PlaySelectionConfirm();
                             rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
 
-                    }
-
-                    if (moveDisabled && controllerClickMapping)
-                    {
+                        if (moveDisabled && controllerClickMapping)
+                        {
                         rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Can't do that now";
                         AudioCenter.PlayCantDoThat();
+                        }
+
                     }
+
                 }
                 // 2) Set Mode to Send
-                if (currentHighlight == (int)Status.Send)
+                if (CurrentHighlightButton == SendButton)
                     {
                         if (sendItemDisabled && controllerClickMapping)
                         {
@@ -185,7 +216,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                     }
                 }
                     // 3) Set Mode to Item
-                    if (currentHighlight == (int)Status.Item)
+                    if (CurrentHighlightButton == ItemButton)
                     {
                         if (controllerClickMapping)
                         {
@@ -194,7 +225,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                         }
                     }
                     // 4) Exit and return to previous mode
-                    if (currentHighlight == (int)Status.Exit)
+                    if (CurrentHighlightButton == SkipButton)
                     {
                         if (controllerClickMapping)
                         {
@@ -286,7 +317,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                     SetMenuActive(false);
                 }
 
-                if (!menuOpen && controllerCancelMapping)
+                if (!menuOpen && controllerTriggerMapping)
                 {
                     controlMode = 0;
                     AudioCenter.PlaySelectionConfirm();
