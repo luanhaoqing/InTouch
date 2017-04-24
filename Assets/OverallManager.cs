@@ -45,6 +45,7 @@ public class OverallManager : MonoBehaviour {
     
     public void afterSplash()
     {
+        SplashScreen.SetActive(false);
         AfterOpeningWrapper.SetActive(true);
         StartCoroutine(StartEverything());
     }
