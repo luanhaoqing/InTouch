@@ -32,6 +32,8 @@ public class EndState : MonoBehaviour {
             {
                 Pass++;
             }
+           if(GameObject.Find("TrunCounter").GetComponent<CurrentPlayer>().RemainActionPoint!=3)
+                GameObject.Find("TrunCounter").GetComponent<CurrentPlayer>().RemainActionPoint = 0;
         }
     }
     private void OnTriggerExit(Collider other)
