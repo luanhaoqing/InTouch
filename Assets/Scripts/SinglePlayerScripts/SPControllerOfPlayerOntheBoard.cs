@@ -180,7 +180,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 // 1) Set Mode to Move
                 if (CurrentHighlightButton == MoveButton)
                     {
-                        if (controllerClickMapping)
+                        if (!moveDisabled && controllerClickMapping)
                         {
                             ChangeControlMode();
                             controlMode = 1;
