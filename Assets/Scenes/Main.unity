@@ -2343,13 +2343,14 @@ GameObject:
   - 65: {fileID: 1065828155}
   - 54: {fileID: 1065828154}
   - 114: {fileID: 1065828153}
+  - 114: {fileID: 1065828156}
   m_Layer: 0
   m_Name: WinDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1065828152
 Transform:
   m_ObjectHideFlags: 0
@@ -2405,6 +2406,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1065828156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065828151}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3ecfdd4cc8a3d4da9276d6888a57d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1104993027
 Prefab:
   m_ObjectHideFlags: 0
@@ -2963,6 +2975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 1346961731}
   count: 0
+  enddetecter: {fileID: 1065828151}
 --- !u!4 &1622358335 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013651221066, guid: cc14f0d4f84b323488182708103d2362,
