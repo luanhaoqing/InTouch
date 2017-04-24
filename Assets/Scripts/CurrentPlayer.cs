@@ -49,7 +49,7 @@ public class CurrentPlayer : NetworkBehaviour {
             if (!reverse)
             {
               //  counter += Time.deltaTime;
-                if ( RemainActionPoint == 0&&CurrentPlayerID==1&& !RoundEnd)
+                if ( RemainActionPoint <= 0&&CurrentPlayerID==1&& !RoundEnd)
                 {
                     CurrentPlayerID = 2;
                     reverse = true;
@@ -67,7 +67,7 @@ public class CurrentPlayer : NetworkBehaviour {
             else
             {
                // counter -= Time.deltaTime;
-                if ( RemainActionPoint == 0 && CurrentPlayerID == 2&& !RoundEnd)
+                if ( RemainActionPoint <= 0 && CurrentPlayerID == 2&& !RoundEnd)
                 {
                     CurrentPlayerID = 1;
                     reverse = false;
