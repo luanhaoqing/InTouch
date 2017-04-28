@@ -313,7 +313,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         {
                             //  Debug.Log("w");
                             BeginMove = true;
-                            target = detectBall.transform.position;
+                            target = raycast_detect.GetComponent<RaserPointer>().tile.transform.position;
                             hideCursor();
                         }
                     }
