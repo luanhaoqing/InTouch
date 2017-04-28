@@ -36,6 +36,7 @@ public class RaserPointer : MonoBehaviour {
                     hasTile = true;
                     hitTile = hit[i];
                     tile = hit[i].transform.gameObject;
+                    tile.GetComponent<TileHealthyManager>().CurrentTarget = true;
                     break;
                 }
             }
@@ -44,6 +45,9 @@ public class RaserPointer : MonoBehaviour {
             else
             {
                 RaserLight.SetPosition(1, ray.GetPoint(5));
+
+                if(tile!=null)
+                    tile.GetComponent<TileHealthyManager>().CurrentTarget = false;
                 tile = null;
             }
             yield return null;

@@ -17,10 +17,12 @@ public class TileHealthyManager : MonoBehaviour {
     public GameObject cursor;
     public GameObject TileManager;
     public bool couldMoveTo=false;
+    public GameObject cursor_arrow;
+    public bool CurrentTarget = false;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;
-
+        cursor_arrow.SetActive(false);
         health = 5;
         _text.SetActive(false);
         clock = GameObject.Find("pf_Clock");
@@ -35,7 +37,12 @@ public class TileHealthyManager : MonoBehaviour {
             // this.gameObject.SetActive(false);
             Invoke("DetectDeath", 1f);         
         }
-	}
+        if (CurrentTarget)
+            cursor_arrow.SetActive(true);
+        else
+            cursor_arrow.SetActive(false);
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("PlayerOnBoard"))
