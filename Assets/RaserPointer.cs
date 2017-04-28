@@ -23,11 +23,22 @@ public class RaserPointer : MonoBehaviour {
         while(Show)
         {
             Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-
+            RaycastHit[] hit;
+            hit = Physics.RaycastAll(ray, 5);
             RaserLight.SetPosition(0, ray.origin);
-            if (Physics.Raycast(ray, out hit, 5)&&hit.transform.CompareTag("Tile"))
-                RaserLight.SetPosition(1, hit.point);
+            bool hasTile = false;
+            RaycastHit hitTile=hit[0];
+            for(int i=0;i<hit.Length;i++)
+            {
+                if(hit[i].transform.CompareTag("Tile"))
+                {
+                    hasTile = true;
+                    hitTile = hit[i];
+                    break;
+                }
+            }
+            if (hasTile)
+                RaserLight.SetPosition(1, hitTile.point);
             else
                 RaserLight.SetPosition(1, ray.GetPoint(5));
 
