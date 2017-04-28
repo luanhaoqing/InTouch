@@ -23,9 +23,13 @@ public class RaserPointer : MonoBehaviour {
         while(Show)
         {
             Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
 
             RaserLight.SetPosition(0, ray.origin);
-            RaserLight.SetPosition(1, ray.GetPoint(10));
+            if (Physics.Raycast(ray, out hit, 10))
+                RaserLight.SetPosition(1, hit.point);
+            else
+                RaserLight.SetPosition(1, ray.GetPoint(10));
 
             yield return null;
         }
