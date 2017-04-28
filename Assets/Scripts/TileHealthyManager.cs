@@ -16,6 +16,7 @@ public class TileHealthyManager : MonoBehaviour {
     public GameObject clock;
     public GameObject cursor;
     public GameObject TileManager;
+    public bool couldMoveTo=false;
     // Use this for initialization
     void Start () {
         this.GetComponent<MeshRenderer>().enabled = false;

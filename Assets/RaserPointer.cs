@@ -4,6 +4,7 @@ using System.Collections;
 public class RaserPointer : MonoBehaviour {
     public LineRenderer RaserLight;
     public bool Show=false;
+    public GameObject tile;
 	// Use this for initialization
 	void Start () {
         RaserLight=this.GetComponent<LineRenderer>();
@@ -34,14 +35,17 @@ public class RaserPointer : MonoBehaviour {
                 {
                     hasTile = true;
                     hitTile = hit[i];
+                    tile = hit[i].transform.gameObject;
                     break;
                 }
             }
             if (hasTile)
                 RaserLight.SetPosition(1, hitTile.point);
             else
+            {
                 RaserLight.SetPosition(1, ray.GetPoint(5));
-
+                tile = null;
+            }
             yield return null;
         }
         RaserLight.enabled = false;

@@ -18,6 +18,7 @@ public class DetectionandHighLight : MonoBehaviour {
     {
         if(other.CompareTag("Tile")) //&& this.transform.position != transform.parent.position) // add this condition to make sure the cursor does not bounce back and forth.
         {
+            other.GetComponent<TileHealthyManager>().couldMoveTo = true;
             cursor.SetActive(true);
             CouldMove = true;
             if(other.gameObject.name != "StartTile"&&!other.GetComponent<TileHealthyManager>().HasExploded)
@@ -29,6 +30,7 @@ public class DetectionandHighLight : MonoBehaviour {
     {
         if (other.CompareTag("Tile") && other.gameObject.name != "StartTile")
         {
+            other.GetComponent<TileHealthyManager>().couldMoveTo = false;
             cursor.SetActive(false); 
             CouldMove = false;
             other.GetComponent<TileHealthyManager>().cursor.SetActive(false);

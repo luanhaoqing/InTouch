@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject PlayerOnBoard;
     public GameObject detectBall;
+    public GameObject raycast_detect;
     public GameObject HealingCursor;
     public GameObject PlayerModel;
     private Vector3 target;
@@ -307,7 +308,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     if (Input.GetKeyDown(KeyCode.G) 
                         || controllerClickMapping)
                     {
-                        if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
+                     //   if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
+                     if(raycast_detect.GetComponent<RaserPointer>().tile!=null&& raycast_detect.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo)
                         {
                             //  Debug.Log("w");
                             BeginMove = true;
