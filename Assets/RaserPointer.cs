@@ -31,9 +31,9 @@ public class RaserPointer : MonoBehaviour {
             RaycastHit hitTile=hit[0];
             for(int i=0;i<hit.Length;i++)
             {
-                if(hit[i].transform.CompareTag("Tile"))
+                if(hit[i].transform.CompareTag("Tile")&& hit[i].transform.gameObject.name!="StartTile")
                 {
-                    if (tile != null&&tile!=hit[i].transform.gameObject)
+                    if (tile != null && tile!=hit[i].transform.gameObject)
                         tile.GetComponent<TileHealthyManager>().CurrentTarget = false;
                     hasTile = true;
                     hitTile = hit[i];
