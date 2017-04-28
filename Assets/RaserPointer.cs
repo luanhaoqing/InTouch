@@ -33,6 +33,8 @@ public class RaserPointer : MonoBehaviour {
             {
                 if(hit[i].transform.CompareTag("Tile"))
                 {
+                    if (tile != null&&tile!=hit[i].transform.gameObject)
+                        tile.GetComponent<TileHealthyManager>().CurrentTarget = false;
                     hasTile = true;
                     hitTile = hit[i];
                     tile = hit[i].transform.gameObject;
