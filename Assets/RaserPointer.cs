@@ -26,10 +26,10 @@ public class RaserPointer : MonoBehaviour {
             RaycastHit hit;
 
             RaserLight.SetPosition(0, ray.origin);
-            if (Physics.Raycast(ray, out hit, 10))
+            if (Physics.Raycast(ray, out hit, 5)&&hit.transform.CompareTag("Tile"))
                 RaserLight.SetPosition(1, hit.point);
             else
-                RaserLight.SetPosition(1, ray.GetPoint(10));
+                RaserLight.SetPosition(1, ray.GetPoint(5));
 
             yield return null;
         }
