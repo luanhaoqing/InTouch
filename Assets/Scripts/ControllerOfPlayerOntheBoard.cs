@@ -7,6 +7,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject PlayerOnBoard;
     public GameObject detectBall;
     public GameObject raycast_detect;
+    public GameObject detectBallgroup;
     public GameObject HealingCursor;
     public GameObject PlayerModel;
     private Vector3 target;
@@ -246,7 +247,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             case 1:
                 if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
                 {
-                        
+
+                    detectBallgroup.transform.position = PlayerOnBoard.transform.position;
                     // Move Up
                     if ((controllerUpMapping)
                         && !counterDirection)
@@ -504,7 +506,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     {
         Vector3 temp = PlayerOnBoard.transform.position;
         temp.y = 10f;
-        detectBall.transform.position = temp;
-        detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
+        detectBallgroup.transform.position = temp;
+     //   detectBall.transform.position = temp;
+     //   detectBall.GetComponent<DetectionandHighLight>().cursor.SetActive(false);
     }
 }
