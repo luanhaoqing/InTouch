@@ -20,6 +20,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject rightHandHoverUI;
     public GameObject TurnCounter;
     public bool counterDirection;
+    public GameObject Turn_board;
+
     UnityEngine.EventSystems.EventSystem myEventSystem;
     //public bool tradeon = false;
 
@@ -97,10 +99,13 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         
         if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
+
             Debug.Log("Menu Open");   
             SetMenuActive(true);
             SetHoverUIActive(true);
             constantText.text = "Your Turn";
+            Turn_board.GetComponent<Animator>().SetBool("YourTurn", true);
+
         }
         else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && !BeginMove)
         {
@@ -108,8 +113,9 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             SetMenuActive(false);
             SetHoverUIActive(false);
             controlMode = -1;
+            Turn_board.GetComponent<Animator>().SetBool("YourTurn", false);
+
         }
-        
 
         // Open menu with trigger after you chose something in this turn.
         switch (controlMode)
