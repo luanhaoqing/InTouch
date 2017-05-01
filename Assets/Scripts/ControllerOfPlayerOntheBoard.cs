@@ -88,8 +88,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
         controllerABMapping = ((Input.GetKeyDown(KeyCode.Space)
-                || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-                || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+                || OVRInput.GetDown(OVRInput.Button.One)
+                || OVRInput.GetDown(OVRInput.Button.Two)));
         controllerTriggerMapping = (Input.GetKeyDown(KeyCode.Backspace)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger));
