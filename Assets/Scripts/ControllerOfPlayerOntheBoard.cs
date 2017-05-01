@@ -40,7 +40,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool controllerLeftMapping;
     private bool controllerRightMapping;
     private bool controllerDownMapping;
-    private bool controllerClickMapping;
+    private bool controllerABMapping;
     private bool controllerTriggerMapping;
 
     
@@ -85,7 +85,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         controllerDownMapping = (Input.GetKeyDown(KeyCode.S)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickDown));
-        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
+        controllerABMapping = ((Input.GetKeyDown(KeyCode.Space)
                 || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
                 || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
         controllerTriggerMapping = (Input.GetKeyDown(KeyCode.Backspace)
@@ -164,39 +164,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
                     }
                 }
-
-
-
-
-                    /*
-                     * Old control code - push and highlight
-                     * 
-                    if (controllerUpMapping) // choose move
-                    {
-                        currentHighlight = (int)Status.Move;
-                        MoveButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        //Debug.Log("Move Button Highlighted");
-                        return;
-                    }
-
-                    if (controllerLeftMapping) // choose send
-                    {
-                        currentHighlight = (int)Status.Send;
-                        SendButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        //Debug.Log("Send Button Highlighted");
-                        return;
-                    }
-
-                    if (controllerRightMapping) // choose item
-                    {
-                        currentHighlight = (int)Status.Item;
-                        ItemButton.Select();
-                        AudioCenter.PlaySelectionAlt();
-                        return;
-                    }
-                    */
+                
 
                     /*************************************
                     // After Highlighting -- Make choices
@@ -204,7 +172,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     // 1) Set Mode to Move
                     if (CurrentHighlightButton == MoveButton)
                 {
-                    if (controllerClickMapping)
+                    if (controllerTriggerMapping)
                     {
                         ChangeControlMode();
                         controlMode = 1;
@@ -215,7 +183,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 // 2) Set Mode to Send
                 if (CurrentHighlightButton == SendButton)
                 {
-                    if (controllerClickMapping)
+                    if (controllerTriggerMapping)
                     {
                         ChangeControlMode();
                         controlMode = 2;
@@ -228,7 +196,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 // 3) Set Mode to Item
                 if (CurrentHighlightButton == ItemButton)
                 {
-                    if (controllerClickMapping)
+                    if (controllerTriggerMapping)
                     {
                         //rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Use Item Not Implemented Yet";
                         //Debug.Log("Use Item Not Implemented Yet");
@@ -308,7 +276,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
 
                     if (Input.GetKeyDown(KeyCode.G) 
-                        || controllerClickMapping)
+                        || controllerTriggerMapping)
                     {
                      //   if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
                      if(raycast_detect.GetComponent<RaserPointer>().tile!=null&& raycast_detect.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo)
@@ -321,7 +289,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                     }
 
                     // Go Back to Menu from move
-                    if (controllerTriggerMapping)
+                    if (controllerABMapping)
                     {
                         SetMenuActive(true);
                         controlMode = 0;
@@ -347,7 +315,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 }
 
                 // Go Back to Menu with trigger from Send
-                if (controllerTriggerMapping)
+                if (controllerABMapping)
                 {
                     SetMenuActive(true);
                     controlMode = 0;
@@ -370,7 +338,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 }
 
                 // Go Back to Menu with trigger
-                if (controllerTriggerMapping)
+                if (controllerABMapping)
                 {
                     SetMenuActive(true);
                     controlMode = 0;
@@ -454,10 +422,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         HealingCursor.transform.position += new Vector3(0, 0, 0.2f);
                     }
                     if (Input.GetKeyDown(KeyCode.G)
-                        || OVRInput.GetDown(OVRInput.Button.One)
-                        || OVRInput.GetDown(OVRInput.Button.Three)
-                        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-                        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick))
+                        || controllerTriggerMapping)
                     {
                         if (HealingCursor.GetComponent<DetectHealing>().couldHeal)
                         {
