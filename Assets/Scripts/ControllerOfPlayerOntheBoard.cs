@@ -183,7 +183,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         ChangeControlMode();
                         controlMode = 1;
                         AudioCenter.PlaySelectionConfirm();
-                        constantText.text = "Move - Pull Trigger to cancel";
+                        constantText.text = "Move - Button to cancel";
                     }
                 }
                 // 2) Set Mode to Send
@@ -194,7 +194,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         ChangeControlMode();
                         controlMode = 2;
                         AudioCenter.PlaySelectionConfirm();
-                        constantText.text = "Move - Pull Trigger to cancel";
+                        constantText.text = "Move - Button to cancel";
 
                     }
                 }
@@ -210,7 +210,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         ChangeControlMode();
                         controlMode = 3;
                         AudioCenter.PlaySelectionConfirm();
-                        constantText.text = "Use - Pull Trigger to cancel";
+                        constantText.text = "Use - Button to cancel";
                     }
                 }
                 break;
