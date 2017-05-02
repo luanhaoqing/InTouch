@@ -123,6 +123,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
        
             // Control Mode: Menu
             case 0:
+                raycast_detect.GetComponent<RaserPointer>().Show = false;
                 hideCursor();
 
 
@@ -221,9 +222,11 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             case 1:
                 if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
                 {
-
+                    raycast_detect.GetComponent<RaserPointer>().Show = true;
                     detectBallgroup.transform.position = PlayerOnBoard.transform.position;
                     // Move Up
+                    /////////////////////
+                    /*
                     if ((controllerUpMapping)
                         && !counterDirection)
                     {
@@ -279,7 +282,8 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f));
                         detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, 0.2f);
                     }
-
+                    */
+                    //////////////////////
 
                     if (Input.GetKeyDown(KeyCode.G) 
                         || controllerTriggerMapping)
@@ -313,6 +317,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             // Control mode: Send
             case 2:
+                raycast_detect.GetComponent<RaserPointer>().Show = false;
                 // enable touch-send control
                 if (!GetComponentInChildren<HandControl>().TradeModeActive)
                 {
@@ -336,6 +341,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
 
             // Control mode: Use Item
             case 3:
+                raycast_detect.GetComponent<RaserPointer>().Show = false;
                 if (!GetComponentInChildren<HandControl>().UseItemActive)
                 {
                     rabbitForItem.transform.position = new Vector3(100, 100, 100);
@@ -360,7 +366,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // choose which tile to use heal
             // Jeremy never touched anything in case 5
             case 5:
-
+                raycast_detect.GetComponent<RaserPointer>().Show = false;
                 //  HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
                 if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
                 {

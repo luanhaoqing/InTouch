@@ -17,6 +17,10 @@ public class RaserPointer : MonoBehaviour {
             StopCoroutine("ShowLaser");
             StartCoroutine("ShowLaser");
         }
+        else
+        {
+            RaserLight.enabled = false;
+        }
 	}
     IEnumerator ShowLaser()
     {

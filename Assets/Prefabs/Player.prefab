@@ -11934,7 +11934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RaserLight: {fileID: 0}
-  Show: 1
+  Show: 0
   tile: {fileID: 0}
 --- !u!114 &114000012037062582
 MonoBehaviour:
