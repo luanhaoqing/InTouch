@@ -49,7 +49,7 @@ public class Task6Manager : MonoBehaviour
         switch (substate)
         {
             case 1:
-                Billboard.HighLight(5);
+                //Billboard.HighLight(5);
                 Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[0]);
                 substate = 2;
                 break;
@@ -114,7 +114,7 @@ public class Task6Manager : MonoBehaviour
                 if (helperAnim.FinishedTalking())
                 {
                     StartCoroutine(FinishTutorial());
-                    Billboard.Check(5);
+                    //Billboard.Check(5);
                     substate = -1;
                 }
                 break;
