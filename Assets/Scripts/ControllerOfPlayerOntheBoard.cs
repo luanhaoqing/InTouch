@@ -293,8 +293,10 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         {
                             //  Debug.Log("w");
                             BeginMove = true;
+                          
                             target = raycast_detect.GetComponent<RaserPointer>().tile.transform.position;
                             target.y = PlayerOnBoard.transform.position.y;
+                            PlayerModel.transform.LookAt(target);
                             hideCursor();
                         }
                     }
