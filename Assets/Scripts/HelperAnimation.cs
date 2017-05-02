@@ -51,11 +51,11 @@ public class HelperAnimation : NetworkBehaviour {
             if (turnCount.GetComponent<TurnCounter>().OwnId == turnCount.GetComponent<CurrentPlayer>().CurrentPlayerID)
             {
                 helper.GetComponent<Animator>().SetBool("fly", true);
-
+                /*
                 if (!prompted)
                 {
                     HelperPrompt();
-                }
+                }*/
             }
             else
             {
