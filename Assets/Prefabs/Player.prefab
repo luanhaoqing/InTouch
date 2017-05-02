@@ -519,7 +519,7 @@ GameObject:
   - 114: {fileID: 114000012545199460}
   - 114: {fileID: 114000010538108200}
   m_Layer: 0
-  m_Name: rabbitForItem
+  m_Name: RabbitForLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,6 +1183,24 @@ GameObject:
   - 4: {fileID: 4000011884917636}
   m_Layer: 0
   m_Name: Inventory 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000010914875746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013941930334}
+  - 114: {fileID: 114000013718794902}
+  - 114: {fileID: 114000012867093712}
+  - 114: {fileID: 114000011107578530}
+  m_Layer: 0
+  m_Name: rabbitForItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2243,10 +2261,9 @@ GameObject:
   - 114: {fileID: 114000011418461502}
   - 114: {fileID: 114000012604458652}
   - 114: {fileID: 114000010770155398}
-  - 114: {fileID: 114000014017999912}
-  - 114: {fileID: 114000012554646344}
   - 114: {fileID: 114000010998377300}
   - 114: {fileID: 114000010044350226}
+  - 114: {fileID: 114000014052311838}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6305,6 +6322,7 @@ Transform:
   - {fileID: 4000010657358380}
   - {fileID: 4000011714496554}
   - {fileID: 4000010040330656}
+  - {fileID: 4000013941930334}
   - {fileID: 4000013666319448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -7819,11 +7837,11 @@ Transform:
   m_GameObject: {fileID: 1000010371842518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011919883412}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!4 &4000013671907692
 Transform:
   m_ObjectHideFlags: 1
@@ -8020,6 +8038,19 @@ Transform:
   - {fileID: 4000014269054224}
   m_Father: {fileID: 4000010395223814}
   m_RootOrder: 1
+--- !u!4 &4000013941930334
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010914875746}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011919883412}
+  m_RootOrder: 6
 --- !u!4 &4000013959273318
 Transform:
   m_ObjectHideFlags: 1
@@ -11143,7 +11174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000013117638474}
-  m_ChildIndex: 9
+  m_ChildIndex: 7
   m_SendInterval: 0.14285715
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -11497,14 +11528,25 @@ MonoBehaviour:
   m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 4000013666319448}
-  m_ChildIndex: 8
+  m_Target: {fileID: 4000013941930334}
+  m_ChildIndex: 6
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &114000011107578530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010914875746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90315fc6d1aab7a479a9fe54e8129627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011121709488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11936,6 +11978,7 @@ MonoBehaviour:
   RaserLight: {fileID: 0}
   Show: 0
   tile: {fileID: 0}
+  rabbitForLaser: {fileID: 1000010371842518}
 --- !u!114 &114000012037062582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12122,25 +12165,6 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114000012554646344
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011950342710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 4000013203440516}
-  m_ChildIndex: 7
-  m_SendInterval: 0.2
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
 --- !u!114 &114000012604458652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12162,6 +12186,26 @@ MonoBehaviour:
   - {fileID: 1000013993215224}
   - {fileID: 1000011914754920}
   - {fileID: 1000012086940406}
+--- !u!114 &114000012867093712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010914875746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.055555556
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114000012908693048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12482,6 +12526,38 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000013718794902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010914875746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 213
+    i1: 174
+    i2: 134
+    i3: 82
+    i4: 121
+    i5: 121
+    i6: 68
+    i7: 4
+    i8: 72
+    i9: 23
+    i10: 238
+    i11: 73
+    i12: 117
+    i13: 49
+    i14: 38
+    i15: 83
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114000013765574224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12520,7 +12596,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013377495034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -12613,25 +12689,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000014017999912
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011950342710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 4000011344144944}
-  m_ChildIndex: 6
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.001
-  m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.5
 --- !u!114 &114000014022459488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12736,6 +12793,25 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114000014052311838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011950342710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4000013666319448}
+  m_ChildIndex: 8
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000014053406170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12769,7 +12845,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012086940406}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -12834,7 +12910,8 @@ MonoBehaviour:
   HealingCursor: {fileID: 1000013332812526}
   PlayerModel: {fileID: 1000013377495034}
   rabbit: {fileID: 1000011322764928}
-  rabbitForItem: {fileID: 1000010371842518}
+  rabbitForItem: {fileID: 1000010914875746}
+  rabbitForLaser: {fileID: 1000010371842518}
   controlMode: -1
   rightHandMenu: {fileID: 1000010710203540}
   rightHandHoverUI: {fileID: 1000012803643664}

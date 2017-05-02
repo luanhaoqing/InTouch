@@ -14,6 +14,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     private bool BeginMove;
     public GameObject rabbit;
     public GameObject rabbitForItem;
+    public GameObject rabbitForLaser;
     public int controlMode = -1; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = null, 5 = ready to heal
     private int previousControlMode = 1;
     public GameObject rightHandMenu;
@@ -21,7 +22,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
     public GameObject TurnCounter;
     public bool counterDirection;
     public GameObject Turn_board;
-
+   
     UnityEngine.EventSystems.EventSystem myEventSystem;
     //public bool tradeon = false;
 
@@ -115,6 +116,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             controlMode = -1;
             Turn_board.GetComponent<Animator>().SetBool("YourTurn", false);
             raycast_detect.GetComponent<RaserPointer>().Show = false;
+            rabbitForLaser.transform.position=new Vector3(0,0,0);
         }
 
         // Open menu with trigger after you chose something in this turn.
@@ -124,6 +126,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Control Mode: Menu
             case 0:
                 raycast_detect.GetComponent<RaserPointer>().Show = false;
+                rabbitForLaser.transform.position = new Vector3(0, 0, 0);
                 hideCursor();
 
 
@@ -223,6 +226,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && !BeginMove)
                 {
                     raycast_detect.GetComponent<RaserPointer>().Show = true;
+                    rabbitForLaser.transform.position = new Vector3(100, 0, 0);
                     detectBallgroup.transform.position = PlayerOnBoard.transform.position;
                     // Move Up
                     /////////////////////
@@ -321,6 +325,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Control mode: Send
             case 2:
                 raycast_detect.GetComponent<RaserPointer>().Show = false;
+                rabbitForLaser.transform.position = new Vector3(0, 0, 0);
                 // enable touch-send control
                 if (!GetComponentInChildren<HandControl>().TradeModeActive)
                 {
@@ -345,6 +350,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Control mode: Use Item
             case 3:
                 raycast_detect.GetComponent<RaserPointer>().Show = false;
+                rabbitForLaser.transform.position = new Vector3(0, 0, 0);
                 if (!GetComponentInChildren<HandControl>().UseItemActive)
                 {
                     rabbitForItem.transform.position = new Vector3(100, 100, 100);
@@ -370,6 +376,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             // Jeremy never touched anything in case 5
             case 5:
                 raycast_detect.GetComponent<RaserPointer>().Show = false;
+                rabbitForLaser.transform.position = new Vector3(0, 0, 0);
                 //  HealingCursor.GetComponent<DetectHealing>().model.SetActive(true);
                 if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn)
                 {
