@@ -100,7 +100,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         if (GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn && (controlMode == -1))
         {
 
-            Debug.Log("Menu Open");   
+         //   Debug.Log("Menu Open");   
             SetMenuActive(true);
             SetHoverUIActive(true);
             constantText.text = "Your Turn";
@@ -109,7 +109,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
         }
         else if ((!GameObject.FindGameObjectWithTag("Turn").GetComponent<CurrentPlayer>().MyTurn) && !BeginMove)
         {
-            Debug.Log("Menu Close");
+          //  Debug.Log("Menu Close");
             SetMenuActive(false);
             SetHoverUIActive(false);
             controlMode = -1;
@@ -130,14 +130,14 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 // Highlighting options
                 if (CurrentHighlightButton == null)
                 {
-                    Debug.Log("Nothing Selected");
+                //    Debug.Log("Nothing Selected");
                     MoveButton.Select();
                     CurrentHighlightButton = MoveButton;
                 }
 
                 else
                 {
-                    Debug.Log(CurrentHighlightButton.name);
+              //      Debug.Log(CurrentHighlightButton.name);
                     // press left and find left
                     if (controllerLeftMapping)
                     {
@@ -325,7 +325,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 if (!GetComponentInChildren<HandControl>().TradeModeActive)
                 {
                     rabbit.transform.position = new Vector3(100, 100, 100);
-                    Debug.Log("Trade Mode ON");
+                 //   Debug.Log("Trade Mode ON");
                 }
 
                 // Go Back to Menu with trigger from Send
@@ -349,7 +349,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                 {
                     rabbitForItem.transform.position = new Vector3(100, 100, 100);
                     GetComponentInChildren<Inventory>().ActiveUseItem();
-                    Debug.Log("Use Item Mode On");
+                 //   Debug.Log("Use Item Mode On");
                 }
 
                 // Go Back to Menu with trigger
