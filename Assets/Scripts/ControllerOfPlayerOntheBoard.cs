@@ -114,7 +114,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
             SetHoverUIActive(false);
             controlMode = -1;
             Turn_board.GetComponent<Animator>().SetBool("YourTurn", false);
-
+            raycast_detect.GetComponent<RaserPointer>().Show = false;
         }
 
         // Open menu with trigger after you chose something in this turn.
