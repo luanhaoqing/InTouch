@@ -23,12 +23,14 @@ public class RaserPointer : MonoBehaviour {
         }
 	    if(Show)
         {
-           
             StopCoroutine("ShowLaser");
             StartCoroutine("ShowLaser");
         }
         else
         {
+            if (tile != null)
+                tile.GetComponent<TileHealthyManager>().CurrentTarget = false;
+            tile = null;
             RaserLight.enabled = false;
         }
 	}
@@ -68,6 +70,7 @@ public class RaserPointer : MonoBehaviour {
             }
             yield return null;
         }
+
         RaserLight.enabled = false;
     }
 }

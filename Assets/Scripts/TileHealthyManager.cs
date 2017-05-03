@@ -24,7 +24,7 @@ public class TileHealthyManager : MonoBehaviour {
         this.GetComponent<MeshRenderer>().enabled = false;
         cursor_arrow.SetActive(false);
         health = 5;
-        _text.SetActive(false);
+      //  _text.SetActive(false);
         clock = GameObject.Find("pf_Clock");
         End = GameObject.Find("you_lose");
         TileManager = GameObject.Find("TileManager");

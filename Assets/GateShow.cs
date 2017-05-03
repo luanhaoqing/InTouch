@@ -5,6 +5,7 @@ public class GateShow : MonoBehaviour {
     public GameObject door;
     public int count=0;
     public GameObject enddetecter;
+    public GameObject cursor;
 	// Use this for initialization
 	void Start () {
         door.SetActive(false);
