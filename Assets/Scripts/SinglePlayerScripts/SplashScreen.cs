@@ -24,9 +24,9 @@ public class SplashScreen : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Space)
-        || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick)
-        || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstick)));
+        controllerClickMapping = ((Input.GetKeyDown(KeyCode.Backspace)
+        || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
+        || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)));
         if (BlinkingStart) { 
             counter += Time.deltaTime;
             if ( counter> speed)
