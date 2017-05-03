@@ -51,7 +51,6 @@ public class Task2Manager : MonoBehaviour
             case 2:
                 if (helperAnim.FinishedTalking())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
                     Controller.canControl = true;
                     Controller.moveDisabled = true;
                     substate = 3;
@@ -61,7 +60,7 @@ public class Task2Manager : MonoBehaviour
             case 3:
                 if (Controller.controlMode == 0)
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[2]); 
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
 
                     //disable move here, in case the player choose move again.
                     Controller.sendItemDisabled = false;
@@ -72,16 +71,16 @@ public class Task2Manager : MonoBehaviour
             case 4:
                 if (Controller.controlMode == 2)
                 {
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[2]);
                     Controller.moveDisabled = false;
                     Controller.sendItemDisabled = true;
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[3]);
                     substate = 5;
                 }
                 break;
             case 5:
                 if (ItemOnInventory.GetComponent<touchDetector>().IfTouched())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[4]);
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[3]);
                     ItemOnInventory.SetActive(false);
                     ItemOnOtherInventory.SetActive(true);
                     StartCoroutine(ActionPointsAnim());

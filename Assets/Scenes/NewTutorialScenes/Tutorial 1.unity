@@ -13111,7 +13111,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1249515458}
   - 82: {fileID: 1249515457}
-  - 114: {fileID: 1249515456}
   - 114: {fileID: 1249515459}
   m_Layer: 0
   m_Name: SoundManager
@@ -13120,43 +13119,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1249515456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1249515455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3c0c1e703d8ea49b0dcbc5c024c27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hello: {fileID: 8300000, guid: 04eb60c4c85434e46a4b486d39d82ba8, type: 3}
-  skipThisPart: {fileID: 8300000, guid: 4f9a07da5e533d345a4eca2e315321be, type: 3}
-  moveToIsland: {fileID: 8300000, guid: c06cc0810b530df4b96bb32d186ca505, type: 3}
-  moveToIslandReminder: {fileID: 8300000, guid: 92902d49a5a0c7b4bbde86364ea8af04,
-    type: 3}
-  lookAtItems: {fileID: 8300000, guid: 88a22a472992ea04f9f4f52bc9507cd5, type: 3}
-  getItemsReminder: {fileID: 8300000, guid: 6bde63532d30f404186a7fb59cd46ed4, type: 3}
-  reviveItem: {fileID: 8300000, guid: c6dcf432a22d5c344b77c96d8ec12bc5, type: 3}
-  sendItemFriend: {fileID: 8300000, guid: 9177d39f545f5514693b8873bcabf347, type: 3}
-  sendItemReminder: {fileID: 8300000, guid: e89a91e9692e3f7409f394dfb8924a44, type: 3}
-  goodJobToSend: {fileID: 8300000, guid: 068086bd5ae0f0a4cab8d03b17b4af4f, type: 3}
-  handMenu: {fileID: 8300000, guid: e00c037825ba0e543952ff6cec5df859, type: 3}
-  learnTileHealth: {fileID: 8300000, guid: 7797eb6410de8d145b935d9545a52ff4, type: 3}
-  goodJobMovingToSafeTile: {fileID: 8300000, guid: 610d28a3c2cf1eb4484b1dd65fb33a7f,
-    type: 3}
-  allTilesLostHealth: {fileID: 8300000, guid: 3aadff9a83d776845adee16f98b3efc2, type: 3}
-  clockInstruction: {fileID: 8300000, guid: 7b33e7f92063dae488447e6d18c766cc, type: 3}
-  gameGoal: {fileID: 8300000, guid: 68059ff4adf338547835bf349c73b00f, type: 3}
-  getKey: {fileID: 8300000, guid: 741b1609e75c7c74f9141540d6375c92, type: 3}
-  goToDoor: {fileID: 8300000, guid: 2eeecdb962e1575469213de4149c3c51, type: 3}
-  enterGame: {fileID: 8300000, guid: 72de38d2fbbd80c4f9d966ccf58e307a, type: 3}
-  positiveFeedback1: {fileID: 8300000, guid: 4831390308516e14d9dc9f2a01c87487, type: 3}
-  positiveFeedback2: {fileID: 8300000, guid: 09ff71bd8f4781348949e93f7cb4c8da, type: 3}
-  moveMe: {fileID: 0}
-  moveButton: {fileID: 0}
-  youAreNatural: {fileID: 0}
 --- !u!82 &1249515457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13264,12 +13226,12 @@ MonoBehaviour:
   helperPromptList: []
   helperPoke: {fileID: 8300000, guid: 595973ae9eb6a3e4c9e09b2e3e085c0d, type: 3}
   crystalBreak: {fileID: 0}
-  getItem: {fileID: 8300000, guid: b5841edb532256448a210a8ea50ec45d, type: 3}
+  getItem: {fileID: 8300000, guid: 96f54f408f19a1c45b2c2fc142aecd7e, type: 3}
   islandDeath: {fileID: 0}
   islandLowHealth: {fileID: 0}
   footstep: {fileID: 0}
-  roundOver: {fileID: 8300000, guid: c5162375ad878a64aae7a5988a12d655, type: 3}
-  selectionAlt: {fileID: 8300000, guid: 86aba52ed9c479a44b120232141b4be1, type: 3}
+  roundOver: {fileID: 8300000, guid: 813f39b471e165d42bb3d4a0e95635a1, type: 3}
+  selectionAlt: {fileID: 8300000, guid: fa04e24bb1b49c647b0919b2a8eda7cd, type: 3}
   useAP: {fileID: 0}
 --- !u!1 &1250483143
 GameObject:
@@ -13637,7 +13599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: fa96fae6569c47942a0d1464598ed652, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: fa96fae6569c47942a0d1464598ed652, type: 3}
       propertyPath: m_LocalScale.x

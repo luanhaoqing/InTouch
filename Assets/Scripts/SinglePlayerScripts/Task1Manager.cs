@@ -110,6 +110,7 @@ public class Task1Manager : MonoBehaviour
 
                     // VO got item, helper fly
                     Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[5]);
+                    AudioCenter.PlayGetItem();
                     StartCoroutine(HelperFlyToInventory());
 
                     // turn off moving
