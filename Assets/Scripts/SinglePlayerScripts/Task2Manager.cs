@@ -106,7 +106,7 @@ public class Task2Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
         iTween.MoveTo(Helper, iTween.Hash("position", islandPosition, "easetype", iTween.EaseType.easeInOutSine));
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
 
         // start next here
         overallManager.startTask3();
@@ -117,10 +117,15 @@ public class Task2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         ActionPoints.transform.GetChild(0).gameObject.SetActive(false);
+        AudioCenter.PlayUseAp();
         yield return new WaitForSeconds(2f);
         ActionPoints.transform.GetChild(1).gameObject.SetActive(false);
+        AudioCenter.PlayUseAp();
+
         yield return new WaitForSeconds(2f);
         ActionPoints.transform.GetChild(2).gameObject.SetActive(false);
+        AudioCenter.PlayUseAp();
+
         yield return new WaitForSeconds(2f);
         ActionPoints.transform.GetChild(0).gameObject.SetActive(true);
         ActionPoints.transform.GetChild(1).gameObject.SetActive(true);
