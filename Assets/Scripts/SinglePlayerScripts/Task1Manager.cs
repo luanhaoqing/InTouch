@@ -114,7 +114,6 @@ public class Task1Manager : MonoBehaviour
                     StartCoroutine(HelperFlyToInventory());
 
                     // turn off moving
-                    Controller.canControl = false;
                     Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Hold on...";
 
 
@@ -195,9 +194,11 @@ public class Task1Manager : MonoBehaviour
 
     IEnumerator HelperFlyToInventory()
     {
-        yield return new WaitForSeconds(1f);
         Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
+        yield return new WaitForSeconds(2f);
+        Controller.canControl = false;
         iTween.MoveTo(Helper, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
+
     }
 
 }
