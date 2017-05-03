@@ -24,6 +24,8 @@ public class TileHealthyManager : MonoBehaviour {
         this.GetComponent<MeshRenderer>().enabled = false;
         cursor_arrow.SetActive(false);
         health = 5;
+        if (this.gameObject.name == "StartTile")
+            health = 999;
       //  _text.SetActive(false);
         clock = GameObject.Find("pf_Clock");
         End = GameObject.Find("you_lose");
@@ -45,6 +47,7 @@ public class TileHealthyManager : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if(other.CompareTag("PlayerOnBoard"))
         {
             HasPlayer = true;

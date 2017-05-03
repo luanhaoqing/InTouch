@@ -2704,7 +2704,6 @@ GameObject:
   - 54: {fileID: 1620490152}
   - 65: {fileID: 1620490149}
   - 114: {fileID: 1620490153}
-  - 114: {fileID: 1620490154}
   m_Layer: 0
   m_Name: StartTile
   m_TagString: Tile
@@ -2810,30 +2809,6 @@ MonoBehaviour:
   count: 0
   enddetecter: {fileID: 1065828151}
   cursor: {fileID: 956265064}
---- !u!114 &1620490154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1620490147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3821b8ba5b8454b4fbe48042ffbf2dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Iden: 
-  health: 999
-  _text: {fileID: 0}
-  tiles: []
-  HasExploded: 1
-  tmp: {fileID: 0}
-  End: {fileID: 0}
-  clock: {fileID: 0}
-  cursor: {fileID: 0}
-  TileManager: {fileID: 0}
-  couldMoveTo: 0
-  cursor_arrow: {fileID: 956265064}
-  CurrentTarget: 0
 --- !u!4 &1622358335 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013651221066, guid: cc14f0d4f84b323488182708103d2362,

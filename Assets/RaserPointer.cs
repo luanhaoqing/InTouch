@@ -49,14 +49,16 @@ public class RaserPointer : MonoBehaviour {
             {
                 if(hit[i].transform.CompareTag("Tile"))
                 {
-                    if (tile != null && tile!=hit[i].transform.gameObject)
+                    if (tile != null && tile!=hit[i].transform.gameObject&& hit[i].transform.gameObject.name != "StartTile")
                         tile.GetComponent<TileHealthyManager>().CurrentTarget = false;
                     hasTile = true;
                     hitTile = hit[i];
                     tile = hit[i].transform.gameObject;
-                    tile.GetComponent<TileHealthyManager>().CurrentTarget = true;
+                    if (hit[i].transform.gameObject.name != "StartTile")
+                        tile.GetComponent<TileHealthyManager>().CurrentTarget = true;
                     break;
                 }
+               
             }
             if (hasTile)
                 RaserLight.SetPosition(1, hitTile.point);

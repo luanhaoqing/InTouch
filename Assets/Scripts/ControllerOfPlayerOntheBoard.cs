@@ -293,7 +293,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         || controllerTriggerMapping)
                     {
                      //   if (detectBall.GetComponent<DetectionandHighLight>().IfCouldMove())
-                     if(raycast_detect.GetComponent<RaserPointer>().tile!=null&& raycast_detect.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo)
+                     if(raycast_detect.GetComponent<RaserPointer>().tile!=null&& (raycast_detect.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo|| raycast_detect.GetComponent<RaserPointer>().tile.name=="StartTile"))
                         {
                             //  Debug.Log("w");
                             BeginMove = true;
