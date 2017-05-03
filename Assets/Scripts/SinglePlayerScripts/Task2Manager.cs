@@ -12,17 +12,14 @@ public class Task2Manager : MonoBehaviour
     public Transform helperInitialPosition;
     private int substate = 1;
 
-    public AudioClip[] Task2VOs;
+    public AudioClip[] Task3VOs;
 
-    public GameObject Tiles;
-    public moveDetector ItemMoveDetector;
-    public GameObject ItemOnBoard;
-    public GameObject Inventory;
     public GameObject ItemOnInventory;
-    public Transform InventorySidePlace;
-    public moveDetector AtInventoryMoveDetector;
-
-
+    public GameObject OtherInventory;
+    public GameObject ItemOnOtherInventory;
+    public GameObject ActionPoints;
+    public Transform islandPosition;
+    
 
     // Use this for initialization
     void Start()
@@ -33,6 +30,7 @@ public class Task2Manager : MonoBehaviour
         helperAnim = Helper.GetComponent<SPHelperAnimation>();
 
         Controller.canControl = false;
+        Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
         Controller.controlMode = 4;
 
     }
@@ -42,56 +40,92 @@ public class Task2Manager : MonoBehaviour
     {
         Billboard.GetComponent<BillboardManager>().SetDebugInfo("Task 2 - State: " + substate);
 
-        switch (substate) { 
+        switch (substate)
+        {
             case 1:
-                Helper.GetComponent<SPHelperTalk>().Speak(Task2VOs[0]);
-                Tiles.SetActive(true);
-                ItemOnBoard.SetActive(true);
+                Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[0]);
+                OtherInventory.SetActive(true);
                 Billboard.HighLight(1);
                 substate = 2;
                 break;
             case 2:
-                Controller.canControl = true;
-                Controller.controlMode = 1; // can move
-                substate = 3;
+                if (helperAnim.FinishedTalking())
+                {
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
+                    Controller.canControl = true;
+                    Controller.moveDisabled = true;
+                    substate = 3;
+                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move - Press Trigger to cancel";
+                }
                 break;
             case 3:
-                if (ItemMoveDetector.IfTouched())
+                if (Controller.controlMode == 0)
                 {
-                    ItemOnBoard.SetActive(false);
-                    Inventory.SetActive(true);
-                    ItemOnInventory.SetActive(true);
-                    StartCoroutine(HelperFlyToInventory());
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[2]); 
 
-                    helperAnim.Success();
-                    Helper.GetComponent<SPHelperTalk>().SaySuccess();
-
+                    //disable move here, in case the player choose move again.
+                    Controller.sendItemDisabled = false;
+                    Controller.SendButtonFlash();
                     substate = 4;
                 }
                 break;
             case 4:
-                if (AtInventoryMoveDetector.IfTouched())
+                if (Controller.controlMode == 2)
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task2VOs[1]);
+                    Controller.moveDisabled = false;
+                    Controller.sendItemDisabled = true;
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[3]);
                     substate = 5;
                 }
                 break;
             case 5:
+                if (ItemOnInventory.GetComponent<touchDetector>().IfTouched())
+                {
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[4]);
+                    ItemOnInventory.SetActive(false);
+                    ItemOnOtherInventory.SetActive(true);
+                    StartCoroutine(ActionPointsAnim());
+                    substate = 7;
+                }
+                break;
+            case 7:
+                break;
+
+            case 8:
                 if (helperAnim.FinishedTalking())
                 {
                     Billboard.Check(1);
-                    overallManager.startTask3();
-                    overallManager.destroyStuff(this.gameObject);
+                    StartCoroutine(HelperFlyToIsland());
                 }
                 break;
         }
     }
 
-    IEnumerator HelperFlyToInventory()
+    IEnumerator HelperFlyToIsland()
     {
         yield return new WaitForSeconds(1f);
         Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
-        iTween.MoveTo(Helper, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.MoveTo(Helper, iTween.Hash("position", islandPosition, "easetype", iTween.EaseType.easeInOutSine));
+        yield return new WaitForSeconds(0.5f);
+        overallManager.startTask4();
+        overallManager.destroyStuff(this.gameObject);
+    }
+
+    IEnumerator ActionPointsAnim()
+    {
+        yield return new WaitForSeconds(2f);
+        ActionPoints.transform.GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        ActionPoints.transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        ActionPoints.transform.GetChild(2).gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        ActionPoints.transform.GetChild(0).gameObject.SetActive(true);
+        ActionPoints.transform.GetChild(1).gameObject.SetActive(true);
+        ActionPoints.transform.GetChild(2).gameObject.SetActive(true);
+
+        substate = 8;
+
     }
 }
 

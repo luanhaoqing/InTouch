@@ -41,11 +41,14 @@ public class Task1Manager : MonoBehaviour
 
         Controller.canControl = true;
         Controller.controlMode = 0;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Billboard.GetComponent<BillboardManager>().SetDebugInfo("Task 1 - State: " + substate);
 
         switch (substate)
@@ -53,8 +56,11 @@ public class Task1Manager : MonoBehaviour
             case 1:
                 Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[0]);
                 Billboard.HighLight(0);
+
                 Controller.ChangeControlMode();
                 Controller.controlMode = 1;
+                Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
+
                 substate = 2;
                 break;
             case 2:
@@ -108,6 +114,8 @@ public class Task1Manager : MonoBehaviour
 
                     // turn off moving
                     Controller.canControl = false;
+                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Hold on...";
+
 
                     // item appear on inv
                     HealItemOnBoard.SetActive(false);
