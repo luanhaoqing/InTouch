@@ -6,6 +6,7 @@ public class RaserPointer : MonoBehaviour {
     public bool Show=false;
     public GameObject tile;
     public GameObject rabbitForLaser;
+    public bool TutMode;
 	// Use this for initialization
 	void Start () {
         RaserLight=this.GetComponent<LineRenderer>();
@@ -13,12 +14,16 @@ public class RaserPointer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (rabbitForLaser.transform.position.x > 50)
-            Show = true;
-        else
-            Show = false;
+        if (!TutMode)
+        {
+            if (rabbitForLaser.transform.position.x > 50)
+                Show = true;
+            else
+                Show = false;
+        }
 	    if(Show)
         {
+           
             StopCoroutine("ShowLaser");
             StartCoroutine("ShowLaser");
         }

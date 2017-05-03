@@ -17,6 +17,8 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     public GameObject TurnCounter;
     public bool counterDirection;
     public bool tradeon = false;
+    public GameObject LaserPointer;
+
     private Selectable CurrentHighlightButton;
 
     public UnityEngine.UI.Button MoveButton;
@@ -238,6 +240,8 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
                     if (!BeginMove)
                     {
+                    LaserPointer.GetComponent<RaserPointer>().Show = true;
+
 
                         if ((Input.GetKeyDown(KeyCode.W)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
@@ -314,11 +318,13 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 case 4:
                 if (menuOpen)
                 {
+                    LaserPointer.GetComponent<RaserPointer>().Show = false;
                     SetMenuActive(false);
                 }
 
                 if (!menuOpen && controllerABMapping)
                 {
+                    LaserPointer.GetComponent<RaserPointer>().Show = false;
                     controlMode = 0;
                     AudioCenter.PlaySelectionConfirm();
                 }
