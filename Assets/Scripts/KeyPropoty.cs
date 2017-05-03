@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class KeyPropoty : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public GameObject box;
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -19,6 +19,7 @@ public class KeyPropoty : MonoBehaviour {
             //   Player_ID = other.GetComponentInParent<PlayerIDOnBoard>().PlayerIDOB;
             if (other.GetComponentInParent<Inventory>().GemNumber >= 3)
             {
+                box.SetActive(true);
                 other.GetComponentInParent<Inventory>().delete3Gem();
                 other.GetComponentInParent<Inventory>().Setpositon(this.gameObject);
                 other.GetComponentInParent<Inventory>().HasKey = true;
