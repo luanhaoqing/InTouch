@@ -18,6 +18,7 @@ public class AudioContainer : MonoBehaviour {
     public AudioClip roundOver;
     public AudioClip selectionAlt;
     public AudioClip useAP;
+    public AudioClip roundOverExplanation;
 
 
     // Use this for initialization
@@ -39,6 +40,8 @@ public class AudioContainer : MonoBehaviour {
         AudioCenter.roundOver = roundOver;
         AudioCenter.selectionAlt = selectionAlt;
         AudioCenter.useAP = useAP;
+
+        AudioCenter.roundOverExplanation = roundOverExplanation;
 
 
     }

@@ -44,6 +44,7 @@ public class Clock : MonoBehaviour {
             _patternIndex = ++_patternIndex % _pattern.GetLength(0);
             StartCoroutine(ChangeCore(0.2f, true, rotationTime));
             AudioCenter.PlayRoundOver();
+            AudioCenter.PlayROExplaination();
         }
     }
 

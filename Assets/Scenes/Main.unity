@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cantDoThat: {fileID: 8300000, guid: e6191e009b451d2469e8a7bb10aa2ce1, type: 3}
-  eventTrigger: {fileID: 8300000, guid: 80125658449d63d49aaf48dc8dc8328d, type: 3}
+  eventTrigger: {fileID: 8300000, guid: 9e55f7ddd1ff0bf478f79125e7ba1ae0, type: 3}
   loseItem: {fileID: 8300000, guid: 1fa398e8e7c6ced4099be05468acac34, type: 3}
   turnOver: {fileID: 8300000, guid: 11166cf063b9c1c489fe29770be5853c, type: 3}
   selectionConfirm: {fileID: 8300000, guid: f7dd238b89602224c92c42df414439ce, type: 3}
@@ -1994,14 +1994,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 605950b7203f736498896d56de35acee, type: 3}
   - {fileID: 8300000, guid: 128dba48f1013d744bddd7efb8fbd4e1, type: 3}
   helperPoke: {fileID: 8300000, guid: 595973ae9eb6a3e4c9e09b2e3e085c0d, type: 3}
-  crystalBreak: {fileID: 0}
-  getItem: {fileID: 8300000, guid: b5841edb532256448a210a8ea50ec45d, type: 3}
-  islandDeath: {fileID: 0}
-  islandLowHealth: {fileID: 0}
-  footstep: {fileID: 0}
-  roundOver: {fileID: 8300000, guid: c5162375ad878a64aae7a5988a12d655, type: 3}
-  selectionAlt: {fileID: 8300000, guid: 86aba52ed9c479a44b120232141b4be1, type: 3}
-  useAP: {fileID: 0}
+  crystalBreak: {fileID: 8300000, guid: caee1853839e7764696cd01e03cc577a, type: 3}
+  getItem: {fileID: 8300000, guid: 96f54f408f19a1c45b2c2fc142aecd7e, type: 3}
+  islandDeath: {fileID: 8300000, guid: cb6df7b7a5f9bb041b06713dfcc36083, type: 3}
+  islandLowHealth: {fileID: 8300000, guid: 462d9dd837d46194086b34ae0cb9bf82, type: 3}
+  footstep: {fileID: 8300000, guid: 8cebbd47d2d557f4e9664a9f411d3ab2, type: 3}
+  roundOver: {fileID: 8300000, guid: 813f39b471e165d42bb3d4a0e95635a1, type: 3}
+  selectionAlt: {fileID: 8300000, guid: fa04e24bb1b49c647b0919b2a8eda7cd, type: 3}
+  useAP: {fileID: 8300000, guid: 978405390e040b04688a18ecd9a87b62, type: 3}
+  roundOverExplanation: {fileID: 8300000, guid: fd2f2ee1d10e18947828427e4d034563,
+    type: 3}
 --- !u!82 &1249515457
 AudioSource:
   m_ObjectHideFlags: 0

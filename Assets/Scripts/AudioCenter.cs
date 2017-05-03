@@ -18,6 +18,7 @@ public class AudioCenter {
     public static AudioClip islandLowHealth;
     public static AudioClip footstep;
     public static AudioClip useAP;
+    public static AudioClip roundOverExplanation;
 
     public static AudioSource audioCenter;
 
@@ -102,5 +103,8 @@ public class AudioCenter {
         audioCenter.PlayOneShot(useAP, 0.5f);
     }
 
-
+    public static void PlayROExplaination()
+    {
+        audioCenter.PlayOneShot(roundOverExplanation, 0.5f);
+    }
 }
