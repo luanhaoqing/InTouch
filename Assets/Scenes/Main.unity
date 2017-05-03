@@ -160,10 +160,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 82257604}
-  m_LocalRotation: {x: -0.62266856, y: -0.19786489, z: -0.16684352, w: 0.73844206}
+  m_LocalRotation: {x: -0.56973964, y: -0.028100632, z: -0.30157867, w: 0.7639748}
   m_LocalPosition: {x: -24, y: 278, z: 41}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -80.253006, y: -30.016, z: 0}
+  m_LocalEulerAnglesHint: {x: -62.541004, y: 40.952003, z: -68.759}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -6407,6 +6407,30 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.49999988
       objectReference: {fileID: 0}
+    - target: {fileID: 4000014255181254, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014255181254, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000014255181254, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013554264624, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013554264624, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013554264624, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a28689e52e249946815b49b9e96a88e, type: 2}
   m_IsPrefabParent: 0
@@ -6484,7 +6508,7 @@ Prefab:
       objectReference: {fileID: 4300000, guid: d3aa085728da880499a2c2b3e5723024, type: 3}
     - target: {fileID: 1000013481366904, guid: 74f9c333b251b2b4caef8c5c39bf1333, type: 2}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000011501129708, guid: 74f9c333b251b2b4caef8c5c39bf1333, type: 2}
       propertyPath: m_StaticEditorFlags
