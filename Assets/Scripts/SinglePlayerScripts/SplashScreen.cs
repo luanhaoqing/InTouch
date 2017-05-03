@@ -12,7 +12,7 @@ public class SplashScreen : MonoBehaviour {
     private bool controllerClickMapping;
 
     bool BlinkingStart = true;
-    public bool ThumbClicked = false;
+    public bool triggerPressed = false;
 
     // Use this for initialization
     void Start () {
@@ -42,18 +42,18 @@ public class SplashScreen : MonoBehaviour {
 
       
 
-        if (!ThumbClicked)
+        if (!triggerPressed)
         {
             if (controllerClickMapping)
             {
-                ThumbClicked = true;
+                triggerPressed = true;
                 BlinkingStart = false;
             }
         }
 
-        if (ThumbClicked)
+        if (triggerPressed)
         {
-            ThumbClicked = false;
+            triggerPressed = false;
             Debug.Log("Clicked");
             StartCoroutine(AfterClickAnim());
         }
