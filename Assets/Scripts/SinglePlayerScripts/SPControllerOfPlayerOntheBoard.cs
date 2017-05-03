@@ -338,7 +338,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
 
     }
     // To turn off anything that needs to be turned off whenever enters menu.
-    void ChangeControlMode()
+    public void ChangeControlMode()
     {
         SetMenuActive(false);
         menuOpen = false;
