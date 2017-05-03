@@ -55,7 +55,7 @@ public class Task2Manager : MonoBehaviour
                     Controller.canControl = true;
                     Controller.moveDisabled = true;
                     substate = 3;
-                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move - Press Trigger to cancel";
+                    Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move - Button to cancel";
                 }
                 break;
             case 3:
