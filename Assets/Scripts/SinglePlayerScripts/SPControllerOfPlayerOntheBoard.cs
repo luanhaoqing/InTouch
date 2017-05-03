@@ -118,14 +118,12 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                 // Highlighting options
                 if (CurrentHighlightButton == null)
                 {
-                    Debug.Log("Nothing Selected");
                     MoveButton.Select();
                     CurrentHighlightButton = MoveButton;
                 }
 
                 else
                 {
-                    Debug.Log(CurrentHighlightButton.name);
                     // press left and find left
                     if (controllerLeftMapping)
                     {
@@ -290,7 +288,6 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                         {
                             if (LaserPointer.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo)
                             {
-                                 Debug.Log("Move!!!!!!!!!!!!!!!!!!");
                                 BeginMove = true;
                                 target = LaserPointer.GetComponent<RaserPointer>().tile.transform.position;
                                 target.y = PlayerOnBoard.transform.position.y;
