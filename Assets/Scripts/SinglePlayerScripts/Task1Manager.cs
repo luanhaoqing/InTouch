@@ -15,11 +15,21 @@ public class Task1Manager : MonoBehaviour
 
     public AudioClip[] Task1VOs;
 
-    public GameObject TwoMoreIslands;
+    public GameObject ThreeMoreIslands;
     public moveDetector FirstMoveDetector;
-    public GameObject EventScrollOnBoard;
-    public moveDetector EventMoveDetector;
-    public EventSheetMovement EventAnim;
+    public GameObject firstCrystal;
+    public moveDetector SecondMoveDetector;
+    public GameObject secondCrystal;
+    public GameObject islandToFall;
+    private Transform islandPosBeforeFall;
+    public GameObject islandToReturn;
+    public moveDetector ThirdMoveDetector;
+    public GameObject thirdCrystal;
+    public GameObject HealItemOnBoard;
+    public GameObject Inventory;
+    public Transform InventorySidePlace;
+    public GameObject HealItemOnInv;
+
 
     // Use this for initialization
     void Start()
@@ -31,7 +41,6 @@ public class Task1Manager : MonoBehaviour
 
         Controller.canControl = true;
         Controller.controlMode = 0;
-
     }
 
     // Update is called once per frame
@@ -47,65 +56,125 @@ public class Task1Manager : MonoBehaviour
                 substate = 2;
                 break;
             case 2:
-                if (helperAnim.FinishedTalking())
+                if (FirstMoveDetector.IfTouched())
                 {
-                    Controller.MoveButtonFlash();
+                    // 1st island lose 1 health.
+                    StartCoroutine(BreakCrystal(firstCrystal));
+                    // play VO Go get item
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[1]);
+
                     substate = 3;
                 }
                 break;
             case 3:
-                if (Controller.controlMode == 1)
+                if (SecondMoveDetector.IfTouched())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[1]);
+                    // crystal break and island fall
+                    islandPosBeforeFall = islandToFall.transform;
+                    StartCoroutine(BreakCrystal(secondCrystal));
+                    StartCoroutine(IslandFall());
+
+                    // VO island HP
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[2]);
                     substate = 4;
+
                 }
                 break;
             case 4:
-                if (FirstMoveDetector.IfTouched())
+                if (helperAnim.FinishedTalking())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[2]);
-                    helperAnim.Success();
+                    // VO move again
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[3]);
+
+                    // island with full health return
+                    islandToReturn.SetActive(true);
+                    iTween.MoveTo(islandToReturn, iTween.Hash("position", islandPosBeforeFall, "easetype", iTween.EaseType.easeInOutSine));
+
                     substate = 5;
                 }
                 break;
             case 5:
-                if (helperAnim.FinishedTalking())
+                if (ThirdMoveDetector.IfTouched())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[3]);
-                    EventScrollOnBoard.SetActive(true);
+                    // 3st island lose 1 health.
+                    StartCoroutine(BreakCrystal(thirdCrystal));
+
+                    // VO got item, helper fly
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[4]);
+                    StartCoroutine(HelperFlyToInventory());
+
+                    // item appear on inv
+                    HealItemOnBoard.SetActive(false);
+                    Inventory.SetActive(true);
+                    HealItemOnInv.SetActive(true);
+
                     substate = 6;
                 }
                 break;
-
             case 6:
-                if (EventMoveDetector.IfTouched())
+                if (helperAnim.FinishedTalking())
                 {
-
-                    EventScrollOnBoard.SetActive(false);
-                    EventAnim.StartFlying(CameraPosition);
-                    AudioCenter.PlayEventTrigger();
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[4]);
-
                     Billboard.Check(0);
-                    substate = 8;
-                    //StartCoroutine(WaitAndNextState(6f));
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[5]);
+                    substate = 7;
                 }
                 break;
             case 7:
-                break;
-            case 8:
                 if (helperAnim.FinishedTalking())
                 {
-                    overallManager.startTask2();
-                    overallManager.destroyStuff(this.gameObject);
+                    substate = 8;
                 }
+                break;
+            case 8:
+                overallManager.startTask2();
+                overallManager.destroyStuff(this.gameObject);
                 break;
         }
 
     }
+
     IEnumerator WaitAndNextState(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         substate = 8;
     }
+
+    IEnumerator BreakCrystal(GameObject crystal)
+    {
+        crystal.GetComponent<Animator>().SetTrigger("breakdown");
+        yield return new WaitForSeconds(0.9f);
+        crystal.SetActive(false);
+        yield return null;
+    }
+
+    IEnumerator BreakyManyCrystals(GameObject[] crystalist)
+    {
+        foreach (GameObject crystal in crystalist)
+        {
+            crystal.GetComponent<Animator>().SetTrigger("breakdown");
+        }
+        yield return new WaitForSeconds(0.9f);
+        foreach (GameObject crystal in crystalist)
+        {
+            crystal.SetActive(false);
+        }
+
+    }
+
+
+    IEnumerator IslandFall()
+    {
+        yield return new WaitForSeconds(0.95f);
+        islandToFall.GetComponent<Animator>().SetTrigger("Break");
+        yield return new WaitForSeconds(0.8f);
+        islandToFall.SetActive(false);
+    }
+
+    IEnumerator HelperFlyToInventory()
+    {
+        yield return new WaitForSeconds(1f);
+        Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
+        iTween.MoveTo(Helper, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
+    }
+
 }
