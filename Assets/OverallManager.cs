@@ -12,9 +12,9 @@ public class OverallManager : MonoBehaviour {
     public GameObject task1ObjectWrapper;
     public GameObject task2ObjectWrapper;
     public GameObject task3ObjectWrapper;
-    public GameObject task4ObjectWrapper;
-    public GameObject task5ObjectWrapper;
-    public GameObject task6ObjectWrapper;
+     GameObject task4ObjectWrapper;
+     GameObject task5ObjectWrapper;
+     GameObject task6ObjectWrapper;
 
     private bool skipSceneTrigger = false;
     private float skipCounter;
@@ -98,7 +98,7 @@ public class OverallManager : MonoBehaviour {
     IEnumerator StartEverything()
     {
         yield return new WaitForSeconds(1f);
-        helperAnim.SetBool("fly",true);
+        //helperAnim.SetBool("fly",true);
         yield return new WaitForSeconds(1.5f);
         startTask0();
     }

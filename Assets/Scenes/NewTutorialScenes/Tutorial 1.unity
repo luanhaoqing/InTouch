@@ -4465,11 +4465,8 @@ MonoBehaviour:
   AfterOpeningWrapper: {fileID: 541841242}
   task0ObjectWrapper: {fileID: 688336539}
   task1ObjectWrapper: {fileID: 79655757}
-  task2ObjectWrapper: {fileID: 1933013806}
-  task3ObjectWrapper: {fileID: 393043192}
-  task4ObjectWrapper: {fileID: 653666300}
-  task5ObjectWrapper: {fileID: 1198609382}
-  task6ObjectWrapper: {fileID: 1213547938}
+  task2ObjectWrapper: {fileID: 731335311}
+  task3ObjectWrapper: {fileID: 1063820872}
 --- !u!1 &412432525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,7 +6868,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 664764386}
   m_Layer: 0
-  m_Name: Task6 Tiles
+  m_Name: Task3 Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7583,7 +7580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &731335312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7609,7 +7606,7 @@ MonoBehaviour:
   OtherInventory: {fileID: 1937520410}
   ItemOnOtherInventory: {fileID: 738122819}
   ActionPoints: {fileID: 339574961}
-  islandPosition: {fileID: 1460143838}
+  islandPosition: {fileID: 687352793}
 --- !u!4 &731335313
 Transform:
   m_ObjectHideFlags: 0
@@ -11352,7 +11349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1063820873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11370,11 +11367,11 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 687352793}
   Task6VOs:
-  - {fileID: 8300000, guid: a2cc12f8bd75c5d4997ab8f2fd0a203d, type: 3}
-  - {fileID: 8300000, guid: 91a21d02b33e7ea43ae50d5bf89de381, type: 3}
-  - {fileID: 8300000, guid: 91a21d02b33e7ea43ae50d5bf89de381, type: 3}
-  - {fileID: 8300000, guid: 5766655910c19a74abcab50e78ea25a5, type: 3}
-  - {fileID: 8300000, guid: 3454dadfd4296104ab06a7b6bd0c8697, type: 3}
+  - {fileID: 8300000, guid: b184e15b868b729468fba5b9bd58db93, type: 3}
+  - {fileID: 8300000, guid: 29d28f1b5f1ce7f489babd7255d51f73, type: 3}
+  - {fileID: 8300000, guid: 3aab74a02aa055f448cf872be8d4df63, type: 3}
+  - {fileID: 8300000, guid: 29977436ac07f6e4da45a2adb78a89ad, type: 3}
+  - {fileID: 8300000, guid: 70fb173f1ea620a4c9bc37c0ff038019, type: 3}
   RuneOnTile: {fileID: 1174626588}
   TwoRunesInInventory: {fileID: 896948741}
   ThirdRuneInInventory: {fileID: 1770109966}
@@ -19895,7 +19892,7 @@ GameObject:
   - 23: {fileID: 1910073267}
   - 114: {fileID: 1910073266}
   m_Layer: 0
-  m_Name: Inventory_task6
+  m_Name: Inventory_task3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
