@@ -4800,7 +4800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoStart: 0
   helperAnim: {fileID: 1375107271}
-  SplashScreen: {fileID: 165376575}
+  SplashScreen: {fileID: 1851906220}
   AfterOpeningWrapper: {fileID: 541841242}
   task0ObjectWrapper: {fileID: 688336539}
   task1ObjectWrapper: {fileID: 79655757}
@@ -8046,7 +8046,7 @@ MonoBehaviour:
   Billboard: {fileID: 2143177487}
   overallManager: {fileID: 406642204}
   VOs:
-  - {fileID: 8300000, guid: 341a7fdfa864510448760722edcd8e24, type: 3}
+  - {fileID: 8300000, guid: f167d262c22cfa343bf0b93eea06e223, type: 3}
   - {fileID: 8300000, guid: 914a8b421362a9b42be4cb90f537b31f, type: 3}
 --- !u!4 &688336541
 Transform:
@@ -11038,6 +11038,11 @@ Prefab:
         type: 2}
       propertyPath: TutMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012006655944, guid: 61f26015818d6004e9dc061cd83ad7c4,
+        type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61f26015818d6004e9dc061cd83ad7c4, type: 2}
@@ -21282,6 +21287,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 720803991}
   m_RootOrder: 7
+--- !u!1 &1851906220 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010317637222, guid: 4a010969c49a4e843b52309a7845af43,
+    type: 2}
+  m_PrefabInternal: {fileID: 510120856}
 --- !u!1 &1852314906
 GameObject:
   m_ObjectHideFlags: 0
