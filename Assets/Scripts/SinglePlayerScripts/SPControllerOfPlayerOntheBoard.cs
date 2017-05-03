@@ -242,7 +242,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                     {
                     LaserPointer.GetComponent<RaserPointer>().Show = true;
 
-
+                    /*
                         if ((Input.GetKeyDown(KeyCode.W)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryThumbstickUp))
@@ -281,18 +281,20 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
                             PlayerModel.transform.LookAt(PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f));
                             detectBall.transform.position = PlayerOnBoard.transform.position + new Vector3(0, 0, -0.2f);
                         }
-
+                        */
                         if (Input.GetKeyDown(KeyCode.G)
                             || OVRInput.GetDown(OVRInput.Button.One)
                             || OVRInput.GetDown(OVRInput.Button.Three)
                             || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)
                             || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
                         {
-                            if (detectBall.GetComponent<TutDetectBall>().IfCouldMove())
+                            if (LaserPointer.GetComponent<RaserPointer>().tile.GetComponent<TileHealthyManager>().couldMoveTo)
                             {
-                                //  Debug.Log("w");
+                                 Debug.Log("Move!!!!!!!!!!!!!!!!!!");
                                 BeginMove = true;
-                                target = detectBall.transform.position;
+                                target = LaserPointer.GetComponent<RaserPointer>().tile.transform.position;
+                                target.y = PlayerOnBoard.transform.position.y;
+                                PlayerModel.transform.LookAt(target);
                                 hideCursor();
                             }
                         }
