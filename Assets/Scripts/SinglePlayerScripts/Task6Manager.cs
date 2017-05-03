@@ -49,7 +49,7 @@ public class Task6Manager : MonoBehaviour
         switch (substate)
         {
             case 1:
-                //Billboard.HighLight(5);
+                Billboard.HighLight(2);
                 Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[0]);
                 substate = 2;
                 break;
@@ -107,6 +107,8 @@ public class Task6Manager : MonoBehaviour
                     Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
                     iTween.MoveTo(Helper, iTween.Hash("position", NextPlace, "easetype", iTween.EaseType.easeInOutSine));
                     helperAnim.Success();
+                    Billboard.Check(2);
+
                     substate = 7;
                 }
                 break;
@@ -114,7 +116,6 @@ public class Task6Manager : MonoBehaviour
                 if (helperAnim.FinishedTalking())
                 {
                     StartCoroutine(FinishTutorial());
-                    //Billboard.Check(5);
                     substate = -1;
                 }
                 break;

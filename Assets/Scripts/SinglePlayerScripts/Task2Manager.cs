@@ -30,7 +30,7 @@ public class Task2Manager : MonoBehaviour
         helperAnim = Helper.GetComponent<SPHelperAnimation>();
 
         Controller.canControl = false;
-        Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Move Mode";
+        Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "";
         Controller.controlMode = 4;
 
     }
@@ -51,6 +51,8 @@ public class Task2Manager : MonoBehaviour
             case 2:
                 if (helperAnim.FinishedTalking())
                 {
+                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
+
                     Controller.canControl = true;
                     Controller.moveDisabled = true;
                     substate = 3;
@@ -60,7 +62,6 @@ public class Task2Manager : MonoBehaviour
             case 3:
                 if (Controller.controlMode == 0)
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task3VOs[1]);
 
                     //disable move here, in case the player choose move again.
                     Controller.sendItemDisabled = false;
@@ -106,7 +107,9 @@ public class Task2Manager : MonoBehaviour
         Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
         iTween.MoveTo(Helper, iTween.Hash("position", islandPosition, "easetype", iTween.EaseType.easeInOutSine));
         yield return new WaitForSeconds(0.5f);
-        overallManager.startTask4();
+
+        // start next here
+        overallManager.startTask3();
         overallManager.destroyStuff(this.gameObject);
     }
 
