@@ -13,6 +13,11 @@ public class AudioCenter {
     public static AudioClip selectionAlt;
     public static AudioClip helperPoke;
     public static AudioClip[] helperPromptList;
+    public static AudioClip crystalBreak;
+    public static AudioClip islandDeath;
+    public static AudioClip islandLowHealth;
+    public static AudioClip footstep;
+    public static AudioClip useAP;
 
     public static AudioSource audioCenter;
 
@@ -55,7 +60,7 @@ public class AudioCenter {
 
     public static void PlaySelectionAlt()
     {
-        audioCenter.PlayOneShot(selectionAlt, 1f);
+        audioCenter.PlayOneShot(selectionAlt, 0.5f);
     }
 
 
@@ -71,4 +76,31 @@ public class AudioCenter {
     {
         audioCenter.PlayOneShot(helperPoke, 0.5f);
     }
+
+    public static void PlayCrystalBreak()
+    {
+        audioCenter.PlayOneShot(crystalBreak, 0.5f);
+    }
+
+    public static void PlayIslandDeath()
+    {
+        audioCenter.PlayOneShot(islandDeath, 0.5f);
+    }
+
+    public static void PlayIslandLowHealth()
+    {
+        audioCenter.PlayOneShot(islandLowHealth, 0.5f);
+    }
+
+    public static void PlayFootstep()
+    {
+        audioCenter.PlayOneShot(footstep, 0.5f);
+    }
+
+    public static void PlayUseAp()
+    {
+        audioCenter.PlayOneShot(useAP, 0.5f);
+    }
+
+
 }
