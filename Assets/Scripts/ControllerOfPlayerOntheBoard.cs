@@ -198,7 +198,7 @@ public class ControllerOfPlayerOntheBoard : NetworkBehaviour {
                         ChangeControlMode();
                         controlMode = 2;
                         AudioCenter.PlaySelectionConfirm();
-                        constantText.text = "Move - Button to cancel";
+                        constantText.text = "Send - Button to cancel";
 
                     }
                 }
