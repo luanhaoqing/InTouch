@@ -19,7 +19,7 @@ public class TutDetectBall : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Tile")) //&& this.transform.position != transform.parent.position) // add this condition to make sure the cursor does not bounce back and forth.
+        if (other.CompareTag("Tile") && (other.GetComponent<TileHealthyManager>().couldMoveTo == true)) //&& this.transform.position != transform.parent.position) // add this condition to make sure the cursor does not bounce back and forth.
         {
             cursor.SetActive(true);
             CouldMove = true;

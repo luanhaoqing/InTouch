@@ -23,6 +23,7 @@ TagManager:
   - TutorialStateManager
   - SPHelper
   - SPHand
+  - CouldMoveCollider
   layers:
   - Default
   - TransparentFX

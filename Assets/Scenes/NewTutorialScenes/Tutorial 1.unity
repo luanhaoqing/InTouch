@@ -650,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &79655758
 Transform:
   m_ObjectHideFlags: 0
@@ -4553,7 +4553,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 1481435845}
   CurrentTarget: 0
 --- !u!1 &447618377
@@ -4982,6 +4982,92 @@ Prefab:
     - {fileID: 114000013449035700, guid: cc14f0d4f84b323488182708103d2362, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cc14f0d4f84b323488182708103d2362, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &496731710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000012646492852, guid: 66f232a2f8277c347b62518c99429d23,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 496731711}
+  - 54: {fileID: 496731714}
+  - 65: {fileID: 496731713}
+  - 65: {fileID: 496731712}
+  - 114: {fileID: 496731715}
+  m_Layer: 0
+  m_Name: CouldMoveCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496731711
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000013223056528, guid: 66f232a2f8277c347b62518c99429d23,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496731710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0053368215, y: 0, z: -0.000057651196}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1375107266}
+  m_RootOrder: 7
+--- !u!65 &496731712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496731710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &496731713
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496731710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.09}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &496731714
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 54000010311891664, guid: 66f232a2f8277c347b62518c99429d23,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496731710}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!114 &496731715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496731710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c48343996219640af59114f7cf5a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkerPosition: {fileID: 0}
 --- !u!1 &501500418
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,7 +5571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &541841243
 Transform:
   m_ObjectHideFlags: 0
@@ -6415,7 +6501,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 1163014728}
   CurrentTarget: 0
 --- !u!1 &640544939
@@ -8315,7 +8401,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 815276724}
   CurrentTarget: 0
 --- !u!1 &853041320
@@ -9455,7 +9541,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 1758864541}
   CurrentTarget: 0
 --- !u!1001 &936843516
@@ -10865,7 +10951,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 1047345062}
   CurrentTarget: 0
 --- !u!1001 &1049465742
@@ -11127,7 +11213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1063820873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18283,7 +18369,7 @@ MonoBehaviour:
   clock: {fileID: 0}
   cursor: {fileID: 0}
   TileManager: {fileID: 0}
-  couldMoveTo: 1
+  couldMoveTo: 0
   cursor_arrow: {fileID: 1764399986}
   CurrentTarget: 0
 --- !u!1 &1819209169
