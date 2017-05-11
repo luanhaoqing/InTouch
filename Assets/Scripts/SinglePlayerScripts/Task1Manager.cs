@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class Task1Manager : MonoBehaviour
 {
-    public GameObject Helper;
-    SPHelperAnimation helperAnim;
+    public GameObject Walker;
+    public GameObject Talker;
+    SPHelperAnimation talkerAnim;
     public SPControllerOfPlayerOntheBoard Controller;
     public Transform CameraPosition;
     public BillboardManager Billboard;
@@ -34,10 +35,10 @@ public class Task1Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Helper.transform.position = helperInitialPosition.position;
-        Helper.transform.rotation = helperInitialPosition.rotation;
+        Walker.transform.position = helperInitialPosition.position;
+        Walker.transform.rotation = helperInitialPosition.rotation;
 
-        helperAnim = Helper.GetComponent<SPHelperAnimation>();
+        talkerAnim = Talker.GetComponent<SPHelperAnimation>();
 
         Controller.canControl = true;
         Controller.controlMode = 0;
@@ -54,7 +55,7 @@ public class Task1Manager : MonoBehaviour
         switch (substate)
         {
             case 1:
-                Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[0]);
+                Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[0]);
                 Billboard.HighLight(0);
 
                 Controller.ChangeControlMode();
@@ -69,7 +70,7 @@ public class Task1Manager : MonoBehaviour
                     // 1st island lose 1 health.
                     StartCoroutine(BreakCrystal(firstCrystal));
                     // play VO good job, then go get item
-                    Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
+                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
                     StartCoroutine(finishAndGo());
                     substate = 3;
                 }
@@ -83,17 +84,17 @@ public class Task1Manager : MonoBehaviour
                     StartCoroutine(IslandFall());
 
                     // VO island HP
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[3]);
-                    Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[3]);
+                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
                     substate = 4;
 
                 }
                 break;
             case 4:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
                     // VO move again
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[4]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[4]);
 
                     // island with full health return
                     islandToReturn.SetActive(true);
@@ -109,7 +110,7 @@ public class Task1Manager : MonoBehaviour
                     StartCoroutine(BreakCrystal(thirdCrystal));
 
                     // VO got item, helper fly
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[5]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[5]);
                     AudioCenter.PlayGetItem();
                     StartCoroutine(HelperFlyToInventory());
 
@@ -126,15 +127,15 @@ public class Task1Manager : MonoBehaviour
                 }
                 break;
             case 6:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
                     Billboard.Check(0);
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[6]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[6]);
                     substate = 7;
                 }
                 break;
             case 7:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
                     substate = 8;
                 }
@@ -149,9 +150,9 @@ public class Task1Manager : MonoBehaviour
 
     IEnumerator finishAndGo()
     {
-        Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[1]);
+        Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[1]);
         yield return new WaitForSeconds(Task1VOs[1].length);
-        Helper.GetComponent<SPHelperTalk>().Speak(Task1VOs[2]);
+        Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[2]);
 
     }
 
@@ -194,10 +195,10 @@ public class Task1Manager : MonoBehaviour
 
     IEnumerator HelperFlyToInventory()
     {
-        Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
+        Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
         yield return new WaitForSeconds(2f);
         Controller.canControl = false;
-        iTween.MoveTo(Helper, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.MoveTo(Walker, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
 
     }
 

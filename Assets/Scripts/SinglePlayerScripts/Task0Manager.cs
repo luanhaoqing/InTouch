@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Task0Manager : MonoBehaviour {
-    public GameObject Helper;
+    public GameObject Talker;
     public SPControllerOfPlayerOntheBoard Controller;
     public GameObject Billboard;
     public OverallManager overallManager;
@@ -28,17 +28,17 @@ public class Task0Manager : MonoBehaviour {
             case 1:
                 if (!state1Passed) {
                     state1Passed = true;
-                    Helper.GetComponent<SPHelperTalk>().Speak(VOs[0]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(VOs[0]);
                 }
 
-                if (Helper.GetComponent<SPHelperAnimation>().FinishedTalking())
+                if (Talker.GetComponent<SPHelperAnimation>().FinishedTalking())
                 {
                     substate = 2;
                 }
                 break;
                 
             case 2:
-                Helper.GetComponent<SPHelperTalk>().Speak(VOs[1]);
+                Talker.GetComponent<SPHelperTalk>().Speak(VOs[1]);
                 Controller.canControl = true;
                 Controller.controlMode = 0;
                 Controller.SkipButtonFlash();
@@ -47,7 +47,7 @@ public class Task0Manager : MonoBehaviour {
                 break;
 
             case 3:
-                if (Helper.GetComponent<SPHelperAnimation>().FinishedTalking())
+                if (Talker.GetComponent<SPHelperAnimation>().FinishedTalking())
                 {
                     overallManager.startTask1();
                     overallManager.destroyStuff(this.gameObject);
