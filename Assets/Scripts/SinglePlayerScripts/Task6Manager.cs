@@ -4,12 +4,14 @@ using System.Collections;
 public class Task6Manager : MonoBehaviour
 {
 
-    public GameObject Helper;
-    SPHelperAnimation helperAnim;
+    public GameObject Walker;
+    public GameObject Talker;
+    SPHelperAnimation talkerAnim;
     public SPControllerOfPlayerOntheBoard Controller;
     public BillboardManager Billboard;
     public OverallManager overallManager;
-    public Transform helperInitialPosition;
+    public Transform walkerInitialPosition;
+    public Transform talkerInitialPosition;
 
     private int substate = 1;
 
@@ -30,10 +32,14 @@ public class Task6Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Helper.transform.position = helperInitialPosition.position;
-        Helper.transform.rotation = helperInitialPosition.rotation;
+        Walker.transform.position = walkerInitialPosition.position;
+        Walker.transform.rotation = walkerInitialPosition.rotation;
+        Talker.transform.position = talkerInitialPosition.position;
+        Talker.transform.rotation = talkerInitialPosition.rotation;
 
-        helperAnim = Helper.GetComponent<SPHelperAnimation>();
+
+
+        talkerAnim = Talker.GetComponent<SPHelperAnimation>();
 
         Controller.canControl = false;
         Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Hold On...";
@@ -50,13 +56,13 @@ public class Task6Manager : MonoBehaviour
         {
             case 1:
                 Billboard.HighLight(2);
-                Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[0]);
+                Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[0]);
                 substate = 2;
                 break;
             case 2:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[1]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[1]);
                     RuneOnTile.SetActive(true);
                     TwoRunesInInventory.SetActive(true);
                     substate = 3;
@@ -64,7 +70,7 @@ public class Task6Manager : MonoBehaviour
 
                 break;
             case 3:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
                     // Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[2]); Seems repeted;
                     Controller.canControl = true;
@@ -76,8 +82,8 @@ public class Task6Manager : MonoBehaviour
             case 4:
                 if (RuneOnTile.GetComponent<moveDetector>().IfTouched())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[3]);
-                    Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[3]);
+                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
 
                     AudioCenter.PlayGetItem();
                     RuneOnTile.SetActive(false);
@@ -101,19 +107,19 @@ public class Task6Manager : MonoBehaviour
             case 6:
                 if (Door.GetComponent<moveDetector>().IfTouched())
                 {
-                    Helper.GetComponent<SPHelperTalk>().Speak(Task6VOs[4]);
+                    Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[4]);
                     Door.GetComponent<Animator>().SetTrigger("DoorOpen");
                     KeyOnInventory.SetActive(false);
-                    Helper.transform.LookAt(Helper.transform.position + new Vector3(-0.2f, 0, 0));
-                    iTween.MoveTo(Helper, iTween.Hash("position", NextPlace, "easetype", iTween.EaseType.easeInOutSine));
-                    helperAnim.Success();
+                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
+                    iTween.MoveTo(Talker, iTween.Hash("position", NextPlace, "easetype", iTween.EaseType.easeInOutSine));
+                    talkerAnim.Success();
                     Billboard.Check(2);
 
                     substate = 7;
                 }
                 break;
             case 7:
-                if (helperAnim.FinishedTalking())
+                if (talkerAnim.FinishedTalking())
                 {
                     StartCoroutine(FinishTutorial());
                     substate = -1;
