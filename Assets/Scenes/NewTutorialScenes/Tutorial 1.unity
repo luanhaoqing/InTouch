@@ -650,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &79655758
 Transform:
   m_ObjectHideFlags: 0
@@ -689,11 +689,11 @@ MonoBehaviour:
   overallManager: {fileID: 406642204}
   helperInitialPosition: {fileID: 1852314907}
   Task1VOs:
-  - {fileID: 8300000, guid: 3493ea5c0b768cf4b84b4c47fc4d340d, type: 3}
+  - {fileID: 8300000, guid: df965aae889a8cd448af18bbe84d6cce, type: 3}
   - {fileID: 8300000, guid: 3b6f3a0a0a1b40e4b8dae69586f4be99, type: 3}
   - {fileID: 8300000, guid: 27895b3793328174b8ee2acc3a5d4739, type: 3}
   - {fileID: 8300000, guid: d96624b660e63a348a543fcc50109c29, type: 3}
-  - {fileID: 8300000, guid: 939c41aaa76c98146958f3ab3e6ede35, type: 3}
+  - {fileID: 8300000, guid: acb9ce245a418ed43996e3c5d7e72176, type: 3}
   - {fileID: 8300000, guid: fce306de5f887d94e9b44814765e8915, type: 3}
   - {fileID: 8300000, guid: 12d2303ab56d0824495099106d51a414, type: 3}
   ThreeMoreIslands: {fileID: 1971415825}
@@ -5650,7 +5650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &541841243
 Transform:
   m_ObjectHideFlags: 0
@@ -10522,7 +10522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &996629568
 Transform:
   m_ObjectHideFlags: 0

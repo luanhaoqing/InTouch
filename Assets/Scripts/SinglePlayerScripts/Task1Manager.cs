@@ -70,7 +70,6 @@ public class Task1Manager : MonoBehaviour
                     // 1st island lose 1 health.
                     StartCoroutine(BreakCrystal(firstCrystal));
                     // play VO good job, then go get item
-                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
                     StartCoroutine(finishAndGo());
                     substate = 3;
                 }
@@ -85,7 +84,6 @@ public class Task1Manager : MonoBehaviour
 
                     // VO island HP
                     Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[3]);
-                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
                     substate = 4;
 
                 }
@@ -195,10 +193,10 @@ public class Task1Manager : MonoBehaviour
 
     IEnumerator HelperFlyToInventory()
     {
-        Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
+        Talker.transform.LookAt(Talker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
         yield return new WaitForSeconds(2f);
         Controller.canControl = false;
-        iTween.MoveTo(Walker, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.MoveTo(Talker, iTween.Hash("position", InventorySidePlace, "easetype", iTween.EaseType.easeInOutSine));
 
     }
 
