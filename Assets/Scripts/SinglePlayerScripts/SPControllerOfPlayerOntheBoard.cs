@@ -8,6 +8,12 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
     public GameObject PlayerOnBoard;
     public GameObject PlayerModel;
     public GameObject detectBall;
+
+    public GameObject T3PlayerOnBoard;
+    public GameObject T3PlayerModel;
+    public GameObject T3detectBall;
+
+
     private Vector3 target;
     private bool BeginMove;
     public int controlMode = 4; // 0 = menu, 1 = move, 2 = send, 3 = use item, 4 = nothing
@@ -361,6 +367,13 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         temp.y = 10f;
         detectBall.transform.position = temp;
         detectBall.GetComponent<TutDetectBall>().cursor.SetActive(false);
+    }
+
+    public void ChangeToTask3()
+    {
+        PlayerOnBoard = T3PlayerOnBoard;
+        PlayerModel = T3PlayerModel;
+        detectBall = T3detectBall;
     }
 
 

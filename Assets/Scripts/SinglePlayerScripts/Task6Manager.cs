@@ -36,14 +36,14 @@ public class Task6Manager : MonoBehaviour
         Walker.transform.rotation = walkerInitialPosition.rotation;
         Talker.transform.position = talkerInitialPosition.position;
         Talker.transform.rotation = talkerInitialPosition.rotation;
-
-
-
+        
         talkerAnim = Talker.GetComponent<SPHelperAnimation>();
 
         Controller.canControl = false;
         Controller.rightHandHoverUI.GetComponentInChildren<UnityEngine.UI.Text>().text = "Hold On...";
         Controller.controlMode = 1;
+        Controller.ChangeToTask3();
+
 
     }
 
@@ -83,7 +83,7 @@ public class Task6Manager : MonoBehaviour
                 if (RuneOnTile.GetComponent<moveDetector>().IfTouched())
                 {
                     Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[3]);
-                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
+                    //Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
 
                     AudioCenter.PlayGetItem();
                     RuneOnTile.SetActive(false);
@@ -110,7 +110,7 @@ public class Task6Manager : MonoBehaviour
                     Talker.GetComponent<SPHelperTalk>().Speak(Task6VOs[4]);
                     Door.GetComponent<Animator>().SetTrigger("DoorOpen");
                     KeyOnInventory.SetActive(false);
-                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
+                    //Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0));
                     iTween.MoveTo(Talker, iTween.Hash("position", NextPlace, "easetype", iTween.EaseType.easeInOutSine));
                     talkerAnim.Success();
                     Billboard.Check(2);

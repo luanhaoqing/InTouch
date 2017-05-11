@@ -7737,7 +7737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a71167043feda428c31411272d5cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Helper: {fileID: 1375107265}
+  Helper: {fileID: 113452556}
   Controller: {fileID: 2114073390}
   Billboard: {fileID: 2143177492}
   overallManager: {fileID: 406642204}
@@ -10063,6 +10063,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000013172117132, guid: e4ac85ec97f838649b86fa3b018c0c6c,
     type: 2}
   m_PrefabInternal: {fileID: 1049465742}
+--- !u!1 &954333847 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000014062391952, guid: e4ac85ec97f838649b86fa3b018c0c6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 188402092}
 --- !u!1 &961965117
 GameObject:
   m_ObjectHideFlags: 0
@@ -10341,6 +10346,21 @@ Prefab:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013231742078, guid: 61f26015818d6004e9dc061cd83ad7c4,
+        type: 2}
+      propertyPath: T3PlayerOnBoard
+      value: 
+      objectReference: {fileID: 1490983631}
+    - target: {fileID: 114000013231742078, guid: 61f26015818d6004e9dc061cd83ad7c4,
+        type: 2}
+      propertyPath: T3PlayerModel
+      value: 
+      objectReference: {fileID: 1490983631}
+    - target: {fileID: 114000013231742078, guid: 61f26015818d6004e9dc061cd83ad7c4,
+        type: 2}
+      propertyPath: T3detectBall
+      value: 
+      objectReference: {fileID: 954333847}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61f26015818d6004e9dc061cd83ad7c4, type: 2}
   m_IsPrefabParent: 0
@@ -11636,7 +11656,7 @@ MonoBehaviour:
   Billboard: {fileID: 2143177492}
   overallManager: {fileID: 406642204}
   walkerInitialPosition: {fileID: 687352793}
-  talkerInitialPosition: {fileID: 0}
+  talkerInitialPosition: {fileID: 1113439117}
   Task6VOs:
   - {fileID: 8300000, guid: b184e15b868b729468fba5b9bd58db93, type: 3}
   - {fileID: 8300000, guid: 29d28f1b5f1ce7f489babd7255d51f73, type: 3}
@@ -16478,7 +16498,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560166276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.308, z: 0}
+  m_LocalPosition: {x: 0, y: 0.229, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
