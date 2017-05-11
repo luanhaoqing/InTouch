@@ -97,6 +97,7 @@ public class Task1Manager : MonoBehaviour
                     // island with full health return
                     islandToReturn.SetActive(true);
                     iTween.MoveTo(islandToReturn, iTween.Hash("position", islandPosBeforeFall, "easetype", iTween.EaseType.easeInOutSine));
+                    Walker.SetActive(true);
 
                     substate = 5;
                 }
@@ -104,9 +105,10 @@ public class Task1Manager : MonoBehaviour
             case 5:
                 if (ThirdMoveDetector.IfTouched())
                 {
+
                     // 3st island lose 1 health.
                     StartCoroutine(BreakCrystal(thirdCrystal));
-
+                    Walker.transform.LookAt(Walker.transform.position + new Vector3(-0.2f, 0, 0)); // helper look at player
                     // VO got item, helper fly
                     Talker.GetComponent<SPHelperTalk>().Speak(Task1VOs[5]);
                     AudioCenter.PlayGetItem();
@@ -187,8 +189,10 @@ public class Task1Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.95f);
         islandToFall.GetComponent<Animator>().SetTrigger("Break");
+        Walker.SetActive(false);
         yield return new WaitForSeconds(0.8f);
         islandToFall.SetActive(false);
+
     }
 
     IEnumerator HelperFlyToInventory()

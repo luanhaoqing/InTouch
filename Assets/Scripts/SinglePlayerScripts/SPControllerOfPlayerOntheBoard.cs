@@ -366,7 +366,7 @@ public class SPControllerOfPlayerOntheBoard : MonoBehaviour {
         Vector3 temp = PlayerOnBoard.transform.position;
         temp.y = 10f;
         detectBall.transform.position = temp;
-        detectBall.GetComponent<TutDetectBall>().cursor.SetActive(false);
+//        detectBall.GetComponent<TutDetectBall>().cursor.SetActive(false);
     }
 
     public void ChangeToTask3()
